@@ -14,7 +14,7 @@ Every entity is defined by four core axes:
 |-------------|-----------------------------------|-----------------------------|--------------------------------------------------|
 | Ideology    | Do they strive to build, destroy, or are they simply out for themselves? | Volition (Survivalist) | Worldview, ultimate goals, and politics.        |
 | Morality    | What is their intent toward others? | Autonomous (Self-Interest) | Ethical choices, motivation for action, trustworthiness. |
-| Methodology | How do they go about their actions? | Direct (Immediate, Physical) | Scale of planning, preferred tactics, means of conflict. |
+| Methodology | How do they go about their actions? | Personal (Self-Interest) | Scale of planning, preferred tactics, means of conflict. |
 | Temperament | What is their emotional expressive style? | Random Distribution | Dialogue style, speed of reaction, emotional intensity. |
 
 ## Axis 1: Ideology (Cosmic Commitment)
@@ -71,6 +71,9 @@ Defines the scope and style an entity uses to achieve its goals.
   - Reformist
   - Institutional
   - Obsessive
+  - Self-Improvement
+  - Self-Interest
+  - Swarm
 
 ## Axis 4: Temperament (Elemental Personality)
 Defines the emotional, expressive style, and reaction speed of the entity.
@@ -120,7 +123,7 @@ The generic template for a species or group (e.g., "Elf," "Goblin Tribe") repres
     "Name": "Basic Goblin Tribe",
     "Ideology": "Chaos",
     "Morality": "Evil (Cruel)",
-    "Methodology": "Direct",
+    "Methodology": "Direct (Swarm)",
     "Temperament": "Varies (Fire/Other, Fire is Dominant)",
     "Description": "A chaotic tribe of goblins that live for the thrill of the hunt and the spoils of battle. They have no allegiance to any higher power or structure, and their actions are driven by immediate needs and desires. Their temperament varies, but they tend to be impulsive and quick to anger, often acting on instinct rather than careful planning. The tribe is volatile with Fire types bullying the rest into following their lead, the actual hunting/spying is done by cunning Water types, while the easily bullied Earth types make up the expendable ground troops. Air types tend to be shamans or mages and are slightly more respected/feared. Aether types are rare and generally used as fodder or slave labor.",
     ...
@@ -132,5 +135,5 @@ The generic template for a species or group (e.g., "Elf," "Goblin Tribe") repres
   |---|---|---|
   |Ideology|Chaos|Their natural state is disorder, impulsivity, and a rejection of systems.|
   |Morality|Evil (Cruel)|They delight in the suffering of others and seek cruelty, even when not necessary for survival. This is a conscious choice, not mere practicality.|
-  |Methodology|Direct(Swarm)|They achieve their goals through overwhelming, physical confrontation, often using simple traps and sheer numbers.|
+  |Methodology|Direct (Swarm)|They achieve their goals through overwhelming, physical confrontation, often using simple traps and sheer numbers.|
   |Temperament|Varies (Fire)|The tribe as a whole tends to mirror it's impulsive leaders, but individual members may vary widely in temperament.|

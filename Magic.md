@@ -11,8 +11,8 @@ Aetheria is a land steeped in magical energies, where the arcane arts are practi
 |Fire|Heat, Combustion, Energy, Destruction|Water|Unregulated||
 |Water|Liquids, Ice, Simple Healing/Mending, Flow|Fire|Unregulated||
 |Aether|Ephemeral, Enchantment, Spiritual Essence||Unregulated| |
-|Light|Healing, Holy, Radiant Energy|Darkness|Unregulated|Light magic is often perceived as "holy" or "good".
-|Darkness|Unholy, Corruption, Undeath, Shadow|Light|Regulated|Opposed to Light. Darkness magic is often perceived as "unholy" or "evil". Some aspects such as necromancy and demon summoning are highly regulated or illegal in many regions.|
+|Light|Healing, Holy, Radiant Energy|Dark|Unregulated|Light magic is often perceived as "holy" or "good".
+|Dark|Unholy, Corruption, Undeath, Shadow|Light|Regulated|Dark magic is often perceived as "unholy" or "evil". Some aspects such as necromancy and demon summoning are highly regulated or illegal in many regions.|
 |Shamanism|Spirit Pacts, Animal Summoning, Elemental Conjuration||Unregulated|The the binding of once humanoid spirits is generally considered equivelant to creation of the undead.|
 |Psionics|Mind & Consciousness. The projection of one's will to affect thought, emotion, perception, and memory. Includes telepathy, illusion, empathy, and mental projection.||Some aspects are Strongly Regulated|Mind Control / Memory Manipulation (the direct removal of agency) is a regulated field, viewed as an act of absolute moral violation regardless of the user's intent. Other Psionics (telepathy, illusions) are unrestricted.|
 |Chronos|Time Manipulation, Stasis, Aging||Strongly Regulated|Control over time is considered extremely dangerous with potential for catastrophic consequences. Most time manipulation spells are highly regulated, with severe penalties for misuse.|
@@ -46,22 +46,22 @@ The only spell in this category is cantrip which is a minor magical effect that 
 |Smite|Light|Empowers the caster's weapon with divine energy, dealing extra damage to undead and demons.|Commonly used by paladins and holy warriors.|
 |Ascendancy|Light|The process of transforming a human into a celestial being, gaining immortality and divine powers.|Considered a sacred and revered act, this is not a spell one can cast, but may be granted by powerful celestial beings.|
 
-### Darkness
+### Dark
 |Spell Name|School|Description|Comments|
 |----------|------|-----------|--------|
-|Shadow Step|Darkness|Allows the caster to quickly teleport short distances (line of sight) through shadows.|Useful for stealth and evasion.|
-|Curse|Darkness|Inflicts a target with bad luck or misfortune, hindering their actions.|Commonly used in combat to weaken enemies.|
-|Darkness|Darkness|Creates an area of magical darkness, obscuring vision.|Useful for stealth and escape.|
-|Animate Dead|Darkness|Raises a corpse as an undead servant under the caster's control.|HIGHLY REGULATED or ILLEGAL in many regions.|
-|Sicken|Darkness|Inflicts a target with nausea and weakness, impairing their ability to fight.|Commonly used in combat to debilitate enemies.|
-|Drain Life|Darkness|Saps the life force from a target, healing the caster.||
-|Putrefy|Darkness|Causes organic material to decay rapidly, damaging living targets or degrading objects.||
-|Shadow Servants|Darkness|Creates a shadowy, human forms that can follow simple commands perform light tasks and distract enemies. Will dissipate if attacked or after a short time.|Useful for utility and convenience.|
-|Black Tentacles|Darkness|Summons writhing shadowy tentacles that can grapple and restrain targets within an area.|Useful for crowd control and battlefield manipulation.|
-|Summon Shadow|Darkness|Summons a shadow elemental to aid the caster the power of the elemental is based on the caster's power.|Elementals will serve for one year or until a specific conditions are met.|
-|Summon Demon|Darkness|Summons and restrains a demon allowing the caster to negotiate a contract. If a contract is not made within 666 minutes the demon will be returned to its realm.|HIGHLY REGULATED or ILLEGAL in many regions.|
-|Lichdom|Darkness|The process of transforming oneself into a lich, an undead spellcaster who has achieved immortality through dark magic. The process is long and requires the sacrifice of at least 666 innocent souls, thus the process is always considered illegal and immoral.|ILLEGAL nearly everywhere.|
-|Bane|Darkness|Empowers the caster's weapon with unholy energy, dealing extra damage to living creatures.|Commonly used by dark knights and unholy warriors.|
+|Shadow Step|Dark|Allows the caster to quickly teleport short distances (line of sight) through shadows.|Useful for stealth and evasion.|
+|Curse|Dark|Inflicts a target with bad luck or misfortune, hindering their actions.|Commonly used in combat to weaken enemies.|
+|Darkness|Dark|Creates an area of magical darkness, obscuring vision.|Useful for stealth and escape.|
+|Animate Dead|Dark|Raises a corpse as an undead servant under the caster's control.|HIGHLY REGULATED or ILLEGAL in many regions.|
+|Sicken|Dark|Inflicts a target with nausea and weakness, impairing their ability to fight.|Commonly used in combat to debilitate enemies.|
+|Drain Life|Dark|Saps the life force from a target, healing the caster.||
+|Putrefy|Dark|Causes organic material to decay rapidly, damaging living targets or degrading objects.||
+|Shadow Servants|Dark|Creates a shadowy, human forms that can follow simple commands perform light tasks and distract enemies. Will dissipate if attacked or after a short time.|Useful for utility and convenience.|
+|Black Tentacles|Dark|Summons writhing shadowy tentacles that can grapple and restrain targets within an area.|Useful for crowd control and battlefield manipulation.|
+|Summon Shadow|Dark|Summons a shadow elemental to aid the caster the power of the elemental is based on the caster's power.|Elementals will serve for one year or until a specific conditions are met.|
+|Summon Demon|Dark|Summons and restrains a demon allowing the caster to negotiate a contract. If a contract is not made within 666 minutes the demon will be returned to its realm.|HIGHLY REGULATED or ILLEGAL in many regions.|
+|Lichdom|Dark|The process of transforming oneself into a lich, an undead spellcaster who has achieved immortality through dark magic. The process is long and requires the sacrifice of at least 666 innocent souls, thus the process is always considered illegal and immoral.|ILLEGAL nearly everywhere.|
+|Bane|Dark|Empowers the caster's weapon with unholy energy, dealing extra damage to living creatures.|Commonly used by dark knights and unholy warriors.|
 
 ### Earth
 |Spell Name|School|Description|Comments|
