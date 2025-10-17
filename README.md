@@ -2,6 +2,8 @@
 
 This is the definitive Resource Guide, designed to provide clear, actionable instructions for generating character and group behavior in the Aetheria setting.
 
+This work draws inspiration from classic fantasy settings, blending traditional elements with unique twists to create a rich and immersive environment. Particular influences include Tabletop RPGs, Isekai anime, and popular literature.
+
 Planned feautures include:
 - A full world setting with geography, history, cultures, and factions.
 - A comprehensive bestiary of creatures
