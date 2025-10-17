@@ -100,8 +100,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Spell Name|Description|Comments|
 |----------|-----------|--------|
 |Mend|Simple Healing|A first aid spell that repairs minor wounds, injuries and stops bleeding on a target. Useful for those without access to Light magic, but significantly less effective than true healing spells.|Widely used by healers and adventurers.|
-|Freeze|Encases a target in ice,
-immobilizing them temporarily.|Useful for crowd control and battlefield manipulation.|
+|Freeze|Encases a target in ice,immobilizing them temporarily.|Useful for crowd control and battlefield manipulation.|
 |Drown|Creates a bubble of water around a target, making it difficult for them to breathe.|Useful for incapacitating enemies.|
 |Tidal Wave|Summons a large wave of water that crashes down on an area, knocking back and damaging creatures. Requires a significant amount of water to be present.|Requires significant magical power to cast.|
 |Torrential Rain|Summons a storm that brings heavy rain, strong winds to an area.|Requires significant magical power to cast.|
