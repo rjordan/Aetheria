@@ -39,7 +39,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |----------|-----------|--------|
 |Heal|Greatly restores health to the target.|Widely used by healers and clerics.|
 |Cure|Removes poisons, diseases, and other ailments from the target.|Essential for adventurers facing various hazards.|
-|Creates a bright light source, illuminating dark areas.|Useful for exploration and visibility.|
+|Light|Creates a bright light source, illuminating dark areas.|Useful for exploration and visibility.|
 |Purify|Cleanses food, water, or an area of toxins and contaminants.|Essential for survival in hazardous environments.|
 |Bless|Grants a target increased resilience and luck, improving their chances of success in various tasks.|Commonly used to bolster allies before battle.|
 |Summon Archon|Summons a powerful celestial being to aid the caster.|Frequently frowned upon by the clergy for bothering celestial beings.|
