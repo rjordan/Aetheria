@@ -43,7 +43,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Purify|Cleanses food, water, or an area of toxins and contaminants.|Essential for survival in hazardous environments.|
 |Bless|Grants a target increased resilience and luck, improving their chances of success in various tasks.|Commonly used to bolster allies before battle.|
 |Summon Archon|Summons a powerful celestial being to aid the caster.|Frequently frowned upon by the clergy for bothering celestial beings. Considered a sin of hubris.|
-|Holy Fire|Calls down a pillar of divine fire that damages undead and evil-aligned creatures.|Effective against dark and evil foes.|
+|Holy Fire|Calls down a pillar of divine fire that damages undead and demonic creatures.|Effective against dark and demonic foes.|
 |Sanctuary|Creates a protective area where hostile actions are prohibited.|Often used to create safe zones during conflicts.|
 |Smite|Empowers the caster's weapon with divine energy, dealing extra damage to undead and demons.|Commonly used by paladins and holy warriors.|
 |Ascendancy|The process of transforming a human into a celestial being, gaining immortality and divine powers.|Considered a sacred and revered act, this is not a spell one can cast, but may be granted by powerful celestial beings.|
@@ -84,7 +84,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Lightning Bolt|A stronger variation of the common bolt spell, dealing significant damage and potentially stunning the target, may arc to nearby targets.|Common offensive spell.|
 |Invisibility|Renders the caster or a target invisible for a short duration.|Useful for stealth and escape.|
 |Invisible Servant|Creates an invisible, very limited form of air elemental that can perform simple tasks for the caster. The servant will dissipate after a short time or if it takes any damage.|Useful for utility and convenience.|
-|Muffle Sound|Dampens sound in a small area, making it difficult to hear anything within or from outside the area.|Useful for stealth and secrecy.|
+|Silence|Dampens sound in a small area, making it impossible to hear anything within or from outside the area. This can be a double-edged sword as it also prevents the caster from hearing what is happening outside the area.|Useful for stealth and secrecy.|
 
 ### Fire
 |Spell Name|Description|Comments|
