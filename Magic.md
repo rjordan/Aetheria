@@ -3,6 +3,11 @@
 
 Aetheria is a land steeped in magical energies, where the arcane arts are practiced by many. Magic is categorized into various schools, each with its own focus and methods. Mages, sorcerers, clerics, and other magic users often specialize in one or more schools of magic, honing their skills to manipulate the forces of the world around them. Many people will be skilled in general magic. Mages generally learn basic spells from multiple schools, but tend to specialize in one or two and may be unable to use spells from schools opposed to their specialtys. Those specialized in more than two schools are rare and often viewed with suspicion or awe.
 
+## Terms
+- **Ritual**: A complex spell that requires extended time, specific components, and often multiple participants to perform. Rituals can produce powerful effects but are not suitable for quick casting.
+- **Elemental Magic**: Magic that draws upon the fundamental forces of nature, such as fire, water, air, earth, and aether. Light and dark magic are also considered elemental in this context.
+- **Sacrifice**: Many powerful spells require a sacrifice, which can range from material components to life energy. The nature of the sacrifice often influences the spell's potency and effects. These sacrifices are consumed in the casting of the spell and cannot be recovered regardless of the spell's success or failure.
+
 ## Schools of Magic in Aetheria and their Focus (and Regulation)
 |School|Focus|Opposing Element|Regulation|Comments|
 |------|-----|----------|--------|--------|
@@ -128,7 +133,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Enchant Item|Imbues an item with magical properties or enhancements.|Commonly used by enchanters and artificers.|
 |Teleport|Allows the caster to instantly transport themselves or others to a known location.|Requires knowledge of the destination.|
 |Dispel|Removes magical effects from a target or area.|Useful for countering enemy spells and effects.|
-|Dimensional Pocket|Creates a small, extradimensional space for storing items the size is based on the caster's power level. Truly powerful casters have been known to create vast pockets of space or their own demi-planes.|Useful for carrying extra gear.|
+|Dimensional Pocket|Creates a extradimensional space for storing items the size is based on the caster's power level. Truly   powerful casters have been known to create vast pockets of space or their own demi-planes. Though this generally requires a ritual.|Useful for carrying extra gear.|
 
 ### Mind
 |Spell Name|Description|Comments|
