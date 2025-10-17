@@ -20,9 +20,9 @@ Aetheria is a land steeped in magical energies, where the arcane arts are practi
 ## Basic Spells
 
 ### General
-General spells are a catch-all term for those that can be learned by most magic users even who lack the power to become true mages. These spells form the foundation of magical knowledge and are often taught to novice mages. People with low magical ability who can only use cantrips are often referred to as hedge wizards.
+General spells are a catch-all term for those that can be learned by most magic users even those who lack the power to become true mages. These spells form the foundation of magical knowledge and are often taught to novice mages. People with low magical ability who can only use cantrips are often referred to as hedge magicians.
 
-The only spell in this category is cantrip which is a minor magical effect that can be performed by almost anyone with a small amount of magical ability. Examples include creating a small light, conjuring/summoning small objects of low value, cleaning, or producing a simple sound. These effects are generally limited in scope and power. It is primarily used for utility and minor convenience, but has little to no combat application.
+The only spell in this category is cantrip which is a minor magical effect that can be performed by almost anyone with a small amount of magical ability. Examples include creating a small light, conjuring/summoning small objects of low value, cleaning, or producing a simple sound. These effects are generally limited in scope and power. It is primarily used for utility, minor convenience, or dramatic effect, but has little to no combat application.
 
 ### Any Element
 |Spell Name|School|Description|Comments|
