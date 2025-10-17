@@ -1,6 +1,6 @@
-# The Aetheria Resource Guide
+# The World of Aetheria
 
-This is the definitive Resource Guide, designed to provide clear, actionable instructions for generating character and group behavior in any narrative setting.
+This is the definitive Resource Guide, designed to provide clear, actionable instructions for generating character and group behavior in the Aetheria setting.
 
 Planned feautures include:
 - A full world setting with geography, history, cultures, and factions.
