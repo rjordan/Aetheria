@@ -13,7 +13,7 @@ Aetheria is a land steeped in magical energies, where the arcane arts are practi
 |Aether|Ephemeral, Enchantment, Spiritual Essence||Unregulated| |
 |Light|Healing, Holy, Radiant Energy|Dark|Unregulated|Light magic is often perceived as "holy" or "good".
 |Dark|Unholy, Corruption, Undeath, Shadow|Light|Regulated|Dark magic is often perceived as "unholy" or "evil". Some aspects such as necromancy and demon summoning are highly regulated or illegal in many regions.|
-|Spirit|Shamanism, Spirit Pacts, Animal Summoning, Elemental Conjuration||Unregulated|The the binding of once humanoid spirits is generally considered equivelant to creation of the undead.|
+|Spirit|Shamanism, Spirit Pacts, Animal Summoning||Unregulated|The the binding of once humanoid spirits is generally considered equivelant to creation of the undead.|
 |Mind|Mental & Consciousness manipulation. The projection of one's will to affect thought, emotion, perception, and memory. Includes telepathy, illusion, empathy, and mental projection.||Some aspects are Strongly Regulated|Mind Control / Memory Manipulation (the direct removal of agency) is a regulated field, viewed as an act of absolute moral violation regardless of the user's intent. Other Mind (telepathy, illusions) are unrestricted.|
 |Time|Time Manipulation, Stasis, Aging||Strongly Regulated|Control over time is considered extremely dangerous with potential for catastrophic consequences. Most time manipulation spells are highly regulated, with severe penalties for misuse.|
 
