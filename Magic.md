@@ -46,6 +46,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Holy Fire|Calls down a pillar of divine fire that damages undead and demonic creatures.|Effective against dark and demonic foes.|
 |Sanctuary|Creates a protective area where hostile actions are prohibited.|Often used to create safe zones during conflicts.|
 |Smite|Empowers the caster's weapon with divine energy, dealing extra damage to undead and demons.|Commonly used by paladins and holy warriors.|
+|Banish|Attempts to sends a summoned or extraplanar creature back to its home plane. Success depends on a contest of wills between the caster and the target.|Highly effective against summoned demons and other extraplanar entities.|
 |Ascendancy|The process of transforming a human into a celestial being, gaining immortality and divine powers.|Considered a sacred and revered act, this is not a spell one can cast, but may be granted by powerful celestial beings.|
 
 ### Dark
@@ -100,10 +101,10 @@ Spells that can be cast using any elemental school. The element used will affect
 |Spell Name|Description|Comments|
 |----------|-----------|--------|
 |Mend|Simple Healing|A first aid spell that repairs minor wounds, injuries and stops bleeding on a target. Useful for those without access to Light magic, but significantly less effective than true healing spells.|Widely used by healers and adventurers.|
-|Freeze|Encases a target in ice,immobilizing them temporarily.|Useful for crowd control and battlefield manipulation.|
+|Freeze|Encases a target in ice, immobilizing them temporarily.|Useful for crowd control and battlefield manipulation.|
 |Drown|Creates a bubble of water around a target, making it difficult for them to breathe.|Useful for incapacitating enemies.|
 |Tidal Wave|Summons a large wave of water that crashes down on an area, knocking back and damaging creatures. Requires a significant amount of water to be present.|Requires significant magical power to cast.|
-|Torrential Rain|Summons a storm that brings heavy rain, strong winds to an area.|Requires significant magical power to cast.|
+|Torrential Rain|Summons a storm that brings heavy rain and strong winds to an area.|Requires significant magical power to cast.|
 |Water Breathing|Allows the caster or a target to breathe underwater for a limited time.|Useful for underwater exploration.|
 |Wellspring|Creates a source of fresh water in a dry area.|Essential for survival in arid environments.|
 
@@ -118,6 +119,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Call Animal|Summons a wild animal to the caster's location for assistance.|The animal is not bound but is friendly to the caster and may leave after a short time.|
 |Spirit Shield|Creates a protective barrier that wards against spiritual and magical attacks.|Useful for defense against other magic users.|
 |Spirit Ward|Creates a protective symbol that repels spirits and magical entities.|Useful for securing locations from spiritual intrusion.|
+|Exorcism|Casts out malevolent spirits or entities from a person or location.||
 
 ### Aether
 |Spell Name|Description|Comments|
