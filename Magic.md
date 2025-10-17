@@ -154,7 +154,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Spell Name|Description|Comments|
 |----------|-----------|--------|
 |Hasten|Speeds up the target's movements and actions for a short duration.|Useful for combat and escape.|
-|Temporal Shield|Creates a protective barrier that slows down incoming attacks, reducing their effectiveness.|Useful for defense in combat.|
+|Temporal Shield|Creates a protective barrier that slows down incoming attacks, reducing their effectiveness. Susceptible to slow methodical attacks (The slow blade penetrates the shield).|Useful for defense in combat.|
 |Rewind|Reverses time for a short duration, undoing recent events or actions.|VERY HIGHLY REGULATED especially for longer durations.|
 |Time Stop|Temporarily halts the flow of time for a brief period, allowing the caster to act without interference.||
 |Age|Accelerates or decelerates the aging process of a target.||
