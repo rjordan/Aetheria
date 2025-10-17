@@ -12,10 +12,10 @@ Every entity is defined by four core axes:
 ## Quick Reference Chart
 | Axis        | Question                          | Default Value               | Description                                      |
 |-------------|-----------------------------------|-----------------------------|--------------------------------------------------|
-| Ideology    | What do they strive to build or tear down? | Chaos (Entropy) | Worldview, ultimate goals, and politics.        |
+| Ideology    | Do they strive to build or tear down? Or simply out for themselves? | Volition (Survivalist) | Worldview, ultimate goals, and politics.        |
 | Morality    | What is their intent toward others? | Autonomous (Self-Interest) | Ethical choices, motivation for action, trustworthiness. |
-| Methodology | What is the scope of their action? | Direct (Immediate, Physical) | Scale of planning, preferred tactics, means of conflict. |
-| Temperament | What is their emotional expressive style? | Aether (Detached, Flat) | Dialogue style, speed of reaction, emotional intensity. |
+| Methodology | How do they go about their actions? | Direct (Immediate, Physical) | Scale of planning, preferred tactics, means of conflict. |
+| Temperament | What is their emotional expressive style? | Random Distribution | Dialogue style, speed of reaction, emotional intensity. |
 
 ## Axis 1: Ideology (Cosmic Commitment)
 Defines a being's fundamental commitment to structure (Order) versus non-structure (Chaos).
@@ -51,6 +51,7 @@ Defines a being's intent toward others, ranging from sacrifice (Good) to selfish
   - Just
   - Detached
   - Opportunistic
+  - Self-Interest
 
 ## Axis 3: Methodology (Method of Action)
 Defines the scope and style an entity uses to achieve its goals.
@@ -116,7 +117,7 @@ The generic template for a species or group (e.g., "Elf," "Goblin Tribe") repres
 ## Example 2:
   ```json
   {
-    "Name": "The Platonic Goblin Tribe",
+    "Name": "Basic Goblin Tribe",
     "Ideology": "Chaos",
     "Morality": "Evil (Cruel)",
     "Methodology": "Direct",
