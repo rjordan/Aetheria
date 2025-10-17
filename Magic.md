@@ -13,9 +13,9 @@ Aetheria is a land steeped in magical energies, where the arcane arts are practi
 |Aether|Ephemeral, Enchantment, Spiritual Essence||Unregulated| |
 |Light|Healing, Holy, Radiant Energy|Dark|Unregulated|Light magic is often perceived as "holy" or "good".
 |Dark|Unholy, Corruption, Undeath, Shadow|Light|Regulated|Dark magic is often perceived as "unholy" or "evil". Some aspects such as necromancy and demon summoning are highly regulated or illegal in many regions.|
-|Shamanism|Spirit Pacts, Animal Summoning, Elemental Conjuration||Unregulated|The the binding of once humanoid spirits is generally considered equivelant to creation of the undead.|
-|Psionics|Mind & Consciousness. The projection of one's will to affect thought, emotion, perception, and memory. Includes telepathy, illusion, empathy, and mental projection.||Some aspects are Strongly Regulated|Mind Control / Memory Manipulation (the direct removal of agency) is a regulated field, viewed as an act of absolute moral violation regardless of the user's intent. Other Psionics (telepathy, illusions) are unrestricted.|
-|Chronos|Time Manipulation, Stasis, Aging||Strongly Regulated|Control over time is considered extremely dangerous with potential for catastrophic consequences. Most time manipulation spells are highly regulated, with severe penalties for misuse.|
+|Spirit|Shamanism, Spirit Pacts, Animal Summoning, Elemental Conjuration||Unregulated|The the binding of once humanoid spirits is generally considered equivelant to creation of the undead.|
+|Mind|Mental & Consciousness manipulation. The projection of one's will to affect thought, emotion, perception, and memory. Includes telepathy, illusion, empathy, and mental projection.||Some aspects are Strongly Regulated|Mind Control / Memory Manipulation (the direct removal of agency) is a regulated field, viewed as an act of absolute moral violation regardless of the user's intent. Other Mind (telepathy, illusions) are unrestricted.|
+|Time|Time Manipulation, Stasis, Aging||Strongly Regulated|Control over time is considered extremely dangerous with potential for catastrophic consequences. Most time manipulation spells are highly regulated, with severe penalties for misuse.|
 
 ## Basic Spells
 
@@ -108,16 +108,16 @@ immobilizing them temporarily.|Useful for crowd control and battlefield manipula
 |Wellspring|Water|Creates a source of fresh water in a dry area.|Essential for survival in arid environments.|
 
 
-### Shamanism
+### Spirit
 |Spell Name|School|Description|Comments|
 |----------|------|-----------|--------|
-|Spirit Walk|Shamanism|Allows the caster to temporarily leave their physical body and explore the spirit realm.|Useful for gathering information and communicating with spirits.|
-|Spirit Bind|Shamanism|Binds a spirit to an object or location, allowing it to serve the caster.|HIGHLY REGULATED or ILLEGAL in many regions if the spirit was once humanoid.|
-|Animal Companion|Shamanism|Summons a loyal animal companion to aid the caster.|The bond with the animal is strong and lasts indefinitely. The caster may have a limited number of animal companions based on their power level.|
-|Totem|Shamanism|Creates a magical totem that provides various benefits to the caster and their allies.|The totem's effects depend on the type of totem created.|
-|Call Animal|Shamanism|Summons a wild animal to the caster's location for assistance.|The animal is not bound but is friendly to the caster and may leave after a short time.|
-|Spirit Shield|Shamanism|Creates a protective barrier that wards against spiritual and magical attacks.|Useful for defense against other magic users.|
-|Spirit Ward|Shamanism|Creates a protective symbol that repels spirits and magical entities.|Useful for securing locations from spiritual intrusion.|
+|Spirit Walk|Spirit|Allows the caster to temporarily leave their physical body and explore the spirit realm.|Useful for gathering information and communicating with spirits.|
+|Spirit Bind|Spirit|Binds a spirit to an object or location, allowing it to serve the caster.|HIGHLY REGULATED or ILLEGAL in many regions if the spirit was once humanoid.|
+|Animal Companion|Spirit|Summons a loyal animal companion to aid the caster.|The bond with the animal is strong and lasts indefinitely. The caster may have a limited number of animal companions based on their power level.|
+|Totem|Spirit|Creates a magical totem that provides various benefits to the caster and their allies.|The totem's effects depend on the type of totem created.|
+|Call Animal|Spirit|Summons a wild animal to the caster's location for assistance.|The animal is not bound but is friendly to the caster and may leave after a short time.|
+|Spirit Shield|Spirit|Creates a protective barrier that wards against spiritual and magical attacks.|Useful for defense against other magic users.|
+|Spirit Ward|Spirit|Creates a protective symbol that repels spirits and magical entities.|Useful for securing locations from spiritual intrusion.|
 
 ### Aether
 |Spell Name|School|Description|Comments|
@@ -128,24 +128,24 @@ immobilizing them temporarily.|Useful for crowd control and battlefield manipula
 |Banish|Aether|Sends a creature or object to another plane of existence.|Used as a last resort to deal with powerful entities.|
 |Dimensional Pocket|Aether|Creates a small, extradimensional space for storing items the size is based on the caster's power level. Truly powerful casters have been known to create vast pockets of space or their own demi-planes.|Useful for carrying extra gear.|
 
-### Psionics
+### Mind
 |Spell Name|School|Description|Comments|
 |----------|------|-----------|--------|
-|Mind Link|Psionics|Establishes a telepathic connection between the caster and another individual.|Useful for communication over distances.|
-|Mind Control|Psionics|Takes control of a target's actions and decisions.|VERY HIGHLY REGULATED or ILLEGAL due to moral implications.|
-|Memory Alteration|Psionics|Modifies or erases specific memories from a target's mind.|VERY HIGHLY REGULATED or ILLEGAL due to moral implications.|
-|Phantom Veil|Psionics|Creates an illusionary disguise that alters the caster's appearance and voice.|Useful for infiltration and deception.|
-|Charm|Psionics|Influences the emotions and attitudes of a target, making them more friendly or cooperative.|Commonly used in social situations. Highly regulated in many areas.|
-|Psychic Shield|Psionics|Creates a mental barrier that protects the caster from psychic attacks and intrusions.|Useful for defense against other psionic users.|
-|Ward|Psionics|Creates a rune that protects against psychic intrusion, scrying, or clairvoyance.|Useful for securing locations from psionic intrusion.|
+|Mind Link|Mind|Establishes a telepathic connection between the caster and another individual.|Useful for communication over distances.|
+|Mind Control|Mind|Takes control of a target's actions and decisions.|VERY HIGHLY REGULATED or ILLEGAL due to moral implications.|
+|Memory Alteration|Mind|Modifies or erases specific memories from a target's mind.|VERY HIGHLY REGULATED or ILLEGAL due to moral implications.|
+|Phantom Veil|Mind|Creates an illusionary disguise that alters the caster's appearance and voice.|Useful for infiltration and deception.|
+|Charm|Mind|Influences the emotions and attitudes of a target, making them more friendly or cooperative.|Commonly used in social situations. Highly regulated in many areas.|
+|Psychic Shield|Mind|Creates a mental barrier that protects the caster from psychic attacks and intrusions.|Useful for defense against other psionic users.|
+|Ward|Mind|Creates a rune that protects against psychic intrusion, scrying, or clairvoyance.|Useful for securing locations from psionic intrusion.|
 
-### Chronos
+### Time
 |Spell Name|School|Description|Comments|
 |----------|------|-----------|--------|
-|Hasten|Chronos|Speeds up the target's movements and actions for a short duration.|Useful for combat and escape.|
-|Temporal Shield|Chronos|Creates a protective barrier that slows down incoming attacks, reducing their effectiveness.|Useful for defense in combat.|
-|Rewind|Chronos|Reverses time for a short duration, undoing recent events or actions.|VERY HIGHLY REGULATED especially for longer durations.|
-|Time Stop|Chronos|Temporarily halts the flow of time for a brief period, allowing the caster to act without interference.||
-|Age|Chronos|Accelerates or decelerates the aging process of a target.||
-|Temporal Anchor|Chronos|Creates a fixed point in time that the caster can return to later. Useful for escape and strategic planning.|VERY HIGHLY REGULATED.|
-|Reverse Aging|Chronos|Restores youth to a target by reversing their aging process.||
+|Hasten|Time|Speeds up the target's movements and actions for a short duration.|Useful for combat and escape.|
+|Temporal Shield|Time|Creates a protective barrier that slows down incoming attacks, reducing their effectiveness.|Useful for defense in combat.|
+|Rewind|Time|Reverses time for a short duration, undoing recent events or actions.|VERY HIGHLY REGULATED especially for longer durations.|
+|Time Stop|Time|Temporarily halts the flow of time for a brief period, allowing the caster to act without interference.||
+|Age|Time|Accelerates or decelerates the aging process of a target.||
+|Temporal Anchor|Time|Creates a fixed point in time that the caster can return to later. Useful for escape and strategic planning.|VERY HIGHLY REGULATED.|
+|Reverse Aging|Time|Restores youth to a target by reversing their aging process.||
