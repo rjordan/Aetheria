@@ -158,5 +158,5 @@ Spells that can be cast using any elemental school. The element used will affect
 |Rewind|Reverses time for a short duration, undoing recent events or actions.|VERY HIGHLY REGULATED especially for longer durations.|
 |Time Stop|Temporarily halts the flow of time for a brief period, allowing the caster to act without interference.||
 |Age|Accelerates or decelerates the aging process of a target.||
-|Temporal Anchor|Creates a fixed point in time that the caster can return to later. Useful for escape and strategic planning.|VERY HIGHLY REGULATED.|
+|Temporal Anchor|Creates a fixed point in time that the caster can return to later. Useful for escape and strategic planning. A caster may have only one active anchor at a time.|VERY HIGHLY REGULATED.|
 |Reverse Aging|Restores youth to a target by reversing their aging process. This spell requires a significant sacrifice, often in the form of life energy or a powerful magical artifact.|ILLEGAL when used with human or humanoid sacrifices.|
