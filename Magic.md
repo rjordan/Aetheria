@@ -91,7 +91,6 @@ Spells that can be cast using any elemental school. The element used will affect
 |----------|-----------|--------|
 |Ignite|Sets a target ablaze, causing ongoing fire damage.|Common offensive spell.|
 |Fireball|A higher powered version of the bolt of fire spell dealing damage in a roughly 5 meter spherical area.|Requires significant magical power to cast.|
-|Flame Shield|Creates a protective barrier of flames around the caster or an ally.|Useful for defense and protection.|
 |Combustion|Causes a significantly weaker target to explode in a burst of flames, dealing significant damage to nearby creatures.|Useful for crowd control and battlefield manipulation.|
 |Wall of Fire|Creates a wall of intense flames that damages anyone who passes through it.|Useful for creating barriers and fortifications.|
 |Meteor Shower|Calls down a rain of fiery meteors that strike multiple targets in an area.|Requires significant magical power to cast.|
@@ -100,7 +99,7 @@ Spells that can be cast using any elemental school. The element used will affect
 ### Water
 |Spell Name|Description|Comments|
 |----------|-----------|--------|
-|Mend|Simple Healing|Repairs minor wounds, injuries and bleeding on a target.|Widely used by healers and adventurers.|
+|Mend|Simple Healing|A first aid spell that repairs minor wounds, injuries and stops bleeding on a target. Useful for those without access to Light magic, but significantly less effective than true healing spells.|Widely used by healers and adventurers.|
 |Freeze|Encases a target in ice,
 immobilizing them temporarily.|Useful for crowd control and battlefield manipulation.|
 |Drown|Creates a bubble of water around a target, making it difficult for them to breathe.|Useful for incapacitating enemies.|
