@@ -42,7 +42,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Light|Creates a bright light source, illuminating dark areas.|Useful for exploration and visibility.|
 |Purify|Cleanses food, water, or an area of toxins and contaminants.|Essential for survival in hazardous environments.|
 |Bless|Grants a target increased resilience and luck, improving their chances of success in various tasks.|Commonly used to bolster allies before battle.|
-|Summon Archon|Summons a powerful celestial being to aid the caster.|Frequently frowned upon by the clergy for bothering celestial beings.|
+|Summon Archon|Summons a powerful celestial being to aid the caster.|Frequently frowned upon by the clergy for bothering celestial beings. Considered a sin of hubris.|
 |Holy Fire|Calls down a pillar of divine fire that damages undead and evil-aligned creatures.|Effective against dark and evil foes.|
 |Sanctuary|Creates a protective area where hostile actions are prohibited.|Often used to create safe zones during conflicts.|
 |Smite|Empowers the caster's weapon with divine energy, dealing extra damage to undead and demons.|Commonly used by paladins and holy warriors.|
