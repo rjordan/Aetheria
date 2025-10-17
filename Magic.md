@@ -142,7 +142,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Mind Control|Takes control of a target's actions and decisions.|VERY HIGHLY REGULATED or ILLEGAL due to moral implications.|
 |Memory Alteration|Modifies or erases specific memories from a target's mind.|VERY HIGHLY REGULATED or ILLEGAL due to moral implications.|
 |Phantom Veil|Creates an illusionary disguise that alters the caster's appearance and voice.|Useful for infiltration and deception.|
-|Charm|Makes the caster seem more appealing or trustworthy to the target. Since this spell influences a target's natural impulses, and does not directly control them, it is considered less invasive than mind control.|Highly regulated in many areas. Frequently used in social situations to influence a target's behavior without their knowledge.|
+|Charm|Makes the caster seem more appealing or trustworthy to the target. Frequently used in social situations to influence a target's behavior without their knowledge. |Highly regulated in many areas. Since this spell influences a target's natural impulses, and does not directly control them, it is considered less invasive than mind control.|
 |Psychic Shield|Creates a mental barrier that protects the caster from psychic attacks and intrusions.|Useful for defense against other psionic users.|
 |Ward|Creates a rune that protects against psychic intrusion, scrying, or clairvoyance.|Useful for securing locations from psionic intrusion.|
 
