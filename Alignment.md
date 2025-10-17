@@ -12,7 +12,7 @@ Every entity is defined by four core axes:
 ## Quick Reference Chart
 | Axis        | Question                          | Default Value               | Description                                      |
 |-------------|-----------------------------------|-----------------------------|--------------------------------------------------|
-| Ideology    | Do they strive to build or tear down? Or simply out for themselves? | Volition (Survivalist) | Worldview, ultimate goals, and politics.        |
+| Ideology    | Do they strive to build, destroy, or are they simply out for themselves? | Volition (Survivalist) | Worldview, ultimate goals, and politics.        |
 | Morality    | What is their intent toward others? | Autonomous (Self-Interest) | Ethical choices, motivation for action, trustworthiness. |
 | Methodology | How do they go about their actions? | Direct (Immediate, Physical) | Scale of planning, preferred tactics, means of conflict. |
 | Temperament | What is their emotional expressive style? | Random Distribution | Dialogue style, speed of reaction, emotional intensity. |
