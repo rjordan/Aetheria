@@ -7,6 +7,9 @@ Aetheria is a land steeped in magical energies, where the arcane arts are practi
 - **Ritual**: A complex spell that requires extended time, specific components, and often multiple participants to perform. Rituals can produce powerful effects but are not suitable for quick casting.
 - **Elemental Magic**: Magic that draws upon the fundamental forces of nature, such as fire, water, air, earth, and aether. Light and dark magic are also considered elemental in this context.
 - **Sacrifice**: Many powerful spells require a sacrifice, which can range from material components to life energy. The nature of the sacrifice often influences the spell's potency and effects. These sacrifices are consumed in the casting of the spell and cannot be recovered regardless of the spell's success or failure.
+- **Focus**: A physical object or symbol that helps a caster channel their magical energies. Foci can range from simple wands or staffs to elaborate artifacts imbued with magical power.
+- **Regulation**: Certain schools of magic are regulated or restricted by governing bodies due to their potential for harm or misuse. Mages practicing these schools must register with the appropriate authorities and may face legal consequences for unauthorized use. Severe penalties, including imprisonment or execution, may be imposed for the misuse of highly regulated magic.
+- **Illegal Magic**: Some forms of magic are outright banned in many regions due to their dangerous nature or ethical implications. Practicing illegal magic generally leads to severe punishment, including exile, imprisonment, or death.
 
 ## Schools of Magic in Aetheria and their Focus (and Regulation)
 |School|Focus|Opposing Element|Regulation|Comments|
@@ -51,6 +54,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Holy Fire|Calls down a pillar of divine fire that damages undead and demonic creatures.|Effective against dark and demonic foes.|
 |Sanctuary|Creates a protective area where hostile actions are prohibited.|Often used to create safe zones during conflicts.|
 |Smite|Empowers the caster's weapon with divine energy, dealing extra damage to undead and demons.|Commonly used by paladins and holy warriors.|
+|Holy Bonds|Restrains a target with chains of divine energy, preventing movement and actions.|Useful for capturing or restraining enemies.|
 |Banish|Attempts to sends a summoned or extraplanar creature back to its home plane. Success depends on a contest of wills between the caster and the target.|Highly effective against summoned demons and other extraplanar entities.|
 |Ascendancy|The process of transforming a human into a celestial being, gaining immortality and divine powers.|Considered a sacred and revered act, this is not a spell one can cast, but may be granted by powerful celestial beings.|
 
@@ -142,7 +146,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Mind Control|Takes control of a target's actions and decisions.|VERY HIGHLY REGULATED or ILLEGAL due to moral implications.|
 |Memory Alteration|Modifies or erases specific memories from a target's mind.|VERY HIGHLY REGULATED or ILLEGAL due to moral implications.|
 |Phantom Veil|Creates an illusionary disguise that alters the caster's appearance and voice.|Useful for infiltration and deception.|
-|Charm|Makes the caster seem more appealing or trustworthy to the target. Frequently used in social situations to influence a target's behavior without their knowledge. |Highly regulated in many areas. Since this spell influences a target's natural impulses, and does not directly control them, it is considered less invasive than mind control.|
+|Charm|Makes the caster seem more appealing or trustworthy to the target. Frequently used in social situations to influence a target's behavior without their knowledge. |Regulated in many areas. Since this spell influences a target's natural impulses, and does not directly control them, it is considered less invasive than mind control.|
 |Psychic Shield|Creates a mental barrier that protects the caster from psychic attacks and intrusions.|Useful for defense against other psionic users.|
 |Ward|Creates a rune that protects against psychic intrusion, scrying, or clairvoyance.|Useful for securing locations from psionic intrusion.|
 
