@@ -127,7 +127,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Telekinesis|Allows the caster to move objects with their mind.|Useful for manipulating objects at a distance.|
 |Enchant Item|Imbues an item with magical properties or enhancements.|Commonly used by enchanters and artificers.|
 |Teleport|Allows the caster to instantly transport themselves or others to a known location.|Requires knowledge of the destination.|
-|Banish|Sends a creature or object to another plane of existence.|Used as a last resort to deal with powerful entities.|
+|Dispel|Removes magical effects from a target or area.|Useful for countering enemy spells and effects.|
 |Dimensional Pocket|Creates a small, extradimensional space for storing items the size is based on the caster's power level. Truly powerful casters have been known to create vast pockets of space or their own demi-planes.|Useful for carrying extra gear.|
 
 ### Mind
