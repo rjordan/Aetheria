@@ -407,7 +407,54 @@ footer {
     const entities = this.getAllEntities(data);
     const hierarchy = this.renderHierarchyHTML(data);
 
-    const content = `
+    let content = '';
+
+    // Special handling for equipment with grouped structure
+    if (dataType === 'equipment' && data.equipment &&
+        (data.equipment.weapons || data.equipment.armor_and_shields || data.equipment.miscellaneous)) {
+      content = `
+<div class="card">
+  <h2>${this.capitalize(dataType)}</h2>
+  <p>All ${dataType} in the Aetheria world (${entities.length} entities), organized by category.</p>
+`;
+
+      // Generate tables for each category
+      for (const [categoryKey, categoryValue] of Object.entries(data.equipment)) {
+        if (typeof categoryValue === 'object' && categoryValue !== null) {
+          const categoryEntities = Object.entries(categoryValue)
+            .filter(([_, value]) => typeof value === 'object' && value !== null)
+            .map(([key, value]) => ({
+              name: (value as any).name || key,
+              data: value as any
+            }));
+
+          const categoryTitle = this.capitalize(categoryKey.replace(/_/g, ' '));
+          content += `
+  <h3>⚔️ ${categoryTitle}</h3>
+  <div class="entity-list">
+    ${categoryEntities.map(entity => `
+      <div class="entity-card">
+        <a href="${this.sanitizeFilename(entity.name)}.html">
+          <h4>${entity.name}</h4>
+          <p><strong>Type:</strong> ${Array.isArray(entity.data.type) ? entity.data.type.join(', ') : entity.data.type}</p>
+          <p><strong>Rarity:</strong> ${entity.data.rarity}</p>
+          <p>${entity.data.description ? entity.data.description.substring(0, 80) + '...' : 'No description'}</p>
+        </a>
+      </div>
+    `).join('')}
+  </div>
+`;
+        }
+      }
+
+      content += `
+  <h3>🌳 Hierarchy</h3>
+  <div class="hierarchy">${hierarchy}</div>
+</div>
+`;
+    } else {
+      // Default handling for other data types
+      content = `
 <div class="card">
   <h2>${this.capitalize(dataType)}</h2>
   <p>All ${dataType} in the Aetheria world (${entities.length} entities).</p>
@@ -428,6 +475,7 @@ footer {
   <div class="hierarchy">${hierarchy}</div>
 </div>
 `;
+    }
 
     const fullHtml = this.generatePageHTML({
       title: this.capitalize(dataType),
@@ -671,29 +719,35 @@ footer {
     const spaces = '  '.repeat(indent);
     let result = '';
 
-    // Check if this is the new flat equipment structure
+    // Check if this is the new grouped equipment structure
     if (data.equipment && typeof data.equipment === 'object') {
-      // Handle flat dictionary structure (new equipment format)
+      // Handle grouped structure (weapons, armor_and_shields, miscellaneous)
       result += `equipment\n`;
 
-      // Group by rarity for better organization
-      const byRarity: Record<string, string[]> = {};
-      for (const [key, value] of Object.entries(data.equipment)) {
-        const rarity = (value as any).rarity || 'unknown';
-        if (!byRarity[rarity]) byRarity[rarity] = [];
-        byRarity[rarity].push(`${(value as any).name || key}`);
-      }
+      for (const [categoryKey, categoryValue] of Object.entries(data.equipment)) {
+        result += `  ${categoryKey.replace(/_/g, ' ')}\n`;
 
-      for (const [rarity, items] of Object.entries(byRarity)) {
-        result += `  ${rarity}\n`;
-        for (const item of items.sort()) {
-          result += `    ${item}\n`;
+        if (typeof categoryValue === 'object' && categoryValue !== null) {
+          // Group by rarity within each category
+          const byRarity: Record<string, string[]> = {};
+          for (const [itemKey, itemValue] of Object.entries(categoryValue)) {
+            if (typeof itemValue === 'object' && itemValue !== null) {
+              const rarity = (itemValue as any).rarity || 'unknown';
+              if (!byRarity[rarity]) byRarity[rarity] = [];
+              byRarity[rarity].push(`${(itemValue as any).name || itemKey}`);
+            }
+          }
+
+          for (const [rarity, items] of Object.entries(byRarity)) {
+            result += `    ${rarity}\n`;
+            for (const item of items.sort()) {
+              result += `      ${item}\n`;
+            }
+          }
         }
       }
       return result;
-    }
-
-    // Handle hierarchical structure (legacy format)
+    }    // Handle hierarchical structure (legacy format)
     for (const [key, value] of Object.entries(data)) {
       result += `${spaces}${key}\n`;
 
@@ -708,15 +762,20 @@ footer {
   private getAllEntities(data: any): Array<{name: string, data: any}> {
     const entities: Array<{name: string, data: any}> = [];
 
-    // Check if this is the new flat equipment structure
+    // Check if this is the new grouped equipment structure
     if (data.equipment && typeof data.equipment === 'object') {
-      // Handle flat dictionary structure (new equipment format)
-      for (const [key, value] of Object.entries(data.equipment)) {
-        if (typeof value === 'object' && value !== null) {
-          entities.push({
-            name: (value as any).name || key,
-            data: value
-          });
+      // Handle grouped structure (weapons, armor_and_shields, miscellaneous)
+      for (const [categoryKey, categoryValue] of Object.entries(data.equipment)) {
+        if (typeof categoryValue === 'object' && categoryValue !== null) {
+          // If this category has subcategories (like weapons, armor_and_shields, miscellaneous)
+          for (const [itemKey, itemValue] of Object.entries(categoryValue)) {
+            if (typeof itemValue === 'object' && itemValue !== null) {
+              entities.push({
+                name: (itemValue as any).name || itemKey,
+                data: { ...itemValue, category: categoryKey }
+              });
+            }
+          }
         }
       }
       return entities;

@@ -549,18 +549,23 @@ class AetheriaMCPServer {
     includeChildren: boolean,
     includeParents: boolean
   ): any {
-    // Check if this is the new flat equipment structure
+    // Check if this is the new grouped equipment structure
     if (data.equipment && typeof data.equipment === 'object') {
-      // Handle flat dictionary structure (new equipment format)
-      for (const [key, value] of Object.entries(data.equipment)) {
-        const typedValue = value as any;
-        if (key.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            (typedValue?.name && typedValue.name.toLowerCase().includes(searchTerm.toLowerCase()))) {
-          return {
-            path: ['equipment', key],
-            data: typedValue,
-            parentPath: ['equipment']
-          };
+      // Handle grouped structure (weapons, armor_and_shields, miscellaneous)
+      for (const [categoryKey, categoryValue] of Object.entries(data.equipment)) {
+        if (typeof categoryValue === 'object' && categoryValue !== null) {
+          for (const [itemKey, itemValue] of Object.entries(categoryValue)) {
+            const typedValue = itemValue as any;
+            if (itemKey.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                (typedValue?.name && typedValue.name.toLowerCase().includes(searchTerm.toLowerCase()))) {
+              return {
+                path: ['equipment', categoryKey, itemKey],
+                data: typedValue,
+                parentPath: ['equipment', categoryKey],
+                category: categoryKey
+              };
+            }
+          }
         }
       }
       return null;

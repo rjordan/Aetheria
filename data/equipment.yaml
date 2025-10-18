@@ -1,285 +1,281 @@
 # Equipment in Aetheria
 equipment:
-  # Weapons
-  sword:
-    name: "Sword"
-    type: ["melee"]
-    rarity: "common"
-    description: "A versatile weapon used for slashing and thrusting"
-    alternative_names: ["Saber", "Broadsword", "Longsword", "Rapier", "Shortsword"]
-    damage_type: ["Slashing", "Piercing"]
-    reach: "Close"
+  weapons:
+    sword:
+      name: "Sword"
+      type: ["melee"]
+      rarity: "common"
+      description: "A versatile weapon used for slashing and thrusting"
+      alternative_names: ["Saber", "Broadsword", "Longsword", "Rapier", "Shortsword"]
+      damage_type: ["Slashing", "Piercing"]
+      reach: "Close"
 
-  axe:
-    name: "Axe"
-    type: ["melee"]
-    rarity: "common"
-    description: "A heavy weapon designed for chopping and cleaving"
-    alternative_names: ["Battle Axe", "Hand Axe", "Cleaver"]
-    damage_type: ["Slashing"]
-    reach: "Close"
+    axe:
+      name: "Axe"
+      type: ["melee"]
+      rarity: "common"
+      description: "A heavy weapon designed for chopping and cleaving"
+      alternative_names: ["Battle Axe", "Hand Axe", "Cleaver"]
+      damage_type: ["Slashing"]
+      reach: "Close"
 
-  dagger:
-    name: "Dagger"
-    type: ["melee", "missile"]
-    rarity: "common"
-    description: "A small, easily concealable blade used for stabbing"
-    alternative_names: ["Knife", "Stiletto", "Dirk"]
-    damage_type: ["Piercing"]
-    reach: "Close"
-    properties: ["Concealable", "Throwable"]
+    dagger:
+      name: "Dagger"
+      type: ["melee", "missile"]
+      rarity: "common"
+      description: "A small, easily concealable blade used for stabbing"
+      alternative_names: ["Knife", "Stiletto", "Dirk"]
+      damage_type: ["Piercing"]
+      reach: "Close"
+      properties: ["Concealable", "Throwable"]
 
-  staff:
-    name: "Staff"
-    type: ["melee_long"]
-    rarity: "common"
-    description: "A long pole used for both physical combat and as a focus for spellcasting"
-    alternative_names: ["Quarterstaff", "Wizard's Staff", "Bo Staff"]
-    damage_type: ["Bludgeoning"]
-    reach: "Extended"
-    properties: ["Spellcasting Focus"]
+    staff:
+      name: "Staff"
+      type: ["melee_long"]
+      rarity: "common"
+      description: "A long pole used for both physical combat and as a focus for spellcasting"
+      alternative_names: ["Quarterstaff", "Wizard's Staff", "Bo Staff"]
+      damage_type: ["Bludgeoning"]
+      reach: "Extended"
+      properties: ["Spellcasting Focus"]
 
-  mace:
-    name: "Mace"
-    type: ["melee"]
-    rarity: "common"
-    description: "A blunt weapon designed to crush armor and bones"
-    alternative_names: ["Club", "Flail", "Morningstar"]
-    damage_type: ["Bludgeoning"]
-    reach: "Close"
+    mace:
+      name: "Mace"
+      type: ["melee"]
+      rarity: "common"
+      description: "A blunt weapon designed to crush armor and bones"
+      alternative_names: ["Club", "Flail", "Morningstar"]
+      damage_type: ["Bludgeoning"]
+      reach: "Close"
 
-  spear:
-    name: "Spear"
-    type: ["melee_long", "missile"]
-    rarity: "common"
-    description: "A long pole weapon with a pointed tip for thrusting"
-    alternative_names: ["Lance", "Javelin", "Pike"]
-    damage_type: ["Piercing"]
-    reach: "Extended"
-    properties: ["Throwable"]
+    spear:
+      name: "Spear"
+      type: ["melee_long", "missile"]
+      rarity: "common"
+      description: "A long pole weapon with a pointed tip for thrusting"
+      alternative_names: ["Lance", "Javelin", "Pike"]
+      damage_type: ["Piercing"]
+      reach: "Extended"
+      properties: ["Throwable"]
 
-  bow:
-    name: "Bow"
-    type: ["missile"]
-    rarity: "common"
-    description: "A weapon that shoots arrows from a distance"
-    alternative_names: ["Longbow", "Shortbow", "Crossbow"]
-    damage_type: ["Piercing"]
-    reach: "Long Range"
-    ammunition: "Arrows"
+    bow:
+      name: "Bow"
+      type: ["missile"]
+      rarity: "common"
+      description: "A weapon that shoots arrows from a distance"
+      alternative_names: ["Longbow", "Shortbow", "Crossbow"]
+      damage_type: ["Piercing"]
+      reach: "Long Range"
+      ammunition: "Arrows"
 
-  scythe:
-    name: "Scythe"
-    type: ["melee_long"]
-    rarity: "uncommon"
-    description: "A long, curved blade attached to a pole, often associated with harvesting or death"
-    alternative_names: ["Sickle", "Reaper's Scythe"]
-    damage_type: ["Slashing"]
-    reach: "Extended"
-    associations: ["Death", "Harvest", "Necromancy"]
+    scythe:
+      name: "Scythe"
+      type: ["melee_long"]
+      rarity: "uncommon"
+      description: "A long, curved blade attached to a pole, often associated with harvesting or death"
+      alternative_names: ["Sickle", "Reaper's Scythe"]
+      damage_type: ["Slashing"]
+      reach: "Extended"
+      associations: ["Death", "Harvest", "Necromancy"]
 
-  halberd:
-    name: "Halberd"
-    type: ["melee_long"]
-    rarity: "uncommon"
-    description: "A pole weapon that combines an axe blade with a spear point"
-    alternative_names: ["Poleaxe", "Bardich", "Glaive", "Voulge"]
-    damage_type: ["Slashing", "Piercing"]
-    reach: "Extended"
+    halberd:
+      name: "Halberd"
+      type: ["melee_long"]
+      rarity: "uncommon"
+      description: "A pole weapon that combines an axe blade with a spear point"
+      alternative_names: ["Poleaxe", "Bardich", "Glaive", "Voulge"]
+      damage_type: ["Slashing", "Piercing"]
+      reach: "Extended"
 
-  nunchaku:
-    name: "Nunchaku"
-    type: ["melee"]
-    rarity: "exotic"
-    description: "A martial arts weapon consisting of two sticks connected by a chain or rope"
-    alternative_names: ["Nunchucks", "Three Section Staff"]
-    damage_type: ["Bludgeoning"]
-    reach: "Close"
-    properties: ["Defensive", "Disarming"]
+    nunchaku:
+      name: "Nunchaku"
+      type: ["melee"]
+      rarity: "exotic"
+      description: "A martial arts weapon consisting of two sticks connected by a chain or rope"
+      alternative_names: ["Nunchucks", "Three Section Staff"]
+      damage_type: ["Bludgeoning"]
+      reach: "Close"
+      properties: ["Defensive", "Disarming"]
 
-  kusarigama:
-    name: "Kusarigama"
-    type: ["melee", "melee_long"]
-    rarity: "exotic"
-    description: "A traditional weapon consisting of a Kama attached to a chain with a weight"
-    alternative_names: ["Chain Sickle"]
-    damage_type: ["Slashing", "Bludgeoning"]
-    reach: ["Close", "Short Range"]
-    properties: ["Entangling", "Tripping"]
+    kusarigama:
+      name: "Kusarigama"
+      type: ["melee", "melee_long"]
+      rarity: "exotic"
+      description: "A traditional weapon consisting of a Kama attached to a chain with a weight"
+      alternative_names: ["Chain Sickle"]
+      damage_type: ["Slashing", "Bludgeoning"]
+      reach: ["Close", "Short Range"]
+      properties: ["Entangling", "Tripping"]
 
-  shuriken:
-    name: "Shuriken"
-    type: ["missile"]
-    rarity: "exotic"
-    description: "Small, star-shaped throwing weapons used for distraction or injury"
-    alternative_names: ["Throwing Stars"]
-    damage_type: ["Piercing"]
-    reach: "Short Range"
-    properties: ["Concealable", "Multiple Use"]
+    shuriken:
+      name: "Shuriken"
+      type: ["missile"]
+      rarity: "exotic"
+      description: "Small, star-shaped throwing weapons used for distraction or injury"
+      alternative_names: ["Throwing Stars"]
+      damage_type: ["Piercing"]
+      reach: "Short Range"
+      properties: ["Concealable", "Multiple Use"]
 
-  blowgun:
-    name: "Blowgun"
-    type: ["missile"]
-    rarity: "exotic"
-    description: "A tube used to shoot small darts, often poisoned"
-    alternative_names: ["Dart Gun"]
-    damage_type: ["Piercing"]
-    reach: "Medium Range"
-    ammunition: "Darts"
-    properties: ["Silent", "Poison Delivery"]
+    blowgun:
+      name: "Blowgun"
+      type: ["missile"]
+      rarity: "exotic"
+      description: "A tube used to shoot small darts, often poisoned"
+      alternative_names: ["Dart Gun"]
+      damage_type: ["Piercing"]
+      reach: "Medium Range"
+      ammunition: "Darts"
+      properties: ["Silent", "Poison Delivery"]
 
-  # Armor
-  # Armor
-  cloth_armor:
-    name: "Cloth Armor"
-    type: ["armor"]
-    armor_class: "light"
-    rarity: "common"
-    description: "Lightweight armor made from fabric or leather, offering minimal protection"
-    protection:
-      slashing: "Light"
-      piercing: "None"
-      bludgeoning: "None"
-    alternative_names: ["Robes", "Tunics", "Garments", "Clothing"]
-    mobility: "High"
+  armor_and_shields:
+    cloth_armor:
+      name: "Cloth Armor"
+      type: ["armor"]
+      armor_class: "light"
+      rarity: "common"
+      description: "Lightweight armor made from fabric or leather, offering minimal protection"
+      protection:
+        slashing: "Light"
+        piercing: "None"
+        bludgeoning: "None"
+      alternative_names: ["Robes", "Tunics", "Garments", "Clothing"]
+      mobility: "High"
 
-  light_armor:
-    name: "Light Armor"
-    type: ["armor"]
-    armor_class: "light"
-    rarity: "common"
-    description: "Flexible and lightweight armor that allows for ease of movement"
-    protection:
-      slashing: "Medium"
-      piercing: "Light"
-      bludgeoning: "Light"
-    alternative_names: ["Leather Armor", "Padded Armor", "Studded Leather Armor", "Cuir Bouilli"]
-    mobility: "Medium-High"
+    light_armor:
+      name: "Light Armor"
+      type: ["armor"]
+      armor_class: "light"
+      rarity: "common"
+      description: "Flexible and lightweight armor that allows for ease of movement"
+      protection:
+        slashing: "Medium"
+        piercing: "Light"
+        bludgeoning: "Light"
+      alternative_names: ["Leather Armor", "Padded Armor", "Studded Leather Armor", "Cuir Bouilli"]
+      mobility: "Medium-High"
 
-  medium_armor:
-    name: "Medium Armor"
-    type: ["armor"]
-    armor_class: "medium"
-    rarity: "common"
-    description: "Balanced armor that offers a compromise between protection and mobility"
-    protection:
-      slashing: "High"
-      piercing: "Medium"
-      bludgeoning: "Light"
-    alternative_names: ["Chain Mail", "Scale Mail", "Ring Mail", "Chain Shirt"]
-    mobility: "Medium"
+    medium_armor:
+      name: "Medium Armor"
+      type: ["armor"]
+      armor_class: "medium"
+      rarity: "common"
+      description: "Balanced armor that offers a compromise between protection and mobility"
+      protection:
+        slashing: "High"
+        piercing: "Medium"
+        bludgeoning: "Light"
+      alternative_names: ["Chain Mail", "Scale Mail", "Ring Mail", "Chain Shirt"]
+      mobility: "Medium"
 
-  heavy_armor:
-    name: "Heavy Armor"
-    type: ["armor"]
-    armor_class: "heavy"
-    rarity: "uncommon"
-    description: "Robust armor that provides maximum protection but hinders movement"
-    protection:
-      slashing: "Very High"
-      piercing: "Medium to High"
-      bludgeoning: "Very High"
-    alternative_names: ["Plate Armor", "Full Plate Armor"]
-    mobility: "Low"
+    heavy_armor:
+      name: "Heavy Armor"
+      type: ["armor"]
+      armor_class: "heavy"
+      rarity: "uncommon"
+      description: "Robust armor that provides maximum protection but hinders movement"
+      protection:
+        slashing: "Very High"
+        piercing: "Medium to High"
+        bludgeoning: "Very High"
+      alternative_names: ["Plate Armor", "Full Plate Armor"]
+      mobility: "Low"
 
-  # Shields
-  buckler:
-    name: "Buckler"
-    type: ["shield"]
-    shield_size: "small"
-    rarity: "common"
-    description: "A small, round shield held in one hand"
-    protection: "Low"
-    maneuverability: "High"
-    alternative_names: ["Small Shield"]
+    buckler:
+      name: "Buckler"
+      type: ["shield"]
+      shield_size: "small"
+      rarity: "common"
+      description: "A small, round shield held in one hand"
+      protection: "Low"
+      maneuverability: "High"
+      alternative_names: ["Small Shield"]
 
-  round_shield:
-    name: "Round Shield"
-    type: ["shield"]
-    shield_size: "medium"
-    rarity: "common"
-    description: "A circular shield that is easy to maneuver"
-    protection: "Medium"
-    maneuverability: "Medium"
+    round_shield:
+      name: "Round Shield"
+      type: ["shield"]
+      shield_size: "medium"
+      rarity: "common"
+      description: "A circular shield that is easy to maneuver"
+      protection: "Medium"
+      maneuverability: "Medium"
 
-  kite_shield:
-    name: "Kite Shield"
-    type: ["shield"]
-    shield_size: "medium"
-    rarity: "common"
-    description: "A shield with a tapered shape, offering good protection while allowing for mobility"
-    protection: "Medium to High"
-    maneuverability: "Medium"
+    kite_shield:
+      name: "Kite Shield"
+      type: ["shield"]
+      shield_size: "medium"
+      rarity: "common"
+      description: "A shield with a tapered shape, offering good protection while allowing for mobility"
+      protection: "Medium to High"
+      maneuverability: "Medium"
 
-  tower_shield:
-    name: "Tower Shield"
-    type: ["shield"]
-    shield_size: "large"
-    rarity: "uncommon"
-    description: "A large, rectangular shield that provides extensive coverage"
-    protection: "High"
-    maneuverability: "Low"
-    alternative_names: ["Large Shield"]
-    properties: ["Heavy", "Unwieldy"]
+    tower_shield:
+      name: "Tower Shield"
+      type: ["shield"]
+      shield_size: "large"
+      rarity: "uncommon"
+      description: "A large, rectangular shield that provides extensive coverage"
+      protection: "High"
+      maneuverability: "Low"
+      alternative_names: ["Large Shield"]
+      properties: ["Heavy", "Unwieldy"]
 
-  # Accessories
-  # Accessories
-  amulet:
-    name: "Amulet"
-    type: ["accessory"]
-    rarity: "uncommon"
-    description: "A pendant worn around the neck, often imbued with magical properties"
-    function: "May provide various magical effects or protections"
-    alternative_names: ["Necklace", "Talisman", "Charm", "Pendant", "Brooch", "Locket"]
-    slot: "Neck"
+  miscellaneous:
+    amulet:
+      name: "Amulet"
+      type: ["accessory"]
+      rarity: "uncommon"
+      description: "A pendant worn around the neck, often imbued with magical properties"
+      function: "May provide various magical effects or protections"
+      alternative_names: ["Necklace", "Talisman", "Charm", "Pendant", "Brooch", "Locket"]
+      slot: "Neck"
 
-  ring:
-    name: "Ring"
-    type: ["accessory"]
-    rarity: "uncommon"
-    description: "A circular band worn on the finger, sometimes enchanted"
-    function: "May grant magical abilities or protections"
-    alternative_names: ["Band", "Signet"]
-    slot: "Finger"
+    ring:
+      name: "Ring"
+      type: ["accessory"]
+      rarity: "uncommon"
+      description: "A circular band worn on the finger, sometimes enchanted"
+      function: "May grant magical abilities or protections"
+      alternative_names: ["Band", "Signet"]
+      slot: "Finger"
 
-  cloak:
-    name: "Cloak"
-    type: ["accessory"]
-    rarity: "uncommon"
-    description: "A long, flowing garment worn over the shoulders, sometimes enchanted"
-    function: "May provide magical protections or effects"
-    alternative_names: ["Cape", "Mantle"]
-    slot: "Shoulders"
+    cloak:
+      name: "Cloak"
+      type: ["accessory"]
+      rarity: "uncommon"
+      description: "A long, flowing garment worn over the shoulders, sometimes enchanted"
+      function: "May provide magical protections or effects"
+      alternative_names: ["Cape", "Mantle"]
+      slot: "Shoulders"
 
-  # Tools and Equipment
-  rope:
-    name: "Rope"
-    type: ["tool"]
-    rarity: "common"
-    description: "A length of strong cordage used for climbing, tying, or securing items"
-    function: "Essential for climbing, binding, or creating makeshift structures"
-    alternative_names: ["Cord", "Line"]
+    rope:
+      name: "Rope"
+      type: ["tool"]
+      rarity: "common"
+      description: "A length of strong cordage used for climbing, tying, or securing items"
+      function: "Essential for climbing, binding, or creating makeshift structures"
+      alternative_names: ["Cord", "Line"]
 
-  grappling_hook:
-    name: "Grappling Hook"
-    type: ["tool"]
-    rarity: "common"
-    description: "A device with hooks used to secure a rope to a surface for climbing"
-    function: "Used in conjunction with rope for climbing or securing items"
-    alternative_names: ["Climbing Hook"]
+    grappling_hook:
+      name: "Grappling Hook"
+      type: ["tool"]
+      rarity: "common"
+      description: "A device with hooks used to secure a rope to a surface for climbing"
+      function: "Used in conjunction with rope for climbing or securing items"
+      alternative_names: ["Climbing Hook"]
 
-  torch:
-    name: "Torch"
-    type: ["tool", "light_source"]
-    rarity: "common"
-    description: "A handheld light source, typically a stick with a flammable material at one end"
-    function: "Provides light in dark areas"
-    alternative_names: ["Candle"]
+    torch:
+      name: "Torch"
+      type: ["tool", "light_source"]
+      rarity: "common"
+      description: "A handheld light source, typically a stick with a flammable material at one end"
+      function: "Provides light in dark areas"
+      alternative_names: ["Candle"]
 
-  lantern:
-    name: "Lantern"
-    type: ["tool", "light_source"]
-    rarity: "common"
-    description: "A portable light source that can be carried or hung"
-    function: "Provides illumination in dark areas"
-    alternative_names: ["Light"]
+    lantern:
+      name: "Lantern"
+      type: ["tool", "light_source"]
+      rarity: "common"
+      description: "A portable light source that can be carried or hung"
+      function: "Provides illumination in dark areas"
+      alternative_names: ["Light"]
