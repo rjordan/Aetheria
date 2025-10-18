@@ -1,0 +1,141 @@
+magic_schools:
+  elemental:
+    type: "Elemental Magic"
+    description: "Magic that draws upon the fundamental forces of nature"
+    children:
+      earth:
+        name: "Earth"
+        focus: ["Stone", "Metal", "Endurance", "Gravity"]
+        regulation: "Unregulated"
+        opposing_element: "Air"
+        common_spells:
+          - "Stone Skin"
+          - "Earthquake"
+          - "Gravity Well"
+          - "Wall of Stone"
+        practitioners: "Earth mages, druids, some clerics"
+
+      air:
+        name: "Air"
+        focus: ["Wind", "Sound", "Electricity", "Mobility"]
+        regulation: "Unregulated"
+        opposing_element: "Earth"
+        common_spells:
+          - "Fly"
+          - "Lightning Bolt"
+          - "Invisibility"
+          - "Gust"
+        practitioners: "Air mages, storm sorcerers, some bards"
+
+      fire:
+        name: "Fire"
+        focus: ["Heat", "Combustion", "Energy", "Destruction"]
+        regulation: "Unregulated"
+        opposing_element: "Water"
+        common_spells:
+          - "Fireball"
+          - "Ignite"
+          - "Wall of Fire"
+          - "Meteor Shower"
+        practitioners: "Fire mages, some sorcerers, war wizards"
+
+      water:
+        name: "Water"
+        focus: ["Liquids", "Ice", "Simple Healing/Mending", "Flow"]
+        regulation: "Unregulated"
+        opposing_element: "Fire"
+        common_spells:
+          - "Freeze"
+          - "Mend"
+          - "Water Breathing"
+          - "Tidal Wave"
+        practitioners: "Water mages, some druids, healers"
+
+      aether:
+        name: "Aether"
+        focus: ["Ephemeral", "Enchantment", "Spiritual Essence"]
+        regulation: "Unregulated"
+        opposing_element: null
+        common_spells:
+          - "Telekinesis"
+          - "Enchant Item"
+          - "Teleport"
+          - "Dispel"
+        practitioners: "Enchanters, artificers, high mages"
+
+  divine:
+    type: "Divine Magic"
+    description: "Magic channeled through divine sources"
+    children:
+      light:
+        name: "Light"
+        focus: ["Healing", "Holy", "Radiant Energy"]
+        regulation: "Unregulated"
+        opposing_element: "Dark"
+        perception: "Often perceived as 'holy' or 'good'"
+        common_spells:
+          - "Heal"
+          - "Cure"
+          - "Bless"
+          - "Holy Fire"
+        practitioners: "Clerics, paladins, some druids"
+
+      dark:
+        name: "Dark"
+        focus: ["Unholy", "Corruption", "Undeath", "Shadow"]
+        regulation: "Regulated"
+        opposing_element: "Light"
+        perception: "Often perceived as 'unholy' or 'evil'"
+        restrictions: "Necromancy and demon summoning highly regulated or illegal"
+        common_spells:
+          - "Animate Dead"
+          - "Shadow Step"
+          - "Curse"
+          - "Drain Life"
+        practitioners: "Dark clerics, necromancers, warlocks"
+
+  primal:
+    type: "Primal Magic"
+    description: "Magic that connects with natural and spiritual forces"
+    children:
+      spirit:
+        name: "Spirit"
+        focus: ["Shamanism", "Spirit Pacts", "Animal Summoning"]
+        regulation: "Unregulated"
+        restrictions: "Binding of humanoid spirits considered equivalent to undead creation"
+        common_spells:
+          - "Animal Companion"
+          - "Spirit Walk"
+          - "Totem"
+          - "Exorcism"
+        practitioners: "Shamans, druids, rangers"
+
+  arcane:
+    type: "Arcane Magic"
+    description: "Magic that manipulates reality through will and knowledge"
+    children:
+      mind:
+        name: "Mind"
+        focus: ["Mental & Consciousness manipulation", "Telepathy", "Illusion", "Memory"]
+        regulation: "Some aspects Strongly Regulated"
+        restrictions: "Mind Control and Memory Manipulation heavily regulated"
+        ethical_concerns: "Direct removal of agency viewed as moral violation"
+        common_spells:
+          - "Mind Link"
+          - "Phantom Veil"
+          - "Charm"
+          - "Psychic Shield"
+        practitioners: "Psionicists, enchanters, some wizards"
+
+      time:
+        name: "Time"
+        focus: ["Time Manipulation", "Stasis", "Aging"]
+        regulation: "Strongly Regulated"
+        danger_level: "Extremely dangerous with catastrophic potential"
+        restrictions: "Most time magic heavily regulated with severe penalties"
+        common_spells:
+          - "Hasten"
+          - "Temporal Shield"
+          - "Rewind"
+          - "Time Stop"
+        practitioners: "Chronomancers, high wizards"

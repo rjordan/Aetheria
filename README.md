@@ -1,32 +1,83 @@
-# The World of Aetheria
+# Aetheria World Data System
 
-This is the definitive Resource Guide, designed to provide clear, actionable instructions for generating character and group behavior in the Aetheria setting.
+A comprehensive system for managing and sharing fantasy world data, featuring both AI integration and beautiful public documentation.
 
-This work draws inspiration from classic fantasy settings, blending traditional elements with unique twists to create a rich and immersive environment. Particular influences include Tabletop RPGs, Isekai anime, and popular literature.
+## 🌟 **What You Get**
 
-Planned feautures include:
-- A full world setting with geography, history, cultures, and factions.
-- A comprehensive bestiary of creatures
-- Detailed character classes and professions
-- An extensive equipment catalog
-- A robust magic system
-- A complex political landscape
-- An MCP server to allow AI agents to utilize these resources in real-time storytelling.
+### 🤖 **AI Integration**
+TypeScript MCP server that provides rich, structured world context to AI systems for dynamic text generation.
 
-## Classes
-The [Classes](docs/Classes.md) document outlines the various character classes available in Aetheria, each with unique abilities, skills, and roles. This section is essential for understanding how different characters can contribute to the story and interact with the world.
+### 🌐 **Public Documentation**
+Beautiful, responsive website automatically deployed to GitHub Pages showing your world data in an explorable format.
 
-## Alignment
-[Alignment](docs/Alignment.md) is a system based on four axes: Ideology, Morality, Methodology, and Temperament. Each axis has specific values that define the behavior and personality of entities within the narrative. Many systems are reducing or replacing traditional alignment systems (such as D&D's Lawful/Chaotic and Good/Evil) but these concepts are needed to allow an AI to generate consistent and believable behavior for characters and groups.
+### 📊 **Hierarchical Data**
+YAML-based data structures with inheritance (e.g., Fiend → Demon → Succubus → Lilith) that both AI and humans can understand.
 
-## Equipment
-The [Equipment](docs/Equipment.md) document provides detailed information on the various types of weapons, armor, accessories, and tools available in Aetheria. No character is restricted to any particular equipment based on class, but certain classes may have proficiencies or special abilities that enhance their use of specific items.
+## 🚀 **Quick Start**
 
-## Magic
-The [Magic](docs/Magic.md) document details the magical systems, spells, and schools of magic in Aetheria. Magic is a powerful force that can shape the world and influence events, and understanding its mechanics is crucial for characters who wield it.
+### View the Live Site
+Your world data is automatically published at:
+**`https://yourusername.github.io/Aetheria`**
 
-## Politics
-The [Politics](docs/Politics.md) document explores the diverse political systems, ranks, and notable governments in Aetheria. Politics plays a significant role in shaping the world and the interactions between characters, factions, and nations. Understanding the political landscape is essential for navigating the complexities of Aetherian society and for creating compelling narratives involving power struggles, alliances, and conflicts.
+### Make Changes
+1. Edit files in `/data/` (YAML hierarchies) or `/docs/` (markdown documentation)
+2. Commit and push to GitHub
+3. GitHub Actions automatically rebuilds and deploys your site!
 
-## Religion
-The [Religion](docs/Religion.md) document delves into the various belief systems, deities, and religious practices in Aetheria. Religion influences many aspects of life, from personal values to societal structures, and understanding its role is vital for creating rich, immersive stories.
+### Development
+```bash
+# Preview site locally
+./dev.sh site
+
+# Test MCP server
+./dev.sh mcp
+
+# Deploy changes
+./dev.sh deploy
+```
+
+## 📁 **Project Structure**
+
+- **`/docs/`** - Your world documentation (Magic.md, Politics.md, etc.)
+- **`/data/`** - Hierarchical YAML data (creatures, classes, organizations, etc.)
+- **`/templates/`** - Mustache templates for dynamic content generation
+- **`/mcp-server/`** - AI integration server (Model Context Protocol)
+- **`/site-generator/`** - Static site generator for GitHub Pages
+- **`.github/workflows/`** - Automated deployment configuration
+
+## ✨ **Features**
+
+### For AI Systems (MCP Server)
+- **Search**: Query across all documentation and data
+- **Hierarchy Navigation**: Explore complex entity relationships
+- **Content Generation**: Create stat blocks, guides, overviews
+- **Data Extraction**: Convert content to structured formats
+
+### For Humans (GitHub Pages)
+- **Documentation Browser**: All markdown files as beautiful HTML
+- **Data Explorer**: Interactive hierarchy browser with visual relationships
+- **Mobile-Friendly**: Responsive design that works on all devices
+- **Search-Optimized**: SEO-ready with sitemap generation
+
+### For Developers
+- **TypeScript**: Type-safe development with full IntelliSense
+- **Automated Deployment**: Zero-maintenance publishing
+- **Shared Data Sources**: Consistent information across all systems
+- **Easy Extension**: Add new data types or templates easily
+
+## 🎯 **Use Cases**
+
+- **📖 Story Writing**: AI generates consistent, lore-accurate content
+- **🎮 Game Mastering**: Quick reference during sessions + dynamic content
+- **👥 Player Resources**: Share world information via public website
+- **📚 World Building**: Organize complex relationships and hierarchies
+- **🌍 Community Sharing**: Professional presentation of your world
+
+## 🔧 **Development**
+
+See the detailed documentation in each component:
+- [MCP Server](mcp-server/README.md) - AI integration setup
+- [Site Generator](site-generator/README.md) - GitHub Pages customization
+- [Project Summary](PROJECT_SUMMARY.md) - Complete system overview
+
+Perfect for creating rich, interactive fantasy worlds that serve both AI systems and human readers! 🎉

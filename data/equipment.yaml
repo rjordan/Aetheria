@@ -1,0 +1,330 @@
+equipment:
+  weapons:
+    type: "Weapons"
+    description: "Tools of combat used for offense and defense"
+    children:
+      common_weapons:
+        type: "Common Weapons"
+        parent: "Weapons"
+        description: "Widely available weapons found throughout Aetheria"
+        children:
+          melee_weapons:
+            type: "Melee Weapons"
+            parent: "Common Weapons"
+            description: "Close-combat weapons for hand-to-hand fighting"
+            children:
+              sword:
+                name: "Sword"
+                type: "Melee Weapon"
+                parent: "Melee Weapons"
+                description: "A versatile weapon used for slashing and thrusting"
+                alternative_names: ["Saber", "Broadsword", "Longsword", "Rapier", "Shortsword"]
+                damage_type: ["Slashing", "Piercing"]
+                reach: "Close"
+
+              axe:
+                name: "Axe"
+                type: "Melee Weapon"
+                parent: "Melee Weapons"
+                description: "A heavy weapon designed for chopping and cleaving"
+                alternative_names: ["Battle Axe", "Hand Axe", "Cleaver"]
+                damage_type: ["Slashing"]
+                reach: "Close"
+
+              dagger:
+                name: "Dagger"
+                type: "Melee Weapon"
+                parent: "Melee Weapons"
+                description: "A small, easily concealable blade used for stabbing"
+                alternative_names: ["Knife", "Stiletto", "Dirk"]
+                damage_type: ["Piercing"]
+                reach: "Close"
+                properties: ["Concealable", "Throwable"]
+
+              staff:
+                name: "Staff"
+                type: "Melee Weapon"
+                parent: "Melee Weapons"
+                description: "A long pole used for both physical combat and as a focus for spellcasting"
+                alternative_names: ["Quarterstaff", "Wizard's Staff", "Bo Staff"]
+                damage_type: ["Bludgeoning"]
+                reach: "Extended"
+                properties: ["Spellcasting Focus"]
+
+              mace:
+                name: "Mace"
+                type: "Melee Weapon"
+                parent: "Melee Weapons"
+                description: "A blunt weapon designed to crush armor and bones"
+                alternative_names: ["Club", "Flail", "Morningstar"]
+                damage_type: ["Bludgeoning"]
+                reach: "Close"
+
+              spear:
+                name: "Spear"
+                type: "Melee Weapon"
+                parent: "Melee Weapons"
+                description: "A long pole weapon with a pointed tip for thrusting"
+                alternative_names: ["Lance", "Javelin", "Pike"]
+                damage_type: ["Piercing"]
+                reach: ["Extended", "Throwable"]
+
+          ranged_weapons:
+            type: "Ranged Weapons"
+            parent: "Common Weapons"
+            description: "Weapons designed for attacking from a distance"
+            children:
+              bow:
+                name: "Bow"
+                type: "Ranged Weapon"
+                parent: "Ranged Weapons"
+                description: "A weapon that shoots arrows from a distance"
+                alternative_names: ["Longbow", "Shortbow", "Crossbow"]
+                damage_type: ["Piercing"]
+                reach: "Long Range"
+                ammunition: "Arrows"
+
+      uncommon_weapons:
+        type: "Uncommon Weapons"
+        parent: "Weapons"
+        description: "Specialized or exotic weapons less commonly seen"
+        children:
+          exotic_melee:
+            type: "Exotic Melee Weapons"
+            parent: "Uncommon Weapons"
+            children:
+              scythe:
+                name: "Scythe"
+                type: "Exotic Melee Weapon"
+                parent: "Exotic Melee Weapons"
+                description: "A long, curved blade attached to a pole, often associated with harvesting or death"
+                alternative_names: ["Sickle", "Reaper's Scythe"]
+                damage_type: ["Slashing"]
+                reach: "Extended"
+                associations: ["Death", "Harvest", "Necromancy"]
+
+              halberd:
+                name: "Halberd"
+                type: "Exotic Melee Weapon"
+                parent: "Exotic Melee Weapons"
+                description: "A pole weapon that combines an axe blade with a spear point"
+                alternative_names: ["Poleaxe", "Bardich", "Glaive", "Voulge"]
+                damage_type: ["Slashing", "Piercing"]
+                reach: "Extended"
+
+              nunchaku:
+                name: "Nunchaku"
+                type: "Exotic Melee Weapon"
+                parent: "Exotic Melee Weapons"
+                description: "A martial arts weapon consisting of two sticks connected by a chain or rope"
+                alternative_names: ["Nunchucks", "Three Section Staff"]
+                damage_type: ["Bludgeoning"]
+                reach: "Close"
+                properties: ["Defensive", "Disarming"]
+
+              kusarigama:
+                name: "Kusarigama"
+                type: "Exotic Melee Weapon"
+                parent: "Exotic Melee Weapons"
+                description: "A traditional weapon consisting of a Kama attached to a chain with a weight"
+                alternative_names: ["Chain Sickle"]
+                damage_type: ["Slashing", "Bludgeoning"]
+                reach: ["Close", "Short Range"]
+                properties: ["Entangling", "Tripping"]
+
+          exotic_ranged:
+            type: "Exotic Ranged Weapons"
+            parent: "Uncommon Weapons"
+            children:
+              shuriken:
+                name: "Shuriken"
+                type: "Exotic Ranged Weapon"
+                parent: "Exotic Ranged Weapons"
+                description: "Small, star-shaped throwing weapons used for distraction or injury"
+                alternative_names: ["Throwing Stars"]
+                damage_type: ["Piercing"]
+                reach: "Short Range"
+                properties: ["Concealable", "Multiple Use"]
+
+              blowgun:
+                name: "Blowgun"
+                type: "Exotic Ranged Weapon"
+                parent: "Exotic Ranged Weapons"
+                description: "A tube used to shoot small darts, often poisoned"
+                alternative_names: ["Dart Gun"]
+                damage_type: ["Piercing"]
+                reach: "Medium Range"
+                ammunition: "Darts"
+                properties: ["Silent", "Poison Delivery"]
+
+  armor:
+    type: "Armor"
+    description: "Protective equipment worn to reduce damage from attacks"
+    children:
+      armor_types:
+        type: "Armor Types"
+        parent: "Armor"
+        children:
+          cloth_armor:
+            name: "Cloth Armor"
+            type: "Light Armor"
+            parent: "Armor Types"
+            description: "Lightweight armor made from fabric or leather, offering minimal protection"
+            protection:
+              slashing: "Light"
+              piercing: "None"
+              bludgeoning: "None"
+            alternative_names: ["Robes", "Tunics", "Garments", "Clothing"]
+            mobility: "High"
+
+          light_armor:
+            name: "Light Armor"
+            type: "Light Armor"
+            parent: "Armor Types"
+            description: "Flexible and lightweight armor that allows for ease of movement"
+            protection:
+              slashing: "Medium"
+              piercing: "Light"
+              bludgeoning: "Light"
+            alternative_names: ["Leather Armor", "Padded Armor", "Studded Leather Armor", "Cuir Bouilli"]
+            mobility: "Medium-High"
+
+          medium_armor:
+            name: "Medium Armor"
+            type: "Medium Armor"
+            parent: "Armor Types"
+            description: "Balanced armor that offers a compromise between protection and mobility"
+            protection:
+              slashing: "High"
+              piercing: "Medium"
+              bludgeoning: "Light"
+            alternative_names: ["Chain Mail", "Scale Mail", "Ring Mail", "Chain Shirt"]
+            mobility: "Medium"
+
+          heavy_armor:
+            name: "Heavy Armor"
+            type: "Heavy Armor"
+            parent: "Armor Types"
+            description: "Robust armor that provides maximum protection but hinders movement"
+            protection:
+              slashing: "Very High"
+              piercing: "Medium to High"
+              bludgeoning: "Very High"
+            alternative_names: ["Plate Armor", "Full Plate Armor"]
+            mobility: "Low"
+
+      shields:
+        type: "Shields"
+        parent: "Armor"
+        description: "Defensive equipment held to block attacks"
+        children:
+          buckler:
+            name: "Buckler"
+            type: "Small Shield"
+            parent: "Shields"
+            description: "A small, round shield held in one hand"
+            protection: "Low"
+            maneuverability: "High"
+            alternative_names: ["Small Shield"]
+
+          round_shield:
+            name: "Round Shield"
+            type: "Medium Shield"
+            parent: "Shields"
+            description: "A circular shield that is easy to maneuver"
+            protection: "Medium"
+            maneuverability: "Medium"
+
+          kite_shield:
+            name: "Kite Shield"
+            type: "Medium Shield"
+            parent: "Shields"
+            description: "A shield with a tapered shape, offering good protection while allowing for mobility"
+            protection: "Medium to High"
+            maneuverability: "Medium"
+
+          tower_shield:
+            name: "Tower Shield"
+            type: "Large Shield"
+            parent: "Shields"
+            description: "A large, rectangular shield that provides extensive coverage"
+            protection: "High"
+            maneuverability: "Low"
+            alternative_names: ["Large Shield"]
+            properties: ["Heavy", "Unwieldy"]
+
+  accessories:
+    type: "Accessories"
+    description: "Magical and mundane items that enhance abilities or provide utility"
+    children:
+      magical_accessories:
+        type: "Magical Accessories"
+        parent: "Accessories"
+        description: "Items imbued with magical properties"
+        children:
+          amulet:
+            name: "Amulet"
+            type: "Magical Accessory"
+            parent: "Magical Accessories"
+            description: "A pendant worn around the neck, often imbued with magical properties"
+            function: "May provide various magical effects or protections"
+            alternative_names: ["Necklace", "Talisman", "Charm", "Pendant", "Brooch", "Locket"]
+            slot: "Neck"
+
+          ring:
+            name: "Ring"
+            type: "Magical Accessory"
+            parent: "Magical Accessories"
+            description: "A circular band worn on the finger, sometimes enchanted"
+            function: "May grant magical abilities or protections"
+            alternative_names: ["Band", "Signet"]
+            slot: "Finger"
+
+          cloak:
+            name: "Cloak"
+            type: "Magical Accessory"
+            parent: "Magical Accessories"
+            description: "A long, flowing garment worn over the shoulders, sometimes enchanted"
+            function: "May provide magical protections or effects"
+            alternative_names: ["Cape", "Mantle"]
+            slot: "Shoulders"
+
+  tools:
+    type: "Tools and Miscellaneous Equipment"
+    description: "Utility items for exploration, survival, and specialized tasks"
+    children:
+      exploration_tools:
+        type: "Exploration Tools"
+        parent: "Tools"
+        children:
+          rope:
+            name: "Rope"
+            type: "Exploration Tool"
+            parent: "Exploration Tools"
+            description: "A length of strong cordage used for climbing, tying, or securing items"
+            function: "Essential for climbing, binding, or creating makeshift structures"
+            alternative_names: ["Cord", "Line"]
+
+          grappling_hook:
+            name: "Grappling Hook"
+            type: "Exploration Tool"
+            parent: "Exploration Tools"
+            description: "A device with hooks used to secure a rope to a surface for climbing"
+            function: "Used in conjunction with rope for climbing or securing items"
+            alternative_names: ["Climbing Hook"]
+
+          torch:
+            name: "Torch"
+            type: "Light Source"
+            parent: "Exploration Tools"
+            description: "A handheld light source, typically a stick with a flammable material at one end"
+            function: "Provides light in dark areas"
+            alternative_names: ["Candle"]
+
+          lantern:
+            name: "Lantern"
+            type: "Light Source"
+            parent: "Exploration Tools"
+            description: "A portable light source that can be carried or hung"
+            function: "Provides illumination in dark areas"
+            alternative_names: ["Light"]
