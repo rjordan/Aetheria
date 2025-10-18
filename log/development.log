@@ -1,0 +1,9 @@
+  [1m[35m (102.3ms)[0m  [1m[35mCREATE DATABASE "aetheria_dev" ENCODING = 'unicode' /*application='Aetheria'*/[0m
+  [1m[35m (107.1ms)[0m  [1m[35mCREATE DATABASE "aetheria_dev" ENCODING = 'unicode' /*application='Aetheria'*/[0m
+  [1m[35m (102.6ms)[0m  [1m[35mCREATE DATABASE "aetheria_dev" ENCODING = 'unicode' /*application='Aetheria'*/[0m
+  [1m[35m (102.4ms)[0m  [1m[35mCREATE DATABASE "aetheria_dev" ENCODING = 'unicode' /*application='Aetheria'*/[0m
+  [1m[35m (102.6ms)[0m  [1m[35mCREATE DATABASE "aetheria_dev" ENCODING = 'unicode' /*application='Aetheria'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='Aetheria'*/[0m
+  [1m[35m (182.1ms)[0m  [1m[35mCREATE DATABASE "aetheria_dev" ENCODING = 'unicode' /*application='Aetheria'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='Aetheria'*/[0m
+  [1m[35m (187.6ms)[0m  [1m[35mCREATE DATABASE "aetheria_test" ENCODING = 'unicode' /*application='Aetheria'*/[0m
