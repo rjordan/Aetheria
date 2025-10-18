@@ -203,6 +203,41 @@ tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
+/* Magic Schools Table Styling */
+.magic-schools-table {
+  font-size: 0.95rem;
+}
+
+.magic-schools-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+.magic-schools-table td {
+  vertical-align: top;
+}
+
+.magic-schools-table td:first-child {
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.magic-schools-table td:last-child {
+  max-width: 300px;
+}
+
+.magic-schools-table a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.magic-schools-table a:hover {
+  text-decoration: underline;
+}
+
 code {
   background-color: #f4f4f4;
   padding: 0.2rem 0.4rem;
@@ -409,8 +444,42 @@ footer {
 
     let content = '';
 
-    // Special handling for equipment with grouped structure
-    if (dataType === 'equipment' && data.equipment &&
+    // Special handling for magic schools with flat structure
+    if (dataType === 'magic_schools' && data.magic_schools) {
+      content = `
+<div class="card">
+  <h2>${this.capitalize(dataType.replace('_', ' '))}</h2>
+  <p>All magic schools in the Aetheria world (${entities.length} schools).</p>
+
+  <h3>🎓 Magic Schools Overview</h3>
+  <table class="magic-schools-table">
+    <thead>
+      <tr>
+        <th>School</th>
+        <th>Focus</th>
+        <th>Regulation</th>
+        <th>Opposing Element</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${entities.map(entity => `
+        <tr>
+          <td><a href="${this.sanitizeFilename(entity.name)}.html"><strong>${entity.name}</strong></a></td>
+          <td>${Array.isArray(entity.data.focus) ? entity.data.focus.join(', ') : entity.data.focus || 'N/A'}</td>
+          <td>${entity.data.regulation || 'N/A'}</td>
+          <td>${entity.data.opposing_element || 'N/A'}</td>
+          <td>${entity.data.description ? entity.data.description.substring(0, 100) + '...' : 'No description'}</td>
+        </tr>
+      `).join('')}
+    </tbody>
+  </table>
+
+  <h3>🌳 Hierarchy</h3>
+  <div class="hierarchy">${hierarchy}</div>
+</div>
+`;
+    } else if (dataType === 'equipment' && data.equipment &&
         (data.equipment.weapons || data.equipment.armor_and_shields || data.equipment.miscellaneous)) {
       content = `
 <div class="card">
@@ -719,6 +788,29 @@ footer {
     const spaces = '  '.repeat(indent);
     let result = '';
 
+    // Check if this is the new flat magic schools structure
+    if (data.magic_schools && typeof data.magic_schools === 'object') {
+      result += `magic_schools\n`;
+
+      // Group by regulation
+      const byRegulation: Record<string, string[]> = {};
+      for (const [schoolKey, schoolValue] of Object.entries(data.magic_schools)) {
+        if (typeof schoolValue === 'object' && schoolValue !== null) {
+          const regulation = (schoolValue as any).regulation || 'unregulated';
+          if (!byRegulation[regulation]) byRegulation[regulation] = [];
+          byRegulation[regulation].push(`${(schoolValue as any).name || schoolKey}`);
+        }
+      }
+
+      for (const [regulation, schools] of Object.entries(byRegulation)) {
+        result += `  ${regulation}\n`;
+        for (const school of schools.sort()) {
+          result += `    ${school}\n`;
+        }
+      }
+      return result;
+    }
+
     // Check if this is the new grouped equipment structure
     if (data.equipment && typeof data.equipment === 'object') {
       // Handle grouped structure (weapons, armor_and_shields, miscellaneous)
@@ -761,6 +853,20 @@ footer {
 
   private getAllEntities(data: any): Array<{name: string, data: any}> {
     const entities: Array<{name: string, data: any}> = [];
+
+    // Check if this is the new flat magic schools structure
+    if (data.magic_schools && typeof data.magic_schools === 'object') {
+      // Handle flat magic schools structure
+      for (const [schoolKey, schoolValue] of Object.entries(data.magic_schools)) {
+        if (typeof schoolValue === 'object' && schoolValue !== null) {
+          entities.push({
+            name: (schoolValue as any).name || schoolKey,
+            data: schoolValue
+          });
+        }
+      }
+      return entities;
+    }
 
     // Check if this is the new grouped equipment structure
     if (data.equipment && typeof data.equipment === 'object') {

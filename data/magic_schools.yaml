@@ -1,141 +1,68 @@
 magic_schools:
-  elemental:
-    type: "Elemental Magic"
-    description: "Magic that draws upon the fundamental forces of nature"
-    children:
-      earth:
-        name: "Earth"
-        focus: ["Stone", "Metal", "Endurance", "Gravity"]
-        regulation: "Unregulated"
-        opposing_element: "Air"
-        common_spells:
-          - "Stone Skin"
-          - "Earthquake"
-          - "Gravity Well"
-          - "Wall of Stone"
-        practitioners: "Earth mages, druids, some clerics"
 
-      air:
-        name: "Air"
-        focus: ["Wind", "Sound", "Electricity", "Mobility"]
-        regulation: "Unregulated"
-        opposing_element: "Earth"
-        common_spells:
-          - "Fly"
-          - "Lightning Bolt"
-          - "Invisibility"
-          - "Gust"
-        practitioners: "Air mages, storm sorcerers, some bards"
+  earth:
+    name: "Earth"
+    description: "The elemental magic of earth focuses on the manipulation of stone, metal, and the physical properties of the ground."
+    focus: ["Stone", "Metal", "Endurance", "Gravity"]
+    regulation: "Unregulated"
+    opposing_element: "Air"
 
-      fire:
-        name: "Fire"
-        focus: ["Heat", "Combustion", "Energy", "Destruction"]
-        regulation: "Unregulated"
-        opposing_element: "Water"
-        common_spells:
-          - "Fireball"
-          - "Ignite"
-          - "Wall of Fire"
-          - "Meteor Shower"
-        practitioners: "Fire mages, some sorcerers, war wizards"
+  air:
+    name: "Air"
+    description: "The elemental magic of air focuses on the manipulation of wind, sound, and the properties of the atmosphere."
+    focus: ["Wind", "Sound", "Electricity", "Mobility"]
+    regulation: "Unregulated"
+    opposing_element: "Earth"
 
-      water:
-        name: "Water"
-        focus: ["Liquids", "Ice", "Simple Healing/Mending", "Flow"]
-        regulation: "Unregulated"
-        opposing_element: "Fire"
-        common_spells:
-          - "Freeze"
-          - "Mend"
-          - "Water Breathing"
-          - "Tidal Wave"
-        practitioners: "Water mages, some druids, healers"
+  fire:
+    name: "Fire"
+    description: "The elemental magic of fire focuses on the manipulation of heat, combustion, and energy."
+    focus: ["Heat", "Combustion", "Energy", "Destruction"]
+    regulation: "Unregulated"
+    opposing_element: "Water"
 
-      aether:
-        name: "Aether"
-        focus: ["Ephemeral", "Enchantment", "Spiritual Essence"]
-        regulation: "Unregulated"
-        opposing_element: null
-        common_spells:
-          - "Telekinesis"
-          - "Enchant Item"
-          - "Teleport"
-          - "Dispel"
-        practitioners: "Enchanters, artificers, high mages"
+  water:
+    name: "Water"
+    description: "The elemental magic of water focuses on the manipulation of liquids, ice, and the properties of water."
+    focus: ["Liquids", "Ice", "Simple Healing/Mending", "Flow"]
+    regulation: "Unregulated"
+    opposing_element: "Fire"
 
-  divine:
-    type: "Divine Magic"
-    description: "Magic channeled through divine sources"
-    children:
-      light:
-        name: "Light"
-        focus: ["Healing", "Holy", "Radiant Energy"]
-        regulation: "Unregulated"
-        opposing_element: "Dark"
-        perception: "Often perceived as 'holy' or 'good'"
-        common_spells:
-          - "Heal"
-          - "Cure"
-          - "Bless"
-          - "Holy Fire"
-        practitioners: "Clerics, paladins, some druids"
+  aether:
+    name: "Aether"
+    description: "The elemental magic of aether focuses on the manipulation of ephemeral energies, enchantments, and magical essences."
+    focus: ["Ephemeral", "Enchantment", "Spiritual Essence"]
+    regulation: "Unregulated"
+    opposing_element: null
 
-      dark:
-        name: "Dark"
-        focus: ["Unholy", "Corruption", "Undeath", "Shadow"]
-        regulation: "Regulated"
-        opposing_element: "Light"
-        perception: "Often perceived as 'unholy' or 'evil'"
-        restrictions: "Necromancy and demon summoning highly regulated or illegal"
-        common_spells:
-          - "Animate Dead"
-          - "Shadow Step"
-          - "Curse"
-          - "Drain Life"
-        practitioners: "Dark clerics, necromancers, warlocks"
+  light:
+    name: "Light"
+    description: "The elemental magic of light focuses on the manipulation of healing energies, holy power, and radiant energy. Often perceived as 'holy' or 'good'"
+    focus: ["Healing", "Holy", "Radiant Energy"]
+    regulation: "Unregulated"
+    opposing_element: "Dark"
 
-  primal:
-    type: "Primal Magic"
-    description: "Magic that connects with natural and spiritual forces"
-    children:
-      spirit:
-        name: "Spirit"
-        focus: ["Shamanism", "Spirit Pacts", "Animal Summoning"]
-        regulation: "Unregulated"
-        restrictions: "Binding of humanoid spirits considered equivalent to undead creation"
-        common_spells:
-          - "Animal Companion"
-          - "Spirit Walk"
-          - "Totem"
-          - "Exorcism"
-        practitioners: "Shamans, druids, rangers"
+  dark:
+    name: "Dark"
+    description: "The elemental magic of dark focuses on the manipulation of unholy energies, corruption, and shadow. Often perceived as 'unholy' or 'evil'"
+    focus: ["Unholy", "Corruption", "Undeath", "Shadow"]
+    regulation: "Necromancy and demon summoning highly regulated or illegal in most areas."
+    opposing_element: "Light"
 
-  arcane:
-    type: "Arcane Magic"
-    description: "Magic that manipulates reality through will and knowledge"
-    children:
-      mind:
-        name: "Mind"
-        focus: ["Mental & Consciousness manipulation", "Telepathy", "Illusion", "Memory"]
-        regulation: "Some aspects Strongly Regulated"
-        restrictions: "Mind Control and Memory Manipulation heavily regulated"
-        ethical_concerns: "Direct removal of agency viewed as moral violation"
-        common_spells:
-          - "Mind Link"
-          - "Phantom Veil"
-          - "Charm"
-          - "Psychic Shield"
-        practitioners: "Psionicists, enchanters, some wizards"
+  spirit:
+    name: "Spirit"
+    description: "The elemental magic of spirit focuses on the manipulation of life forces, souls, and the ethereal."
+    focus: ["Shamanism", "Spirit Pacts", "Animal Summoning"]
+    regulation: "Binding of humanoid spirits considered equivalent to undead creation and is regulated or illegal in many areas."
 
-      time:
-        name: "Time"
-        focus: ["Time Manipulation", "Stasis", "Aging"]
-        regulation: "Strongly Regulated"
-        danger_level: "Extremely dangerous with catastrophic potential"
-        restrictions: "Most time magic heavily regulated with severe penalties"
-        common_spells:
-          - "Hasten"
-          - "Temporal Shield"
-          - "Rewind"
-          - "Time Stop"
-        practitioners: "Chronomancers, high wizards"
+  mind:
+    name: "Mind"
+    description: "The elemental magic of mind focuses on the manipulation of thoughts, emotions, and consciousness. Direct removal of agency viewed as moral violation."
+    focus: ["Mental & Consciousness manipulation", "Telepathy", "Illusion", "Memory"]
+    regulation: "Mind Control and Memory Manipulation heavily regulated or illegal in many areas"
+
+  time:
+    name: "Time"
+    description: "The elemental magic of time focuses on the manipulation of temporal energies, time travel, and the flow of time."
+    focus: ["Time Manipulation", "Stasis", "Aging"]
+    regulation: "Extremely dangerous with catastrophic potential, thus most time magic heavily regulated with severe penalties"

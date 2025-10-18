@@ -549,6 +549,23 @@ class AetheriaMCPServer {
     includeChildren: boolean,
     includeParents: boolean
   ): any {
+    // Check if this is the new flat magic schools structure
+    if (data.magic_schools && typeof data.magic_schools === 'object') {
+      for (const [schoolKey, schoolValue] of Object.entries(data.magic_schools)) {
+        const typedValue = schoolValue as any;
+        if (schoolKey.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (typedValue?.name && typedValue.name.toLowerCase().includes(searchTerm.toLowerCase()))) {
+          return {
+            path: ['magic_schools', schoolKey],
+            data: typedValue,
+            parentPath: ['magic_schools'],
+            type: 'magic_school'
+          };
+        }
+      }
+      return null;
+    }
+
     // Check if this is the new grouped equipment structure
     if (data.equipment && typeof data.equipment === 'object') {
       // Handle grouped structure (weapons, armor_and_shields, miscellaneous)

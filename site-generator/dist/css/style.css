@@ -120,6 +120,41 @@ tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
+/* Magic Schools Table Styling */
+.magic-schools-table {
+  font-size: 0.95rem;
+}
+
+.magic-schools-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+.magic-schools-table td {
+  vertical-align: top;
+}
+
+.magic-schools-table td:first-child {
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.magic-schools-table td:last-child {
+  max-width: 300px;
+}
+
+.magic-schools-table a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.magic-schools-table a:hover {
+  text-decoration: underline;
+}
+
 code {
   background-color: #f4f4f4;
   padding: 0.2rem 0.4rem;
