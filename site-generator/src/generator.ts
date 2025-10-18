@@ -460,11 +460,16 @@ footer {
     }
 
     if (entity.data.type && entity.data.type !== entityName) {
-      content += `<p><strong>Type:</strong> ${entity.data.type}</p>`;
+      // Handle new array type format
+      if (Array.isArray(entity.data.type)) {
+        content += `<p><strong>Type:</strong> ${entity.data.type.join(', ')}</p>`;
+      } else {
+        content += `<p><strong>Type:</strong> ${entity.data.type}</p>`;
+      }
     }
 
     // Add properties
-    const excludeKeys = ['name', 'description', 'children', 'type'];
+    const excludeKeys = ['name', 'description', 'children'];
     const properties = Object.entries(entity.data).filter(([key]) => !excludeKeys.includes(key));
 
     if (properties.length > 0) {
@@ -474,6 +479,10 @@ footer {
           content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${value}</td></tr>`;
         } else if (Array.isArray(value)) {
           content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${value.join(', ')}</td></tr>`;
+        } else if (typeof value === 'object' && value !== null) {
+          // Handle nested objects (like protection stats)
+          const nestedProps = Object.entries(value).map(([k, v]) => `${k}: ${v}`).join(', ');
+          content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${nestedProps}</td></tr>`;
         }
       }
       content += `</table>`;
@@ -662,6 +671,29 @@ footer {
     const spaces = '  '.repeat(indent);
     let result = '';
 
+    // Check if this is the new flat equipment structure
+    if (data.equipment && typeof data.equipment === 'object') {
+      // Handle flat dictionary structure (new equipment format)
+      result += `equipment\n`;
+
+      // Group by rarity for better organization
+      const byRarity: Record<string, string[]> = {};
+      for (const [key, value] of Object.entries(data.equipment)) {
+        const rarity = (value as any).rarity || 'unknown';
+        if (!byRarity[rarity]) byRarity[rarity] = [];
+        byRarity[rarity].push(`${(value as any).name || key}`);
+      }
+
+      for (const [rarity, items] of Object.entries(byRarity)) {
+        result += `  ${rarity}\n`;
+        for (const item of items.sort()) {
+          result += `    ${item}\n`;
+        }
+      }
+      return result;
+    }
+
+    // Handle hierarchical structure (legacy format)
     for (const [key, value] of Object.entries(data)) {
       result += `${spaces}${key}\n`;
 
@@ -676,6 +708,21 @@ footer {
   private getAllEntities(data: any): Array<{name: string, data: any}> {
     const entities: Array<{name: string, data: any}> = [];
 
+    // Check if this is the new flat equipment structure
+    if (data.equipment && typeof data.equipment === 'object') {
+      // Handle flat dictionary structure (new equipment format)
+      for (const [key, value] of Object.entries(data.equipment)) {
+        if (typeof value === 'object' && value !== null) {
+          entities.push({
+            name: (value as any).name || key,
+            data: value
+          });
+        }
+      }
+      return entities;
+    }
+
+    // Handle hierarchical structure (legacy format)
     const traverse = (obj: any) => {
       if (typeof obj === 'object' && obj !== null) {
         for (const [key, value] of Object.entries(obj)) {

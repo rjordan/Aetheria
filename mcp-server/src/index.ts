@@ -549,6 +549,24 @@ class AetheriaMCPServer {
     includeChildren: boolean,
     includeParents: boolean
   ): any {
+    // Check if this is the new flat equipment structure
+    if (data.equipment && typeof data.equipment === 'object') {
+      // Handle flat dictionary structure (new equipment format)
+      for (const [key, value] of Object.entries(data.equipment)) {
+        const typedValue = value as any;
+        if (key.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (typedValue?.name && typedValue.name.toLowerCase().includes(searchTerm.toLowerCase()))) {
+          return {
+            path: ['equipment', key],
+            data: typedValue,
+            parentPath: ['equipment']
+          };
+        }
+      }
+      return null;
+    }
+
+    // Handle hierarchical structure (legacy format)
     const search = (obj: any, path: string[] = []): any => {
       if (typeof obj === 'object' && obj !== null) {
         for (const [key, value] of Object.entries(obj)) {

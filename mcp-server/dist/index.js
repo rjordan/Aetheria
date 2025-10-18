@@ -417,6 +417,23 @@ class AetheriaMCPServer {
         return tables;
     }
     findInHierarchy(data, searchTerm, includeChildren, includeParents) {
+        // Check if this is the new flat equipment structure
+        if (data.equipment && typeof data.equipment === 'object') {
+            // Handle flat dictionary structure (new equipment format)
+            for (const [key, value] of Object.entries(data.equipment)) {
+                const typedValue = value;
+                if (key.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    (typedValue?.name && typedValue.name.toLowerCase().includes(searchTerm.toLowerCase()))) {
+                    return {
+                        path: ['equipment', key],
+                        data: typedValue,
+                        parentPath: ['equipment']
+                    };
+                }
+            }
+            return null;
+        }
+        // Handle hierarchical structure (legacy format)
         const search = (obj, path = []) => {
             if (typeof obj === 'object' && obj !== null) {
                 for (const [key, value] of Object.entries(obj)) {
