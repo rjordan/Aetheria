@@ -457,9 +457,9 @@ footer {
       <tr>
         <th>School</th>
         <th>Focus</th>
-        <th>Regulation</th>
         <th>Opposing Element</th>
         <th>Description</th>
+        <th>Regulation</th>
       </tr>
     </thead>
     <tbody>
@@ -467,16 +467,13 @@ footer {
         <tr>
           <td><a href="${this.sanitizeFilename(entity.name)}.html"><strong>${entity.name}</strong></a></td>
           <td>${Array.isArray(entity.data.focus) ? entity.data.focus.join(', ') : entity.data.focus || 'N/A'}</td>
-          <td>${entity.data.regulation || 'N/A'}</td>
           <td>${entity.data.opposing_element || 'N/A'}</td>
           <td>${entity.data.description ? entity.data.description.substring(0, 100) + '...' : 'No description'}</td>
+          <td>${entity.data.regulation || 'N/A'}</td>
         </tr>
       `).join('')}
     </tbody>
   </table>
-
-  <h3>🌳 Hierarchy</h3>
-  <div class="hierarchy">${hierarchy}</div>
 </div>
 `;
     } else if (dataType === 'equipment' && data.equipment &&
