@@ -224,8 +224,14 @@ tr:nth-child(even) {
   min-width: 120px;
 }
 
+.magic-schools-table td:nth-child(4) {
+  max-width: 400px;
+  word-wrap: break-word;
+}
+
 .magic-schools-table td:last-child {
-  max-width: 300px;
+  max-width: 250px;
+  word-wrap: break-word;
 }
 
 .magic-schools-table a {
@@ -468,7 +474,7 @@ footer {
           <td><a href="${this.sanitizeFilename(entity.name)}.html"><strong>${entity.name}</strong></a></td>
           <td>${Array.isArray(entity.data.focus) ? entity.data.focus.join(', ') : entity.data.focus || 'N/A'}</td>
           <td>${entity.data.opposing_element || 'N/A'}</td>
-          <td>${entity.data.description ? entity.data.description.substring(0, 100) + '...' : 'No description'}</td>
+          <td>${entity.data.description ? (entity.data.description.length > 250 ? entity.data.description.substring(0, 250) + '...' : entity.data.description) : 'No description'}</td>
           <td>${entity.data.regulation || 'N/A'}</td>
         </tr>
       `).join('')}
