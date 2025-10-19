@@ -809,18 +809,20 @@ footer {
   }): string {
     const { title, content, breadcrumb, category, isHomePage = false } = options;
 
-    // Calculate CSS path depth based on breadcrumb separators (not HTML tags)
-    const breadcrumbSeparators = breadcrumb.split(' > ').length - 1;
-    const cssPath = isHomePage ? 'css/style.css' : '../'.repeat(breadcrumbSeparators) + 'css/style.css';
+    // Calculate CSS path based on actual directory depth
+    // Count the depth by checking how many directory levels we need to go up
+    const pathDepth = breadcrumb.split(' > ').length - 1;
+    const cssPath = isHomePage ? 'css/style.css' : '../'.repeat(pathDepth) + 'css/style.css';
 
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/Aetheria/">
     <title>${title} - Aetheria World</title>
     <meta name="description" content="Explore the world of Aetheria - ${title}">
-    <link rel="stylesheet" href="${cssPath}">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -833,9 +835,9 @@ footer {
     <nav>
         <div class="container">
             <ul>
-                <li><a href="${isHomePage ? '' : '../'.repeat(breadcrumbSeparators)}index.html">🏠 Home</a></li>
-                <li><a href="${isHomePage ? '' : '../'.repeat(breadcrumbSeparators)}docs/index.html">📚 Documentation</a></li>
-                <li><a href="${isHomePage ? '' : '../'.repeat(breadcrumbSeparators)}data/index.html">📊 Data</a></li>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="docs/index.html">📚 Documentation</a></li>
+                <li><a href="data/index.html">📊 Data</a></li>
             </ul>
         </div>
     </nav>
