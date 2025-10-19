@@ -1,0 +1,186 @@
+{
+    "creatures": {
+        "fiends": {
+            "type": "Fiend",
+            "description": "Malevolent entities from the lower planes",
+            "origin": "Lower Planes",
+            "alignment": "Usually Evil",
+            "children": {
+                "demons": {
+                    "type": "Demon",
+                    "parent": "Fiend",
+                    "description": "Chaotic evil fiends from the Abyss",
+                    "origin": "The Abyss",
+                    "alignment": "Chaotic Evil",
+                    "children": {
+                        "succubus": {
+                            "type": "Succubus",
+                            "parent": "Demon",
+                            "description": "Seductive demons that feed on life energy through emotional manipulation",
+                            "challenge_rating": "4-8",
+                            "abilities": [
+                                "Charm",
+                                "Shapechange",
+                                "Ethereal Jaunt",
+                                "Life Drain"
+                            ],
+                            "weaknesses": [
+                                "Holy magic",
+                                "Cold iron weapons"
+                            ],
+                            "children": {
+                                "lilith": {
+                                    "name": "Lilith",
+                                    "type": "Unique Succubus",
+                                    "parent": "Succubus",
+                                    "description": "The first and most powerful succubus, mother of all succubi",
+                                    "challenge_rating": "20+",
+                                    "title": "Queen of Succubi",
+                                    "domain": "The Crimson Palace in the Abyss",
+                                    "abilities": [
+                                        "All standard succubus abilities",
+                                        "Legendary actions",
+                                        "Lair actions",
+                                        "Regional effects",
+                                        "Planar travel at will"
+                                    ],
+                                    "unique_traits": [
+                                        "Immune to charm effects",
+                                        "Regeneration",
+                                        "True sight"
+                                    ]
+                                }
+                            }
+                        },
+                        "balor": {
+                            "type": "Balor",
+                            "parent": "Demon",
+                            "description": "Mighty demons wreathed in flame and shadow",
+                            "challenge_rating": "19",
+                            "abilities": [
+                                "Fire Aura",
+                                "Death Throes",
+                                "Teleport",
+                                "Whip and Sword combat"
+                            ]
+                        }
+                    }
+                },
+                "devils": {
+                    "type": "Devil",
+                    "parent": "Fiend",
+                    "description": "Lawful evil fiends from the Nine Hells",
+                    "origin": "Nine Hells",
+                    "alignment": "Lawful Evil",
+                    "children": {
+                        "pit_fiend": {
+                            "type": "Pit Fiend",
+                            "parent": "Devil",
+                            "description": "The most powerful of the devils, generals of Hell's armies",
+                            "challenge_rating": "20",
+                            "abilities": [
+                                "Fear Aura",
+                                "Magic Resistance",
+                                "Fireball",
+                                "Hold Monster"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "celestials": {
+            "type": "Celestial",
+            "description": "Divine beings from the upper planes",
+            "origin": "Upper Planes",
+            "alignment": "Usually Good",
+            "children": {
+                "angels": {
+                    "type": "Angel",
+                    "parent": "Celestial",
+                    "description": "Servants of good deities and champions of righteousness",
+                    "abilities": [
+                        "Divine magic",
+                        "Healing",
+                        "Flight"
+                    ],
+                    "children": {
+                        "solar": {
+                            "type": "Solar",
+                            "parent": "Angel",
+                            "description": "The mightiest of angels, often serving as divine messengers",
+                            "challenge_rating": "21",
+                            "abilities": [
+                                "Legendary actions",
+                                "Slaying Arrow",
+                                "Healing Touch",
+                                "Flying Sword"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "undead": {
+            "type": "Undead",
+            "description": "Creatures animated by negative energy or trapped souls",
+            "origin": "Various",
+            "alignment": "Usually Evil or Neutral",
+            "children": {
+                "corporeal_undead": {
+                    "type": "Corporeal Undead",
+                    "parent": "Undead",
+                    "description": "Undead with physical bodies",
+                    "children": {
+                        "vampire": {
+                            "type": "Vampire",
+                            "parent": "Corporeal Undead",
+                            "description": "Undead that feed on blood and can create spawn",
+                            "weaknesses": [
+                                "Sunlight",
+                                "Running water",
+                                "Holy symbols",
+                                "Wooden stakes"
+                            ],
+                            "abilities": [
+                                "Blood drain",
+                                "Charm",
+                                "Shapeshange",
+                                "Spawn creation"
+                            ]
+                        },
+                        "lich": {
+                            "type": "Lich",
+                            "parent": "Corporeal Undead",
+                            "description": "Undead spellcasters who achieved immortality through dark magic",
+                            "creation_method": "Lichdom ritual (requires 666 innocent souls)",
+                            "abilities": [
+                                "Spellcasting",
+                                "Phylactery",
+                                "Legendary actions",
+                                "Paralyzing touch"
+                            ]
+                        }
+                    }
+                },
+                "incorporeal_undead": {
+                    "type": "Incorporeal Undead",
+                    "parent": "Undead",
+                    "description": "Undead without physical bodies",
+                    "children": {
+                        "ghost": {
+                            "type": "Ghost",
+                            "parent": "Incorporeal Undead",
+                            "description": "Spirits of the dead bound to the material plane",
+                            "abilities": [
+                                "Incorporeal movement",
+                                "Horrifying visage",
+                                "Possession"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

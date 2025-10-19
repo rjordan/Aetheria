@@ -1,0 +1,62 @@
+{
+    "site": {
+        "title": "Aetheria World",
+        "description": "A Rich Fantasy World",
+        "base_url": "/"
+    },
+    "navigation": [
+        {
+            "name": "Home",
+            "icon": "🏠",
+            "url": "index.html"
+        },
+        {
+            "name": "Documentation",
+            "icon": "📚",
+            "url": "docs/index.html"
+        },
+        {
+            "name": "Data",
+            "icon": "📊",
+            "url": "data/index.html"
+        }
+    ],
+    "data_types": [
+        {
+            "name": "classes",
+            "display": "Classes",
+            "icon": "🛡️",
+            "description": "Character classes and archetypes"
+        },
+        {
+            "name": "creatures",
+            "display": "Creatures",
+            "icon": "🐉",
+            "description": "Monsters and creatures"
+        },
+        {
+            "name": "equipment",
+            "display": "Equipment",
+            "icon": "⚔️",
+            "description": "Weapons, armor, and items"
+        },
+        {
+            "name": "magic_schools",
+            "display": "Magic Schools",
+            "icon": "🎓",
+            "description": "Schools of magical study"
+        },
+        {
+            "name": "organizations",
+            "display": "Organizations",
+            "icon": "🏛️",
+            "description": "Factions and groups"
+        }
+    ],
+    "breadcrumbs": {
+        "home": "<a href=\"index.html\">Home</a>",
+        "data_index": "<a href=\"index.html\">Home</a> > <a href=\"data/index.html\">Data</a>",
+        "data_type": "<a href=\"../../index.html\">Home</a> > <a href=\"../index.html\">Data</a> > {{data_type_name}}",
+        "entity": "<a href=\"../../../index.html\">Home</a> > <a href=\"../../index.html\">Data</a> > <a href=\"index.html\">{{data_type_name}}</a> > {{entity_name}}"
+    }
+}

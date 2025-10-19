@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aetheria - World of Magic</title>
+    <link rel="icon" href="/Aetheria/assets/favicon.ico" />
+    <script>
+      // Single Page Application GitHub Pages redirect handler
+      // This script captures 404 routes and redirects to index.html with the path as a query parameter
+      const pathSegmentsToKeep = 1; // Keep '/Aetheria/' segment
+      const location = window.location;
+
+      if (location.pathname.startsWith('/Aetheria/') && location.pathname !== '/Aetheria/') {
+        const path = location.pathname.substring('/Aetheria/'.length);
+        location.replace(
+          location.protocol + '//' +
+          location.host +
+          '/Aetheria/?redirect=' +
+          encodeURIComponent(path) +
+          (location.search ? '&' + location.search.slice(1) : '') +
+          location.hash
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <div>Redirecting...</div>
+  </body>
+</html>

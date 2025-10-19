@@ -1,0 +1,536 @@
+// Variables
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$text-color: #333;
+$background-color: #f8f9fa;
+$white: #ffffff;
+$border-color: #e9ecef;
+$shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05);
+$shadow-medium: 0 2px 10px rgba(0, 0, 0, 0.1);
+$accent-color: #28a745;
+$warning-color: #ffc107;
+$error-color: #dc3545;
+
+// Fonts
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background: $primary-gradient;
+  color: $white;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: $shadow-medium;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+}
+
+/* Navigation */
+nav {
+  background: $white;
+  padding: 1rem 0;
+  border-bottom: 1px solid $border-color;
+  box-shadow: $shadow-light;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      justify-content: flex-start;
+    }
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+
+    &:hover {
+      background: $primary-gradient;
+      color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &.active {
+      background: $primary-color;
+      color: $white;
+    }
+  }
+}
+
+/* Main content */
+main {
+  background: $white;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: $shadow-light;
+  min-height: 60vh;
+
+  h1 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  h2 {
+    color: $secondary-color;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    color: $text-color;
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+      color: $secondary-color;
+    }
+  }
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: $white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: $shadow-light;
+
+  th {
+    background: $primary-gradient;
+    color: $white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 1rem;
+    border-bottom: 1px solid $border-color;
+    vertical-align: top;
+
+    &:first-child {
+      font-weight: 500;
+    }
+  }
+
+  tr {
+    &:hover {
+      background-color: #f8f9ff;
+    }
+
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+}
+
+/* Footer */
+footer {
+  background: $primary-gradient;
+  color: $white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+
+  p {
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Page-specific styles */
+
+// Home Page
+.home-page {
+  .intro-text {
+    font-size: 1.2rem;
+    color: $secondary-color;
+    margin-bottom: 2rem;
+  }
+
+  .explore-section {
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .world-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-left: 0;
+    list-style: none;
+
+    li {
+      background: linear-gradient(135deg, #f8f9ff 0%, #e9ecef 100%);
+      border-radius: 8px;
+      margin-bottom: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-medium;
+      }
+
+      a {
+        display: block;
+        padding: 1.5rem;
+        text-decoration: none;
+        color: $text-color;
+        font-weight: 600;
+        border-radius: 8px;
+
+        &:hover {
+          background: $primary-gradient;
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// Magic Schools Page
+.magic-schools-page {
+  .magic-terms {
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4f8 100%);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: $shadow-light;
+    border: 1px solid #e2e8f0;
+
+    dl {
+      margin: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    dt {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $primary-color;
+      margin-bottom: 0.25rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 2px solid $primary-color;
+      display: inline-block;
+    }
+
+    dd {
+      margin: 0;
+      color: $text-color;
+      line-height: 1.5;
+      font-size: 0.9rem;
+      padding-left: 0.75rem;
+      border-left: 3px solid lighten($primary-color, 30%);
+      background: rgba(255, 255, 255, 0.6);
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-top: 0.25rem;
+    }
+  }
+
+  .schools-table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: $shadow-light;
+  }
+
+  .schools-table {
+    margin: 0;
+
+    .school-name-cell {
+      font-weight: 600;
+    }
+
+    .school-link {
+      color: $primary-color;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $secondary-color;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Magic School Detail Page
+.magic-school-page {
+  .school-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .school-meta {
+      font-size: 0.9rem;
+      color: lighten($text-color, 20%);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      .meta-item {
+        strong {
+          color: $primary-color;
+          font-weight: 600;
+        }
+
+        a {
+          color: $primary-color;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .meta-separator {
+        color: lighten($text-color, 40%);
+        font-weight: bold;
+      }
+    }
+  }
+
+  .school-description {
+    font-size: 1.1rem;
+    color: $secondary-color;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .focus-section {
+    background: linear-gradient(135deg, #f8f9ff 0%, #e9ecef 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+
+    h3 {
+      color: $primary-color;
+      margin-top: 0;
+    }
+
+    .focus-list {
+      margin-left: 1.5rem;
+
+      li {
+        color: $text-color;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .school-details {
+    margin: 2rem 0;
+
+    .detail-item {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid $primary-color;
+      margin-bottom: 1rem;
+      border-radius: 0 4px 4px 0;
+
+      strong {
+        color: $primary-color;
+      }
+
+      &.regulated {
+        background: rgb(247, 148, 138);
+        border-left-color: #d73527;
+
+        strong {
+          color: #8b2c1b;
+        }
+      }
+    }
+  }
+
+  .school-footer {
+    margin-top: 3rem;
+    text-align: center;
+
+    hr {
+      border: none;
+      height: 1px;
+      background: $primary-gradient;
+      margin: 2rem 0 1rem 0;
+    }
+
+    p {
+      color: #6c757d;
+      font-style: italic;
+    }
+  }
+
+  &.error {
+    text-align: center;
+    color: $error-color;
+    padding: 3rem;
+    font-size: 1.2rem;
+  }
+}
+
+// Coming Soon styling for placeholder pages
+.coming-soon {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 1px solid $warning-color;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  color: #856404;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+
+  em {
+    font-style: normal;
+    font-weight: 600;
+  }
+}
+
+// Individual page styling
+.magic-page,
+.classes-page,
+.equipment-page,
+.politics-page,
+.alignment-page,
+.religion-page,
+.relationships-page {
+  h1 {
+    border-bottom: 3px solid $primary-color;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+
+  .home-page .world-links {
+    grid-template-columns: 1fr;
+  }
+
+  .magic-school-page {
+    .focus-section {
+      padding: 1rem;
+    }
+
+    .school-details .detail-item {
+      padding: 0.75rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .schools-table-container {
+    .schools-table {
+      th, td {
+        padding: 0.25rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

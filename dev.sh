@@ -9,29 +9,34 @@ echo "========================"
 
 case "$1" in
   "mcp")
-    echo "🤖 Starting MCP Server..."
+    echo "🤖 Starting integrated MCP Server..."
+    cd site
+    npm run build:mcp && npm run mcp
+    ;;
+  "mcp-old")
+    echo "🤖 Starting legacy MCP Server..."
     cd mcp-server
     npm run dev
     ;;
   "site")
-    echo "🌐 Building and previewing static site locally..."
-    cd site-generator
-    npm run build:local
-    echo "📖 Opening preview at http://localhost:8002"
-    cd dist && python3 -m http.server 8002
+    echo "🌐 Starting SolidJS development server..."
+    cd site
+    npm run dev
     ;;
   "build")
     echo "🔨 Building all components..."
-    echo "Building MCP server..."
-    cd mcp-server && npm run build
+    echo "Building SolidJS site..."
+    cd site && npm run build:github
     cd ..
-    echo "Building static site..."
-    cd site-generator && npm run build
+    echo "Building integrated MCP server..."
+    cd site && npm run build:mcp
     cd ..
     echo "✅ All builds complete!"
     ;;
   "deploy")
-    echo "🚀 Deploying to GitHub Pages..."
+    echo "🚀 Building and deploying to GitHub Pages..."
+    cd site && npm run build:github
+    cd ..
     git add .
     git status
     read -p "Continue with commit and push? (y/N) " -n 1 -r
@@ -44,24 +49,25 @@ case "$1" in
       echo "❌ Deployment cancelled."
     fi
     ;;
-  "test")
-    echo "🧪 Testing MCP server capabilities..."
-    cd mcp-server
-    npx tsx src/test.ts
+  "clean")
+    echo "� Cleaning up old MCP server..."
+    rm -rf mcp-server
+    echo "✅ Old MCP server removed!"
     ;;
   *)
-    echo "Usage: $0 {mcp|site|build|deploy|test}"
+    echo "Usage: $0 {mcp|site|build|deploy|clean}"
     echo ""
     echo "Commands:"
-    echo "  mcp     - Start MCP server in development mode"
-    echo "  site    - Build and preview static site locally"
-    echo "  build   - Build both MCP server and static site"
-    echo "  deploy  - Commit and push changes (triggers GitHub Pages)"
-    echo "  test    - Test MCP server capabilities"
+    echo "  mcp     - Start integrated MCP server (shares SolidJS data)"
+    echo "  site    - Start SolidJS development server"
+    echo "  build   - Build both SolidJS site and MCP server"
+    echo "  deploy  - Build and push to GitHub Pages"
+    echo "  clean   - Remove old MCP server directory"
     echo ""
     echo "Examples:"
-    echo "  $0 site    # Preview your website locally"
-    echo "  $0 deploy  # Push changes and update GitHub Pages"
+    echo "  $0 site    # Start SolidJS dev server"
+    echo "  $0 mcp     # Start MCP server with shared data"
+    echo "  $0 deploy  # Build and deploy to GitHub Pages"
     exit 1
     ;;
 esac

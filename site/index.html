@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Aetheria World</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+      // Handle GitHub Pages SPA redirect
+      (function() {
+        const query = window.location.search;
+        if (query.includes('redirect=')) {
+          const urlParams = new URLSearchParams(query);
+          const redirect = urlParams.get('redirect');
+          if (redirect) {
+            // Remove the redirect parameter and update the URL
+            urlParams.delete('redirect');
+            const newSearch = urlParams.toString();
+            const newUrl = window.location.protocol + '//' +
+                          window.location.host +
+                          '/Aetheria/' + redirect +
+                          (newSearch ? '?' + newSearch : '') +
+                          window.location.hash;
+            window.history.replaceState(null, null, newUrl);
+          }
+        }
+      })();
+    </script>
+    <script src="/src/index.tsx" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+{
+  "classes": {
+    "primary": {
+      "warrior": {
+        "name": "Warrior",
+        "description": "Masters of physical combat, skilled with a variety of weapons and armor",
+        "alternative_names": [
+          "Fighter",
+          "Knight"
+        ]
+      },
+      "mage": {
+        "name": "Mage",
+        "description": "Wielders of magical energies, specializing in spellcasting and arcane knowledge",
+        "alternative_names": [
+          "Sorcerer",
+          "Wizard"
+        ]
+      },
+      "rogue": {
+        "name": "Rogue",
+        "description": "Experts in stealth, agility, and cunning, often excelling in thievery and assassination",
+        "alternative_names": [
+          "Thief",
+          "Assassin"
+        ]
+      },
+      "priest": {
+        "name": "Priest",
+        "description": "Divine spellcasters who draw power from deities to heal and protect",
+        "alternative_names": [
+          "Cleric",
+          "Healer"
+        ]
+      }
+    },
+    "specialized": {
+      "monk": {
+        "name": "Monk",
+        "description": "Masters of unarmed combat and spiritual discipline",
+        "alternative_names": [
+          "Martial Artist"
+        ]
+      },
+      "crusader": {
+        "name": "Crusader",
+        "description": "Warriors who fight for an ideal, often justice and righteousness",
+        "alternative_names": [
+          "Paladin",
+          "Templar",
+          "Inquisitor",
+          "Shadowknight",
+          "Dark Knight"
+        ]
+      },
+      "lancer": {
+        "name": "Lancer",
+        "description": "Specialists in polearms, particularly the lance, excelling in mounted combat",
+        "alternative_names": [
+          "Dragoon",
+          "Cavalier"
+        ]
+      },
+      "warlock": {
+        "name": "Warlock",
+        "description": "Spellcasters who derive their power from pacts with otherworldly beings",
+        "alternative_names": []
+      },
+      "necromancer": {
+        "name": "Necromancer",
+        "description": "Specialists in death magic, raising the dead and manipulating life forces",
+        "alternative_names": [
+          "Shadow Mage",
+          "Death Mage"
+        ]
+      },
+      "enchanter": {
+        "name": "Enchanter",
+        "description": "Focus on the manipulation of magical energies to imbue objects with spells",
+        "alternative_names": [
+          "Tinkerer",
+          "Artificer"
+        ]
+      },
+      "shadowblade": {
+        "name": "Shadowblade",
+        "description": "Stealthy assassins who combine martial prowess with shadow magic",
+        "alternative_names": []
+      },
+      "ranger": {
+        "name": "Ranger",
+        "description": "Skilled hunters and trackers, adept with bows and nature magic",
+        "alternative_names": [
+          "Archer",
+          "Scout"
+        ]
+      },
+      "bard": {
+        "name": "Bard",
+        "description": "Specialists in a particular musical instrument or style, enhancing their magical abilities and charming others",
+        "alternative_names": [
+          "Minstrel",
+          "Troubadour",
+          "Skald"
+        ]
+      },
+      "druid": {
+        "name": "Druid",
+        "description": "Guardians of nature who can shapeshift and command natural forces",
+        "alternative_names": [
+          "Shapeshifter",
+          "Nature Priest"
+        ]
+      }
+    }
+  }
+}
