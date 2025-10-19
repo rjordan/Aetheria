@@ -33,17 +33,17 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: 'site-generator/package-lock.json'
+          cache-dependency-path: 'site/package-lock.json'
 
       - name: Install dependencies
         run: |
-          cd site-generator
+          cd site
           npm ci
 
-      - name: Generate static site
+      - name: Build SolidJS site
         run: |
-          cd site-generator
-          npm run build
+          cd site
+          npm run build:github
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
