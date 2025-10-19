@@ -5,7 +5,6 @@ import './index.scss'
 import Layout from './components/Layout'
 import Home from './pages/home'
 import Magic from './pages/magic'
-import MagicSchools from './pages/magic'
 import MagicSchool from './pages/magic/school'
 import Politics from './pages/politics'
 import Classes from './pages/classes'
@@ -20,7 +19,6 @@ render(() => (
   <Router root={Layout}>
     <Route path="/" component={Home} />
     <Route path="/magic" component={Magic} />
-    <Route path="/magic_schools" component={MagicSchools} />
     <Route path="/magic/:school" component={MagicSchool} />
     <Route path="/politics" component={Politics} />
     <Route path="/classes" component={Classes} />

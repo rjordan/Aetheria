@@ -13,7 +13,7 @@ function Layout(props: RouteSectionProps) {
       <nav>
         <div class="container">
           <ul>
-            <li><A href="/">Home</A></li>
+            <li><A href="/" end>Home</A></li>
             <li><A href="/magic">Magic</A></li>
             <li><A href="/politics">Politics</A></li>
             <li><A href="/classes">Classes</A></li>
