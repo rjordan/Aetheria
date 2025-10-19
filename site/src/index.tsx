@@ -15,8 +15,11 @@ import Relationships from './pages/relationships'
 
 const root = document.getElementById('root')
 
+// Get the base path from the environment or default to '/'
+const basePath = import.meta.env.VITE_BASE_PATH || '/'
+
 render(() => (
-  <Router root={Layout}>
+  <Router base={basePath} root={Layout}>
     <Route path="/" component={Home} />
     <Route path="/magic" component={Magic} />
     <Route path="/magic/:school" component={MagicSchool} />

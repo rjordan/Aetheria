@@ -8,6 +8,10 @@ export default defineConfig({
     outDir: '../docs',
     emptyOutDir: true,
   },
+  define: {
+    // Pass the base path to the application
+    'import.meta.env.VITE_BASE_PATH': JSON.stringify(process.env.AETHERIA_BASE_PATH || '/')
+  },
   resolve: {
     alias: {
       '@': '/src',
@@ -17,7 +21,6 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler',
         additionalData: `// Global SCSS variables can go here`
       }
     }
