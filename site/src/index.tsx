@@ -2,6 +2,7 @@
 import { render } from 'solid-js/web'
 import { HashRouter, Route } from '@solidjs/router'
 import './index.scss'
+import './sw-manager' // Initialize service worker
 import Layout from './components/Layout'
 import Home from './pages/home'
 import Magic from './pages/magic'

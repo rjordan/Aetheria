@@ -1,0 +1,412 @@
+{
+  "organizations": {
+    "political": {
+      "type": "Political Organizations",
+      "description": "Groups involved in governance and political power",
+      "children": {
+        "kingdoms": {
+          "type": "Kingdoms",
+          "parent": "Political Organizations",
+          "description": "Monarchical states ruled by kings or queens",
+          "children": {
+            "eldoria": {
+              "name": "Kingdom of Eldoria",
+              "type": "Kingdom",
+              "parent": "Kingdoms",
+              "government_type": "Monarchy",
+              "ruler": "King Eldrin Dynsmire",
+              "description": "Known for its chivalric knights and grand castles",
+              "notable_features": "Ruled by the benevolent king Eldrin Dynsmire who values honor and justice, he is beloved by his people. However he is old, and has no clear heir, leading to concerns about the future stability of the kingdom",
+              "stability": "Stable but uncertain succession"
+            },
+            "iceclaw": {
+              "name": "Kingdom of the Iceclaw",
+              "type": "Kingdom",
+              "parent": "Kingdoms",
+              "government_type": "Monarchy",
+              "ruler": "Her Majesty Valora the Iceclaw",
+              "description": "A rugged region inhabited by various clans primarily humans, snow-elves, dragonborn, and other ice-dwelling humanoids",
+              "notable_features": "Valora appears as a beautiful young woman with long white hair and eyes the color of ice, but in reality is a silver dragon. Valora tends to allow disputes to be settled among the tribes rarely holding audiences, but acts decisively when absolutely required",
+              "population": [
+                "Humans",
+                "Snow-elves",
+                "Dragonborn",
+                "Ice-dwelling humanoids"
+              ]
+            },
+            "drakoria": {
+              "name": "Kingdom of Drakoria",
+              "type": "Kingdom",
+              "parent": "Kingdoms",
+              "government_type": "Monarchy",
+              "ruler": "King Thalor Drakonis",
+              "description": "A powerful and militaristic kingdom",
+              "notable_features": "Ruled by King Thalor Drakonis, a fierce warrior known for his strategic mind and unyielding resolve. Drakoria is renowned for its formidable army and advanced siege technologies. The kingdom is often engaged in conflicts with neighboring realms",
+              "military_strength": "Very High",
+              "specialties": [
+                "Advanced siege technologies",
+                "Strategic warfare"
+              ]
+            },
+            "sylvandell": {
+              "name": "Kingdom of Sylvandell",
+              "type": "Kingdom",
+              "parent": "Kingdoms",
+              "government_type": "Representative Monarchy",
+              "ruler": "Queen Elara Moonshadow",
+              "governing_body": "The Council (ancient elves)",
+              "description": "A lush and mystical realm inhabited primarily by elves and other fey creatures",
+              "notable_features": "The fae Queen Elara Moonshadow presides over the Council. The Queen's job is mainly as ambassador and authority to implement Council decisions. Elara can veto decisions requiring unanimous vote to override, done sparingly",
+              "population": [
+                "Elves",
+                "Fey creatures"
+              ],
+              "environment": "Enchanting forests, magical flora"
+            },
+            "demon_lands": {
+              "name": "Demon Lands",
+              "type": "Kingdom",
+              "parent": "Kingdoms",
+              "government_type": "Monarchy",
+              "ruler": "Demon Queen Lilandra",
+              "description": "A dark and foreboding realm ruled by demons",
+              "notable_features": "Ruled by the Demon Queen Lilandra, a fearsome and cunning ruler who commands legions of demonic minions. Characterized by harsh landscapes, volcanic activity and twisted terrain. Power makes right here and the biggest law is 'Do unto others, before they do unto you'",
+              "alignment": "Chaotic Evil",
+              "environment": "Volcanic, twisted terrain",
+              "philosophy": "Might makes right"
+            },
+            "bone_sands": {
+              "name": "Desert of the Bone Sands",
+              "type": "Kingdom",
+              "parent": "Kingdoms",
+              "government_type": "Tribal/Monarchy",
+              "ruler": "God-King Zeth-Ra the All Seeing",
+              "description": "A vast and arid desert inhabited by nomadic tribes and settlements",
+              "notable_features": "Ruled by the god-king Zeth-Ra the all Seeing and his undead and necromantic generals. Zeth-ra is an ancient and powerful mummy/lich. Obelisks of bone and dark stone rise from the sands, serving as landmarks and allowing Zeth-Ra to see all that transpires nearby",
+              "environment": "Pale yellowish-white sand resembling bleached bone dust",
+              "specialties": [
+                "Undead",
+                "Necromancy"
+              ],
+              "surveillance": "Bone obelisks provide omniscient monitoring"
+            }
+          }
+        },
+        "republics": {
+          "type": "Republics",
+          "parent": "Political Organizations",
+          "description": "Democratic states governed by elected representatives",
+          "children": {
+            "valtoria": {
+              "name": "Republic of Valtoria",
+              "type": "Republic",
+              "parent": "Republics",
+              "government_type": "Republic",
+              "leader": "Prime Minister Liora Venn",
+              "governing_body": "Elected Senate",
+              "description": "Famous for its bustling trade cities and democratic institutions",
+              "notable_features": "Governed by an elected senate, Valtoria is a hub of commerce and culture, attracting merchants and scholars from across Aetheria. Known for diplomatic skills and progressive policies. Home to the great library of Aetheria and the renowned Academy of Magic",
+              "specialties": [
+                "Trade",
+                "Education",
+                "Diplomacy"
+              ],
+              "landmarks": [
+                "Great Library of Aetheria",
+                "Academy of Magic"
+              ]
+            }
+          }
+        },
+        "theocracies": {
+          "type": "Theocracies",
+          "parent": "Political Organizations",
+          "description": "States governed by religious authority",
+          "children": {
+            "lumina": {
+              "name": "Theocratic State of Lumina",
+              "type": "Theocracy",
+              "parent": "Theocracies",
+              "government_type": "Theocracy",
+              "ruler": "High Priestess Seraphina",
+              "description": "A land where religious leaders hold supreme power, guiding the populace according to divine will",
+              "notable_features": "The High Priestess Seraphina is revered for her spiritual wisdom and is believed to be the earthly voice of the gods. Lumina is known for its grand temples and festivals celebrating the divine",
+              "specialties": [
+                "Divine magic",
+                "Religious ceremonies"
+              ],
+              "landmarks": [
+                "Grand temples"
+              ]
+            }
+          }
+        },
+        "councils": {
+          "type": "Council Governments",
+          "parent": "Political Organizations",
+          "description": "States governed by councils of leaders",
+          "children": {
+            "karak_dur": {
+              "name": "Dwarven Holds of Karak-Dur",
+              "type": "Council",
+              "parent": "Council Governments",
+              "government_type": "Council",
+              "leader": "High Lord Thrain Ironfist",
+              "governing_body": "Council of lords of powerful dwarven houses",
+              "description": "A network of underground cities and fortresses",
+              "notable_features": "Known for masterful craftsmanship, particularly in metalwork and stone carving. Has overseen a period of prosperity and expansion. Famous for vast mines rich in precious gems and metals",
+              "population": [
+                "Dwarves"
+              ],
+              "specialties": [
+                "Metalwork",
+                "Stone carving",
+                "Mining"
+              ],
+              "environment": "Underground cities and fortresses"
+            }
+          }
+        },
+        "oligarchies": {
+          "type": "Oligarchies",
+          "parent": "Political Organizations",
+          "description": "States governed by small groups of powerful individuals",
+          "children": {
+            "free_cities": {
+              "name": "Free Cities of the Shattered Coast",
+              "type": "Oligarchy",
+              "parent": "Oligarchies",
+              "government_type": "Oligarchy",
+              "governing_body": "Merchant councils",
+              "leading_city": "Port Azure",
+              "description": "A collection of independent city-states along a treacherous coastline",
+              "notable_features": "Known for vibrant trade networks, diverse populations, and fierce independence. Port Azure is renowned for its bustling markets and skilled sailors. Cities often band together for mutual defense but maintain autonomy",
+              "specialties": [
+                "Trade",
+                "Naval commerce",
+                "Independence"
+              ],
+              "environment": "Treacherous coastline"
+            }
+          }
+        },
+        "anarchies": {
+          "type": "Anarchic Regions",
+          "parent": "Political Organizations",
+          "description": "Regions with little to no formal government",
+          "children": {
+            "twilight_archipelago": {
+              "name": "Twilight Archipelago",
+              "type": "Anarchy/Monarchy",
+              "parent": "Anarchic Regions",
+              "government_type": "Anarchy/Pirate Rule",
+              "ruler": "Pirate King Samuel Roberts",
+              "description": "A mysterious group of islands inhabited by various seafaring peoples and creatures",
+              "notable_features": "Known for unpredictable weather, hidden treasures, and ancient ruins. Some islands governed by local chieftains or pirate lords, others in complete anarchy. Loosely but viciously ruled by the dreaded pirate king Samuel Roberts through fear and cunning",
+              "specialties": [
+                "Piracy",
+                "Treasure hunting",
+                "Naval combat"
+              ],
+              "environment": "Ocean islands, unpredictable weather"
+            }
+          }
+        }
+      }
+    },
+    "religious": {
+      "type": "Religious Organizations",
+      "description": "Groups organized around worship and spiritual beliefs",
+      "children": {
+        "churches": {
+          "type": "Churches",
+          "parent": "Religious Organizations",
+          "description": "Organized religious institutions",
+          "children": {
+            "church_of_light": {
+              "name": "Church of Light",
+              "type": "Church",
+              "parent": "Churches",
+              "description": "Primary organization for Light magic practitioners",
+              "beliefs": [
+                "Healing",
+                "Protection",
+                "Purification"
+              ],
+              "stance_on_magic": {
+                "light": "Blessed",
+                "dark": "Forbidden",
+                "necromancy": "Abomination"
+              },
+              "political_influence": "High in Lumina, significant elsewhere"
+            }
+          }
+        },
+        "cults": {
+          "type": "Cults",
+          "parent": "Religious Organizations",
+          "description": "Secretive or fringe religious groups",
+          "children": {
+            "necromancer_cults": {
+              "name": "Necromancer Cults",
+              "type": "Cult",
+              "parent": "Cults",
+              "description": "Illegal groups practicing forbidden necromancy",
+              "status": "Highly illegal",
+              "typical_activities": [
+                "Animate Dead",
+                "Soul trafficking",
+                "Lich creation"
+              ],
+              "persecution": "Hunted by authorities and Church of Light",
+              "strongholds": [
+                "Desert of Bone Sands",
+                "Hidden locations"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "magical": {
+      "type": "Magical Organizations",
+      "description": "Groups organized around magical practice and study",
+      "children": {
+        "academies": {
+          "type": "Magical Academies",
+          "parent": "Magical Organizations",
+          "description": "Educational institutions for magical learning",
+          "children": {
+            "academy_of_magic": {
+              "name": "Academy of Magic",
+              "type": "Academy",
+              "parent": "Magical Academies",
+              "location": "Republic of Valtoria",
+              "description": "Renowned institution for magical education",
+              "reputation": "One of the most prestigious magical academies in Aetheria",
+              "specialties": [
+                "All schools of magic",
+                "Magical research",
+                "Theoretical magic"
+              ]
+            }
+          }
+        },
+        "mage_guilds": {
+          "type": "Mage Guilds",
+          "parent": "Magical Organizations",
+          "description": "Professional organizations for magical practitioners",
+          "children": {
+            "enchanters_circle": {
+              "name": "The Enchanters' Circle",
+              "type": "Mage Guild",
+              "parent": "Mage Guilds",
+              "specialization": "Aether magic and item enchantment",
+              "structure": "Council of master enchanters",
+              "membership": "Invitation only",
+              "services": [
+                "Item enchantment",
+                "Magical research",
+                "Artifact creation"
+              ]
+            }
+          }
+        },
+        "regulators": {
+          "type": "Magical Regulators",
+          "parent": "Magical Organizations",
+          "description": "Organizations that oversee and regulate magical practice",
+          "children": {
+            "ministry_of_arcane_affairs": {
+              "name": "Ministry of Arcane Affairs",
+              "type": "Regulatory Body",
+              "parent": "Magical Regulators",
+              "jurisdiction": "Time and Mind magic regulation",
+              "authority": "Can arrest, try, and sentence magical criminals",
+              "enforcement_arm": "Arcane Wardens",
+              "scope": "Multi-kingdom authority for dangerous magic"
+            }
+          }
+        }
+      }
+    },
+    "criminal": {
+      "type": "Criminal Organizations",
+      "description": "Groups engaged in illegal activities",
+      "children": {
+        "thieves_guilds": {
+          "type": "Thieves' Guilds",
+          "parent": "Criminal Organizations",
+          "description": "Organized groups of thieves and rogues",
+          "children": null
+        },
+        "pirate_organizations": {
+          "type": "Pirate Organizations",
+          "parent": "Criminal Organizations",
+          "description": "Maritime criminal groups",
+          "children": {
+            "twilight_pirates": {
+              "name": "Twilight Archipelago Pirates",
+              "type": "Pirate Organization",
+              "parent": "Pirate Organizations",
+              "leader": "Pirate King Samuel Roberts",
+              "territory": "Twilight Archipelago",
+              "description": "Loose confederation of pirate crews under Samuel Roberts",
+              "activities": [
+                "Piracy",
+                "Treasure hunting",
+                "Smuggling"
+              ],
+              "influence": "High in Twilight Archipelago, regional threat elsewhere"
+            }
+          }
+        }
+      }
+    },
+    "mercantile": {
+      "type": "Mercantile Organizations",
+      "description": "Groups focused on trade and commerce",
+      "children": {
+        "merchant_guilds": {
+          "type": "Merchant Guilds",
+          "parent": "Mercantile Organizations",
+          "description": "Professional organizations for traders and craftspeople",
+          "children": {
+            "valtoria_merchants": {
+              "name": "Valtoria Merchant Guild",
+              "type": "Merchant Guild",
+              "parent": "Merchant Guilds",
+              "location": "Republic of Valtoria",
+              "description": "Primary trade organization in Valtoria",
+              "specialties": [
+                "International trade",
+                "Scholarly texts",
+                "Magical components"
+              ],
+              "influence": "High in Valtoria, significant trade influence elsewhere"
+            }
+          }
+        },
+        "trading_companies": {
+          "type": "Trading Companies",
+          "parent": "Mercantile Organizations",
+          "description": "Commercial enterprises engaged in trade",
+          "children": {
+            "shattered_coast_traders": {
+              "name": "Shattered Coast Trading Company",
+              "type": "Trading Company",
+              "parent": "Trading Companies",
+              "territory": "Free Cities of the Shattered Coast",
+              "description": "Inter-city trading network along the Shattered Coast",
+              "specialties": [
+                "Maritime trade",
+                "Exotic goods",
+                "Naval supplies"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

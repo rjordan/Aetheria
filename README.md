@@ -39,6 +39,29 @@ cd site && npm run build:mcp && npm run mcp
 git add . && git commit -m "Update content" && git push
 ```
 
+## 🔨 **Build Commands**
+
+The project uses dotenv for clean environment management:
+
+```bash
+# Development server (uses .env)
+npm run dev
+
+# Production build (uses .env)
+npm run build
+
+# GitHub Pages build (uses .env.github)
+npm run build:github
+
+# Preview production build
+npm run preview
+```
+
+### Environment Files
+- **`.env`** - Development defaults (not committed)
+- **`.env.example`** - Template with all options
+- **`.env.github`** - GitHub Pages configuration
+
 ## 🤖 **MCP Server Setup**
 
 The MCP server provides AI agents with access to fully rendered page content using Puppeteer:
@@ -70,7 +93,52 @@ AETHERIA_SITE_URL=http://localhost:3000 npm run mcp
 
 The MCP server uses headless Chrome to render actual page content, ensuring AI agents get the same rich information that human users see in the browser.
 
-## 📁 **Project Structure**
+### Generic Data Loading Interface
+
+The site uses a configurable data loading system that works with static files or APIs:
+
+```typescript
+// Runtime loading via HTTP fetch (cached automatically)
+const magicData = await fetchMagicData()  // GET ${DATA_ENDPOINT}/magic.json
+const classData = await fetchClassesData()  // GET ${DATA_ENDPOINT}/classes.json
+```
+
+#### Environment Configuration
+```bash
+# Copy .env.example to .env and customize
+cp .env.example .env
+
+# Default configuration (.env)
+VITE_DATA_ENDPOINT=/data      # Data source endpoint
+AETHERIA_BASE_PATH=/          # Site base path
+
+# Example configurations:
+VITE_DATA_ENDPOINT=https://api.example.com/aetheria/data  # Remote API
+VITE_DATA_ENDPOINT=http://localhost:3000/api/v1/data     # Local API server
+AETHERIA_BASE_PATH=/Aetheria/                            # GitHub Pages path
+```
+
+#### Data Architecture
+- **Dotenv Integration**: Clean environment variable management with `.env` files
+- **Multiple Environments**: Separate configs for development, GitHub Pages, etc.
+- **Static Files**: JSON files in `/public/data/` served at `/data/` URLs
+- **Dynamic APIs**: Any HTTP endpoint returning JSON with the same structure
+- **Runtime Loading**: Uses standard `fetch()` calls, no compile-time dependencies
+- **Automatic Caching**: In-memory cache prevents repeated requests
+
+#### Data Structure Examples
+- **`magic.json`**: Contains `magic.schools` and `magic.spells` data
+- **`classes.json`**: Contains `classes.primary` and `classes.specialized` data
+- **Other files**: Equipment, organizations, creatures, site configuration
+
+#### Benefits
+- **Environment Configurable**: Switch between static files and APIs via ENV vars
+- **Zero Bundle Impact**: JSON files not included in JavaScript bundle
+- **Offline Support**: Service Worker provides offline functionality with cached data
+- **Intelligent Caching**: Network-first for fresh data, cache fallback for offline
+- **API-Ready**: Drop-in replacement with real web services
+- **Development Friendly**: Works with local files during development
+- **Production Flexible**: Can serve from CDN, API, or static files## 📁 **Project Structure**
 
 - **`/site/`** - SolidJS application with data and pages
   - **`/src/data/`** - JSON data files with TypeScript types
@@ -91,6 +159,8 @@ The MCP server uses headless Chrome to render actual page content, ensuring AI a
 ### For Humans (GitHub Pages)
 - **SolidJS SPA**: Fast, reactive single-page application
 - **Hash Routing**: Works perfectly with GitHub Pages subpaths
+- **Offline Support**: Service Worker enables offline browsing with cached data
+- **Smart Caching**: Network-first strategy keeps content fresh when online
 - **Mobile-Friendly**: Responsive design that works on all devices
 - **Fast Navigation**: Instant page transitions after initial load
 

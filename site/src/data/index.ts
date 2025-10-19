@@ -11,9 +11,10 @@
  *
  * Features:
  * - Environment-configurable endpoint
- * - Automatic caching to prevent repeated requests
+ * - Service worker caching for offline support
  * - Full TypeScript support for all data structures
  * - Easy migration between static files and APIs
+ * - Offline functionality with cached data
  *
  * Usage:
  *   const magicData = await fetchMagicData()    // GET ${DATA_ENDPOINT}/magic.json
@@ -79,32 +80,54 @@ export interface SiteData {
 // Configurable data endpoint - can be overridden via environment variable
 const DATA_ENDPOINT = import.meta.env.VITE_DATA_ENDPOINT || '/data'
 
-// Private cache to avoid repeated loads
-const dataCache = new Map<string, any>()
-
 // Generic data loader - works with local files or remote APIs
+// Caching is now handled by the service worker for better offline support
 async function loadJsonData<T>(filename: string): Promise<T> {
-  // Check cache first
-  if (dataCache.has(filename)) {
-    return dataCache.get(filename)
-  }
-
   try {
     // Fetch from configurable endpoint
-    const response = await fetch(`${DATA_ENDPOINT}/${filename}.json`)
+    // Service worker will handle caching and offline functionality
+    const response = await fetch(`${DATA_ENDPOINT}/${filename}.json`, {
+      // Add cache-control headers for better service worker handling
+      headers: {
+        'Cache-Control': 'max-age=300' // 5 minutes for data freshness
+      }
+    })
 
     if (!response.ok) {
+      // Check if this is an offline error from service worker
+      if (response.status === 503) {
+        const errorData = await response.json().catch(() => ({}))
+        if (errorData.offline) {
+          throw new OfflineError(`Data for ${filename} is not available offline`)
+        }
+      }
       throw new Error(`HTTP ${response.status}: ${response.statusText}`)
     }
 
     const data = await response.json()
-
-    // Cache the result
-    dataCache.set(filename, data)
     return data as T
   } catch (error) {
     console.error(`Failed to load ${filename}.json from ${DATA_ENDPOINT}:`, error)
+
+    // Provide better error messages for offline scenarios
+    if (error instanceof OfflineError) {
+      throw error
+    }
+
+    // Check if we're offline
+    if (!navigator.onLine) {
+      throw new OfflineError(`Cannot load ${filename} while offline`)
+    }
+
     throw new Error(`Failed to load data: ${filename}`)
+  }
+}
+
+// Custom error for offline scenarios
+export class OfflineError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'OfflineError'
   }
 }
 
@@ -159,11 +182,38 @@ export function getDataEndpoint(): string {
   return DATA_ENDPOINT
 }
 
-export function clearDataCache(): void {
-  dataCache.clear()
+// Clear cache via PWA plugin (handled automatically by Workbox)
+export async function clearDataCache(filename?: string): Promise<void> {
+  // With vite-plugin-pwa, cache clearing is handled automatically
+  // by Workbox based on the configuration. Manual clearing not typically needed.
+  console.log('[Data] Cache clearing handled automatically by PWA plugin')
+
+  // If manual clearing is needed, it would require accessing the Workbox instance
+  // For now, we'll log that this is handled by the plugin
+  if (filename) {
+    console.log(`[Data] Would clear cache for: ${filename}`)
+  } else {
+    console.log('[Data] Would clear all data cache')
+  }
 }
 
-/*
+// Check if we're currently offline
+export function isOffline(): boolean {
+  return !navigator.onLine
+}
+
+// Get offline status and PWA information
+export async function getOfflineStatus() {
+  const { pwaManager } = await import('../sw-manager')
+
+  return {
+    online: navigator.onLine,
+    serviceWorkerActive: !!navigator.serviceWorker.controller,
+    updateAvailable: pwaManager.updateAvailable,
+    offlineReady: pwaManager.offlineReady,
+    isPWA: window.matchMedia('(display-mode: standalone)').matches
+  }
+}/*
 ENVIRONMENT CONFIGURATION:
 
 Local development (default):

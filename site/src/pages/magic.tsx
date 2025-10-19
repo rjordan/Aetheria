@@ -1,9 +1,12 @@
 import { For, createResource, Show } from 'solid-js'
 import { A } from '@solidjs/router'
-import { fetchMagicData } from '@data/index'
+import { fetchMagicData, OfflineError } from '@data/index'
 
 function MagicSchools() {
   const [magicData] = createResource(fetchMagicData)
+
+  // Check for offline errors
+  const isOfflineError = () => magicData.error instanceof OfflineError
 
   const schools = () => {
     const data = magicData()
@@ -41,7 +44,21 @@ function MagicSchools() {
 
       <h2>Magic Schools</h2>
 
-      <Show when={magicData()} fallback={<div>Loading magic data...</div>}>
+      <Show
+        when={magicData()}
+        fallback={
+          <div class="loading-state">
+            {isOfflineError() ? (
+              <div class="offline-error">
+                <h3>📱 Offline Mode</h3>
+                <p>Magic data is not available offline. Please check your connection.</p>
+              </div>
+            ) : (
+              <div>Loading magic data...</div>
+            )}
+          </div>
+        }
+      >
         <div class="schools-table-container">
           <table class="schools-table">
             <thead>

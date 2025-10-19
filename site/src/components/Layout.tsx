@@ -1,8 +1,10 @@
 import { A, RouteSectionProps } from '@solidjs/router'
+import OfflineIndicator from './OfflineIndicator'
 
 function Layout(props: RouteSectionProps) {
   return (
     <>
+      <OfflineIndicator />
       <header>
         <div class="container">
           <h1>🌍 Aetheria</h1>
