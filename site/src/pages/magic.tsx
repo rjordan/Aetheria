@@ -1,12 +1,18 @@
-import { For } from 'solid-js'
+import { For, createResource, Show } from 'solid-js'
 import { A } from '@solidjs/router'
-import { magicSchoolsData } from '@data/index'
+import { fetchMagicData } from '@data/index'
 
 function MagicSchools() {
-  const schools = Object.entries(magicSchoolsData.magic_schools).map(([key, school]: [string, any]) => ({
-    key,
-    ...school,
-  }))
+  const [magicData] = createResource(fetchMagicData)
+
+  const schools = () => {
+    const data = magicData()
+    if (!data) return []
+    return Object.entries(data.magic.schools).map(([key, school]: [string, any]) => ({
+      key,
+      ...school,
+    }))
+  }
 
   return (
     <div class="magic-schools-page">
@@ -34,38 +40,41 @@ function MagicSchools() {
       </div>
 
       <h2>Magic Schools</h2>
-      <div class="schools-table-container">
-        <table class="schools-table">
-          <thead>
-            <tr>
-              <th>School</th>
-              <th>Description</th>
-              <th>Focus Areas</th>
-              <th>Regulation</th>
-              <th>Opposing Element</th>
-            </tr>
-          </thead>
-          <tbody>
-            <For each={schools.sort((a, b) => a.name.localeCompare(b.name))}>
-              {(school) => (
-                <tr>
-                  <td class="school-name-cell">
-                    <A href={`/magic/${school.key}`} class="school-link">
-                      {school.name}
-                    </A>
-                  </td>
-                  <td>{school.description}</td>
-                  <td>
-                    {Array.isArray(school.focus) ? school.focus.join(', ') : school.focus || 'N/A'}
-                  </td>
-                  <td>{school.regulation || 'Unknown'}</td>
-                  <td>{school.opposing_element || 'None'}</td>
-                </tr>
-              )}
-            </For>
-          </tbody>
-        </table>
-      </div>
+
+      <Show when={magicData()} fallback={<div>Loading magic data...</div>}>
+        <div class="schools-table-container">
+          <table class="schools-table">
+            <thead>
+              <tr>
+                <th>School</th>
+                <th>Description</th>
+                <th>Focus Areas</th>
+                <th>Regulation</th>
+                <th>Opposing Element</th>
+              </tr>
+            </thead>
+            <tbody>
+              <For each={schools().sort((a: any, b: any) => a.name.localeCompare(b.name))}>
+                {(school) => (
+                  <tr>
+                    <td class="school-name-cell">
+                      <A href={`/magic/${school.key}`} class="school-link">
+                        {school.name}
+                      </A>
+                    </td>
+                    <td>{school.description}</td>
+                    <td>
+                      {Array.isArray(school.focus) ? school.focus.join(', ') : school.focus || 'N/A'}
+                    </td>
+                    <td>{school.regulation || 'Unknown'}</td>
+                    <td>{school.opposing_element || 'None'}</td>
+                  </tr>
+                )}
+              </For>
+            </tbody>
+          </table>
+        </div>
+      </Show>
     </div>
   )
 }

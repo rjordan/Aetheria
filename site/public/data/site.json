@@ -41,10 +41,10 @@
       "description": "Weapons, armor, and items"
     },
     {
-      "name": "magic_schools",
-      "display": "Magic Schools",
+      "name": "magic",
+      "display": "Magic",
       "icon": "🎓",
-      "description": "Schools of magical study"
+      "description": "Magic - Schools and Spells"
     },
     {
       "name": "organizations",

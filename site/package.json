@@ -7,9 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "dev:local": "AETHERIA_BASE_PATH=/ vite",
-    "build:local": "AETHERIA_BASE_PATH=/ vite build",
-    "build:github": "AETHERIA_BASE_PATH=/Aetheria/ vite build",
+    "build:github": "vite build --mode github",
     "build:mcp": "tsc src/mcp-server.ts --outDir dist --module esnext --target es2022 --moduleResolution bundler --allowImportingTsExtensions false",
     "mcp": "node dist/mcp-server.js",
     "lint": "eslint src --ext .ts,.tsx --fix"
@@ -26,6 +24,7 @@
     "@types/node": "^24.8.1",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
+    "dotenv": "^17.2.3",
     "eslint": "^8.57.1",
     "eslint-plugin-solid": "^0.14.5",
     "sass": "^1.93.2",
