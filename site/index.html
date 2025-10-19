@@ -24,7 +24,7 @@
               const newSearch = urlParams.toString();
               const newUrl = window.location.protocol + '//' +
                             window.location.host +
-                            '/Aetheria/' + redirect +
+                            '/Aetheria' + redirect +
                             (newSearch ? '?' + newSearch : '') +
                             window.location.hash;
               window.history.replaceState(null, null, newUrl);
