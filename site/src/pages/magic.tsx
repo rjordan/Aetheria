@@ -1,4 +1,4 @@
-import { For, createResource, Show } from 'solid-js'
+import { For, createResource, Suspense } from 'solid-js'
 import { A } from '@solidjs/router'
 import { fetchMagicData, OfflineError } from '@data/index'
 
@@ -43,9 +43,9 @@ function MagicSchools() {
       </div>
 
       <h2>Magic Schools</h2>
+      <p>Opposition elements: Magic is treated as one rank higher when targeting its opposing element. These effects also apply to creatures and effects. e.g.: A caster in a forest fire dealing B rank damage, a B rank elemental shield would be required to prevent damage, but a C rank water shield would also be effective, or undead would take one rank higher damage from light magic.</p>
 
-      <Show
-        when={magicData()}
+      <Suspense
         fallback={
           <div class="loading-state">
             {isOfflineError() ? (
@@ -91,7 +91,7 @@ function MagicSchools() {
             </tbody>
           </table>
         </div>
-      </Show>
+      </Suspense>
     </div>
   )
 }

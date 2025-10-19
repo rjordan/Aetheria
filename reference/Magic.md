@@ -43,6 +43,7 @@ Spells that can be cast using any elemental school. The element used will affect
 |Elemental Fury|Unleashes a powerful rain of elemental energy, causing widespread damage in an area.|Requires significant magical power to cast.|
 |Elemental Weapon|Create a blade or other weapon of elemental energy of the casters choice, causing normal damage and adding elemental effects. Can be dismissed at will.|Commonly used by warriors and adventurers.|
 |Elemental Armor|Envelops the caster in a suit of elemental armor that can appear as any type of armor made from the chosen element, providing enhanced protection and resistance to damage. Can be dismissed at will.|Useful for defense in combat.|
+
 |Elemental Blades|Creates five blades made elemental energy that shoot towards a target as if thrown. These usually take the shape of daggers or shuriken, but can look like anything the caster imagines. As an option when the spell is cast, the caster can change the material of the blades into any material they are physically touching (Thus blades of silver, cold iron, etc are possible). These blades do damage as a thrown weapon but can be useful to deal painful damage to creatures weak to a given material. Regardless, these blades dissipate back into Aether after 5 minutes.|Useful for combat and utility.|
 
 ### Light

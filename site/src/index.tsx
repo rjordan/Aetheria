@@ -13,6 +13,7 @@ import Equipment from './pages/equipment'
 import Alignment from './pages/alignment'
 import Religion from './pages/religion'
 import Relationships from './pages/relationships'
+import Skills from './pages/skills'
 
 const root = document.getElementById('root')
 
@@ -21,6 +22,7 @@ render(() => (
     <Route path="/" component={Home} />
     <Route path="/magic" component={Magic} />
     <Route path="/magic/:school" component={MagicSchool} />
+    <Route path="/skills" component={Skills} />
     <Route path="/politics" component={Politics} />
     <Route path="/classes" component={Classes} />
     <Route path="/equipment" component={Equipment} />

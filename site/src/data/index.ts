@@ -31,10 +31,16 @@ export interface MagicSchoolData {
   opposing_element: string
 }
 
+export interface MagicSpellData {
+  name: string,
+  min_rank: string,
+  description: string
+}
+
 export interface MagicData {
   magic: {
     schools: Record<string, MagicSchoolData>
-    spells: Record<string, any>
+    spells: Record<string, Record<string, MagicSpellData>>
   }
 }
 

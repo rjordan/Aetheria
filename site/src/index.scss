@@ -100,6 +100,35 @@ nav {
   }
 }
 
+dl {
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+
+  dt {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 2px solid $primary-color;
+    display: inline-block;
+  }
+
+  dd {
+    margin: 0;
+    color: $text-color;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid #9bb0f0;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+  }
+}
+
 /* Main content */
 main {
   background: $white;
@@ -132,7 +161,8 @@ main {
     line-height: 1.7;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-left: 2rem;
     margin-bottom: 1rem;
 
@@ -278,59 +308,30 @@ footer {
     box-shadow: $shadow-light;
     border: 1px solid #e2e8f0;
 
-    dl {
+    .schools-table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: 8px;
+      box-shadow: $shadow-light;
+    }
+
+    .schools-table {
       margin: 0;
-      display: grid;
-      gap: 1rem;
-    }
 
-    dt {
-      font-size: 1rem;
-      font-weight: 700;
-      color: $primary-color;
-      margin-bottom: 0.25rem;
-      padding-bottom: 0.15rem;
-      border-bottom: 2px solid $primary-color;
-      display: inline-block;
-    }
+      .school-name-cell {
+        font-weight: 600;
+      }
 
-    dd {
-      margin: 0;
-      color: $text-color;
-      line-height: 1.5;
-      font-size: 0.9rem;
-      padding-left: 0.75rem;
-      border-left: 3px solid #9bb0f0;
-      background: rgba(255, 255, 255, 0.6);
-      padding: 0.75rem;
-      border-radius: 4px;
-      margin-top: 0.25rem;
-    }
-  }
+      .school-link {
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
 
-  .schools-table-container {
-    overflow-x: auto;
-    margin: 2rem 0;
-    border-radius: 8px;
-    box-shadow: $shadow-light;
-  }
-
-  .schools-table {
-    margin: 0;
-
-    .school-name-cell {
-      font-weight: 600;
-    }
-
-    .school-link {
-      color: $primary-color;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: $secondary-color;
-        text-decoration: underline;
+        &:hover {
+          color: $secondary-color;
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -504,7 +505,8 @@ footer {
   table {
     font-size: 0.9rem;
 
-    th, td {
+    th,
+    td {
       padding: 0.5rem;
     }
   }
@@ -527,7 +529,9 @@ footer {
 @media (max-width: 480px) {
   .schools-table-container {
     .schools-table {
-      th, td {
+
+      th,
+      td {
         padding: 0.25rem;
         font-size: 0.8rem;
       }

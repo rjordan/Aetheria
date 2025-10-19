@@ -1,4 +1,4 @@
-import { For, createResource, Show } from 'solid-js'
+import { For, createResource, Suspense } from 'solid-js'
 import { fetchClassesData } from '@data/index'
 
 function Classes() {
@@ -21,7 +21,7 @@ function Classes() {
       <h1>Character Classes</h1>
       <p>The fundamental class archetypes that form the basis of character development</p>
 
-      <Show when={classesData()} fallback={<div>Loading classes data...</div>}>
+      <Suspense fallback={<div>Loading classes data...</div>}>
         <h2>Primary Classes</h2>
         <div class="classes-table-container">
           <table class="classes-table">
@@ -69,7 +69,7 @@ function Classes() {
             </tbody>
           </table>
         </div>
-      </Show>
+      </Suspense>
     </div>
   )
 }

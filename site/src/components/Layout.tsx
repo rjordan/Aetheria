@@ -16,11 +16,12 @@ function Layout(props: RouteSectionProps) {
         <div class="container">
           <ul>
             <li><A href="/" end>Home</A></li>
-            <li><A href="/magic">Magic</A></li>
-            <li><A href="/politics">Politics</A></li>
             <li><A href="/classes">Classes</A></li>
+            <li><A href='/skills'>Skills</A></li>
+            <li><A href="/magic">Magic</A></li>
             <li><A href="/equipment">Equipment</A></li>
             <li><A href="/alignment">Alignment</A></li>
+            <li><A href="/politics">Politics</A></li>
             <li><A href="/religion">Religion</A></li>
             <li><A href="/relationships">Relationships</A></li>
           </ul>
