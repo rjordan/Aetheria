@@ -471,7 +471,7 @@ footer {
     <tbody>
       ${entities.map(entity => `
         <tr>
-          <td><a href="${this.sanitizeFilename(entity.name)}.html"><strong>${entity.name}</strong></a></td>
+          <td><a href="data/${dataType}/${this.sanitizeFilename(entity.name)}.html"><strong>${entity.name}</strong></a></td>
           <td>${Array.isArray(entity.data.focus) ? entity.data.focus.join(', ') : entity.data.focus || 'N/A'}</td>
           <td>${entity.data.opposing_element || 'N/A'}</td>
           <td>${entity.data.description ? (entity.data.description.length > 250 ? entity.data.description.substring(0, 250) + '...' : entity.data.description) : 'No description'}</td>
@@ -506,7 +506,7 @@ footer {
   <div class="entity-list">
     ${categoryEntities.map(entity => `
       <div class="entity-card">
-        <a href="${this.sanitizeFilename(entity.name)}.html">
+        <a href="data/${dataType}/${this.sanitizeFilename(entity.name)}.html">
           <h4>${entity.name}</h4>
           <p><strong>Type:</strong> ${Array.isArray(entity.data.type) ? entity.data.type.join(', ') : entity.data.type}</p>
           <p><strong>Rarity:</strong> ${entity.data.rarity}</p>
@@ -535,7 +535,7 @@ footer {
   <div class="entity-list">
     ${entities.map(entity => `
       <div class="entity-card">
-        <a href="${this.sanitizeFilename(entity.name)}.html">
+        <a href="data/${dataType}/${this.sanitizeFilename(entity.name)}.html">
           <h4>${entity.name}</h4>
           <p>${entity.data.description ? entity.data.description.substring(0, 100) + '...' : 'No description'}</p>
         </a>
@@ -588,7 +588,7 @@ footer {
       for (const childName of Object.keys(entity.data.children)) {
         content += `
           <div class="entity-card">
-            <a href="${this.sanitizeFilename(childName)}.html">
+            <a href="data/${dataType}/${this.sanitizeFilename(childName)}.html">
               <h4>${childName}</h4>
             </a>
           </div>
