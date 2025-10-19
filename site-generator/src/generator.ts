@@ -746,6 +746,10 @@ footer {
   }): string {
     const { title, content, breadcrumb, category, isHomePage = false } = options;
 
+    // Calculate CSS path depth based on breadcrumb separators (not HTML tags)
+    const breadcrumbSeparators = breadcrumb.split(' > ').length - 1;
+    const cssPath = isHomePage ? 'css/style.css' : '../'.repeat(breadcrumbSeparators) + 'css/style.css';
+
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -753,7 +757,7 @@ footer {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} - Aetheria World</title>
     <meta name="description" content="Explore the world of Aetheria - ${title}">
-    <link rel="stylesheet" href="${isHomePage ? '' : '../'.repeat((breadcrumb.match(/>/g) || []).length)}css/style.css">
+    <link rel="stylesheet" href="${cssPath}">
 </head>
 <body>
     <header>
