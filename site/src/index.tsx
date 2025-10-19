@@ -1,6 +1,6 @@
 /* @refresh reload */
 import { render } from 'solid-js/web'
-import { Router, Route } from '@solidjs/router'
+import { HashRouter, Route } from '@solidjs/router'
 import './index.scss'
 import Layout from './components/Layout'
 import Home from './pages/home'
@@ -15,13 +15,8 @@ import Relationships from './pages/relationships'
 
 const root = document.getElementById('root')
 
-// Get the base path from the environment or default to '/'
-const basePath = import.meta.env.VITE_BASE_PATH || '/'
-
-console.log('Base path:', basePath) // Debug log
-
 render(() => (
-  <Router base={basePath} root={Layout}>
+  <HashRouter root={Layout}>
     <Route path="/" component={Home} />
     <Route path="/magic" component={Magic} />
     <Route path="/magic/:school" component={MagicSchool} />
@@ -31,5 +26,5 @@ render(() => (
     <Route path="/alignment" component={Alignment} />
     <Route path="/religion" component={Religion} />
     <Route path="/relationships" component={Relationships} />
-  </Router>
+  </HashRouter>
 ), root!)
