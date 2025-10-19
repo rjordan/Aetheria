@@ -770,9 +770,9 @@ footer {
     <nav>
         <div class="container">
             <ul>
-                <li><a href="${isHomePage ? '' : '../'.repeat((breadcrumb.match(/>/g) || []).length)}index.html">🏠 Home</a></li>
-                <li><a href="${isHomePage ? '' : '../'.repeat((breadcrumb.match(/>/g) || []).length)}docs/index.html">📚 Documentation</a></li>
-                <li><a href="${isHomePage ? '' : '../'.repeat((breadcrumb.match(/>/g) || []).length)}data/index.html">📊 Data</a></li>
+                <li><a href="${isHomePage ? '' : '../'.repeat(breadcrumbSeparators)}index.html">🏠 Home</a></li>
+                <li><a href="${isHomePage ? '' : '../'.repeat(breadcrumbSeparators)}docs/index.html">📚 Documentation</a></li>
+                <li><a href="${isHomePage ? '' : '../'.repeat(breadcrumbSeparators)}data/index.html">📊 Data</a></li>
             </ul>
         </div>
     </nav>
