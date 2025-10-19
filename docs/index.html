@@ -12,21 +12,21 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
-      // Handle GitHub Pages SPA redirect only in production
+      // Handle GitHub Pages SPA redirect for direct links
       (function() {
-        // Only run this redirect logic if we're on the production GitHub Pages domain
+        // Only run this redirect logic if we're on GitHub Pages and have a redirect parameter
         if (window.location.hostname.includes('github.io')) {
           const query = window.location.search;
           if (query.includes('redirect=')) {
             const urlParams = new URLSearchParams(query);
             const redirect = urlParams.get('redirect');
             if (redirect) {
-              // Remove the redirect parameter and update the URL
+              // Convert path redirect to hash routing
               urlParams.delete('redirect');
               const newSearch = urlParams.toString();
               const newUrl = window.location.protocol + '//' +
                             window.location.host +
-                            '/Aetheria' + redirect +
+                            '/Aetheria/#' + redirect +
                             (newSearch ? '?' + newSearch : '') +
                             window.location.hash;
               window.history.replaceState(null, null, newUrl);
