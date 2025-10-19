@@ -18,6 +18,8 @@ const root = document.getElementById('root')
 // Get the base path from the environment or default to '/'
 const basePath = import.meta.env.VITE_BASE_PATH || '/'
 
+console.log('Base path:', basePath) // Debug log
+
 render(() => (
   <Router base={basePath} root={Layout}>
     <Route path="/" component={Home} />
