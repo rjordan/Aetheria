@@ -23,6 +23,11 @@ case "$1" in
     cd site
     npm run dev
     ;;
+  "site-bun")
+    echo "🚀 Starting SolidJS development server with Bun..."
+    cd site
+    bun run dev
+    ;;
   "build")
     echo "🔨 Building all components..."
     echo "Building SolidJS site..."
@@ -55,19 +60,21 @@ case "$1" in
     echo "✅ Old MCP server removed!"
     ;;
   *)
-    echo "Usage: $0 {mcp|site|build|deploy|clean}"
+    echo "Usage: $0 {mcp|site|site-bun|build|deploy|clean}"
     echo ""
     echo "Commands:"
-    echo "  mcp     - Start integrated MCP server (shares SolidJS data)"
-    echo "  site    - Start SolidJS development server"
-    echo "  build   - Build both SolidJS site and MCP server"
-    echo "  deploy  - Build and push to GitHub Pages"
-    echo "  clean   - Remove old MCP server directory"
+    echo "  mcp      - Start integrated MCP server (shares SolidJS data)"
+    echo "  site     - Start SolidJS development server (Node.js)"
+    echo "  site-bun - Start SolidJS development server (Bun runtime)"
+    echo "  build    - Build both SolidJS site and MCP server"
+    echo "  deploy   - Build and push to GitHub Pages"
+    echo "  clean    - Remove old MCP server directory"
     echo ""
     echo "Examples:"
-    echo "  $0 site    # Start SolidJS dev server"
-    echo "  $0 mcp     # Start MCP server with shared data"
-    echo "  $0 deploy  # Build and deploy to GitHub Pages"
+    echo "  $0 site     # Start SolidJS dev server with Node.js"
+    echo "  $0 site-bun # Start SolidJS dev server with Bun"
+    echo "  $0 mcp      # Start MCP server with shared data"
+    echo "  $0 deploy   # Build and deploy to GitHub Pages"
     exit 1
     ;;
 esac
