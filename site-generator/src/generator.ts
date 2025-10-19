@@ -571,41 +571,15 @@ footer {
     const entityName = entity.name;
     const filename = this.sanitizeFilename(entityName) + '.html';
 
-    // Generate content using templates or basic structure
-    let content = `<div class="card">`;
-    content += `<h2>${entityName}</h2>`;
+    let content = '';
 
-    if (entity.data.description) {
-      content += `<p>${entity.data.description}</p>`;
-    }
-
-    if (entity.data.type && entity.data.type !== entityName) {
-      // Handle new array type format
-      if (Array.isArray(entity.data.type)) {
-        content += `<p><strong>Type:</strong> ${entity.data.type.join(', ')}</p>`;
-      } else {
-        content += `<p><strong>Type:</strong> ${entity.data.type}</p>`;
-      }
-    }
-
-    // Add properties
-    const excludeKeys = ['name', 'description', 'children'];
-    const properties = Object.entries(entity.data).filter(([key]) => !excludeKeys.includes(key));
-
-    if (properties.length > 0) {
-      content += `<h3>Properties</h3><table>`;
-      for (const [key, value] of properties) {
-        if (typeof value === 'string' || typeof value === 'number') {
-          content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${value}</td></tr>`;
-        } else if (Array.isArray(value)) {
-          content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${value.join(', ')}</td></tr>`;
-        } else if (typeof value === 'object' && value !== null) {
-          // Handle nested objects (like protection stats)
-          const nestedProps = Object.entries(value).map(([k, v]) => `${k}: ${v}`).join(', ');
-          content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${nestedProps}</td></tr>`;
-        }
-      }
-      content += `</table>`;
+    try {
+      // Try to use template-based generation
+      content = await this.generateEntityContentFromTemplate(dataType, entity.data);
+    } catch (error) {
+      // Fallback to basic structure if template fails
+      console.warn(`Template generation failed for ${dataType}/${entityName}, using fallback: ${error}`);
+      content = await this.generateEntityContentFallback(entity);
     }
 
     // Add children if they exist
@@ -641,6 +615,95 @@ footer {
       category: dataType,
       lastModified: new Date()
     });
+  }
+
+  private async generateEntityContentFromTemplate(dataType: string, entityData: any): Promise<string> {
+    // Try different template naming patterns
+    const templatePaths = [
+      path.join(this.templatesPath, `${dataType}.md`),
+      path.join(this.templatesPath, `${dataType.slice(0, -1)}.md`), // Remove 's' for plurals
+      path.join(this.templatesPath, 'generic_entity.md')
+    ];
+
+    let template = '';
+    let templateFound = false;
+
+    for (const templatePath of templatePaths) {
+      try {
+        template = await fs.readFile(templatePath, 'utf-8');
+        templateFound = true;
+        break;
+      } catch (error) {
+        // Continue to next template
+      }
+    }
+
+    if (!templateFound) {
+      throw new Error(`No suitable template found for ${dataType}`);
+    }
+
+    // Prepare template data with helper properties for arrays
+    const templateData = {
+      ...entityData,
+      // Add helper properties for conditional sections
+      has_alternative_names: Array.isArray(entityData.alternative_names) && entityData.alternative_names.length > 0,
+      has_damage_type: Array.isArray(entityData.damage_type) && entityData.damage_type.length > 0,
+      has_focus: Array.isArray(entityData.focus) && entityData.focus.length > 0,
+      // Add display strings for arrays
+      type_display: Array.isArray(entityData.type) ? entityData.type.join(', ') : entityData.type,
+      alternative_names_display: Array.isArray(entityData.alternative_names) ? entityData.alternative_names.map((name: any) => `- ${name}`).join('\n') : '',
+      damage_type_display: Array.isArray(entityData.damage_type) ? entityData.damage_type.map((type: any) => `- ${type}`).join('\n') : '',
+      focus_display: Array.isArray(entityData.focus) ? entityData.focus.map((focus: any) => `- ${focus}`).join('\n') : '',
+    };
+
+    // Render the template with prepared data
+    const markdown = Mustache.render(template, templateData);
+
+    // Convert markdown to HTML
+    const html = this.md.render(markdown);
+
+    return `<div class="card">${html}</div>`;
+  }
+
+  private async generateEntityContentFallback(entity: any): Promise<string> {
+    // Original hardcoded HTML generation as fallback
+    let content = `<div class="card">`;
+    content += `<h2>${entity.name}</h2>`;
+
+    if (entity.data.description) {
+      content += `<p>${entity.data.description}</p>`;
+    }
+
+    if (entity.data.type && entity.data.type !== entity.name) {
+      // Handle new array type format
+      if (Array.isArray(entity.data.type)) {
+        content += `<p><strong>Type:</strong> ${entity.data.type.join(', ')}</p>`;
+      } else {
+        content += `<p><strong>Type:</strong> ${entity.data.type}</p>`;
+      }
+    }
+
+    // Add properties
+    const excludeKeys = ['name', 'description', 'children'];
+    const properties = Object.entries(entity.data).filter(([key]) => !excludeKeys.includes(key));
+
+    if (properties.length > 0) {
+      content += `<h3>Properties</h3><table>`;
+      for (const [key, value] of properties) {
+        if (typeof value === 'string' || typeof value === 'number') {
+          content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${value}</td></tr>`;
+        } else if (Array.isArray(value)) {
+          content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${value.join(', ')}</td></tr>`;
+        } else if (typeof value === 'object' && value !== null) {
+          // Handle nested objects (like protection stats)
+          const nestedProps = Object.entries(value).map(([k, v]) => `${k}: ${v}`).join(', ');
+          content += `<tr><td><strong>${this.capitalize(key)}</strong></td><td>${nestedProps}</td></tr>`;
+        }
+      }
+      content += `</table>`;
+    }
+
+    return content;
   }
 
   private async generateDataIndex(dataTypes: string[]): Promise<void> {

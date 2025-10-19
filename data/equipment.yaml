@@ -6,7 +6,8 @@ equipment:
       type: ["melee"]
       rarity: "common"
       description: "A versatile weapon used for slashing and thrusting"
-      alternative_names: ["Saber", "Broadsword", "Longsword", "Rapier", "Shortsword"]
+      alternative_names:
+        ["Saber", "Broadsword", "Longsword", "Rapier", "Shortsword"]
       damage_type: ["Slashing", "Piercing"]
       reach: "Close"
 
@@ -152,7 +153,13 @@ equipment:
         slashing: "Medium"
         piercing: "Light"
         bludgeoning: "Light"
-      alternative_names: ["Leather Armor", "Padded Armor", "Studded Leather Armor", "Cuir Bouilli"]
+      alternative_names:
+        [
+          "Leather Armor",
+          "Padded Armor",
+          "Studded Leather Armor",
+          "Cuir Bouilli",
+        ]
       mobility: "Medium-High"
 
     medium_armor:
@@ -165,7 +172,8 @@ equipment:
         slashing: "High"
         piercing: "Medium"
         bludgeoning: "Light"
-      alternative_names: ["Chain Mail", "Scale Mail", "Ring Mail", "Chain Shirt"]
+      alternative_names:
+        ["Chain Mail", "Scale Mail", "Ring Mail", "Chain Shirt"]
       mobility: "Medium"
 
     heavy_armor:
@@ -227,7 +235,8 @@ equipment:
       rarity: "uncommon"
       description: "A pendant worn around the neck, often imbued with magical properties"
       function: "May provide various magical effects or protections"
-      alternative_names: ["Necklace", "Talisman", "Charm", "Pendant", "Brooch", "Locket"]
+      alternative_names:
+        ["Necklace", "Talisman", "Charm", "Pendant", "Brooch", "Locket"]
       slot: "Neck"
 
     ring:
