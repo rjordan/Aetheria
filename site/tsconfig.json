@@ -16,7 +16,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["node"],
+    "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],

@@ -5,79 +5,116 @@ A comprehensive system for managing and sharing fantasy world data, featuring bo
 ## 🌟 **What You Get**
 
 ### 🤖 **AI Integration**
-TypeScript MCP server that provides rich, structured world context to AI systems for dynamic text generation.
+Model Context Protocol (MCP) server that provides rich, rendered world content to AI systems - including both structured data and full page content exactly as users see it.
 
 ### 🌐 **Public Documentation**
-Beautiful, responsive website automatically deployed to GitHub Pages showing your world data in an explorable format.
+Beautiful, responsive SolidJS website automatically deployed to GitHub Pages with hash routing and mobile-friendly design.
 
-### 📊 **Hierarchical Data**
-YAML-based data structures with inheritance (e.g., Fiend → Demon → Succubus → Lilith) that both AI and humans can understand.
+### 📊 **Structured Data**
+JSON-based data with automatic TypeScript types, combined with rich markdown documentation.
 
 ## 🚀 **Quick Start**
 
 ### View the Live Site
 Your world data is automatically published at:
-**`https://yourusername.github.io/Aetheria`**
+**`https://rjordan.github.io/Aetheria`**
 
 ### Make Changes
-1. Edit files in `/data/` (YAML hierarchies) or `/docs/` (markdown documentation)
+1. Edit data files in `/site/src/data/` or page content in `/site/src/pages/`
 2. Commit and push to GitHub
 3. GitHub Actions automatically rebuilds and deploys your site!
 
 ### Development
 ```bash
-# Preview site locally
+# Preview site locally (Node.js)
 ./dev.sh site
 
-# Test MCP server
-./dev.sh mcp
+# Preview site locally (Bun - faster)
+./dev.sh site-bun
+
+# Test MCP server with rendered content
+cd site && npm run build:mcp && npm run mcp
 
 # Deploy changes
-./dev.sh deploy
+git add . && git commit -m "Update content" && git push
 ```
+
+## 🤖 **MCP Server Setup**
+
+The MCP server provides AI agents with access to fully rendered page content using Puppeteer:
+
+### Build and Run
+```bash
+cd site
+npm run build:mcp
+npm run mcp
+```
+
+### Configuration
+```bash
+# Use GitHub Pages (default)
+npm run mcp
+
+# Use local dev server
+AETHERIA_SITE_URL=http://localhost:3000 npm run mcp
+```
+
+### Available Resources
+- **`aetheria://pages/magic`** - Full magic system page with explanations
+- **`aetheria://pages/classes`** - Character classes with descriptions
+- **`aetheria://pages/equipment`** - Equipment catalog with details
+- **`aetheria://pages/politics`** - Political organizations and relationships
+- **`aetheria://pages/alignment`** - Alignment system overview
+- **`aetheria://pages/religion`** - Religious systems and deities
+- **`aetheria://pages/relationships`** - Character relationships and dynamics
+
+The MCP server uses headless Chrome to render actual page content, ensuring AI agents get the same rich information that human users see in the browser.
 
 ## 📁 **Project Structure**
 
-- **`/docs/`** - Your world documentation (Magic.md, Politics.md, etc.)
-- **`/data/`** - Hierarchical YAML data (creatures, classes, organizations, etc.)
-- **`/templates/`** - Mustache templates for dynamic content generation
-- **`/mcp-server/`** - AI integration server (Model Context Protocol)
-- **`/site-generator/`** - Static site generator for GitHub Pages
+- **`/site/`** - SolidJS application with data and pages
+  - **`/src/data/`** - JSON data files with TypeScript types
+  - **`/src/pages/`** - SolidJS page components
+  - **`/src/mcp-server-simple.ts`** - MCP server with Puppeteer rendering
+- **`/docs/`** - Generated static site (GitHub Pages output)
+- **`/dev.sh`** - Development workflow script
 - **`.github/workflows/`** - Automated deployment configuration
 
 ## ✨ **Features**
 
 ### For AI Systems (MCP Server)
-- **Search**: Query across all documentation and data
-- **Hierarchy Navigation**: Explore complex entity relationships
-- **Content Generation**: Create stat blocks, guides, overviews
-- **Data Extraction**: Convert content to structured formats
+- **Rendered Content**: Access to actual page content as users see it
+- **Search**: Query across all rendered pages for specific terms
+- **No Maintenance**: Automatically works with any new pages added
+- **Accurate Context**: Gets rich explanations, terminology, and formatting
 
 ### For Humans (GitHub Pages)
-- **Documentation Browser**: All markdown files as beautiful HTML
-- **Data Explorer**: Interactive hierarchy browser with visual relationships
+- **SolidJS SPA**: Fast, reactive single-page application
+- **Hash Routing**: Works perfectly with GitHub Pages subpaths
 - **Mobile-Friendly**: Responsive design that works on all devices
-- **Search-Optimized**: SEO-ready with sitemap generation
+- **Fast Navigation**: Instant page transitions after initial load
 
 ### For Developers
 - **TypeScript**: Type-safe development with full IntelliSense
-- **Automated Deployment**: Zero-maintenance publishing
-- **Shared Data Sources**: Consistent information across all systems
-- **Easy Extension**: Add new data types or templates easily
+- **Hot Reload**: Fast development with Vite
+- **Multiple Runtimes**: Choose between Node.js or Bun for development
+- **Automated Deployment**: Zero-maintenance publishing to GitHub Pages
 
 ## 🎯 **Use Cases**
 
-- **📖 Story Writing**: AI generates consistent, lore-accurate content
-- **🎮 Game Mastering**: Quick reference during sessions + dynamic content
+- **📖 Story Writing**: AI generates consistent, lore-accurate content using full page context
+- **🎮 Game Mastering**: Rich reference material with AI assistance
 - **👥 Player Resources**: Share world information via public website
-- **📚 World Building**: Organize complex relationships and hierarchies
-- **🌍 Community Sharing**: Professional presentation of your world
+- **📚 World Building**: Organize complex information with rich explanations
+- **🌍 Community Sharing**: Professional presentation of your fantasy world
 
-## 🔧 **Development**
+## 🔧 **Technical Architecture**
 
-See the detailed documentation in each component:
-- [MCP Server](mcp-server/README.md) - AI integration setup
-- [Site Generator](site-generator/README.md) - GitHub Pages customization
-- [Project Summary](PROJECT_SUMMARY.md) - Complete system overview
+- **Frontend**: SolidJS + TypeScript + Vite
+- **Routing**: Hash-based routing for GitHub Pages compatibility
+- **Styling**: SCSS with responsive design
+- **MCP Integration**: Puppeteer-based content rendering
+- **Deployment**: GitHub Actions → GitHub Pages
+- **Development**: Multiple runtime support (Node.js/Bun)
 
 Perfect for creating rich, interactive fantasy worlds that serve both AI systems and human readers! 🎉
