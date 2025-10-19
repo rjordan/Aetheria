@@ -10,22 +10,25 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
-      // Handle GitHub Pages SPA redirect
+      // Handle GitHub Pages SPA redirect only in production
       (function() {
-        const query = window.location.search;
-        if (query.includes('redirect=')) {
-          const urlParams = new URLSearchParams(query);
-          const redirect = urlParams.get('redirect');
-          if (redirect) {
-            // Remove the redirect parameter and update the URL
-            urlParams.delete('redirect');
-            const newSearch = urlParams.toString();
-            const newUrl = window.location.protocol + '//' +
-                          window.location.host +
-                          '/Aetheria/' + redirect +
-                          (newSearch ? '?' + newSearch : '') +
-                          window.location.hash;
-            window.history.replaceState(null, null, newUrl);
+        // Only run this redirect logic if we're on the production GitHub Pages domain
+        if (window.location.hostname.includes('github.io')) {
+          const query = window.location.search;
+          if (query.includes('redirect=')) {
+            const urlParams = new URLSearchParams(query);
+            const redirect = urlParams.get('redirect');
+            if (redirect) {
+              // Remove the redirect parameter and update the URL
+              urlParams.delete('redirect');
+              const newSearch = urlParams.toString();
+              const newUrl = window.location.protocol + '//' +
+                            window.location.host +
+                            '/Aetheria/' + redirect +
+                            (newSearch ? '?' + newSearch : '') +
+                            window.location.hash;
+              window.history.replaceState(null, null, newUrl);
+            }
           }
         }
       })();

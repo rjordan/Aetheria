@@ -3,7 +3,7 @@ import solid from 'vite-plugin-solid';
 
 export default defineConfig({
   plugins: [solid()],
-  base: process.env.AETHERIA_BASE_PATH || '/Aetheria/',
+  base: process.env.AETHERIA_BASE_PATH || '/',
   build: {
     outDir: '../docs',
     emptyOutDir: true,

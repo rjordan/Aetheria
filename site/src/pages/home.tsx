@@ -1,6 +1,7 @@
 import { A } from '@solidjs/router'
 
 function Home() {
+  console.log('Home component rendering')
   return (
     <div class="home-page">
       <h1>Welcome to Aetheria</h1>
