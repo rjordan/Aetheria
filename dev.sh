@@ -14,9 +14,9 @@ case "$1" in
     npm run dev
     ;;
   "site")
-    echo "🌐 Building and previewing static site..."
+    echo "🌐 Building and previewing static site locally..."
     cd site-generator
-    npm run build
+    npm run build:local
     echo "📖 Opening preview at http://localhost:8002"
     cd dist && python3 -m http.server 8002
     ;;

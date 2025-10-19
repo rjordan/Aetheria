@@ -31,6 +31,7 @@ class AetheriaStaticSiteGenerator {
   private outputPath: string;
   private md: MarkdownIt;
   private pages: PageData[] = [];
+  private basePath: string;
 
   constructor() {
     this.dataPath = path.resolve('../data');
@@ -38,6 +39,8 @@ class AetheriaStaticSiteGenerator {
     this.docsPath = path.resolve('../docs');
     this.outputPath = path.resolve('./dist');
     this.md = new MarkdownIt();
+    // Use environment variable or default to GitHub Pages path
+    this.basePath = process.env.AETHERIA_BASE_PATH || '/Aetheria/';
   }
 
   async generate(): Promise<void> {
@@ -819,7 +822,7 @@ footer {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/Aetheria/">
+    <base href="${this.basePath}">
     <title>${title} - Aetheria World</title>
     <meta name="description" content="Explore the world of Aetheria - ${title}">
     <link rel="stylesheet" href="css/style.css">

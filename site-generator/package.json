@@ -5,8 +5,10 @@
   "type": "module",
   "main": "dist/generator.js",
   "scripts": {
-    "build": "tsc && node dist/generator.js",
+    "build": "AETHERIA_BASE_PATH='/Aetheria/' tsc && AETHERIA_BASE_PATH='/Aetheria/' node dist/generator.js",
+    "build:local": "AETHERIA_BASE_PATH='/' tsc && AETHERIA_BASE_PATH='/' node dist/generator.js",
     "dev": "tsx src/generator.ts",
+    "dev:local": "AETHERIA_BASE_PATH='/' tsx src/generator.ts",
     "clean": "rm -rf dist",
     "preview": "cd dist && python3 -m http.server 8000"
   },
