@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
           // Custom runtime caching for data files
           runtimeCaching: [
             {
-              urlPattern: /^\/data\/.*\.json$/,
+              urlPattern: new RegExp(`^${env.AETHERIA_BASE_PATH || '/'}data/.*\\.json$`),
               handler: 'NetworkFirst',
               options: {
                 cacheName: 'aetheria-data-cache',

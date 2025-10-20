@@ -59,8 +59,22 @@ export interface OrganizationsData {
   organizations: Record<string, any>
 }
 
+export interface CreatureData {
+  name: string
+  rank: string
+  ideology: string
+  morality: string
+  methodology: string
+  temperament: string
+  // abilities?: Record<string, string>
+  // skills?: Record<string, string>
+  // traits?: string[]
+  tags: string[]
+  description: string
+}
+
 export interface CreaturesData {
-  creatures: Record<string, any>
+  creatures: Record<string, CreatureData>
 }
 
 export interface SiteData {

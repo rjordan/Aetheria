@@ -27,6 +27,8 @@ function Skills() {
         <li><strong>Stealth:</strong> The ability to move silently and avoid detection.</li>
         <li><strong>Persuasion:</strong> The art of convincing others through speech and negotiation.</li>
         <li><strong>Survival:</strong> Skills related to wilderness navigation, foraging, and tracking.</li>
+        <li><strong>Melee:</strong> Proficiency in hand-to-hand combat and the use of melee weapons.</li>
+        <li><strong>Ranged:</strong> Skill in using ranged weapons such as bows and thrown weapons.</li>
       </ul>
 
       <h3>Trained Skills</h3>

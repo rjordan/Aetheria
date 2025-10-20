@@ -21,7 +21,10 @@ function MagicSchools() {
     <div class="magic-schools-page">
       <h1>Magic in Aetheria</h1>
       <p>
-        Aetheria is a land steeped in magical energies, where the arcane arts are practiced by many. Magic is categorized into various schools, each with its own focus and methods. Mages, sorcerers, clerics, and other magic users often specialize in one or more schools of magic, honing their skills to manipulate the forces of the world around them. Many people will be skilled in general magic. Mages generally learn basic spells from multiple schools, but tend to specialize in one or two and may be unable to use spells from schools opposed to their specialtys. Those specialized in more than two schools are rare and often viewed with suspicion or awe.
+        Aetheria is a land steeped in magical energies, where the arcane arts are practiced by many. Magic is categorized into various schools, each with its own focus and methods.
+      </p>
+      <p>
+        About 60% of the population has some degree of magical ability, though most only achieve general magic. Of this, roughly 10% are capable of becoming true mages. 70% of mages are skilled in a single school of magic, 20% in two, and only 10% can master three schools, more than three is nearly unheard of. Those specialized in more than two schools are rare and often viewed with suspicion or awe. Having skills in opposing schools is extremely rare.
       </p>
 
       <h2>Terms</h2>
@@ -41,6 +44,11 @@ function MagicSchools() {
           <dd>Some forms of magic are outright banned in many regions due to their dangerous nature or ethical implications. Practicing illegal magic generally leads to severe punishment, including exile, imprisonment, or death.</dd>
         </dl>
       </div>
+
+      <h2>General Magic</h2>
+      <p>General spells are a catch-all term for those that can be learned by most magic users even those who lack the power to become true mages. These spells form the foundation of magical knowledge and are often taught to novice mages. People with low magical ability who can only use cantrips are often referred to as hedge magicians.</p>
+      <p>The only spell in this category is cantrip which is a minor magical effect that can be performed by almost anyone with a small amount of magical ability. Examples include creating a small light, conjuring/summoning small objects of low value, cleaning, or producing a simple sound. These effects are generally limited in scope and power. It is primarily used for utility, minor convenience, or dramatic effect, but has little to no combat application.</p>
+
 
       <h2>Magic Schools</h2>
       <p>Opposition elements: Magic is treated as one rank higher when targeting its opposing element. These effects also apply to creatures and effects. e.g.: A caster in a forest fire dealing B rank damage, a B rank elemental shield would be required to prevent damage, but a C rank water shield would also be effective, or undead would take one rank higher damage from light magic.</p>
