@@ -210,6 +210,12 @@
           "specialistOnly": false,
           "description": "Creates a protective barrier of magical energy around the caster and potentially others, absorbing damage. This barrier can be resized to include others based on the caster's power level. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up."
         },
+        "wisplight": {
+          "name": "Wisp Light",
+          "min_rank": "E",
+          "specialistOnly": false,
+          "description": "Creates a floating pale-white light source about the intensity of a torch, useful for illuminating dark areas."
+        },
         "weapon_aether": {
           "name": "Blade of Aether",
           "min_rank": "D",
@@ -504,7 +510,7 @@
           "name": "Light",
           "min_rank": "E",
           "specialistOnly": false,
-          "description": "Creates a bright light source, illuminating dark areas."
+          "description": "Creates a very bright floating light source, useful for illuminating dark areas. Casts a strong light of any color in about a 10 foot area."
         },
         "weapon_light": {
           "name": "Blade of Light",
