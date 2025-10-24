@@ -24,7 +24,13 @@ function MagicSchools() {
         Aetheria is a land steeped in magical energies, where the arcane arts are practiced by many. Magic is categorized into various schools, each with its own focus and methods.
       </p>
       <p>
-        About 60% of the population has some degree of magical ability, though most only achieve general magic. Of this, roughly 10% are capable of becoming true mages. 70% of mages are specialized in a single school of magic and access to 1-3 others, 20% are specialized in two and have access to 2-4 others, and only 10% are specialized in three schools with access to 2-5 others, more than three is nearly unheard of. Those specialized in more than two schools are rare and often viewed with suspicion or awe. Regardless of specialization, nearly all mage have access to Aether magic at least casually, this is considered as a secondary school and is generally the first school a student mage learns outside their specialization.
+        About 60% of the population has some degree of magical ability, though most only achieve general magic (cantrips and basic utility spells). Of this magical population, roughly 25% are born with access to specific schools of magic, allowing them to cast basic spells from those schools while pursuing any core class: magical artisans, spirit-touched politicians, enchanted warriors, or nature-attuned laborers.
+      </p>
+      <p>
+        However, only a rare few (roughly 20% of those with school access, or 2-3% of the total population) are born with true specialization - the ability to master advanced magic within their schools. These individuals are typically recruited by magical academies and strongly encouraged to pursue the "Mage" core class, as their rare gifts are considered too valuable to waste in other pursuits. While some resist this pressure and choose other paths, most become the scholarly mages, court wizards, and magical researchers that define the Mage profession.
+      </p>
+      <p>
+        Magical affinities and potential are determined at birth - one cannot learn new schools or develop specialization through study alone. Among true specialists: 70% focus on a single school with access to 1-3 others, 20% specialize in two schools with access to 2-4 others, and only 10% master three schools with access to 2-5 others. More than three specializations is nearly unheard of and typically requires divine intervention, unique circumstances, or extraordinary natural gifts. Those with multiple specializations are rare and often viewed with suspicion or awe. Regardless of their level, nearly all magical practitioners have access to Aether magic at least casually, as it's considered foundational and typically the first secondary school learned.
       </p>
 
       <h2>Terms</h2>

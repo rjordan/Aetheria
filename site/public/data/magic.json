@@ -133,56 +133,67 @@
         "bolt_earth": {
           "name": "Bolt of Earth",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a shard of rock or metal at high speed towards a target, dealing physical damage."
         },
         "shield_earth": {
           "name": "Earth Shield",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a protective barrier of earth or stone around the caster and potentially others, absorbing damage. This barrier can be resized to include others based on the caster's power level. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up."
         },
         "dig": {
           "name": "Dig",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Allows the caster to tunnel through earth and stone."
         },
         "weapon_earth": {
           "name": "Blade of Earth",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Forms a weapon made of stone or metal, such as a sword, hammer, or spear, which the caster can wield in combat. Will dissipate at will or if it leaves the caster's hand."
         },
         "entangle": {
           "name": "Entangle",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Causes plants or roots to grow rapidly, slowing or immobilizing a target."
         },
         "wall_of_stone": {
           "name": "Wall of Stone",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Creates a solid wall of stone that can be used for defense or to block passage."
         },
         "armor_earth": {
           "name": "Earth Armor",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Encases the caster in a suit of magical energy armor, reducing physical attacks by two ranks. The armor will adapt to the caster's movements and can be reshaped or removed at will. Will dissipate if forcibly removed. A character may only wear one suit of armor at a time."
         },
         "elemental_earth": {
           "name": "Elemental Summon: Earth",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Summons an earth elemental to assist the caster in combat or other tasks. The elemental will have a creature rating equivalent to the caster's power level."
         },
         "entomb": {
           "name": "Entomb",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Encases a target in solid earth or stone, immobilizing them."
         },
         "earthquake": {
           "name": "Earthquake",
           "min_rank": "B",
+          "specialistOnly": true,
           "description": "Causes the ground to shake violently, knocking down and disorienting creatures in the area."
         },
         "gravity_well": {
           "name": "Gravity Well",
           "min_rank": "A",
+          "specialistOnly": true,
           "description": "Creates a localized black hole, sucking in objects and creatures. The area and strength of the effect increase with the caster's power level."
         }
       },
@@ -190,56 +201,67 @@
         "bolt_aether": {
           "name": "Aether Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of pure magical energy at a target, dealing arcane damage."
         },
         "shield_aether": {
           "name": "Aether Shield",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a protective barrier of magical energy around the caster and potentially others, absorbing damage. This barrier can be resized to include others based on the caster's power level. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up."
         },
         "weapon_aether": {
           "name": "Blade of Aether",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Forms a weapon made of pure magical energy, such as a sword, hammer, or spear, which the caster can wield in combat. Will dissipate at will or if it leaves the caster's hand."
         },
         "armor_aether": {
           "name": "Aether Armor",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Encases the caster in a suit of magical energy armor, reducing magical attacks by two ranks. The armor will adapt to the caster's movements and can be reshaped or removed at will. Will dissipate if forcibly removed. A character may only wear one suit of armor at a time."
         },
         "telekinesis": {
           "name": "Telekinesis",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Allows the caster to move objects with magic."
         },
         "imbue_broom": {
           "name": "Imbue Broom",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Enchants a broom or similar object to allow it to fly for a limited time."
         },
         "dispel": {
           "name": "Dispel",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Removes magical effects from a target or area. Can cancel magical effects up to a level equal to the caster's skill level."
         },
         "item_box": {
           "name": "Item Box",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates a small extradimensional space for storing items. The box can hold a limited amount of weight and volume based on the caster's skill level."
         },
         "enchant_item": {
           "name": "Enchant Item",
           "min_rank": "C",
+          "specialistOnly": true,
           "description": "Imbues an item with magical properties or enhancements."
         },
         "teleport": {
           "name": "Teleport",
           "min_rank": "B",
+          "specialistOnly": true,
           "description": "Allows the caster to instantly transport themselves or others to a known location."
         },
         "dimensional_pocket": {
           "name": "Dimensional Pocket",
           "min_rank": "B",
+          "specialistOnly": true,
           "description": "Creates an extradimensional space whose size is based on the caster's power level. Truly powerful casters have been known to create vast pockets of space or their own demi-planes. Though this generally requires a ritual. Casters may only have one pocket active at a time but the pocket remains in existence between uses. Whether the pocket collapses or is just inaccessible when the caster dies is unknown."
         }
       },
@@ -247,61 +269,73 @@
         "bolt_air": {
           "name": "Air Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of compressed air or lightning at a target, dealing damage through blunt force or electrical shock."
         },
         "shield_air": {
           "name": "Shield of Wind",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a protective barrier of swirling winds around the caster. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up."
         },
         "shock": {
           "name": "Shock",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Delivers a jolt of electricity to a target, causing electrical damage and potentially stunning them."
         },
         "weapon_air": {
           "name": "Wind Blade",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Forms a weapon made of concentrated air or lightning, such as a sword, spear, or whip, which the caster can wield in combat. Will dissipate at will or if it leaves the caster's hand."
         },
         "fly": {
           "name": "Fly",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Allows the caster to levitate or fly for a short duration."
         },
         "gust": {
           "name": "Gust",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates a powerful blast of wind that can knock back enemies or objects."
         },
         "invisible_servant": {
           "name": "Invisible Servant",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates an invisible, very limited form of air elemental that can perform simple tasks for the caster. The servant will dissipate after a short time or if it takes any damage."
         },
         "silence": {
           "name": "Silence",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Dampens sound in a small area, making it impossible to hear anything within or from outside the area. This can be a double-edged sword as it also prevents the caster from hearing what is happening outside the area."
         },
         "armor_air": {
           "name": "Wind Armor",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Encases the caster in a suit of wind energy armor, reducing physical attacks by two ranks. The armor will adapt to the caster's movements and can be reshaped or removed at will. Will dissipate if forcibly removed. A character may only wear one suit of armor at a time."
         },
         "elemental_air": {
           "name": "Elemental Summon: Air",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Summons an air elemental to assist the caster in combat or other tasks. The elemental will have a creature rating equivalent to the caster's power level."
         },
         "lightning_bolt": {
           "name": "Lightning Bolt",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "A stronger variation of the common bolt spell, dealing significant damage and potentially stunning the target, may arc to nearby targets."
         },
         "invisibility": {
           "name": "Invisibility",
           "min_rank": "C",
+          "specialistOnly": true,
           "description": "Renders the caster or a target invisible for a short duration."
         }
       },
@@ -309,56 +343,67 @@
         "bolt_fire": {
           "name": "Fire Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of fire at a target, causing burn damage over time."
         },
         "shield_fire": {
           "name": "Flame Shield",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a protective barrier of flames around the caster. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up."
         },
         "ignite": {
           "name": "Ignite",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Sets a target ablaze, causing ongoing fire damage."
         },
         "weapon_fire": {
           "name": "Flaming Sword",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Forms a weapon engulfed in flames, such as a sword, axe, or spear, which the caster can wield in combat. Will dissipate at will or if it leaves the caster's hand."
         },
         "desicate": {
           "name": "Desicate",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Dries out moisture from a target, causing dehydration and weakening them."
         },
         "armor_fire": {
           "name": "Fire Armor",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Encases the caster in a suit of fire energy armor, reducing physical attacks by two ranks. The armor will adapt to the caster's movements and can be reshaped or removed at will. Will dissipate if forcibly removed. A character may only wear one suit of armor at a time."
         },
         "elemental_fire": {
           "name": "Elemental Summon: Fire",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Summons a fire elemental to assist the caster in combat or other tasks. The elemental will have a creature rating equivalent to the caster's power level."
         },
         "fireball": {
           "name": "Fireball",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "A higher powered version of the bolt of fire spell dealing damage in a roughly 5 meter spherical area."
         },
         "wall_of_fire": {
           "name": "Wall of Fire",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Creates a wall of intense flames that damages anyone who passes through it."
         },
         "combustion": {
           "name": "Combustion",
           "min_rank": "A",
+          "specialistOnly": true,
           "description": "Causes a single significantly weaker target to explode in a burst of flames, dealing damage to nearby creatures from bone fragment shrapnel. Terrifying to witness and can cause panic."
         },
         "meteor_shower": {
           "name": "Meteor Shower",
           "min_rank": "A",
+          "specialistOnly": true,
           "description": "Calls down a rain of fiery meteors that strike multiple targets in an area."
         }
       },
@@ -366,61 +411,73 @@
         "bolt_water": {
           "name": "Water Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of water or ice at a target, causing damage through blunt force or freezing."
         },
         "shield_water": {
           "name": "Water Shield",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a protective barrier of water or ice around the caster. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up."
         },
         "mend": {
           "name": "Mend",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "A first aid spell that repairs minor wounds, injuries and stops bleeding on a target. Useful for those without access to Light magic, but significantly less effective than true healing spells."
         },
         "water_breathing": {
           "name": "Water Breathing",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Allows the caster or a target to breathe underwater for a limited time."
         },
         "weapon_water": {
           "name": "Ice Blade",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Forms a weapon made of solid ice or water, such as a sword, spear, or whip, which the caster can wield in combat. Will dissipate at will or if it leaves the caster's hand."
         },
         "drown": {
           "name": "Drown",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates a bubble of water around a target, making it difficult for them to breathe."
         },
         "wellspring": {
           "name": "Wellspring",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates a source of fresh water in a dry area."
         },
         "armor_water": {
           "name": "Ice Armor",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Encases the caster in a suit of ice energy armor, reducing physical attacks by two ranks. The armor will adapt to the caster's movements and can be reshaped or removed at will. Will dissipate if forcibly removed. A character may only wear one suit of armor at a time."
         },
         "elemental_water": {
           "name": "Elemental Summon: Water",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Summons a water elemental to assist the caster in combat or other tasks. The elemental will have a creature rating equivalent to the caster's power level."
         },
         "freeze": {
           "name": "Freeze",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Encases a target in ice, immobilizing them temporarily."
         },
         "torrential_rain": {
           "name": "Torrential Rain",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Summons a storm that brings heavy rain and strong winds to an area."
         },
         "tidal_wave": {
           "name": "Tidal Wave",
           "min_rank": "B",
+          "specialistOnly": true,
           "description": "Summons a large wave of water that crashes down on an area, knocking back and damaging creatures. Requires a significant amount of water to be present."
         }
       },
@@ -428,86 +485,103 @@
         "bolt_light": {
           "name": "Light Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of radiant light at a target, causing damage through searing light and holy energy."
         },
         "shield_light": {
           "name": "Radiant Shield",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a protective shimmering field of radiant energy around the caster. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up. Attacks though a radiant shield are weakened, reducing their effectiveness. Susceptible to dark and shadowy attacks."
         },
         "cure": {
           "name": "Cure",
           "min_rank": "E",
-          "description": "Removes poisons, diseases, and other ailments from the target."
+          "specialistOnly": false,
+          "description": "Removes poisons, diseases, and other ailments from the target. Actual rank in light magic needed is equal to the rank of the poison or disease."
         },
         "light": {
           "name": "Light",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a bright light source, illuminating dark areas."
         },
         "weapon_light": {
           "name": "Blade of Light",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Forms a weapon made of pure radiant light, such as a sword, hammer, or spear, which the caster can wield in combat. Will dissipate at will or if it leaves the caster's hand."
         },
         "purify": {
           "name": "Purify",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Cleanses food, water, or an area of toxins and contaminants."
         },
         "heal": {
           "name": "Heal",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Restores a health to a target. The amount healed is based on the caster's power level."
         },
         "armor_light": {
           "name": "Light Armor",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Encases the caster in a suit of radiant energy armor, reducing physical attacks by two ranks. The armor will adapt to the caster's movements and can be reshaped or removed at will. Will dissipate if forcibly removed. A character may only wear one suit of armor at a time."
         },
         "bless": {
           "name": "Bless",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Grants a target increased resilience and luck, improving their chances of success in various tasks."
         },
         "holy_fire": {
           "name": "Holy Fire",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Calls down a pillar of divine fire that damages undead and demonic creatures."
         },
         "smite": {
           "name": "Smite",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Empowers the caster's weapon with divine energy, dealing extra damage to undead and demons."
         },
         "holy_bonds": {
           "name": "Holy Bonds",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Restrains a target with chains of divine energy, preventing movement and actions."
         },
         "summon_archon": {
           "name": "Summon Archon",
           "min_rank": "B",
+          "specialistOnly": true,
           "description": "Calls forth a powerful celestial being to aid the caster in battle. Considered an act of hubris by many religious orders."
         },
         "sanctuary": {
           "name": "Sanctuary",
           "min_rank": "B",
+          "specialistOnly": false,
           "description": "Creates a protective area where hostile actions are prohibited."
         },
         "banish": {
           "name": "Banish",
           "min_rank": "B",
+          "specialistOnly": false,
           "description": "Attempts to sends a summoned or extraplanar creature back to its home plane. Success depends on a contest of wills between the caster and the target."
         },
         "restoration": {
           "name": "Restoration",
           "min_rank": "A",
+          "specialistOnly": true,
           "description": "Restores lost or non-functional limbs or body parts."
         },
         "ascendancy": {
           "name": "Ascendancy",
           "min_rank": "SSS",
+          "specialistOnly": true,
           "description": "The process of transforming a human into a celestial being, gaining immortality and divine powers. Generally only granted by powerful celestial entities to those who have proven themselves worthy."
         }
       },
@@ -515,91 +589,109 @@
         "bolt_dark": {
           "name": "Dark Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of shadowy energy at a target, causing damage through necrotic energy and corruption."
         },
         "shield_dark": {
           "name": "Shadow Shield",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a protective shimmering field of shadow energy around the caster. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up. Attacks though a shadow shield are strengthened, increasing their effectiveness. Susceptible to light-based attacks."
         },
         "weapon_dark": {
           "name": "Blade of Shadows",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Forms a weapon made of pure shadow energy, such as a sword, hammer, or spear, which the caster can wield in combat. Will dissipate at will or if it leaves the caster's hand."
         },
         "shadow_step": {
           "name": "Shadow Step",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Allows the caster to quickly teleport short distances (line of sight) through shadows."
         },
         "darkness": {
           "name": "Darkness",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates an area of magical darkness, obscuring vision."
         },
         "drain_life": {
           "name": "Drain Life",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Saps life force from a target, healing the caster."
         },
         "putrefy": {
           "name": "Putrefy",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Causes non-living organic material to decay rapidly, damaging living targets or degrading objects."
         },
         "shadow_servant": {
           "name": "Shadow Servant",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates shadowy, human forms that can follow simple commands to perform light tasks and distract enemies. Will dissipate if attacked or after a short time."
         },
         "black_tentacles": {
           "name": "Black Tentacles",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Summons writhing shadowy tentacles that can grapple and restrain targets within an area. The number and strength of the tentacles scale with the caster's rank."
         },
         "sicken": {
           "name": "Sicken",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Inflicts a target with nausea and weakness, impairing their ability to fight."
         },
         "bane": {
           "name": "Bane",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Empowers the caster's weapon with unholy energy, dealing extra damage to living creatures or those with a connection to the light."
         },
         "armor_dark": {
           "name": "Shadow Armor",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Encases the caster in a suit of shadow energy armor, reducing physical attacks by two ranks. The armor will adapt to the caster's movements and can be reshaped or removed at will. Will dissipate if forcibly removed. A character may only wear one suit of armor at a time."
         },
         "curse": {
           "name": "Curse",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Inflicts a target with bad luck or misfortune, hindering their actions."
         },
         "animate_dead": {
           "name": "Animate Dead",
           "min_rank": "C",
+          "specialistOnly": true,
           "description": "Summons an undead servant(s) under the caster's control. The strength and number of undead is based on the caster's power level."
         },
         "summon_shadow": {
           "name": "Summon Shadow",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Summons a shadow elemental to aid the caster; the power of the elemental is based on the caster's power."
         },
         "summon_demon": {
           "name": "Summon Demon",
           "min_rank": "A",
+          "specialistOnly": true,
           "description": "Summons and restrains a demon, allowing the caster to negotiate a contract. If a contract is not made within 666 minutes, the demon will be returned to its realm."
         },
         "lichdom": {
           "name": "Lichdom",
           "min_rank": "S",
+          "specialistOnly": true,
           "description": "The process of transforming oneself into a lich, an undead spellcaster who has achieved immortality through dark magic. The process is long and requires the sacrifice of at least 666 innocent souls. Making it an inherently evil act."
         },
         "ascendancy": {
           "name": "Ascendancy",
           "min_rank": "SSS",
+          "specialistOnly": true,
           "description": "The process of transforming a human into a celestial being, gaining immortality and divine powers. Generally only granted by powerful celestial entities to those who have proven themselves worthy."
         }
       },
@@ -607,51 +699,61 @@
         "bolt_spirit": {
           "name": "Spirit Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of spiritual energy at a target, causing no physical damage but affecting the target's spirit."
         },
         "spirit_shield": {
           "name": "Spirit Shield",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Creates a protective barrier that wards against spiritual and magical attacks."
         },
         "spirit_walk": {
           "name": "Spirit Walk",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Allows the caster to temporarily leave their physical body and explore the spirit realm."
         },
         "weapon_spirit": {
           "name": "Blade of Spirits",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Forms a weapon made of pure spiritual energy, such as a sword, hammer, or spear, which the caster can wield in combat. Will dissipate at will or if it leaves the caster's hand. This blade does no physical damage, dealing damage directly to the target's spirit."
         },
         "animal_companion": {
           "name": "Animal Companion",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Summons a loyal animal companion to aid the caster. The animal's strength and abilities scale with the caster's power level. A caster may have 1 animal companion per rank."
         },
         "call_animal": {
           "name": "Call Animal",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Summons a wild animal to the caster's location for assistance. The animal is not bound but is friendly to the caster and may leave after a short time."
         },
         "spirit_bind": {
           "name": "Spirit Bind",
           "min_rank": "C",
-          "description": "Binds a spirit to an object or location, allowing it to serve the caster."
+          "specialistOnly": false,
+          "description": "Binds a willing animal spirit to an object or location, allowing it to serve the caster. Binding sapient spirits (djinn, human souls, etc.) requires specialist knowledge and is heavily regulated due to ethical concerns."
         },
         "totem": {
           "name": "Totem",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Creates a magical totem that provides various benefits to the caster and their allies. This totem remains in existence until destroyed or dispelled. A limited form of enchantment item."
         },
         "spirit_ward": {
           "name": "Spirit Ward",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Creates a protective symbol that repels spirits and magical entities."
         },
         "exorcism": {
           "name": "Exorcism",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Casts out sprits or entities from a person or location."
         }
       },
@@ -659,51 +761,61 @@
         "bolt_mind": {
           "name": "Mind Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of psychic energy at a target, causing mental damage and disorientation."
         },
         "shield_mind": {
           "name": "Psychic Shield",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates a protective barrier of psychic energy around the caster. Effective against mental attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up."
         },
         "link_mind": {
           "name": "Mind Link",
           "min_rank": "D",
+          "specialistOnly": true,
           "description": "Establishes a telepathic connection between the caster and another individual."
         },
         "phantom_veil": {
           "name": "Phantom Veil",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates an illusionary disguise that alters the caster's appearance and voice."
         },
         "fear": {
           "name": "Fear",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Instills a deep sense of fear in the target or targets, causing them to flee or become paralyzed with terror."
         },
         "charm": {
           "name": "Charm",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Makes the caster seem more appealing or trustworthy to the target. Frequently used in social situations to influence a target's behavior without their knowledge."
         },
         "ward": {
           "name": "Ward",
           "min_rank": "C",
+          "specialistOnly": false,
           "description": "Creates a rune that protects against psychic intrusion, scrying, or clairvoyance."
         },
         "read_thoughts": {
           "name": "Read Thoughts",
           "min_rank": "C",
+          "specialistOnly": true,
           "description": "Allows the caster to hear the surface thoughts of a target. Finding deeper thoughts requires greater concentration and a contest of wills with the target."
         },
         "alter_memory": {
           "name": "Memory Alteration",
           "min_rank": "B",
+          "specialistOnly": true,
           "description": "Modifies or erases specific memories from a target's mind."
         },
         "control_mind": {
           "name": "Mind Control",
           "min_rank": "S",
+          "specialistOnly": true,
           "description": "Takes complete control of a target's actions and decisions."
         }
       },
@@ -711,41 +823,49 @@
         "bolt_time": {
           "name": "Time Bolt",
           "min_rank": "E",
+          "specialistOnly": false,
           "description": "Launches a bolt of temporal energy at a target, causing damage through rapid aging and decay in a localized area."
         },
         "shield_time": {
           "name": "Temporal Shield",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Creates a protective shimmering field of temporal energy around the caster. Effective against magic and physical attacks. Will reduce attacks by the casters skill rank, but is tiring to keep up. Attacks though a temporal shield are slowed in time, reducing their effectiveness. Susceptible to slow methodical attacks (The slow blade penetrates the shield)"
         },
         "hasten": {
           "name": "Hasten",
           "min_rank": "D",
+          "specialistOnly": false,
           "description": "Accelerates the flow of time for the caster or a target, increasing their speed and reflexes for a short duration. Effect scales with the caster's rank."
         },
         "age": {
           "name": "Age",
           "min_rank": "C",
+          "specialistOnly": true,
           "description": "Accelerates or decelerates the aging process of a target."
         },
         "rewind": {
           "name": "Rewind",
           "min_rank": "B",
+          "specialistOnly": true,
           "description": "Reverses time for a short duration, undoing recent events or actions."
         },
         "reverse_aging": {
           "name": "Reverse Aging",
           "min_rank": "B",
+          "specialistOnly": true,
           "description": "Restores youth to a target by reversing their aging process. This spell requires a significant sacrifice, often in the form of life energy or a powerful magical artifact."
         },
         "time_stop": {
           "name": "Time Stop",
           "min_rank": "A",
+          "specialistOnly": true,
           "description": "Temporarily halts the flow of time for a brief period, allowing the caster to act without interference."
         },
         "temporal_anchor": {
           "name": "Temporal Anchor",
           "min_rank": "A",
+          "specialistOnly": true,
           "description": "Creates a fixed point in time that the caster can return to later. Useful for escape and strategic planning. A caster may have only one active anchor at a time. Skilled mages can set this to trigger in the event of their death."
         }
       }

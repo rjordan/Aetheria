@@ -4,25 +4,31 @@ import { fetchClassesData } from '@data/index'
 function Classes() {
   const [classesData] = createResource(fetchClassesData)
 
-  const primaryClasses = () => {
+  const coreClasses = () => {
     const data = classesData()
     if (!data) return []
-    return Object.entries(data.classes.primary).map((e) => e[1])
+    return Object.entries(data.classes.core)
+      .map((e) => e[1])
+      .sort((a, b) => a.name.localeCompare(b.name))
   }
 
-  const specClasses = () => {
+  const specializationClasses = () => {
     const data = classesData()
     if (!data) return []
-    return Object.entries(data.classes.specialized).map((e) => e[1])
+    return Object.entries(data.classes.specializations)
+      .map((e) => e[1])
+      .sort((a, b) => a.name.localeCompare(b.name))
   }
 
   return (
     <div class="classes-page">
       <h1>Character Classes</h1>
       <p>The fundamental class archetypes that form the basis of character development</p>
+      <p>The specialized classes listed represent major, well-established combinations of base classes with magic specializations. Other combinations (such as Rogue/Water, Warrior/Mind, etc.) are possible but represent less common or experimental approaches to character development.</p>
+      <p><strong>Note:</strong> Specializations are descriptive names for common skill combinations within the core classes. A character's actual class remains their core class (Mage, Warrior, Rogue, etc.), while specializations simply identify recognized patterns of abilities and focus areas.</p>
 
       <Suspense fallback={<div>Loading classes data...</div>}>
-        <h2>Primary Classes</h2>
+        <h2>Core Classes</h2>
         <div class="classes-table-container">
           <table class="classes-table">
             <thead>
@@ -33,12 +39,12 @@ function Classes() {
               </tr>
             </thead>
             <tbody>
-              <For each={primaryClasses()}>
+              <For each={coreClasses()}>
                 {(pclass) => (
                   <tr>
                     <td>{pclass.name}</td>
                     <td>{pclass.description}</td>
-                    <td>{pclass.alternative_names.join(', ')}</td>
+                    <td>{pclass.alternativeNames.join(', ')}</td>
                   </tr>
                 )}
               </For>
@@ -46,25 +52,27 @@ function Classes() {
           </table>
         </div>
 
-        <h2>Specialized Classes</h2>
+        <h2>Common Specializations</h2>
         <div class="classes-table-container">
           <table class="classes-table">
             <thead>
               <tr>
                 <th>Class</th>
                 <th>Base Class</th>
+                <th>Required Specializations</th>
                 <th>Description</th>
                 <th>Alternate Names</th>
               </tr>
             </thead>
             <tbody>
-              <For each={specClasses()}>
+              <For each={specializationClasses()}>
                 {(pclass) => (
                   <tr>
                     <td>{pclass.name}</td>
-                    <td>{pclass.base_class}</td>
+                    <td>{pclass.baseClass}</td>
+                    <td>{pclass.requiredSpecializations ? pclass.requiredSpecializations.join(', ') : 'None'}</td>
                     <td>{pclass.description}</td>
-                    <td>{pclass.alternative_names.join(', ')}</td>
+                    <td>{pclass.alternativeNames.join(', ')}</td>
                   </tr>
                 )}
               </For>

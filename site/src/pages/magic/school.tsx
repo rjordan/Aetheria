@@ -17,10 +17,25 @@ function MagicSchool() {
     if (!data) return []
     const schoolSpells = data.magic.spells[params.school.toLowerCase()]
     if (!schoolSpells) return []
-    return Object.entries(schoolSpells).map(([key, spell]) => ({
-      key,
-      ...spell
-    }))
+
+    // Define rank order for sorting
+    const rankOrder = ['E', 'D', 'C', 'B', 'A', 'S', 'SS', 'SSS']
+
+    return Object.entries(schoolSpells)
+      .map(([key, spell]) => ({
+        key,
+        ...spell
+      }))
+      .sort((a, b) => {
+        // First sort by rank
+        const rankA = rankOrder.indexOf(a.min_rank)
+        const rankB = rankOrder.indexOf(b.min_rank)
+        if (rankA !== rankB) {
+          return rankA - rankB
+        }
+        // Then sort by name alphabetically
+        return a.name.localeCompare(b.name)
+      })
   })
 
   return (
@@ -51,14 +66,30 @@ function MagicSchool() {
 
           <p class="school-description">{school()!.description}</p>
 
+          <div class="specialist-explanation">
+            <h3>Specialist vs. General Access</h3>
+            <p>
+              While anyone with access to this school can cast basic spells, some advanced magic requires <strong>specialist training</strong>.
+              These spells are marked as "Specialist Only" and represent world-breaking magic that could disrupt society, economy, or
+              fundamental systems if widely available. Only true magical specialists (~2-3% of the population) have the knowledge
+              and ethical training to safely use such magic.
+            </p>
+          </div>
+
           <h2>Spells</h2>
-          <p>It is quickly becoming apparent that a minimum rank will be needed on spells.</p>
 
           <For each={spells()}>{(spell) => (
             <div class="spell-item">
-              <h3>{spell.name}</h3>
-              <p>Minimum Rank: {spell.min_rank}</p>
-              <p>{spell.description}</p>
+              <div class="spell-header">
+                <h3 class="spell-name">{spell.name}</h3>
+                <div class="spell-badges">
+                  <Show when={spell.specialistOnly}>
+                    <span class="specialist-badge">Specialist Only</span>
+                  </Show>
+                  <span class="spell-rank">Rank {spell.min_rank}</span>
+                </div>
+              </div>
+              <p class="spell-description">{spell.description}</p>
             </div>
           )}</For>
         </div>

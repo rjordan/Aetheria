@@ -34,7 +34,8 @@ export interface MagicSchoolData {
 export interface MagicSpellData {
   name: string,
   min_rank: string,
-  description: string
+  description: string,
+  specialistOnly?: boolean
 }
 
 export interface MagicData {
@@ -46,8 +47,8 @@ export interface MagicData {
 
 export interface ClassesData {
   classes: {
-    primary: Record<string, any>
-    specialized: Record<string, any>
+    core: Record<string, any>
+    specializations: Record<string, any>
   }
 }
 
