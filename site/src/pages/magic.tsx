@@ -24,7 +24,7 @@ function MagicSchools() {
         Aetheria is a land steeped in magical energies, where the arcane arts are practiced by many. Magic is categorized into various schools, each with its own focus and methods.
       </p>
       <p>
-        About 60% of the population has some degree of magical ability, though most only achieve general magic. Of this, roughly 10% are capable of becoming true mages. 70% of mages are skilled in a single school of magic, 20% in two, and only 10% can master three schools, more than three is nearly unheard of. Those specialized in more than two schools are rare and often viewed with suspicion or awe. Having skills in opposing schools is extremely rare.
+        About 60% of the population has some degree of magical ability, though most only achieve general magic. Of this, roughly 10% are capable of becoming true mages. 70% of mages are specialized in a single school of magic and access to 1-3 others, 20% are specialized in two and have access to 2-4 others, and only 10% are specialized in three schools with access to 2-5 others, more than three is nearly unheard of. Those specialized in more than two schools are rare and often viewed with suspicion or awe. Regardless of specialization, nearly all mage have access to Aether magic at least casually, this is considered as a secondary school and is generally the first school a student mage learns outside their specialization.
       </p>
 
       <h2>Terms</h2>

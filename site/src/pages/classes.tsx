@@ -52,6 +52,7 @@ function Classes() {
             <thead>
               <tr>
                 <th>Class</th>
+                <th>Base Class</th>
                 <th>Description</th>
                 <th>Alternate Names</th>
               </tr>
@@ -61,6 +62,7 @@ function Classes() {
                 {(pclass) => (
                   <tr>
                     <td>{pclass.name}</td>
+                    <td>{pclass.base_class}</td>
                     <td>{pclass.description}</td>
                     <td>{pclass.alternative_names.join(', ')}</td>
                   </tr>

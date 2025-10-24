@@ -1,0 +1,56 @@
+Carbuncle
+Fairy
+Elf
+Dryad
+Nymph
+Gnome
+Dwarf
+Halfling
+Goblin
+Kobold
+Orc
+Troll
+Ogre
+Giant
+Cyclops
+Minotaur
+Centaur
+Merfolk
+Siren
+Harpy
+Griffin
+Hippogriff
+Pegasus
+Wyvern
+Basilisk
+Cockatrice
+Chimera
+Manticore
+Hydra
+Phoenix
+Dragon
+Werewolf
+
+Undead:
+  Lich
+  Vampire
+  Zombie
+  Ghoul
+  Skeleton
+  Wraith
+  Specter
+  Banshee
+  Ghost
+
+Devil
+
+Demons:
+  Imp
+  Succubus
+
+
+Animals:
+  Owl
+  Raven
+  Wolf
+  Bear

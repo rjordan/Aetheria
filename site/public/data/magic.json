@@ -10,6 +10,7 @@
           "Endurance",
           "Gravity"
         ],
+        "rarity": "Common (1/10)",
         "regulation": "Unregulated",
         "opposing_element": "Air"
       },
@@ -22,6 +23,7 @@
           "Electricity",
           "Mobility"
         ],
+        "rarity": "Common (1/10)",
         "regulation": "Unregulated",
         "opposing_element": "Earth"
       },
@@ -34,6 +36,7 @@
           "Energy",
           "Destruction"
         ],
+        "rarity": "Common (1/10)",
         "regulation": "Unregulated",
         "opposing_element": "Water"
       },
@@ -46,6 +49,7 @@
           "Simple Healing/Mending",
           "Flow"
         ],
+        "rarity": "Common (1/10)",
         "regulation": "Unregulated",
         "opposing_element": "Fire"
       },
@@ -57,6 +61,7 @@
           "Enchantment",
           "Spiritual Essence"
         ],
+        "rarity": "Ubiquitous (9/10)",
         "regulation": "Unregulated",
         "opposing_element": null
       },
@@ -68,6 +73,7 @@
           "Holy",
           "Radiant Energy"
         ],
+        "rarity": "Uncommon (1/1000)",
         "regulation": "Unregulated",
         "opposing_element": "Dark"
       },
@@ -80,6 +86,7 @@
           "Undeath",
           "Shadow"
         ],
+        "rarity": "Uncommon (1/1000)",
         "regulation": "Necromancy and demon summoning are highly regulated or illegal in most areas.",
         "opposing_element": "Light"
       },
@@ -91,6 +98,7 @@
           "Spirit Pacts",
           "Animal Summoning"
         ],
+        "rarity": "Uncommon (1/1000)",
         "regulation": "Binding of humanoid spirits considered equivalent to undead creation and is regulated or illegal in many areas.",
         "opposing_element": null
       },
@@ -103,6 +111,7 @@
           "Illusion",
           "Memory"
         ],
+        "rarity": "Rare (1/100,000)",
         "regulation": "Mind Control and Memory Manipulation heavily regulated or illegal in many areas",
         "opposing_element": null
       },
@@ -114,6 +123,7 @@
           "Stasis",
           "Aging"
         ],
+        "rarity": "Extremely Rare (1/100,000,000,000)",
         "regulation": "Extremely dangerous with catastrophic potential, thus most time magic heavily regulated with severe penalties",
         "opposing_element": null
       }
@@ -201,6 +211,11 @@
           "name": "Telekinesis",
           "min_rank": "D",
           "description": "Allows the caster to move objects with magic."
+        },
+        "imbue_broom": {
+          "name": "Imbue Broom",
+          "min_rank": "D",
+          "description": "Enchants a broom or similar object to allow it to fly for a limited time."
         },
         "dispel": {
           "name": "Dispel",

@@ -24,6 +24,8 @@ function Politics() {
       <h3>Noble Titles</h3>
 
       <dl>
+        <dt>Emperor/Empress</dt>
+        <dd>The supreme ruler of an empire, often overseeing multiple kingdoms or territories. Their authority is considered absolute, and they are typically addressed as "Your Imperial Majesty".</dd>
         <dt>King/Queen</dt>
         <dd>The sovereign ruler of a kingdom. Their word is law, and they often have final say in all matters of state. All lesser nobles are expected to show deference. Addressed as "Your Majesty".</dd>
         <dt>Prince/Princess</dt>
@@ -88,13 +90,13 @@ function Politics() {
 
       <dl>
         <dt>Kingdom of Eldoria</dt>
-        <dd>Known for its chivalric knights and grand castles. Ruled by the benevolent king Eldrin Dynsmire who values honor and justice, he is beloved by his people. However he is old, and has no clear heir, leading to concerns about the future stability of the kingdom.</dd>
+        <dd>Known for its chivalric knights and grand castles. Ruled by the benevolent king Eldrin Dynsmire who values honor and justice, he is beloved by his people. However he is old, and has no clear heir, leading to concerns about the future stability of the kingdom. The kingdom embodies ideals of chivalry, nobility, and courtly romance, with elaborate codes of honor governing knightly conduct and a deeply ingrained feudal hierarchy that has persisted for centuries.</dd>
         <dt>Republic of Valtoria</dt>
         <dd>Famous for its bustling trade cities and democratic institutions. Governed by an elected senate, Valtoria is a hub of commerce and culture, attracting merchants and scholars from across Aetheria. The current prime minister appointed by the senate, Liora Venn, is known for her diplomatic skills and progressive policies. Valtoria is home to the great library of Aetheria, and the renowned Academy of Magic.</dd>
         <dt>Theocratic State of Lumina</dt>
         <dd>A land where religious leaders hold supreme power, guiding the populace according to divine will. The High Priestess Seraphina is revered for her spiritual wisdom and is believed to be the earthly voice of the gods. Lumina is known for its grand temples and festivals celebrating the divine.</dd>
         <dt>Kingdom of the Iceclaw</dt>
-        <dd>A rugged region inhabited by various clans and some settlements primarily humans, snow-elves, dragonborn, and other less agressive ice-dwelling humanoids. The tribes are united under a council of chieftains, with each clan maintaining its own customs and traditions. All are under the auspice of Her Majesty Valora the Iceclaw. Valora appears as a beautiful young woman with long white hair and eyes the color of ice, but in reality is a silver dragon. Valora tends to allow disputes to be settled among the tribes rarely holding audiences, but acts decisively when absolutely required.</dd>
+        <dd>A rugged region inhabited by various clans and some settlements primarily humans, snow-elves, dragonborn, and other less agressive ice-dwelling humanoids. The tribes are united under a council of chieftains, with each clan maintaining its own customs and traditions. All are under the auspice of Her Majesty Valora the Iceclaw. Valora appears as a beautiful young woman with long white hair and eyes the color of ice, but in reality is a silver dragon. Valora tends to allow disputes to be settled among the tribes rarely holding audiences, but acts decisively when absolutely required. The culture emphasizes saga-telling, runic traditions, and a deep connection to the harsh northern landscape, with warrior-poets who sing of ancient deeds around great fires during the long winter nights. Communities are built from sturdy timber longhouses clustered into clan settlements, where elaborate wood carvings tell the stories of ancestors and great hunts. Skilled craftsmen work in bone, antler, and iron, creating both practical tools and ornate jewelry that speaks to their proud heritage.</dd>
         <dt>Kingdom of Drakoria</dt>
         <dd>A powerful and militaristic kingdom ruled by King Thalor Drakonis, a fierce warrior known for his strategic mind and unyielding resolve. Drakoria is renowned for its formidable army and advanced siege technologies. The kingdom is often engaged in conflicts with neighboring realms, striving to expand its influence and secure its borders.</dd>
         <dt>Kingdom of Sylvandell</dt>
@@ -106,9 +108,65 @@ function Politics() {
         <dt>Free Cities of the Shattered Coast</dt>
         <dd>A collection of independent city-states along a treacherous coastline, governed by merchant councils. The Free Cities are known for their vibrant trade networks, diverse populations, and fierce independence. The current leading city, Port Azure, is renowned for its bustling markets and skilled sailors. The Free Cities often band together for mutual defense against external threats but maintain their autonomy in all other matters.</dd>
         <dt>Twilight Archipelago</dt>
-        <dd>A mysterious group of islands in the middle of a vast ocean, inhabited by various seafaring peoples and creatures. The islands are known for their unpredictable weather, hidden treasures, and ancient ruins. Some islands are governed by local chieftains or pirate lords, while others exist in a state of anarchy, with no formal governance structure. The archipelago is a haven for pirates and adventurers seeking fortune and glory on the high seas. It is loosely but viciously ruled by the dreaded pirate king Samuel Roberts, a self-proclaimed ruler who maintains control through fear and cunning.</dd>
+        <dd>A mysterious group of islands in the middle of a vast ocean, inhabited by various seafaring peoples and creatures. The islands are known for their unpredictable weather, hidden treasures, and ancient ruins. Some islands are governed by local chieftains or pirate lords, while others exist in a state of anarchy, with no formal governance structure. The archipelago is a haven for pirates and adventurers seeking fortune and glory on the high seas. It is loosely but viciously ruled by the dreaded pirate king Samuel Roberts, a self-proclaimed ruler who maintains control through fear and cunning. The culture celebrates swashbuckling adventure, maritime freedom, and the romantic notion of life on the open seas, where codes of honor exist alongside cutthroat pragmatism.</dd>
         <dt>Desert of the Bone Sands</dt>
-        <dd>A vast and arid desert inhabited by nomadic tribes and scattered settlements. The tribes are united under a council of chieftains, with each clan maintaining its own customs and traditions. The Desert of Bone Sands is known for its harsh environment, ancient ruins, and hidden oases. The tribes are skilled in survival and navigation, often trading with passing caravans and travelers. The sand is a pale yellowish-white resembling bleached bone dust, giving the desert its name. It is ruled by the god-king Zeth-Ra the all Seeing and his undead and necromantic generals. Zeth-ra is a ancient and powerful mummy/lich. Obelisks of bone and dark stone rise from the sands, serving as landmarks and allowing Zeth-Ra to see all that transpires nearby. Undead and necromancy are a common occurance in the desert.</dd>
+        <dd>A vast and arid desert inhabited by nomadic tribes and scattered settlements. The tribes are united under a council of chieftains, with each clan maintaining its own customs and traditions. The Desert of Bone Sands is known for its harsh environment, ancient ruins, and hidden oases. The tribes are skilled in survival and navigation, often trading with passing caravans and travelers. The sand is a pale yellowish-white resembling bleached bone dust, giving the desert its name. It is ruled by the god-king Zeth-Ra the all Seeing and his undead and necromantic generals. Zeth-ra is a ancient and powerful mummy/lich. Obelisks of bone and dark stone rise from the sands, serving as landmarks and allowing Zeth-Ra to see all that transpires nearby. Undead and necromancy are a common occurance in the desert. The culture emphasizes hospitality to travelers, intricate geometric art, flowing robes and veils for protection against sandstorms, and a deep knowledge of astronomy for navigation across the endless dunes. Nomadic tribes follow ancient migration routes between life-giving oases and sparse but vital cities, their caravans carrying precious goods and knowledge across the desolate expanse.</dd>
+        <dt>The Empire of the Eternal Flame</dt>
+        <dd>A vast continental empire in the far east, ruled by the ancient dragon emperor Ryujin. The empire is structured around five elemental kingdoms, each with distinct cultural traditions and strategic importance:
+            <ul>
+              <li>The Imperial Provinces: form the spiritual and political heart of the empire, where the Eternal Flame burns and the dragon emperor rules through appointed ministers. This smallest but most influential territory governs the empire's daily operations and serves as the nexus connecting all other kingdoms.</li>
+              <li>The Eternal Mountain: guards the eastern shores, a realm of steadfast mountain fortresses and unbreakable spirit. Known for their resilience and traditional craftsmanship, the mountain people have weathered countless storms throughout history, embodying the enduring strength of solid earth.</li>
+              <li>Land of the White Jade Crane: occupies the northern peaks, where scholarly academies and philosophical retreats dot the misty highlands. This intellectual kingdom values wisdom, bureaucratic excellence, and refined arts, serving as the empire's center of learning and administrative expertise.</li>
+              <li>Shogunate of The Scarlet Blossom: defends the southern approaches through martial excellence and warrior honor. Their disciplined samurai and fierce military traditions make them the empire's primary military force, balancing deadly skill with appreciation for ephemeral beauty.</li>
+              <li>The Floating Kingdoms: control the western ports and waterways, where diverse communities adapt to the rhythm of tides and seasons. Their floating markets, stilt villages, and fluid governance make them masters of trade and naval defense, connecting the empire to the wider world.</li>
+            </ul>
+           <h3>Common trade flow in the Empire</h3>
+           <ul>
+             <li>Floating Kingdoms: Fish, salt, pearls, rice, exotic fruits and spices → other kingdoms</li>
+             <li>Imperial Provinces: Administrative services, manufactured goods, textiles → other kingdoms</li>
+             <li>Shogunate: Military protection, tea, cherries → other kingdoms</li>
+             <li>Eternal Mountain: Metals, stone, hardy mountain crops → other kingdoms</li>
+             <li>White Jade Crane: Scholarly services, luxury crafts, knowledge → other kingdoms</li>
+           </ul>
+        </dd>
+      </dl>
+      <h2>Major Personalities</h2>
+      <dl>
+        <dt>Valora the Iceclaw</dt>
+        <dd>
+          <h3>Alignment</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Axis</th>
+                <th>Value</th>
+                <th>Rationale & AI Guidance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ideology</td>
+                <td>Order (Stewardship)</td>
+                <td>"Goal: To maintain the conditions for stability and survival (Order). Her role is Stewardship—she curates the system at a cosmic level, providing guidance rather than enforcement."</td>
+              </tr>
+              <tr>
+                <td>Morality</td>
+                <td>Good (Laissez-faire)</td>
+                <td>"Motive: Her ultimate intent is benevolent (Good). This is expressed through a Laissez-faire policy: she refuses to micromanage, prioritizing self-sufficiency and acting only when necessary."</td>
+              </tr>
+              <tr>
+                <td>Methodology</td>
+                <td>Direct (Opportunistic)</td>
+                <td>"Tactic: When intervention is required, her response is immediate, physical, and overwhelming (Direct), using armies or her breath weapon. This force is deployed Opportunistically at the exact moment of systemic failure."</td>
+              </tr>
+              <tr>
+                <td>Temperament</td>
+                <td>Aether</td>
+                <td>"Style: Her interactions are detached, analytical, and logical. Her advice is genuinely compassionate (reflecting her Good Morality) but frequently delivered with the somewhat patronizing tone of a vastly superior, patient teacher addressing a struggling student."</td>
+              </tr>
+            </tbody>
+          </table>
+        </dd>
       </dl>
     </div>
   )

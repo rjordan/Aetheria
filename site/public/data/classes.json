@@ -14,7 +14,8 @@
         "description": "Wielders of magical energies, specializing in spellcasting and arcane knowledge",
         "alternative_names": [
           "Sorcerer",
-          "Wizard"
+          "Wizard",
+          "Sage"
         ]
       },
       "rogue": {
@@ -24,19 +25,22 @@
           "Thief",
           "Assassin"
         ]
-      },
-      "priest": {
-        "name": "Priest",
-        "description": "Divine spellcasters who draw power from deities to heal and protect",
-        "alternative_names": [
-          "Cleric",
-          "Healer"
-        ]
       }
     },
     "specialized": {
+      "priest": {
+        "name": "Priest",
+        "baseClass": "Mage",
+        "description": "Divine spellcasters who draw power from deities to heal and protect. Mages with at least one of their foci in Light Magic. Priests and Clerics are often affiliated with religious institutions. Those who are not are known as healers or white mages.",
+        "alternative_names": [
+          "Cleric",
+          "Healer",
+          "White Mage"
+        ]
+      },
       "monk": {
         "name": "Monk",
+        "baseClass": "Fighter",
         "description": "Masters of unarmed combat and spiritual discipline",
         "alternative_names": [
           "Martial Artist"
@@ -44,6 +48,7 @@
       },
       "crusader": {
         "name": "Crusader",
+        "baseClass": "Fighter",
         "description": "Warriors who fight for an ideal, often justice and righteousness",
         "alternative_names": [
           "Paladin",
@@ -55,6 +60,7 @@
       },
       "lancer": {
         "name": "Lancer",
+        "baseClass": "Fighter",
         "description": "Specialists in polearms, particularly the lance, excelling in mounted combat",
         "alternative_names": [
           "Dragoon",
@@ -63,19 +69,23 @@
       },
       "warlock": {
         "name": "Warlock",
+        "baseClass": "Mage",
         "description": "Spellcasters who derive their power from pacts with otherworldly beings",
         "alternative_names": []
       },
       "necromancer": {
         "name": "Necromancer",
+        "baseClass": "Mage",
         "description": "Specialists in death magic, raising the dead and manipulating life forces",
         "alternative_names": [
           "Shadow Mage",
-          "Death Mage"
+          "Death Mage",
+          "Black Mage"
         ]
       },
       "enchanter": {
         "name": "Enchanter",
+        "baseClass": "Mage",
         "description": "Focus on the manipulation of magical energies to imbue objects with spells",
         "alternative_names": [
           "Tinkerer",
@@ -84,11 +94,13 @@
       },
       "shadowblade": {
         "name": "Shadowblade",
+        "baseClass": "Rogue",
         "description": "Stealthy assassins who combine martial prowess with shadow magic",
         "alternative_names": []
       },
       "ranger": {
         "name": "Ranger",
+        "baseClass": "Rogue",
         "description": "Skilled hunters and trackers, adept with bows and nature magic",
         "alternative_names": [
           "Archer",
@@ -97,6 +109,7 @@
       },
       "bard": {
         "name": "Bard",
+        "baseClass": "Rogue",
         "description": "Specialists in a particular musical instrument or style, enhancing their magical abilities and charming others",
         "alternative_names": [
           "Minstrel",
@@ -106,6 +119,7 @@
       },
       "druid": {
         "name": "Druid",
+        "baseClass": "Mage",
         "description": "Guardians of nature who can shapeshift and command natural forces",
         "alternative_names": [
           "Shapeshifter",
