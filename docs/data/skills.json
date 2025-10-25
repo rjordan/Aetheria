@@ -1,0 +1,129 @@
+{
+  "skills": {
+    "athletics": {
+      "name": "Athletics",
+      "trainingRequired": false,
+      "description": "Physical activities such as climbing, jumping, and swimming."
+    },
+    "stealth": {
+      "name": "Stealth",
+      "trainingRequired": false,
+      "description": "The ability to move silently and avoid detection."
+    },
+    "persuasion": {
+      "name": "Persuasion",
+      "trainingRequired": false,
+      "description": "The art of convincing others through speech and negotiation."
+    },
+    "survival": {
+      "name": "Survival",
+      "trainingRequired": false,
+      "description": "Skills related to wilderness navigation, foraging, and tracking."
+    },
+    "melee": {
+      "name": "Melee",
+      "trainingRequired": false,
+      "description": "Proficiency in hand-to-hand combat and the use of melee weapons."
+    },
+    "ranged": {
+      "name": "Ranged",
+      "trainingRequired": false,
+      "description": "Skill in using ranged weapons such as bows and thrown weapons."
+    },
+    "thievery": {
+      "name": "Thievery",
+      "trainingRequired": false,
+      "description": "Skills related to lockpicking, pickpocketing, and other clandestine activities."
+    },
+    "tracking": {
+      "name": "Tracking",
+      "trainingRequired": false,
+      "description": "The ability to follow tracks and find paths through the wilderness."
+    },
+    "farming": {
+      "name": "Farming",
+      "trainingRequired": false,
+      "description": "The skill of cultivating crops and raising animals for food."
+    },
+    "cooking": {
+      "name": "Cooking",
+      "trainingRequired": false,
+      "description": "The ability to prepare food and create meals."
+    },
+    "fishing": {
+      "name": "Fishing",
+      "trainingRequired": false,
+      "description": "The skill of catching fish and other aquatic creatures."
+    },
+    "navigation": {
+      "name": "Navigation",
+      "trainingRequired": false,
+      "description": "The art of determining one's position and planning a route, especially at sea."
+    },
+    "animalHandling": {
+      "name": "Animal Handling",
+      "trainingRequired": false,
+      "description": "The ability to train and care for animals."
+    },
+    "camping": {
+      "name": "Camping",
+      "trainingRequired": false,
+      "description": "The skill of setting up and maintaining a campsite, including shelter building and fire making."
+    },
+    "alchemy": {
+      "name": "Alchemy",
+      "trainingRequired": true,
+      "description": "The ability to create potions and elixirs from various ingredients."
+    },
+    "arcana": {
+      "name": "Arcana",
+      "trainingRequired": true,
+      "description": "Knowledge of magical lore and spellcraft."
+    },
+    "history": {
+      "name": "History",
+      "trainingRequired": true,
+      "description": "Understanding of historical events, cultures, and legends."
+    },
+    "herbalism": {
+      "name": "Herbalism",
+      "trainingRequired": true,
+      "description": "The study of plants and their properties, often for medicinal purposes."
+    },
+    "jewelcraft": {
+      "name": "Jewelcraft",
+      "trainingRequired": true,
+      "description": "The skill of creating and appraising jewelry and gemstones."
+    },
+    "smithing": {
+      "name": "Smithing",
+      "trainingRequired": true,
+      "description": "The ability to forge and repair metal items, including weapons and armor."
+    },
+    "spellcraft": {
+      "name": "Spellcraft",
+      "trainingRequired": true,
+      "description": "The knowledge and practice of casting and understanding spells."
+    },
+    "tailoring": {
+      "name": "Tailoring",
+      "trainingRequired": true,
+      "description": "The skill of making and repairing clothing and fabric items."
+    },
+    "sailing": {
+      "name": "Sailing",
+      "trainingRequired": true,
+      "description": "The art of operating a sailing vessel."
+    },
+    "carpentry": {
+      "name": "Carpentry",
+      "trainingRequired": true,
+      "description": "The skill of working with wood to create structures and items."
+    },
+    "brewing": {
+      "name": "Brewing",
+      "trainingRequired": true,
+      "description": "The art of making beers, wines, ales, and other beverages."
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "characters": {
+    "valora_iceclaw": {
+      "name": "Valora Iceclaw",
+      "threatLevel": "S",
+      "type": "Character",
+      "race": "Silver Dragon",
+      "description": "Valora is queen of [The Kingdom of the Iceclaw](/politics#kingdom-iceclaw). She appears as a beautiful young elven woman with long white hair and eyes the color of ice, but in reality is a silver dragon. Valora tends to allow disputes to be settled among the tribes rarely holding audiences, but acts decisively when absolutely required.",
+      "imageUrl": "/images/characters/valora_iceclaw-192.png",
+      "class": "Mage",
+      "alignment": {
+        "ideology": {
+          "value": "Order",
+          "modifier": "Stewardship",
+          "guidance": "Goal: To maintain the conditions for stability and survival (Order). Her role is Stewardship—she curates the system at a cosmic level, providing guidance rather than enforcement."
+        },
+        "morality": {
+          "value": "Good",
+          "modifier": "Laissez-faire",
+          "guidance": "Motive: Her ultimate intent is benevolent (Good). This is expressed through a Laissez-faire policy: she refuses to micromanage, prioritizing self-sufficiency and acting only when necessary."
+        },
+        "methodology": {
+          "value": "Direct",
+          "modifier": "Opportunistic",
+          "guidance": "Tactic: When intervention is required, her response is immediate, physical, and overwhelming (Direct), using armies or her breath weapon. This force is deployed Opportunistically at the exact moment of systemic failure."
+        },
+        "temperament": {
+          "value": "Aether",
+          "guidance": "Style: Her interactions are detached, analytical, and logical. Her advice is genuinely compassionate (reflecting her Good Morality) but frequently delivered with the somewhat patronizing tone of a vastly superior, patient teacher addressing a struggling student."
+        }
+      },
+      "attributes": {
+        "strength": "B",
+        "agility": "A",
+        "constitution": "B",
+        "intelligence": "S",
+        "willpower": "A",
+        "charisma": "B"
+      },
+      "skills": {
+        "water_magic": "S"
+      }
+    },
+    "aria-flameheart": {
+      "name": "Aria Flameheart",
+      "type": "Character",
+      "description": "A powerful fire mage from the northern kingdoms, Aria specializes in combat magic and has dedicated her life to protecting villages from bandits and monsters.",
+      "fullDescription": "A powerful fire mage from the northern kingdoms, Aria specializes in combat magic and has dedicated her life to protecting villages from bandits and monsters. She carries ancient flame artifacts passed down through her family for generations, each one containing the essence of legendary fire spirits that have bonded with her bloodline over centuries.",
+      "imageUrl": null,
+      "class": "Mage",
+      "race": "Human",
+      "threatLevel": "B",
+      "attributes": {
+        "strength": "D",
+        "agility": "C",
+        "constitution": "C",
+        "intelligence": "A",
+        "willpower": "B",
+        "charisma": "B"
+      },
+      "skills": {
+        "fire_magic": "A"
+      }
+    }
+  }
+}

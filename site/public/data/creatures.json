@@ -1,16 +1,47 @@
 {
-  "wolf": {
-    "name": "Wolf",
-    "rank": "E",
-    "ideology": "Volition (Survivalist)",
-    "morality": "Autonomous (Self-Interest)",
-    "methodology": "Collective (Pack)",
-    "temperament": "Water (Adaptive)",
-    "tags": [
-      "animal",
-      "predator",
-      "pack_hunter"
-    ],
-    "description": "A common wild canine known for its pack behavior and keen senses. Wolves are skilled hunters and are often found in forests and tundras."
+  "creatures": {
+    "wolf": {
+      "name": "Wolf",
+      "threatLevel": "E",
+      "description": "A common wild canine known for its pack behavior and keen senses. Wolves are skilled hunters and are often found in forests and tundras.",
+      "alignment": {
+        "ideology": {
+          "value": "Volition",
+          "modifier": "Survivalist",
+          "guidance": "Wolves act according to their own nature and instincts, defending their territory and pack from threats while following natural hunting patterns."
+        },
+        "morality": {
+          "value": "Autonomous",
+          "modifier": "Self-Interest",
+          "guidance": "Wolves are neither good nor evil, simply following their natural instincts for survival. They act without moral judgment, driven by biological needs rather than ethical considerations."
+        },
+        "methodology": {
+          "value": "Collective",
+          "modifier": "Pack",
+          "guidance": "Wolves work together as a unified pack, using coordinated tactics and established hierarchy to hunt prey and defend territory through teamwork and communication."
+        },
+        "temperament": {
+          "value": "Water",
+          "guidance": "Adaptable and flowing in their approach, wolves adjust their behavior based on circumstances - cautious and observant when threatened, but persistent and patient when hunting."
+        }
+      },
+      "attributes": {
+        "strength": "E",
+        "agility": "D",
+        "constitution": "D",
+        "intelligence": "D",
+        "willpower": "E",
+        "charisma": "E"
+      },
+      "skills": {
+        "tracking": "D",
+        "stealth": "C"
+      },
+      "tags": [
+        "animal",
+        "predator",
+        "pack_hunter"
+      ]
+    }
   }
 }

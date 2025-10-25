@@ -1,6 +1,7 @@
 import { useParams, A } from '@solidjs/router'
 import { createMemo, createResource, For, Show, Suspense } from 'solid-js'
 import { fetchMagicData, MagicSchoolData } from '@data/index'
+import RankBadge from '../../components/RankBadge'
 
 function MagicSchool() {
   const params = useParams()
@@ -86,7 +87,7 @@ function MagicSchool() {
                   <Show when={spell.specialistOnly}>
                     <span class="specialist-badge">Specialist Only</span>
                   </Show>
-                  <span class="spell-rank">Rank {spell.min_rank}</span>
+                  <RankBadge rank={spell.min_rank} label="Rank" />
                 </div>
               </div>
               <p class="spell-description">{spell.description}</p>

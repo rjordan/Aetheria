@@ -1,4 +1,5 @@
 import { A } from '@solidjs/router'
+import RankBadge from '../components/RankBadge'
 
 function Home() {
   console.log('Home component rendering')
@@ -32,24 +33,42 @@ function Home() {
         In lieu of hard numbers, the game uses a more anime-like approach to character stats and abilities. Beings and their abilities are ranked on a scale from F to SSS, with E being the lowest and SSS being the highest. This ranking system allows for a more narrative-driven approach to character development, focusing on growth and progression rather than strict numerical values. In general terms two powers of equal rank have a 50/50 chance of overcoming each other in direct conflict. Success against an opponent of one rank lower is likely around 80% of the time, while success against an opponent two ranks lower is almost certain at around 95%. Conversely, attempting to overcome an opponent one rank higher has only about a 20% chance of success, and facing an opponent two ranks higher is nearly impossible, with only about a 5% chance of success. Other factors can influences these odds, such as terrain, preparation, and special abilities.
       </p>
       <dl>
-        <dt>F Rank</dt>
-        <dd>A rank below E, typically reserved for seriously weak beings. But includes things like common animals, most slimes, or individual goblins.<br />Combat: more of a nuisance than a threat<br />Skill: could potentially pose a threat to themselves or others though ineptitude. (Some characters in anime are famous for F ranked cooking skills.)</dd>
-        <dt>E Rank</dt>
-        <dd>The lowest rank for most beings, typically assigned to novices or those with minimal skill or power.<br />Combat: non-threat<br />Skill: completely untrained.</dd>
-        <dt>D Rank</dt>
-        <dd>Below average, often assigned to those with some experience but still lacking in significant power or skill.<br />Combat: can be a minor threat if they have the advantage of surprise<br />Skill: has had some training but is still not proficient.</dd>
-        <dt>C Rank</dt>
-        <dd>Average rank, representing competent individuals who can handle standard challenges but may struggle with more difficult tasks.<br />Combat: can hold their own against standard opponents<br />Skill: reasonably trained but lacks specialization.</dd>
-        <dt>B Rank</dt>
-        <dd>Above average, indicating a higher level of skill or power. These individuals can take on tougher challenges and are often respected in their fields.<br />Combat: can take on multiple standard opponents<br />Skill: has specialized training and is quite proficient.</dd>
-        <dt>A Rank</dt>
-        <dd>High rank, reserved for those with exceptional abilities or skills. A-rank individuals are often leaders or experts in their areas.<br />Combat: can face off against elite opponents<br />Skill: highly specialized and extremely proficient.</dd>
-        <dt>S Rank</dt>
-        <dd>Superior rank, representing elite individuals with extraordinary power or skill. S-rank characters are rare and often play pivotal roles in major events. This is the highest rank achievable by most individuals.<br />Combat: can take on multiple A-rank opponents<br />Skill: master of their craft.</dd>
-        <dt>SS Rank</dt>
-        <dd>Legendary rank, assigned to those with near-mythical abilities. SS-rank individuals are often the stuff of legends and are few and far between.<br />Combat: can take on multiple S-rank opponents<br />Skill: paragon of their field. These are the individuals who can change the course of history for better or worse. Capable of leveling entire cities with their power.</dd>
-        <dt>SSS Rank</dt>
-        <dd>The highest rank, reserved for the most powerful beings in existence. SSS-rank characters are god-like and can shape the course of history.<br />Combat: can take on entire armies, causing act-of-god level devastation.<br />Skill: unparalleled and can achieve the impossible.</dd>
+        <dt>
+          <RankBadge rank="F" label="Rank" /> Nuisance
+        </dt>
+        <dd>Typically reserved for seriously weak beings. But includes things like common animals, most slimes, or individual goblins.<br />Combat: more of a nuisance than a threat<br />Skill: could potentially pose a threat to themselves or others though ineptitude. (Some characters in anime are famous for F ranked cooking skills.)</dd>
+        <dt>
+          <RankBadge rank="E" label="Rank" /> The lowest rank for most beings
+        </dt>
+        <dd>Typically assigned to novices or those with minimal skill or power.<br />Combat: non-threat<br />Skill: completely untrained.</dd>
+        <dt>
+          <RankBadge rank="D" label="Rank" /> Below average
+        </dt>
+        <dd>Often assigned to those with some experience but still lacking in significant power or skill.<br />Combat: can be a minor threat if they have the advantage of surprise<br />Skill: has had some training but is still not proficient.</dd>
+        <dt>
+          <RankBadge rank="C" label="Rank" /> Average rank
+        </dt>
+        <dd>Representing competent individuals who can handle standard challenges but may struggle with more difficult tasks.<br />Combat: can hold their own against standard opponents<br />Skill: reasonably trained but lacks specialization.</dd>
+        <dt>
+          <RankBadge rank="B" label="Rank" /> Above average
+        </dt>
+        <dd>Indicating a higher level of skill or power. These individuals can take on tougher challenges and are often respected in their fields.<br />Combat: can take on multiple standard opponents<br />Skill: has specialized training and is quite proficient.</dd>
+        <dt>
+          <RankBadge rank="A" label="Rank" /> High rank
+        </dt>
+        <dd>Reserved for those with exceptional abilities or skills. A-rank individuals are often leaders or experts in their areas.<br />Combat: can face off against elite opponents<br />Skill: highly specialized and extremely proficient.</dd>
+        <dt>
+          <RankBadge rank="S" label="Rank" /> Superior rank
+        </dt>
+        <dd>Representing elite individuals with extraordinary power or skill. S-rank characters are rare and often play pivotal roles in major events. This is the highest rank achievable by most individuals.<br />Combat: can take on multiple A-rank opponents<br />Skill: master of their craft.</dd>
+        <dt>
+          <RankBadge rank="SS" label="Rank" /> Legendary rank
+        </dt>
+        <dd>Assigned to those with near-mythical abilities. SS-rank individuals are often the stuff of legends and are few and far between.<br />Combat: can take on multiple S-rank opponents<br />Skill: paragon of their field. These are the individuals who can change the course of history for better or worse. Capable of leveling entire cities with their power.</dd>
+        <dt>
+          <RankBadge rank="SSS" label="Rank" /> Godlike
+        </dt>
+        <dd>Reserved for the most powerful beings in existence. SSS-rank characters are god-like and can shape the course of history.<br />Combat: can take on entire armies, causing act-of-god level devastation.<br />Skill: unparalleled and can achieve the impossible.</dd>
       </dl>
 
       <section class="explore-section">
@@ -63,6 +82,7 @@ function Home() {
           <li><A href="/alignment">Alignment System</A></li>
           <li><A href="/religion">Religions & Deities</A></li>
           <li><A href="/relationships">Relationships</A></li>
+          <li><A href="/entities-demo">Entities Demo</A></li>
         </ul>
       </section>
     </div>

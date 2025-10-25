@@ -87,7 +87,7 @@ export interface OrganizationsData {
   organizations: Record<string, any>
 }
 
-export interface CreatureData {
+export interface OldCreatureData {
   name: string
   rank: string
   ideology: string
@@ -99,6 +99,69 @@ export interface CreatureData {
   // traits?: string[]
   tags: string[]
   description: string
+}
+
+export interface OldCreaturesData {
+  creatures: Record<string, OldCreatureData>
+}
+
+// New entity data structures for character and creature cards
+enum RankValue {
+  F = 'F',
+  E = 'E',
+  D = 'D',
+  C = 'C',
+  B = 'B',
+  A = 'A',
+  S = 'S',
+  SS = 'SS',
+  SSS = 'SSS'
+}
+
+export interface AlignmentFacet {
+  value: string
+  modifier?: string
+  guidance?: string
+}
+
+export interface BaseEntity {
+  name: string
+  type: 'Character' | 'Creature'
+  threatLevel: RankValue
+  description: string
+  fullDescription?: string
+  imageUrl?: string | null
+  alignment: {
+    ideology: AlignmentFacet
+    morality: AlignmentFacet
+    methodology: AlignmentFacet
+    temperament: AlignmentFacet
+  }
+  attributes: {
+    strength: RankValue
+    agility: RankValue
+    constitution: RankValue
+    intelligence: RankValue
+    willpower: RankValue
+    charisma: RankValue
+  }
+  skills: Record<string, RankValue>
+  tags?: string[]
+}
+
+export interface CharacterData extends BaseEntity {
+  type: 'Character'
+  class?: string
+  race?: string
+}
+
+export interface CreatureData extends BaseEntity {
+  type: 'Creature'
+  threat_level?: string
+}
+
+export interface CharactersData {
+  characters: Record<string, CharacterData>
 }
 
 export interface CreaturesData {
@@ -196,16 +259,25 @@ export async function fetchOrganizationsData(): Promise<OrganizationsData> {
   return loadJsonData<OrganizationsData>('organizations')
 }
 
-export async function fetchCreaturesData(): Promise<CreaturesData> {
-  return loadJsonData<CreaturesData>('creatures')
-}
-
 export async function fetchSiteData(): Promise<SiteData> {
   return loadJsonData<SiteData>('site')
 }
 
 export async function fetchSkillsData(): Promise<SkillListData> {
   return loadJsonData<SkillListData>('skills')
+}
+
+export async function fetchCharactersData(): Promise<CharactersData> {
+  return loadJsonData<CharactersData>('characters')
+}
+
+export async function fetchCreaturesData(): Promise<CreaturesData> {
+  return loadJsonData<CreaturesData>('creatures')
+}
+
+// Keep old creatures data for backward compatibility
+export async function fetchOldCreaturesData(): Promise<OldCreaturesData> {
+  return loadJsonData<OldCreaturesData>('creatures')
 }
 
 // Helper function to fetch all data at once if needed

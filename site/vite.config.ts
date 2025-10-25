@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => {
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
         workbox: {
           globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB limit instead of default 2 MB
           // Custom runtime caching for data files
           runtimeCaching: [
             {

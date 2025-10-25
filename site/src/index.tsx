@@ -14,6 +14,9 @@ import Alignment from './pages/alignment'
 import Religion from './pages/religion'
 import Relationships from './pages/relationships'
 import Skills from './pages/skills'
+import CharacterDetail from './pages/characters/detail'
+import CreatureDetail from './pages/creatures/detail'
+import EntitiesDemo from './pages/entities-demo'
 
 const root = document.getElementById('root')
 
@@ -29,5 +32,8 @@ render(() => (
     <Route path="/alignment" component={Alignment} />
     <Route path="/religion" component={Religion} />
     <Route path="/relationships" component={Relationships} />
+    <Route path="/characters/:id" component={CharacterDetail} />
+    <Route path="/creatures/:id" component={CreatureDetail} />
+    <Route path="/entities-demo" component={EntitiesDemo} />
   </HashRouter>
 ), root!)
