@@ -15,6 +15,10 @@ $error-color: #dc3545;
 // Fonts
 $font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
 
+/* ===================================
+   ELEMENT STYLES (Base Typography & Layout)
+   ================================== */
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -29,13 +33,116 @@ body {
   background-color: $background-color;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* Typography Elements */
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
 }
 
-/* Header */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+  color: $primary-color;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: $secondary-color;
+  margin: 1.5rem 0 1rem 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: $text-color;
+  margin: 1rem 0 0.5rem 0;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    text-decoration: underline;
+    color: $secondary-color;
+  }
+}
+
+ul, ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+dl {
+  margin: 0 0 1rem 0;
+  display: grid;
+  gap: 1rem;
+
+  dt {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 2px solid $primary-color;
+    display: inline-block;
+  }
+
+  dd {
+    margin: 0;
+    color: $text-color;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-left: 3px solid #9bb0f0;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    margin-top: 0.25rem;
+  }
+}
+
+button {
+  background: $primary-color;
+  color: $white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $secondary-color;
+    color: $white;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    background: darken($secondary-color, 10%);
+    color: $white;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+/* Layout Elements */
 header {
   background: $primary-gradient;
   color: $white;
@@ -55,971 +162,168 @@ header {
   }
 }
 
-/* Navigation */
 nav {
-  background: $white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: 1rem 0;
-  border-bottom: 1px solid $border-color;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   box-shadow: $shadow-light;
 
   ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
     justify-content: center;
-
-    @media (min-width: 768px) {
-      justify-content: flex-start;
-    }
-  }
-
-  li {
+    flex-wrap: wrap;
+    gap: 1rem;
     margin: 0;
-  }
-
-  a {
-    color: $text-color;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-
-    &:hover {
-      background: $primary-gradient;
-      color: $white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    &.active {
-      background: $primary-color;
-      color: $white;
-    }
-  }
-}
-
-dl {
-  margin: 0;
-  display: grid;
-  gap: 1rem;
-
-  dt {
-    font-size: 1rem;
-    font-weight: 700;
-    color: $primary-color;
-    margin-bottom: 0.25rem;
-    padding-bottom: 0.15rem;
-    border-bottom: 2px solid $primary-color;
-    display: inline-block;
-  }
-
-  dd {
-    margin: 0;
-    color: $text-color;
-    line-height: 1.5;
-    font-size: 0.9rem;
-    padding-left: 0.75rem;
-    border-left: 3px solid #9bb0f0;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 0.75rem;
-    border-radius: 4px;
-    margin-top: 0.25rem;
-  }
-}
-
-/* Main content */
-main {
-  background: $white;
-  margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: $shadow-light;
-  min-height: 60vh;
-
-  h1 {
-    color: $primary-color;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-  }
-
-  h2 {
-    color: $secondary-color;
-    margin: 1.5rem 0 1rem 0;
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    color: $text-color;
-    margin: 1rem 0 0.5rem 0;
-    font-size: 1.2rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-    line-height: 1.7;
-  }
-
-  ul,
-  ol {
-    margin-left: 2rem;
-    margin-bottom: 1rem;
+    padding: 0;
 
     li {
-      margin-bottom: 0.5rem;
-    }
-  }
+      margin: 0;
 
-  a {
-    color: $primary-color;
-    text-decoration: none;
-    font-weight: 500;
+      a {
+        display: block;
+        padding: 0.5rem 1rem;
+        background: $primary-color;
+        color: $white;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: all 0.3s ease;
 
-    &:hover {
-      text-decoration: underline;
-      color: $secondary-color;
+        &:hover {
+          background: $secondary-color;
+          color: $white;
+          transform: translateY(-2px);
+          text-decoration: none;
+        }
+
+        &.active {
+          background: $secondary-color;
+          color: $white;
+          font-weight: 600;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+          background: darken($secondary-color, 10%);
+          color: $white;
+          transform: translateY(0);
+        }
+      }
     }
   }
 }
 
-/* Tables */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 20px;
+  min-height: 60vh;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 2rem 0;
+  margin: 1rem 0;
   background: $white;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: $shadow-light;
-  table-layout: fixed; /* Use fixed layout for better column control */
 
   th {
     background: $primary-gradient;
     color: $white;
-    padding: 1rem 0.75rem;
+    padding: 1rem;
     text-align: left;
     font-weight: 600;
-    white-space: nowrap; /* Prevent header wrapping */
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   td {
-    padding: 1rem 0.75rem;
+    padding: 1rem;
     border-bottom: 1px solid $border-color;
     vertical-align: top;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-
-    &:first-child {
-      font-weight: 500;
-      width: 15%; /* Set specific width for name column */
-    }
-
-    &:nth-child(2) {
-      width: 12%; /* Type column */
-    }
-
-    &:nth-child(3) {
-      width: 12%; /* Damage/Protection/Rarity column */
-    }
-
-    &:nth-child(4) {
-      width: 45%; /* Description column - largest */
-    }
-
-    &:nth-child(5) {
-      width: 16%; /* Alternate names column */
-    }
   }
 
   tr {
     &:hover {
-      background-color: #f8f9ff;
+      background: rgba(102, 126, 234, 0.05);
     }
 
     &:last-child td {
       border-bottom: none;
     }
   }
-}
 
-/* Responsive table wrapper */
-.table-container {
-  overflow-x: auto;
-  margin: 2rem 0;
-  border-radius: 8px;
-  box-shadow: $shadow-light;
-  width: 100%;
-  min-width: 0; /* Allow shrinking */
-
-  /* Add scrollbar styling for better UX */
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: $primary-color;
-    border-radius: 4px;
-  }
-
-  /* Add mobile scroll hint */
-  &::after {
-    content: "← Scroll to see more →";
-    display: block;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #666;
-    padding: 0.5rem;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-    margin-top: -1px;
-  }
-
-  @media (max-width: 600px) {
-    &.table-auto-cards::after {
-      display: none;
-    }
-  }
-
-  /* Ensure tables don't get too compressed */
-  table {
-    min-width: 800px; /* Increased minimum table width for better spacing */
-
-    @media (max-width: 900px) {
-      min-width: 700px; /* Reduce minimum width on smaller screens */
-    }
-
-    @media (max-width: 768px) {
-      min-width: 600px; /* Further reduce for tablets */
-    }
-
-    @media (max-width: 600px) {
-      min-width: 0; /* Allow full responsiveness on mobile */
-    }
-  }
-}
-
-/* Mobile-first responsive table */
-@media (max-width: 768px) {
-  .table-responsive {
-    table {
-      font-size: 0.85rem; /* Reduce font size to fit more content */
-      table-layout: auto; /* Switch back to auto layout for flexibility */
-
-      th, td {
-        padding: 0.6rem 0.4rem; /* Reduce padding for more space */
-        white-space: nowrap;
-      }
-
-      /* Reset column widths for auto layout */
-      td {
-        &:first-child, &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
-          width: auto;
-        }
-      }
-
-      /* Hide less important columns on small screens */
-      .hide-mobile {
-        display: none;
-      }
-
-      /* Hide low priority columns to make more space */
-      .low-priority {
-        display: none;
-      }
-    }
-  }
-
-  /* Auto-convert to cards on very small screens */
-  @media (max-width: 600px) {
-    .table-auto-cards {
-      .table-container {
-        overflow-x: visible;
-        box-shadow: none;
-      }
-
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-
-      table {
-        margin: 1rem 0;
-        box-shadow: none;
-      }
-
-      thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-      }
-
-      tbody {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      tr {
-        background: $white;
-        border-radius: 8px;
-        box-shadow: $shadow-light;
-        padding: 1rem;
-        margin-bottom: 0;
-        border: 1px solid $border-color;
-      }
-
-      td {
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding: 0.75rem 0 0.75rem 50%; /* Start with more aggressive spacing */
-        word-wrap: break-word;
-        white-space: normal;
-        min-height: 2.5rem; /* Increase minimum height for labels */
-
-        &:before {
-          content: attr(data-label);
-          position: absolute;
-          left: 0;
-          width: 45%; /* Larger label area */
-          padding-right: 10px; /* Reduce padding for more space */
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis; /* Truncate long labels */
-          font-weight: 600;
-          color: $primary-color;
-          font-size: 0.8rem; /* Smaller font for labels */
-          top: 0.75rem; /* Align with data text */
-          line-height: 1.2;
-        }
-
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .table-auto-cards td {
-    padding: 0.75rem 0 0.75rem 55%; /* Even more space on small screens */
-
-    &:before {
-      width: 50%; /* Larger label area for small screens */
-      padding-right: 8px;
-      font-size: 0.75rem; /* Smaller font */
-    }
-  }
-}
-
-/* Extra small screens - very narrow phones */
-@media (max-width: 380px) {
-  .table-auto-cards td {
-    padding: 0.75rem 0 0.75rem 60%; /* Maximum space for very small screens */
-
-    &:before {
-      width: 55%; /* Maximum label area */
-      padding-right: 5px;
-      font-size: 0.7rem; /* Very small font for narrow screens */
-      line-height: 1.1;
-    }
-  }
-}
-
-/* Footer */
-footer {
-  background: $primary-gradient;
-  color: $white;
-  text-align: center;
-  padding: 2rem 0;
-  margin-top: 3rem;
-
-  p {
-    margin: 0;
-    opacity: 0.9;
-  }
-
-  a {
-    color: $white;
-    text-decoration: none;
-    font-weight: 500;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-/* Page-specific styles */
-
-// Home Page
-.home-page {
-  .intro-text {
-    font-size: 1.2rem;
-    color: $secondary-color;
-    margin-bottom: 2rem;
-  }
-
-  .explore-section {
-    h2 {
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  .world-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-left: 0;
-    list-style: none;
-
-    li {
-      background: linear-gradient(135deg, #f8f9ff 0%, #e9ecef 100%);
-      border-radius: 8px;
-      margin-bottom: 0;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: $shadow-medium;
-      }
-
-      a {
-        display: block;
-        padding: 1.5rem;
-        text-decoration: none;
-        color: $text-color;
-        font-weight: 600;
-        border-radius: 8px;
-
-        &:hover {
-          background: $primary-gradient;
-          color: $white;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
-
-// Magic Schools Page
-.magic-schools-page {
-  .magic-terms {
-    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4f8 100%);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    box-shadow: $shadow-light;
-    border: 1px solid #e2e8f0;
-
-    .schools-table-container {
-      overflow-x: auto;
-      margin: 2rem 0;
-      border-radius: 8px;
-      box-shadow: $shadow-light;
-    }
-
-    .schools-table {
-      margin: 0;
-
-      .school-name-cell {
-        font-weight: 600;
-      }
-
-      .school-link {
-        color: $primary-color;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: $secondary-color;
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-}
-
-// Magic School Detail Page
-.magic-school-page {
-  .school-header {
-    margin-bottom: 2rem;
-
-    h1 {
-      margin-bottom: 0.5rem;
-    }
-
-    .school-meta {
-      font-size: 0.9rem;
-      color: #666;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-
-      .meta-item {
-        strong {
-          color: $primary-color;
-          font-weight: 600;
-        }
-
-        a {
-          color: $primary-color;
-          text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-
-      .meta-separator {
-        color: #999;
-        font-weight: bold;
-      }
-    }
-  }
-
-  .school-description {
-    font-size: 1.1rem;
-    color: $secondary-color;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-  }
-
-  .focus-section {
-    background: linear-gradient(135deg, #f8f9ff 0%, #e9ecef 100%);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin: 1.5rem 0;
-
-    h3 {
-      color: $primary-color;
-      margin-top: 0;
-    }
-
-    .focus-list {
-      margin-left: 1.5rem;
-
-      li {
-        color: $text-color;
-        margin-bottom: 0.5rem;
-      }
-    }
-  }
-
-  .school-details {
-    margin: 2rem 0;
-
-    .detail-item {
-      background: #f8f9fa;
-      padding: 1rem;
-      border-left: 4px solid $primary-color;
-      margin-bottom: 1rem;
-      border-radius: 0 4px 4px 0;
-
-      strong {
-        color: $primary-color;
-      }
-
-      &.regulated {
-        background: rgb(247, 148, 138);
-        border-left-color: #d73527;
-
-        strong {
-          color: #8b2c1b;
-        }
-      }
-    }
-  }
-
-  .school-footer {
-    margin-top: 3rem;
-    text-align: center;
-
-    hr {
-      border: none;
-      height: 1px;
-      background: $primary-gradient;
-      margin: 2rem 0 1rem 0;
-    }
-
-    p {
-      color: #6c757d;
-      font-style: italic;
-    }
-  }
-
-  .specialist-explanation {
-    background: linear-gradient(135deg, #e3f2fd 0%, #f8f9ff 100%);
-    border: 1px solid #2196f3;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 2rem 0;
-
-    h3 {
-      color: #1976d2;
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      margin-bottom: 0;
-      line-height: 1.7;
-      color: #333;
-
-      strong {
-        color: #1976d2;
-        font-weight: 600;
-      }
-    }
-  }
-
-  .spell-item {
-    background: $white;
-    border: 1px solid $border-color;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: $shadow-light;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: $shadow-medium;
-    }
-
-    .spell-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-
-      .spell-name {
-        margin: 0;
-        color: $primary-color;
-        font-size: 1.3rem;
-        font-weight: 600;
-        flex: 1;
-        min-width: 0;
-      }
-
-      .spell-badges {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        flex-shrink: 0;
-
-        .specialist-badge {
-          background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-          color: white;
-          padding: 0.25rem 0.75rem;
-          border-radius: 12px;
-          font-size: 0.75rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
-          border: 1px solid #ff5252;
-          white-space: nowrap;
-        }
-
-        .spell-rank {
-          background: $primary-gradient;
-          color: white;
-          padding: 0.4rem 0.8rem;
-          border-radius: 20px;
-          font-size: 0.85rem;
-          font-weight: 600;
-          white-space: nowrap;
-          box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
-        }
-      }
-
-      @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-
-        .spell-name {
-          font-size: 1.2rem;
-        }
-
-        .spell-badges {
-          align-self: flex-start;
-        }
-      }
-    }
-
-    .spell-description {
-      color: $text-color;
-      line-height: 1.6;
-      margin: 0;
-      font-size: 0.95rem;
-    }
-  }
-
-  &.error {
-    text-align: center;
-    color: $error-color;
-    padding: 3rem;
-    font-size: 1.2rem;
-  }
-}
-
-// Coming Soon styling for placeholder pages
-.coming-soon {
-  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-  border: 1px solid $warning-color;
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
-  color: #856404;
-  font-size: 1.1rem;
-  margin: 2rem 0;
-
-  em {
-    font-style: normal;
+  strong {
+    color: $primary-color;
     font-weight: 600;
   }
 }
 
-// Individual page styling
-.magic-page,
-.classes-page,
-.equipment-page,
-.politics-page,
-.alignment-page,
-.religion-page,
-.relationships-page {
-  h1 {
-    border-bottom: 3px solid $primary-color;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
+footer {
+  background: $text-color;
+  color: $white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
+
+  p {
+    margin: 0;
+    opacity: 0.8;
   }
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 15px;
-  }
+/* ===================================
+   CLASS-BASED OVERRIDES & COMPONENTS
+   ================================== */
 
-  header h1 {
-    font-size: 2rem;
-  }
-
-  main {
-    margin: 1rem;
+/* Typography Class Overrides */
+p {
+  &.example {
+    font-style: italic;
+    font-weight: 500;
+    background-color: lighten($primary-color, 45%);
+    border: 1px solid $primary-color;
     padding: 1rem;
-  }
-
-  /* Default table mobile handling */
-  table:not(.table-cards table) {
-    font-size: 0.85rem;
-
-    th,
-    td {
-      padding: 0.5rem 0.25rem;
-    }
-
-    /* Auto-hide columns marked as low priority */
-    .low-priority {
-      display: none;
-    }
-  }
-
-  .home-page .world-links {
-    grid-template-columns: 1fr;
-  }
-
-  .magic-school-page {
-    .focus-section {
-      padding: 1rem;
-    }
-
-    .school-details .detail-item {
-      padding: 0.75rem;
-    }
-  }
-
-  /* Mobile navigation improvements */
-  nav ul {
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  nav a {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 1.5rem 0;
-
-    h1 {
-      font-size: 1.8rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-
-  main {
-    margin: 0.5rem;
-    padding: 0.75rem;
-
-    h1 {
-      font-size: 1.6rem;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-    }
-  }
-
-  /* Very small screen table handling */
-  .schools-table-container {
-    .schools-table {
-      th,
-      td {
-        padding: 0.25rem;
-        font-size: 0.75rem;
-      }
-    }
-  }
-
-  /* Mobile navigation for very small screens */
-  nav ul {
-    gap: 0.25rem;
-  }
-
-  nav a {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
-  }
-}
-
-// Offline Indicator Styles
-.offline-indicator {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.3s ease;
-  pointer-events: none;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .indicator-content {
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 12px 16px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    backdrop-filter: blur(10px);
-  }
-
-  &.online .indicator-content {
-    background: rgba(40, 167, 69, 0.9);
-  }
-
-  &.offline .indicator-content {
-    background: rgba(220, 53, 69, 0.9);
-  }
-
-  &.update-available .indicator-content {
-    background: rgba(255, 193, 7, 0.9);
-    color: #000;
-  }
-
-  .status-icon {
-    font-size: 1.2rem;
-  }
-
-  .status-text {
-    white-space: nowrap;
-  }
-
-  .update-button {
-    background: rgba(0, 0, 0, 0.2);
-    color: inherit;
-    border: 1px solid currentColor;
     border-radius: 4px;
-    padding: 4px 8px;
-    margin-left: 8px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.3);
-    }
+    margin: 1rem 0;
   }
 }
 
-// Service Worker Update Notification
-.sw-update-notification {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: $primary-color;
-  color: white;
-  padding: 12px 20px;
+/* Layout Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Table Components */
+.table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid $border-color;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  box-shadow: $shadow-light;
 
-  button {
-    background: white;
-    color: $primary-color;
+  table {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
     border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    margin-left: 12px;
-    cursor: pointer;
-    font-weight: 500;
-
-    &:hover {
-      background: #f8f9fa;
-    }
   }
 }
 
-/* ResponsiveTable Component Styles */
 .responsive-table-container {
-  width: 100%;
-  margin: 2rem 0;
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: $shadow-light;
 }
 
 .table-wrapper {
   overflow-x: auto;
-  border-radius: 8px;
-  box-shadow: $shadow-light;
   background: $white;
 }
 
@@ -1031,66 +335,59 @@ footer {
   th {
     background: $primary-gradient;
     color: $white;
-    padding: 1rem 0.75rem;
+    padding: 1rem;
     text-align: left;
     font-weight: 600;
     white-space: nowrap;
 
-    &.priority-high {
-      min-width: 120px;
-    }
-
-    &.priority-medium {
-      min-width: 100px;
-    }
-
     &.priority-low {
-      min-width: 80px;
+      background: lighten($primary-color, 10%);
     }
   }
 
   td {
-    padding: 1rem 0.75rem;
+    padding: 1rem;
     border-bottom: 1px solid $border-color;
     vertical-align: top;
-    word-wrap: break-word;
 
-    &:first-child {
-      font-weight: 500;
-    }
-
-    .object-entry {
-      margin-bottom: 0.25rem;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &:empty::before {
+      content: "—";
+      color: #999;
     }
   }
 
   tr {
     &:hover {
-      background-color: #f8f9ff;
+      background: rgba(102, 126, 234, 0.05);
     }
 
     &:last-child td {
       border-bottom: none;
     }
   }
+
+  strong {
+    color: $primary-color;
+    font-weight: 600;
+  }
+
+  .hidden-column {
+    display: none;
+  }
 }
 
 .card-layout {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
+  margin: 1rem 0;
 }
 
 .data-card {
   background: $white;
-  border-radius: 8px;
-  box-shadow: $shadow-light;
-  padding: 1.5rem;
   border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: $shadow-light;
 }
 
 .card-field {
@@ -1121,68 +418,404 @@ footer {
     .field-label {
       color: #666;
       font-weight: 500;
-      font-size: 0.9rem;
     }
-
-    opacity: 0.9;
   }
 }
 
 .field-label {
-  flex: 0 0 auto;
-  width: 120px;
   font-weight: 600;
   color: $primary-color;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  min-width: 120px;
+  flex-shrink: 0;
 }
 
 .field-value {
   flex: 1;
-  word-wrap: break-word;
-  line-height: 1.4;
+  color: $text-color;
 
-  .object-entry {
-    margin-bottom: 0.25rem;
+  strong {
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
 
-    &:last-child {
-      margin-bottom: 0;
+/* Page-specific Classes */
+.home-page {
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: $secondary-color;
+  }
+
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+
+    .link-card {
+      background: $white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: $shadow-light;
+      text-align: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      h3 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
     }
   }
 }
 
-/* Responsive adjustments for card layout */
-@media (max-width: 480px) {
-  .card-field {
-    flex-direction: column;
-    gap: 0.25rem;
+.magic-schools-page {
+  .schools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
 
-    .field-label {
-      width: auto;
-      margin-bottom: 0.25rem;
+    .school-card {
+      background: $white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: $shadow-light;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      h3 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
     }
-  }
-
-  .field-label {
-    width: auto;
-    font-size: 0.85rem;
-  }
-
-  .data-card {
-    padding: 1rem;
   }
 }
 
-@media (max-width: 360px) {
-  .data-card {
-    padding: 0.75rem;
+.magic-school-page {
+  .school-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 12px;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: $primary-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .school-motto {
+      font-style: italic;
+      font-size: 1.2rem;
+      color: $secondary-color;
+      margin-bottom: 1rem;
+    }
+
+    .school-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+    }
   }
 
-  .field-label {
+  .spells-section {
+    margin-top: 3rem;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .spell-level {
+      margin-bottom: 3rem;
+
+      h3 {
+        background: $primary-gradient;
+        color: $white;
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+        margin: 0 0 1rem 0;
+        text-align: center;
+      }
+
+      .spells-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+
+        .spell-card {
+          background: $white;
+          border: 1px solid $border-color;
+          border-radius: 0 0 8px 8px;
+          padding: 1.5rem;
+          box-shadow: $shadow-light;
+
+          .spell-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $primary-color;
+            margin-bottom: 0.5rem;
+          }
+
+          .spell-school {
+            font-size: 0.9rem;
+            color: $secondary-color;
+            font-style: italic;
+            margin-bottom: 1rem;
+          }
+
+          .spell-description {
+            line-height: 1.6;
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.coming-soon {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 12px;
+  margin: 2rem 0;
+
+  h2 {
+    font-size: 2rem;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $secondary-color;
+  }
+}
+
+.magic-page,
+.classes-page,
+.equipment-page,
+.politics-page,
+.alignment-page,
+.religion-page,
+.relationships-page {
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .page-description {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: $secondary-color;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-section {
+    margin: 3rem 0;
+
+    h2 {
+      border-bottom: 3px solid $primary-color;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h3 {
+      color: $primary-color;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+
+    .stat-card {
+      background: $white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: $shadow-light;
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $primary-color;
+        display: block;
+      }
+
+      .stat-label {
+        color: $text-color;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+/* Component Classes */
+.offline-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: $error-color;
+  color: $white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: $shadow-medium;
+  z-index: 1000;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  &.online {
+    background: $accent-color;
+  }
+}
+
+.sw-update-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: $primary-color;
+  color: $white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: $shadow-medium;
+  z-index: 1001;
+  max-width: 300px;
+
+  button {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.75rem;
     font-size: 0.8rem;
   }
+}
 
-  .field-value {
-    font-size: 0.9rem;
+/* ===================================
+   RESPONSIVE MEDIA QUERIES
+   ================================== */
+
+/* Mobile-first responsive table */
+@media (max-width: 768px) {
+  .table-container {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      border: 1px solid $border-color;
+      margin-bottom: 1rem;
+      background: $white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: $shadow-light;
+    }
+
+    td {
+      border: none;
+      position: relative;
+      padding: 0.75rem 0 0.75rem 6rem;
+      text-align: left;
+      font-size: 0.9rem;
+
+      &:before {
+        content: attr(data-label) ": ";
+        position: absolute;
+        left: 0;
+        top: 0.75rem;
+        width: 5.5rem;
+        font-weight: 600;
+        color: $primary-color;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &:empty {
+        display: none;
+      }
+
+      strong {
+        color: $text-color;
+        font-weight: 700;
+      }
+    }
+
+    tr:hover {
+      background: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+/* Extra small screens - very narrow phones */
+@media (max-width: 400px) {
+  .table-container {
+    td {
+      padding: 0.5rem 0 0.5rem 5rem;
+      font-size: 0.85rem;
+
+      &:before {
+        width: 4.5rem;
+        font-size: 0.8rem;
+        top: 0.5rem;
+      }
+    }
   }
 }
