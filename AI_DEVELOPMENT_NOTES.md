@@ -49,8 +49,13 @@
 
 ### **UI Components**
 - **OfflineIndicator** - Simple text status in footer showing "Online" or "Offline"
+  - **Responsive design** - Breaks to new line on mobile screens
+  - **Enhanced visibility** - Larger text and padding on small screens
+  - **Color-coded status** - Green for online, yellow/orange for offline
 - **ResponsiveTable** - JavaScript-controlled responsive tables
 - **Layout** - Main layout component with header, nav, main, footer structure
+  - **Responsive footer** - Stacks content vertically on mobile
+  - **Mobile-first design** - Proper text sizing and spacing
 
 ### **File Organization**
 - **Element styles first** in SCSS
@@ -77,6 +82,12 @@
 2. **Follow the hierarchy** - element → class → media queries
 3. **Test build** after major changes
 4. **Verify contrast** on active/hover states
+5. **CRITICAL: Avoid duplicate media queries** - Consolidate responsive styles
+
+### **Common Pitfalls to Avoid**
+- **Duplicate @media blocks** - Always merge styles with same breakpoint
+- **Conflicting responsive styles** - Check for existing media queries before adding new ones
+- **Breaking mobile-first approach** - Maintain consistent breakpoint strategy
 
 ### **File Structure Maintained**
 ```
