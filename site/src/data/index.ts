@@ -321,6 +321,27 @@ export async function clearDataCache(filename?: string): Promise<void> {
   }
 }
 
+// Helper function to resolve image URLs with the correct base path
+export function resolveImageUrl(imageUrl: string | null | undefined): string | null {
+  if (!imageUrl) return null
+
+  // If it's already an absolute URL (http/https), return as-is
+  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+    return imageUrl
+  }
+
+  // Get the base path from Vite's import.meta.env
+  const basePath = import.meta.env.BASE_URL || '/'
+
+  // Remove leading slash from imageUrl if present, then combine with base path
+  const cleanImageUrl = imageUrl.startsWith('/') ? imageUrl.slice(1) : imageUrl
+
+  // Ensure base path ends with slash
+  const cleanBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`
+
+  return `${cleanBasePath}${cleanImageUrl}`
+}
+
 // Check if we're currently offline
 export function isOffline(): boolean {
   return !navigator.onLine

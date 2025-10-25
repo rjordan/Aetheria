@@ -1,6 +1,7 @@
 import { A } from '@solidjs/router'
 import { Show } from 'solid-js'
 import RankBadge from './RankBadge'
+import { resolveImageUrl } from '../data/index'
 
 export interface EntityCardProps {
   /** Unique identifier for the entity (used for routing) */
@@ -40,7 +41,7 @@ function EntityCard(props: EntityCardProps) {
       <div class="entity-card-content">
         <div class="entity-image">
           <img
-            src={props.imageUrl || '/unknown-192.png'}
+            src={resolveImageUrl(props.imageUrl) || resolveImageUrl('/unknown-192.png') || '/unknown-192.png'}
             alt={props.name}
             loading="lazy"
           />

@@ -83,7 +83,7 @@ export default defineConfig(({ mode }) => {
         },
       }),
     ],
-    base: env.AETHERIA_BASE_PATH || '/',
+    base: env.AETHERIA_BASE_PATH || (mode === 'production' ? '/Aetheria/' : '/'),
     build: {
       outDir: '../docs',
       emptyOutDir: true,
