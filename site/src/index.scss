@@ -691,32 +691,20 @@ p {
 }
 
 /* Component Classes */
-.offline-indicator {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: $error-color;
-  color: $white;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: $shadow-medium;
-  z-index: 1000;
+.online-status {
   font-weight: 500;
-  animation: slideIn 0.3s ease;
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
 
   &.online {
-    background: $accent-color;
+    color: $accent-color;
+    background: rgba(40, 167, 69, 0.1);
+  }
+
+  &.offline {
+    color: $warning-color;
+    background: rgba(255, 193, 7, 0.1);
   }
 }
 

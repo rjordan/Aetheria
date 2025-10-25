@@ -47,6 +47,11 @@
 - **Reactive data** with createSignal/createMemo
 - **Clean separation** between data and presentation
 
+### **UI Components**
+- **OfflineIndicator** - Simple text status in footer showing "Online" or "Offline"
+- **ResponsiveTable** - JavaScript-controlled responsive tables
+- **Layout** - Main layout component with header, nav, main, footer structure
+
 ### **File Organization**
 - **Element styles first** in SCSS
 - **Component-specific classes** grouped logically
@@ -55,7 +60,8 @@
 ## 🚀 Build & Performance
 
 ### **Current Metrics** *(as of October 2025)*
-- **CSS bundle size**: ~12.34 kB (reduced from 16.36 kB via reorganization)
+- **CSS bundle size**: ~12.44 kB (reduced from 16.36 kB via reorganization)
+- **JS bundle size**: ~122.54 kB
 - **Build tool**: Vite 7.1.10
 - **SCSS compiler**: Dart Sass (with deprecation warnings for old color functions)
 

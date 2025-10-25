@@ -4,7 +4,6 @@ import OfflineIndicator from './OfflineIndicator'
 function Layout(props: RouteSectionProps) {
   return (
     <>
-      <OfflineIndicator />
       <header>
         <div class="container">
           <h1>🌍 Aetheria</h1>
@@ -34,7 +33,7 @@ function Layout(props: RouteSectionProps) {
 
       <footer>
         <div class="container">
-          <p>Generated on {new Date().toLocaleDateString()} | <a href="https://github.com/rjordan/Aetheria">View on GitHub</a></p>
+          <p>Generated on {new Date().toLocaleDateString()} | <a href="https://github.com/rjordan/Aetheria">View on GitHub</a> | <OfflineIndicator /></p>
         </div>
       </footer>
     </>
