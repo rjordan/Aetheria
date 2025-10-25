@@ -1,5 +1,6 @@
-import { createResource, For, Suspense, Show } from "solid-js"
+import { createResource, Suspense, Show } from "solid-js"
 import { EquipmentItemData, fetchEquipmentData, OfflineError } from "@data/index"
+import ResponsiveTable, { TableColumn } from "../components/ResponsiveTable"
 
 function Equipment() {
   const [equipmentData] = createResource(fetchEquipmentData)
@@ -40,6 +41,41 @@ function Equipment() {
     })).sort((a, b) => a.name.localeCompare(b.name))
   }
 
+  // Define column configurations for each table
+  const weaponColumns: TableColumn[] = [
+    { key: 'name', label: 'Name', priority: 'high' },
+    { key: 'type', label: 'Type', priority: 'high' },
+    { key: 'damageType', label: 'Damage', priority: 'medium' },
+    { key: 'description', label: 'Description', priority: 'high' },
+    { key: 'alternateNames', label: 'Alternate Names', priority: 'low' }
+  ]
+
+  const armorColumns: TableColumn[] = [
+    { key: 'name', label: 'Name', priority: 'high' },
+    { key: 'type', label: 'Type', priority: 'high' },
+    {
+      key: 'protection',
+      label: 'Protection',
+      priority: 'medium',
+      render: (value) => {
+        if (!value || typeof value !== 'object') return ''
+        return Object.entries(value).map(([key, val]) => `${key}: ${val}`).join(', ')
+      }
+    },
+    { key: 'description', label: 'Description', priority: 'high' },
+    { key: 'alternateNames', label: 'Alternate Names', priority: 'low' }
+  ]
+
+  const miscColumns: TableColumn[] = [
+    { key: 'name', label: 'Name', priority: 'high' },
+    { key: 'type', label: 'Type', priority: 'high' },
+    { key: 'rarity', label: 'Rarity', priority: 'low' },
+    { key: 'slot', label: 'Slot', priority: 'low' },
+    { key: 'function', label: 'Function', priority: 'medium' },
+    { key: 'description', label: 'Description', priority: 'high' },
+    { key: 'alternateNames', label: 'Alternate Names', priority: 'low' }
+  ]
+
   return (
     <div class="equipment-page">
       <h1>Equipment & Items</h1>
@@ -65,96 +101,25 @@ function Equipment() {
           </div>
         }>
           <h2>Weapons</h2>
-          <div class="table-container table-responsive table-auto-cards">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th class="low-priority">Damage</th>
-                  <th>Description</th>
-                  <th class="low-priority">Alternate Names</th>
-                </tr>
-              </thead>
-              <tbody>
-                <For each={weapons()}>
-                  {(weapon) => (
-                    <tr>
-                      <td data-label="Name">{weapon.name}</td>
-                      <td data-label="Type">{weapon.type.join(', ')}</td>
-                      <td data-label="Damage" class="low-priority">{weapon.damageType?.join(', ')}</td>
-                      <td data-label="Description">{weapon.description}</td>
-                      <td data-label="Alternate Names" class="low-priority">{weapon.alternateNames?.join(', ') || ''}</td>
-                    </tr>
-                  )}
-                </For>
-              </tbody>
-            </table>
-          </div>
+          <ResponsiveTable
+            columns={weaponColumns}
+            data={weapons()}
+            className="weapons-table"
+          />
 
           <h2>Armor & Shields</h2>
-          <div class="table-container table-responsive table-auto-cards">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th class="low-priority">Protection</th>
-                  <th>Description</th>
-                  <th class="low-priority">Alternate Names</th>
-                </tr>
-              </thead>
-              <tbody>
-                <For each={armorShields()}>
-                  {(item) => (
-                    <tr>
-                      <td data-label="Name">{item.name}</td>
-                      <td data-label="Type">{item.type.join(', ')}</td>
-                      <td data-label="Protection" class="low-priority">{Object.entries(item.protection || {}).map(([key, value]) => (
-                        <div>
-                          {key}: {value}
-                        </div>
-                      ))}</td>
-                      <td data-label="Description">{item.description}</td>
-                      <td data-label="Alternate Names" class="low-priority">{item.alternateNames?.join(', ') || ''}</td>
-                    </tr>
-                  )}
-                </For>
-              </tbody>
-            </table>
-          </div>
+          <ResponsiveTable
+            columns={armorColumns}
+            data={armorShields()}
+            className="armor-table"
+          />
 
           <h2>Other Equipment & Items</h2>
-          <div class="table-container table-responsive table-auto-cards">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th class="low-priority">Rarity</th>
-                  <th class="low-priority">Slot</th>
-                  <th class="low-priority">Function</th>
-                  <th>Description</th>
-                  <th class="low-priority">Alternate Names</th>
-                </tr>
-              </thead>
-              <tbody>
-                <For each={miscellaneousItems() || []}>
-                  {(item) => (
-                    <tr>
-                      <td data-label="Name">{item.name}</td>
-                      <td data-label="Type">{item.type?.join(', ') || ''}</td>
-                      <td data-label="Rarity" class="low-priority">{item.rarity || ''}</td>
-                      <td data-label="Slot" class="low-priority">{item.slot || ''}</td>
-                      <td data-label="Function" class="low-priority">{item.function || ''}</td>
-                      <td data-label="Description">{item.description}</td>
-                      <td data-label="Alternate Names" class="low-priority">{item.alternateNames?.join(', ') || ''}</td>
-                    </tr>
-                  )}
-                </For>
-              </tbody>
-            </table>
-          </div>
+          <ResponsiveTable
+            columns={miscColumns}
+            data={miscellaneousItems() || []}
+            className="misc-table"
+          />
         </Show>
       </Suspense>
     </div>
