@@ -192,6 +192,7 @@ table {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: $shadow-light;
+  table-layout: auto; /* Allow natural column widths */
 
   th {
     background: $primary-gradient;
@@ -199,15 +200,18 @@ table {
     padding: 1rem;
     text-align: left;
     font-weight: 600;
+    white-space: nowrap; /* Prevent header wrapping */
   }
 
   td {
     padding: 1rem;
     border-bottom: 1px solid $border-color;
     vertical-align: top;
+    word-wrap: break-word;
 
     &:first-child {
       font-weight: 500;
+      min-width: 120px; /* Ensure first column has decent width */
     }
   }
 
@@ -228,6 +232,8 @@ table {
   margin: 2rem 0;
   border-radius: 8px;
   box-shadow: $shadow-light;
+  width: 100%;
+  min-width: 0; /* Allow shrinking */
 
   /* Add scrollbar styling for better UX */
   &::-webkit-scrollbar {
@@ -245,7 +251,7 @@ table {
   }
 
   /* Add mobile scroll hint */
-  .table-container::after {
+  &::after {
     content: "← Scroll to see more →";
     display: block;
     text-align: center;
@@ -257,8 +263,17 @@ table {
   }
 
   @media (max-width: 600px) {
-    .table-auto-cards .table-container::after {
+    &.table-auto-cards::after {
       display: none;
+    }
+  }
+
+  /* Ensure tables don't get too compressed */
+  table {
+    min-width: 500px; /* Minimum table width for readability */
+
+    @media (max-width: 600px) {
+      min-width: 0; /* Allow full responsiveness on mobile */
     }
   }
 }
@@ -267,10 +282,10 @@ table {
 @media (max-width: 768px) {
   .table-responsive {
     table {
-      font-size: 0.85rem;
+      font-size: 0.9rem; /* Slightly larger font */
 
       th, td {
-        padding: 0.5rem 0.25rem;
+        padding: 0.75rem 0.5rem; /* More generous padding */
         white-space: nowrap;
       }
 
@@ -342,66 +357,6 @@ table {
         &:last-child {
           border-bottom: none;
         }
-      }
-    }
-  }  /* Card layout for mobile tables */
-  .table-cards {
-    .table-container {
-      overflow-x: visible;
-      box-shadow: none;
-    }
-
-    table, thead, tbody, th, td, tr {
-      display: block;
-    }
-
-    table {
-      margin: 1rem 0;
-      box-shadow: none;
-    }
-
-    thead tr {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
-
-    tbody {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    tr {
-      background: $white;
-      border-radius: 8px;
-      box-shadow: $shadow-light;
-      padding: 1rem;
-      margin-bottom: 0;
-      border: 1px solid $border-color;
-    }
-
-    td {
-      border: none;
-      border-bottom: 1px solid #eee;
-      position: relative;
-      padding: 0.5rem 0 0.5rem 35%;
-      word-wrap: break-word;
-
-      &:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 30%;
-        padding-right: 10px;
-        white-space: nowrap;
-        font-weight: 600;
-        color: $primary-color;
-        font-size: 0.85rem;
-      }
-
-      &:last-child {
-        border-bottom: none;
       }
     }
   }
