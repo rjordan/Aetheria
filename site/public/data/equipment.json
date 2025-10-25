@@ -4,18 +4,18 @@
       "sword": {
         "name": "Sword",
         "type": [
-          "melee"
+          "Melee"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A versatile weapon used for slashing and thrusting",
-        "alternative_names": [
+        "alternateNames": [
           "Saber",
           "Broadsword",
           "Longsword",
           "Rapier",
           "Shortsword"
         ],
-        "damage_type": [
+        "damageType": [
           "Slashing",
           "Piercing"
         ],
@@ -24,16 +24,16 @@
       "axe": {
         "name": "Axe",
         "type": [
-          "melee"
+          "Melee"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A heavy weapon designed for chopping and cleaving",
-        "alternative_names": [
+        "alternateNames": [
           "Battle Axe",
           "Hand Axe",
           "Cleaver"
         ],
-        "damage_type": [
+        "damageType": [
           "Slashing"
         ],
         "reach": "Close"
@@ -41,17 +41,17 @@
       "dagger": {
         "name": "Dagger",
         "type": [
-          "melee",
-          "missile"
+          "Melee",
+          "Missile"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A small, easily concealable blade used for stabbing",
-        "alternative_names": [
+        "alternateNames": [
           "Knife",
           "Stiletto",
           "Dirk"
         ],
-        "damage_type": [
+        "damageType": [
           "Piercing"
         ],
         "reach": "Close",
@@ -63,16 +63,16 @@
       "staff": {
         "name": "Staff",
         "type": [
-          "melee_long"
+          "Reach_Melee"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A long pole used for both physical combat and as a focus for spellcasting",
-        "alternative_names": [
+        "alternateNames": [
           "Quarterstaff",
           "Wizard's Staff",
           "Bo Staff"
         ],
-        "damage_type": [
+        "damageType": [
           "Bludgeoning"
         ],
         "reach": "Extended",
@@ -83,16 +83,16 @@
       "mace": {
         "name": "Mace",
         "type": [
-          "melee"
+          "Melee"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A blunt weapon designed to crush armor and bones",
-        "alternative_names": [
+        "alternateNames": [
           "Club",
           "Flail",
           "Morningstar"
         ],
-        "damage_type": [
+        "damageType": [
           "Bludgeoning"
         ],
         "reach": "Close"
@@ -100,17 +100,17 @@
       "spear": {
         "name": "Spear",
         "type": [
-          "melee_long",
-          "missile"
+          "Reach_Melee",
+          "Missile"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A long pole weapon with a pointed tip for thrusting",
-        "alternative_names": [
+        "alternateNames": [
           "Lance",
           "Javelin",
           "Pike"
         ],
-        "damage_type": [
+        "damageType": [
           "Piercing"
         ],
         "reach": "Extended",
@@ -121,16 +121,16 @@
       "bow": {
         "name": "Bow",
         "type": [
-          "missile"
+          "Missile"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A weapon that shoots arrows from a distance",
-        "alternative_names": [
+        "alternateNames": [
           "Longbow",
           "Shortbow",
           "Crossbow"
         ],
-        "damage_type": [
+        "damageType": [
           "Piercing"
         ],
         "reach": "Long Range",
@@ -139,15 +139,15 @@
       "scythe": {
         "name": "Scythe",
         "type": [
-          "melee_long"
+          "Reach_Melee"
         ],
-        "rarity": "uncommon",
+        "rarity": "Uncommon",
         "description": "A long, curved blade attached to a pole, often associated with harvesting or death",
-        "alternative_names": [
+        "alternateNames": [
           "Sickle",
           "Reaper's Scythe"
         ],
-        "damage_type": [
+        "damageType": [
           "Slashing"
         ],
         "reach": "Extended",
@@ -160,17 +160,17 @@
       "halberd": {
         "name": "Halberd",
         "type": [
-          "melee_long"
+          "Reach_Melee"
         ],
-        "rarity": "uncommon",
+        "rarity": "Uncommon",
         "description": "A pole weapon that combines an axe blade with a spear point",
-        "alternative_names": [
+        "alternateNames": [
           "Poleaxe",
           "Bardich",
           "Glaive",
           "Voulge"
         ],
-        "damage_type": [
+        "damageType": [
           "Slashing",
           "Piercing"
         ],
@@ -179,15 +179,15 @@
       "nunchaku": {
         "name": "Nunchaku",
         "type": [
-          "melee"
+          "Melee"
         ],
         "rarity": "exotic",
         "description": "A martial arts weapon consisting of two sticks connected by a chain or rope",
-        "alternative_names": [
+        "alternateNames": [
           "Nunchucks",
           "Three Section Staff"
         ],
-        "damage_type": [
+        "damageType": [
           "Bludgeoning"
         ],
         "reach": "Close",
@@ -199,15 +199,15 @@
       "kusarigama": {
         "name": "Kusarigama",
         "type": [
-          "melee",
-          "melee_long"
+          "Melee",
+          "Reach_Melee"
         ],
         "rarity": "exotic",
         "description": "A traditional weapon consisting of a Kama attached to a chain with a weight",
-        "alternative_names": [
+        "alternateNames": [
           "Chain Sickle"
         ],
-        "damage_type": [
+        "damageType": [
           "Slashing",
           "Bludgeoning"
         ],
@@ -223,14 +223,14 @@
       "shuriken": {
         "name": "Shuriken",
         "type": [
-          "missile"
+          "Missile"
         ],
         "rarity": "exotic",
         "description": "Small, star-shaped throwing weapons used for distraction or injury",
-        "alternative_names": [
+        "alternateNames": [
           "Throwing Stars"
         ],
-        "damage_type": [
+        "damageType": [
           "Piercing"
         ],
         "reach": "Short Range",
@@ -242,14 +242,14 @@
       "blowgun": {
         "name": "Blowgun",
         "type": [
-          "missile"
+          "Missile"
         ],
         "rarity": "exotic",
         "description": "A tube used to shoot small darts, often poisoned",
-        "alternative_names": [
+        "alternateNames": [
           "Dart Gun"
         ],
-        "damage_type": [
+        "damageType": [
           "Piercing"
         ],
         "reach": "Medium Range",
@@ -264,17 +264,17 @@
       "cloth_armor": {
         "name": "Cloth Armor",
         "type": [
-          "armor"
+         "Armor"
         ],
-        "armor_class": "light",
-        "rarity": "common",
+        "armorClass": "light",
+        "rarity": "Common",
         "description": "Lightweight armor made from fabric or leather, offering minimal protection",
         "protection": {
-          "slashing": "Light",
-          "piercing": "None",
-          "bludgeoning": "None"
+          "Slashing": "Light",
+          "Piercing": "None",
+          "Bludgeoning": "None"
         },
-        "alternative_names": [
+        "alternateNames": [
           "Robes",
           "Tunics",
           "Garments",
@@ -285,17 +285,17 @@
       "light_armor": {
         "name": "Light Armor",
         "type": [
-          "armor"
+         "Armor"
         ],
-        "armor_class": "light",
-        "rarity": "common",
+        "armorClass": "light",
+        "rarity": "Common",
         "description": "Flexible and lightweight armor that allows for ease of movement",
         "protection": {
-          "slashing": "Medium",
-          "piercing": "Light",
-          "bludgeoning": "Light"
+          "Slashing": "Medium",
+          "Piercing": "Light",
+          "Bludgeoning": "Light"
         },
-        "alternative_names": [
+        "alternateNames": [
           "Leather Armor",
           "Padded Armor",
           "Studded Leather Armor",
@@ -306,17 +306,17 @@
       "medium_armor": {
         "name": "Medium Armor",
         "type": [
-          "armor"
+         "Armor"
         ],
-        "armor_class": "medium",
-        "rarity": "common",
+        "armorClass": "medium",
+        "rarity": "Common",
         "description": "Balanced armor that offers a compromise between protection and mobility",
         "protection": {
-          "slashing": "High",
-          "piercing": "Medium",
-          "bludgeoning": "Light"
+          "Slashing": "High",
+          "Piercing": "Medium",
+          "Bludgeoning": "Light"
         },
-        "alternative_names": [
+        "alternateNames": [
           "Chain Mail",
           "Scale Mail",
           "Ring Mail",
@@ -327,17 +327,17 @@
       "heavy_armor": {
         "name": "Heavy Armor",
         "type": [
-          "armor"
+         "Armor"
         ],
-        "armor_class": "heavy",
-        "rarity": "uncommon",
+        "armorClass": "heavy",
+        "rarity": "Uncommon",
         "description": "Robust armor that provides maximum protection but hinders movement",
         "protection": {
-          "slashing": "Very High",
-          "piercing": "Medium to High",
-          "bludgeoning": "Very High"
+          "Slashing": "Very High",
+          "Piercing": "Medium/High",
+          "Bludgeoning": "Very High"
         },
-        "alternative_names": [
+        "alternateNames": [
           "Plate Armor",
           "Full Plate Armor"
         ],
@@ -346,50 +346,66 @@
       "buckler": {
         "name": "Buckler",
         "type": [
-          "shield"
+         "Shield"
         ],
-        "shield_size": "small",
-        "rarity": "common",
+        "size": "small",
+        "rarity": "Common",
         "description": "A small, round shield held in one hand",
-        "protection": "Low",
+        "protection": {
+          "Slashing": "Light",
+          "Piercing": "Light",
+          "Bludgeoning": "Light"
+        },
         "maneuverability": "High",
-        "alternative_names": [
+        "alternateNames": [
           "Small Shield"
         ]
       },
       "round_shield": {
         "name": "Round Shield",
         "type": [
-          "shield"
+         "Shield"
         ],
-        "shield_size": "medium",
-        "rarity": "common",
+        "size": "medium",
+        "rarity": "Common",
         "description": "A circular shield that is easy to maneuver",
-        "protection": "Medium",
+        "protection": {
+          "Slashing": "Medium",
+          "Piercing": "Medium",
+          "Bludgeoning": "Medium"
+        },
         "maneuverability": "Medium"
       },
       "kite_shield": {
         "name": "Kite Shield",
         "type": [
-          "shield"
+         "Shield"
         ],
-        "shield_size": "medium",
-        "rarity": "common",
+        "size": "medium",
+        "rarity": "Common",
         "description": "A shield with a tapered shape, offering good protection while allowing for mobility",
-        "protection": "Medium to High",
+        "protection": {
+          "Slashing": "Medium/High",
+          "Piercing": "Medium/High",
+          "Bludgeoning": "Medium/High"
+        },
         "maneuverability": "Medium"
       },
       "tower_shield": {
         "name": "Tower Shield",
         "type": [
-          "shield"
+         "Shield"
         ],
-        "shield_size": "large",
-        "rarity": "uncommon",
+        "size": "large",
+        "rarity": "Uncommon",
         "description": "A large, rectangular shield that provides extensive coverage",
-        "protection": "High",
+        "protection": {
+          "Slashing": "High",
+          "Piercing": "High",
+          "Bludgeoning": "High"
+        },
         "maneuverability": "Low",
-        "alternative_names": [
+        "alternateNames": [
           "Large Shield"
         ],
         "properties": [
@@ -402,12 +418,12 @@
       "amulet": {
         "name": "Amulet",
         "type": [
-          "accessory"
+          "Accessory"
         ],
-        "rarity": "uncommon",
+        "rarity": "Uncommon",
         "description": "A pendant worn around the neck, often imbued with magical properties",
         "function": "May provide various magical effects or protections",
-        "alternative_names": [
+        "alternateNames": [
           "Necklace",
           "Talisman",
           "Charm",
@@ -420,12 +436,12 @@
       "ring": {
         "name": "Ring",
         "type": [
-          "accessory"
+          "Accessory"
         ],
-        "rarity": "uncommon",
+        "rarity": "Uncommon",
         "description": "A circular band worn on the finger, sometimes enchanted",
         "function": "May grant magical abilities or protections",
-        "alternative_names": [
+        "alternateNames": [
           "Band",
           "Signet"
         ],
@@ -434,12 +450,12 @@
       "cloak": {
         "name": "Cloak",
         "type": [
-          "accessory"
+          "Accessory"
         ],
-        "rarity": "uncommon",
+        "rarity": "Uncommon",
         "description": "A long, flowing garment worn over the shoulders, sometimes enchanted",
         "function": "May provide magical protections or effects",
-        "alternative_names": [
+        "alternateNames": [
           "Cape",
           "Mantle"
         ],
@@ -448,53 +464,57 @@
       "rope": {
         "name": "Rope",
         "type": [
-          "tool"
+          "Tool"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A length of strong cordage used for climbing, tying, or securing items",
         "function": "Essential for climbing, binding, or creating makeshift structures",
-        "alternative_names": [
+        "alternateNames": [
           "Cord",
           "Line"
-        ]
+        ],
+        "slot": null
       },
       "grappling_hook": {
         "name": "Grappling Hook",
         "type": [
-          "tool"
+          "Tool"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A device with hooks used to secure a rope to a surface for climbing",
         "function": "Used in conjunction with rope for climbing or securing items",
-        "alternative_names": [
+        "alternateNames": [
           "Climbing Hook"
-        ]
+        ],
+        "slot": null
       },
       "torch": {
         "name": "Torch",
         "type": [
-          "tool",
-          "light_source"
+          "Tool",
+          "Lightsource"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A handheld light source, typically a stick with a flammable material at one end",
         "function": "Provides light in dark areas",
-        "alternative_names": [
+        "alternateNames": [
           "Candle"
-        ]
+        ],
+        "slot": null
       },
       "lantern": {
         "name": "Lantern",
         "type": [
-          "tool",
-          "light_source"
+          "Tool",
+          "Lightsource"
         ],
-        "rarity": "common",
+        "rarity": "Common",
         "description": "A portable light source that can be carried or hung",
         "function": "Provides illumination in dark areas",
-        "alternative_names": [
+        "alternateNames": [
           "Light"
-        ]
+        ],
+        "slot": null
       }
     }
   }

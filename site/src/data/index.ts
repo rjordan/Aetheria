@@ -52,8 +52,25 @@ export interface ClassesData {
   }
 }
 
+export interface EquipmentItemData {
+  name: string
+  type: string[]
+  rarity?: string // For general items
+  slot?: string // For general items
+  function?: string // For general items
+  damageType?: string[] // For Weapons
+  description: string
+  size?: string // For Shields
+  protection?: Record<string, string> // For Armor & Shields
+  alternateNames?: string[]
+}
+
 export interface EquipmentData {
-  equipment: Record<string, any>
+  equipment: {
+    weapons: Record<string, EquipmentItemData>
+    armor_and_shields: Record<string, EquipmentItemData>
+    miscellaneous: Record<string, EquipmentItemData>
+  }
 }
 
 export interface OrganizationsData {

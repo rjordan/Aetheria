@@ -1,4 +1,4 @@
-import { For, createResource, Suspense } from 'solid-js'
+import { For, createResource, Suspense, Show } from 'solid-js'
 import { A } from '@solidjs/router'
 import { fetchMagicData, OfflineError } from '@data/index'
 
@@ -62,49 +62,55 @@ function MagicSchools() {
       <Suspense
         fallback={
           <div class="loading-state">
-            {isOfflineError() ? (
+            <Show when={isOfflineError()} fallback={<div>Loading magic data...</div>}>
               <div class="offline-error">
                 <h3>📱 Offline Mode</h3>
                 <p>Magic data is not available offline. Please check your connection.</p>
               </div>
-            ) : (
-              <div>Loading magic data...</div>
-            )}
+            </Show>
           </div>
         }
       >
-        <div class="schools-table-container">
-          <table class="schools-table">
-            <thead>
-              <tr>
-                <th>School</th>
-                <th>Description</th>
-                <th>Focus Areas</th>
-                <th>Regulation</th>
-                <th>Opposing Element</th>
-              </tr>
-            </thead>
-            <tbody>
-              <For each={schools().sort((a: any, b: any) => a.name.localeCompare(b.name))}>
-                {(school) => (
-                  <tr>
-                    <td class="school-name-cell">
-                      <A href={`/magic/${school.key}`} class="school-link">
-                        {school.name}
-                      </A>
-                    </td>
-                    <td>{school.description}</td>
-                    <td>
-                      {Array.isArray(school.focus) ? school.focus.join(', ') : school.focus || 'N/A'}
-                    </td>
-                    <td>{school.regulation || 'Unknown'}</td>
-                    <td>{school.opposing_element || 'None'}</td>
-                  </tr>
-                )}
-              </For>
-            </tbody>
-          </table>
-        </div>
+        <Show when={!isOfflineError()} fallback={
+          <div class="offline-error">
+            <h3>📱 Offline Mode</h3>
+            <p>Magic data is not available offline. Please check your connection.</p>
+            <p>You can still browse the static content above, but the interactive magic schools table requires an internet connection.</p>
+          </div>
+        }>
+          <div class="schools-table-container">
+            <table class="schools-table">
+              <thead>
+                <tr>
+                  <th>School</th>
+                  <th>Description</th>
+                  <th>Focus Areas</th>
+                  <th>Regulation</th>
+                  <th>Opposing Element</th>
+                </tr>
+              </thead>
+              <tbody>
+                <For each={schools().sort((a: any, b: any) => a.name.localeCompare(b.name))}>
+                  {(school) => (
+                    <tr>
+                      <td class="school-name-cell">
+                        <A href={`/magic/${school.key}`} class="school-link">
+                          {school.name}
+                        </A>
+                      </td>
+                      <td>{school.description}</td>
+                      <td>
+                        {Array.isArray(school.focus) ? school.focus.join(', ') : school.focus || 'N/A'}
+                      </td>
+                      <td>{school.regulation || 'Unknown'}</td>
+                      <td>{school.opposing_element || 'None'}</td>
+                    </tr>
+                  )}
+                </For>
+              </tbody>
+            </table>
+          </div>
+        </Show>
       </Suspense>
     </div>
   )
