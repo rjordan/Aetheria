@@ -1,6 +1,6 @@
 import { useParams, A } from '@solidjs/router'
 import { createMemo, createResource, Show, Suspense } from 'solid-js'
-import { fetchCharactersData, type CharacterData } from '@data/index'
+import { fetchCharactersData, type CharacterData, resolveImageUrl } from '@data/index'
 import RankBadge from '../../components/RankBadge'
 import AlignmentDisplay from '../../components/AlignmentDisplay'
 import LinkedText from '../../components/LinkedText'
@@ -34,7 +34,7 @@ function CharacterDetail() {
             <div class="entity-header">
               <div class="entity-image-large">
                 <img
-                  src={character()!.imageUrl || '/unknown-192.png'}
+                  src={resolveImageUrl(character()!.imageUrl) || resolveImageUrl('/images/unknown-192.png') || '/images/unknown-192.png'}
                   alt={character()!.name}
                 />
               </div>

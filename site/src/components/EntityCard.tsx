@@ -41,7 +41,7 @@ function EntityCard(props: EntityCardProps) {
       <div class="entity-card-content">
         <div class="entity-image">
           <img
-            src={resolveImageUrl(props.imageUrl) || resolveImageUrl('/unknown-192.png') || '/unknown-192.png'}
+            src={resolveImageUrl(props.imageUrl) || resolveImageUrl('/images/unknown-192.png') || '/images/unknown-192.png'}
             alt={props.name}
             loading="lazy"
           />
