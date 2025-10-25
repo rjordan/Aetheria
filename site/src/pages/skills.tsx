@@ -39,6 +39,8 @@ function Skills() {
         <li><strong>Alchemy:</strong> The ability to create potions and elixirs from various ingredients.</li>
         <li><strong>Arcana:</strong> Knowledge of magical lore and spellcraft.</li>
         <li><strong>History:</strong> Understanding of historical events, cultures, and legends.</li>
+        <li><strong>Herbalism:</strong> The study of plants and their properties, often for medicinal purposes.</li>
+        <li><strong>Jewelcraft:</strong> The skill of creating and appraising jewelry and gemstones.</li>
       </ul>
 
       <p class="coming-soon"><em>Coming soon...</em></p>

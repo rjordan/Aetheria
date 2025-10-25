@@ -1,10 +1,10 @@
 {
   "classes": {
-    "primary": {
+    "core": {
       "warrior": {
         "name": "Warrior",
         "description": "Masters of physical combat, skilled with a variety of weapons and armor",
-        "alternative_names": [
+        "alternativeNames": [
           "Fighter",
           "Knight"
         ]
@@ -12,40 +12,99 @@
       "mage": {
         "name": "Mage",
         "description": "Wielders of magical energies, specializing in spellcasting and arcane knowledge",
-        "alternative_names": [
+        "alternativeNames": [
           "Sorcerer",
-          "Wizard"
+          "Wizard",
+          "Sage"
         ]
       },
       "rogue": {
         "name": "Rogue",
         "description": "Experts in stealth, agility, and cunning, often excelling in thievery and assassination",
-        "alternative_names": [
+        "alternativeNames": [
           "Thief",
           "Assassin"
         ]
       },
-      "priest": {
-        "name": "Priest",
-        "description": "Divine spellcasters who draw power from deities to heal and protect",
-        "alternative_names": [
-          "Cleric",
-          "Healer"
+      "artisan": {
+        "name": "Artisan",
+        "description": "Skilled craftsmen and creators, adept in various trades and arts",
+        "alternativeNames": [
+          "Craftsman",
+          "Blacksmith",
+          "Carpenter",
+          "Mason",
+          "Jeweler",
+          "Alchemist"
+        ]
+      },
+      "tradesman": {
+        "name": "Tradesman",
+        "description": "Merchants and businesspeople from the great trader barons to the local fruit stall vendor",
+        "alternativeNames": [
+          "Merchant",
+          "Trader",
+          "Shopkeeper"
+        ]
+      },
+      "politician": {
+        "name": "Politician",
+        "description": "Leaders and diplomats from Kings and Emperors to the local town elder, skilled in governance and public affairs",
+        "alternativeNames": [
+          "Diplomat",
+          "Statesman",
+          "Envoy"
+        ]
+      },
+      "laborer": {
+        "name": "Laborer",
+        "description": "Hardworking individuals who perform manual labor and skilled trades to support society",
+        "alternativeNames": [
+          "Stonecutter",
+          "Farmer",
+          "Miner"
+        ]
+      },
+      "academician": {
+        "name": "Academician",
+        "description": "Learned individuals who acquire knowledge through formal study and education, serving as keepers and transmitters of information",
+        "alternativeNames": [
+          "Scholar",
+          "Scribe",
+          "Librarian",
+          "Tutor",
+          "Barrister",
+          "Accountant"
         ]
       }
     },
-    "specialized": {
+    "specializations": {
+      "priest": {
+        "name": "Priest",
+        "baseClass": "Mage",
+        "description": "Divine spellcasters who draw power from deities to heal and protect. Mages with at least one of their foci in Light Magic. Priests and Clerics are often affiliated with religious institutions. Those who are not are known as healers or white mages.",
+        "requiredSpecializations": ["Light"],
+        "alternativeNames": [
+          "Cleric",
+          "Healer",
+          "White Mage"
+        ]
+      },
       "monk": {
         "name": "Monk",
+        "baseClass": "Fighter",
         "description": "Masters of unarmed combat and spiritual discipline",
-        "alternative_names": [
+        "requiredSpecializations": null,
+        "alternativeNames": [
           "Martial Artist"
         ]
       },
       "crusader": {
         "name": "Crusader",
+        "baseClass": "Fighter",
         "description": "Warriors who fight for an ideal, often justice and righteousness",
-        "alternative_names": [
+        "requiredSpecializations": ["Light|Dark"],
+        "alternativeNames": [
           "Paladin",
           "Templar",
           "Inquisitor",
@@ -55,50 +114,66 @@
       },
       "lancer": {
         "name": "Lancer",
-        "description": "Specialists in polearms, particularly the lance, excelling in mounted combat",
-        "alternative_names": [
+        "baseClass": "Fighter",
+        "description": "Specialists in polearms and spears, skilled in both mounted and foot combat with reach weapons",
+        "requiredSpecializations": null,
+        "alternativeNames": [
           "Dragoon",
-          "Cavalier"
+          "Cavalier",
+          "Legionnaire"
         ]
       },
       "warlock": {
         "name": "Warlock",
-        "description": "Spellcasters who derive their power from pacts with otherworldly beings",
-        "alternative_names": []
+        "baseClass": "Mage",
+        "description": "Spellcasters who derive their power from pacts with otherworldly beings, specializing in Spirit magic combined with either Light or Dark magic depending on their patron. They summon minor outsiders and maintain intelligent outsider familiars",
+        "requiredSpecializations": ["Spirit", "Light|Dark"],
+        "alternativeNames": ["Witch"]
       },
       "necromancer": {
         "name": "Necromancer",
+        "baseClass": "Mage",
         "description": "Specialists in death magic, raising the dead and manipulating life forces",
-        "alternative_names": [
+        "requiredSpecializations": ["Dark"],
+        "alternativeNames": [
           "Shadow Mage",
-          "Death Mage"
+          "Death Mage",
+          "Black Mage"
         ]
       },
       "enchanter": {
         "name": "Enchanter",
+        "baseClass": "Mage",
         "description": "Focus on the manipulation of magical energies to imbue objects with spells",
-        "alternative_names": [
+        "requiredSpecializations": ["Aether"],
+        "alternativeNames": [
           "Tinkerer",
           "Artificer"
         ]
       },
       "shadowblade": {
         "name": "Shadowblade",
+        "baseClass": "Rogue",
         "description": "Stealthy assassins who combine martial prowess with shadow magic",
-        "alternative_names": []
+        "requiredSpecializations": ["Dark"],
+        "alternativeNames": []
       },
       "ranger": {
         "name": "Ranger",
+        "baseClass": "Rogue",
         "description": "Skilled hunters and trackers, adept with bows and nature magic",
-        "alternative_names": [
+        "requiredSpecializations": ["Earth"],
+        "alternativeNames": [
           "Archer",
           "Scout"
         ]
       },
       "bard": {
         "name": "Bard",
+        "baseClass": "Rogue",
         "description": "Specialists in a particular musical instrument or style, enhancing their magical abilities and charming others",
-        "alternative_names": [
+        "requiredSpecializations": ["Mind"],
+        "alternativeNames": [
           "Minstrel",
           "Troubadour",
           "Skald"
@@ -106,10 +181,54 @@
       },
       "druid": {
         "name": "Druid",
+        "baseClass": "Mage",
         "description": "Guardians of nature who can shapeshift and command natural forces",
-        "alternative_names": [
+        "requiredSpecializations": ["Earth", "AnyElemental"],
+        "alternativeNames": [
           "Shapeshifter",
           "Nature Priest"
+        ]
+      },
+      "sailor": {
+        "name": "Sailor",
+        "baseClass": "Rogue",
+        "description": "Masters of life at sea, skilled in navigation, seamanship, and the ways of ports both foreign and domestic",
+        "requiredSpecializations": null,
+        "alternativeNames": [
+          "Mariner",
+          "Seaman",
+          "Navigator"
+        ]
+      },
+      "beastmaster": {
+        "name": "Beastmaster",
+        "baseClass": "Rogue",
+        "description": "Specialists in Spirit magic who bond with and summon natural creatures, forming deep connections with the animal kingdom",
+        "requiredSpecializations": ["Spirit"],
+        "alternativeNames": [
+          "Beast Tamer",
+          "Animal Handler"
+        ]
+      },
+      "shaman": {
+        "name": "Shaman",
+        "baseClass": "Mage",
+        "description": "Spiritual guides who commune with natural and ancestral spirits, serving as intermediaries between the physical and spirit worlds",
+        "requiredSpecializations": ["Spirit"],
+        "alternativeNames": [
+          "Spirit Guide",
+          "Medicine Man",
+          "Tribal Mystic"
+        ]
+      },
+      "summoner": {
+        "name": "Summoner",
+        "baseClass": "Mage",
+        "description": "Masters of planar conjuration who call forth powerful eidolons and dimensional beings through combined Spirit and Aether magic",
+        "requiredSpecializations": ["Spirit", "Aether"],
+        "alternativeNames": [
+          "Conjurer",
+          "Eidolon Master"
         ]
       }
     }

@@ -222,6 +222,202 @@ table {
   }
 }
 
+/* Responsive table wrapper */
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: $shadow-light;
+
+  /* Add scrollbar styling for better UX */
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary-color;
+    border-radius: 4px;
+  }
+
+  /* Add mobile scroll hint */
+  .table-container::after {
+    content: "← Scroll to see more →";
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    padding: 0.5rem;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    margin-top: -1px;
+  }
+
+  @media (max-width: 600px) {
+    .table-auto-cards .table-container::after {
+      display: none;
+    }
+  }
+}
+
+/* Mobile-first responsive table */
+@media (max-width: 768px) {
+  .table-responsive {
+    table {
+      font-size: 0.85rem;
+
+      th, td {
+        padding: 0.5rem 0.25rem;
+        white-space: nowrap;
+      }
+
+      /* Hide less important columns on small screens */
+      .hide-mobile {
+        display: none;
+      }
+    }
+  }
+
+  /* Auto-convert to cards on very small screens */
+  @media (max-width: 600px) {
+    .table-auto-cards {
+      .table-container {
+        overflow-x: visible;
+        box-shadow: none;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      table {
+        margin: 1rem 0;
+        box-shadow: none;
+      }
+
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      tr {
+        background: $white;
+        border-radius: 8px;
+        box-shadow: $shadow-light;
+        padding: 1rem;
+        margin-bottom: 0;
+        border: 1px solid $border-color;
+      }
+
+      td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding: 0.5rem 0 0.5rem 35%;
+        word-wrap: break-word;
+        white-space: normal;
+
+        &:before {
+          content: attr(data-label);
+          position: absolute;
+          left: 0;
+          width: 30%;
+          padding-right: 10px;
+          white-space: nowrap;
+          font-weight: 600;
+          color: $primary-color;
+          font-size: 0.85rem;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }  /* Card layout for mobile tables */
+  .table-cards {
+    .table-container {
+      overflow-x: visible;
+      box-shadow: none;
+    }
+
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    table {
+      margin: 1rem 0;
+      box-shadow: none;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    tr {
+      background: $white;
+      border-radius: 8px;
+      box-shadow: $shadow-light;
+      padding: 1rem;
+      margin-bottom: 0;
+      border: 1px solid $border-color;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding: 0.5rem 0 0.5rem 35%;
+      word-wrap: break-word;
+
+      &:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 30%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        color: $primary-color;
+        font-size: 0.85rem;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .table-cards td {
+    padding: 0.4rem 0 0.4rem 40%;
+
+    &:before {
+      width: 35%;
+      font-size: 0.8rem;
+    }
+  }
+}
+
 /* Footer */
 footer {
   background: $primary-gradient;
@@ -613,12 +809,18 @@ footer {
     padding: 1rem;
   }
 
-  table {
-    font-size: 0.9rem;
+  /* Default table mobile handling */
+  table:not(.table-cards table) {
+    font-size: 0.85rem;
 
     th,
     td {
-      padding: 0.5rem;
+      padding: 0.5rem 0.25rem;
+    }
+
+    /* Auto-hide columns marked as low priority */
+    .low-priority {
+      display: none;
     }
   }
 
@@ -635,18 +837,64 @@ footer {
       padding: 0.75rem;
     }
   }
+
+  /* Mobile navigation improvements */
+  nav ul {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
+  header {
+    padding: 1.5rem 0;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  main {
+    margin: 0.5rem;
+    padding: 0.75rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+
+  /* Very small screen table handling */
   .schools-table-container {
     .schools-table {
-
       th,
       td {
         padding: 0.25rem;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
       }
     }
+  }
+
+  /* Mobile navigation for very small screens */
+  nav ul {
+    gap: 0.25rem;
+  }
+
+  nav a {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
   }
 }
 

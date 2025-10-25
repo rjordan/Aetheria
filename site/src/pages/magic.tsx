@@ -78,32 +78,32 @@ function MagicSchools() {
             <p>You can still browse the static content above, but the interactive magic schools table requires an internet connection.</p>
           </div>
         }>
-          <div class="schools-table-container">
+          <div class="table-container table-responsive table-auto-cards">
             <table class="schools-table">
               <thead>
                 <tr>
                   <th>School</th>
                   <th>Description</th>
-                  <th>Focus Areas</th>
+                  <th class="low-priority">Focus Areas</th>
                   <th>Regulation</th>
-                  <th>Opposing Element</th>
+                  <th class="low-priority">Opposing Element</th>
                 </tr>
               </thead>
               <tbody>
                 <For each={schools().sort((a: any, b: any) => a.name.localeCompare(b.name))}>
                   {(school) => (
                     <tr>
-                      <td class="school-name-cell">
+                      <td data-label="School" class="school-name-cell">
                         <A href={`/magic/${school.key}`} class="school-link">
                           {school.name}
                         </A>
                       </td>
-                      <td>{school.description}</td>
-                      <td>
+                      <td data-label="Description">{school.description}</td>
+                      <td data-label="Focus Areas" class="low-priority">
                         {Array.isArray(school.focus) ? school.focus.join(', ') : school.focus || 'N/A'}
                       </td>
-                      <td>{school.regulation || 'Unknown'}</td>
-                      <td>{school.opposing_element || 'None'}</td>
+                      <td data-label="Regulation">{school.regulation || 'Unknown'}</td>
+                      <td data-label="Opposing Element" class="low-priority">{school.opposing_element || 'None'}</td>
                     </tr>
                   )}
                 </For>

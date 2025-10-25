@@ -65,90 +65,96 @@ function Equipment() {
           </div>
         }>
           <h2>Weapons</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Damage</th>
-            <th>Description</th>
-            <th>Alternate Names</th>
-          </tr>
-        </thead>
-        <tbody>
-          <For each={weapons()}>
-            {(weapon) => (
-              <tr>
-                <td>{weapon.name}</td>
-                <td>{weapon.type.join(', ')}</td>
-                <td>{weapon.damageType?.join(', ')}</td>
-                <td>{weapon.description}</td>
-                <td>{weapon.alternateNames?.join(', ') || ''}</td>
-              </tr>
-            )}
-          </For>
-        </tbody>
-      </table>
+          <div class="table-container table-responsive table-auto-cards">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th class="low-priority">Damage</th>
+                  <th>Description</th>
+                  <th class="low-priority">Alternate Names</th>
+                </tr>
+              </thead>
+              <tbody>
+                <For each={weapons()}>
+                  {(weapon) => (
+                    <tr>
+                      <td data-label="Name">{weapon.name}</td>
+                      <td data-label="Type">{weapon.type.join(', ')}</td>
+                      <td data-label="Damage" class="low-priority">{weapon.damageType?.join(', ')}</td>
+                      <td data-label="Description">{weapon.description}</td>
+                      <td data-label="Alternate Names" class="low-priority">{weapon.alternateNames?.join(', ') || ''}</td>
+                    </tr>
+                  )}
+                </For>
+              </tbody>
+            </table>
+          </div>
 
-      <h2>Armor & Shields</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Protection</th>
-            <th>Description</th>
-            <th>Alternate Names</th>
-          </tr>
-        </thead>
-        <tbody>
-          <For each={armorShields()}>
-            {(item) => (
-              <tr>
-                <td>{item.name}</td>
-                <td>{item.type.join(', ')}</td>
-                <td>{Object.entries(item.protection || {}).map(([key, value]) => (
-                  <div>
-                    {key}: {value}
-                  </div>
-                ))}</td>
-                <td>{item.description}</td>
-                <td>{item.alternateNames?.join(', ') || ''}</td>
-              </tr>
-            )}
-          </For>
-        </tbody>
-      </table>
+          <h2>Armor & Shields</h2>
+          <div class="table-container table-responsive table-auto-cards">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th class="low-priority">Protection</th>
+                  <th>Description</th>
+                  <th class="low-priority">Alternate Names</th>
+                </tr>
+              </thead>
+              <tbody>
+                <For each={armorShields()}>
+                  {(item) => (
+                    <tr>
+                      <td data-label="Name">{item.name}</td>
+                      <td data-label="Type">{item.type.join(', ')}</td>
+                      <td data-label="Protection" class="low-priority">{Object.entries(item.protection || {}).map(([key, value]) => (
+                        <div>
+                          {key}: {value}
+                        </div>
+                      ))}</td>
+                      <td data-label="Description">{item.description}</td>
+                      <td data-label="Alternate Names" class="low-priority">{item.alternateNames?.join(', ') || ''}</td>
+                    </tr>
+                  )}
+                </For>
+              </tbody>
+            </table>
+          </div>
 
-      <h2>Other Equipment & Items</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Rarity</th>
-            <th>Slot</th>
-            <th>Function</th>
-            <th>Description</th>
-            <th>Alternate Names</th>
-          </tr>
-        </thead>
-        <tbody>
-          <For each={miscellaneousItems() || []}>
-            {(item) => (
-              <tr>
-                <td>{item.name}</td>
-                <td>{item.type?.join(', ') || ''}</td>
-                <td>{item.rarity || ''}</td>
-                <td>{item.slot || ''}</td>
-                <td>{item.function || ''}</td>
-                <td>{item.description}</td>
-                <td>{item.alternateNames?.join(', ') || ''}</td>
-              </tr>
-            )}
-          </For>
-        </tbody>
-      </table>
+          <h2>Other Equipment & Items</h2>
+          <div class="table-container table-responsive table-auto-cards">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th class="low-priority">Rarity</th>
+                  <th class="low-priority">Slot</th>
+                  <th class="low-priority">Function</th>
+                  <th>Description</th>
+                  <th class="low-priority">Alternate Names</th>
+                </tr>
+              </thead>
+              <tbody>
+                <For each={miscellaneousItems() || []}>
+                  {(item) => (
+                    <tr>
+                      <td data-label="Name">{item.name}</td>
+                      <td data-label="Type">{item.type?.join(', ') || ''}</td>
+                      <td data-label="Rarity" class="low-priority">{item.rarity || ''}</td>
+                      <td data-label="Slot" class="low-priority">{item.slot || ''}</td>
+                      <td data-label="Function" class="low-priority">{item.function || ''}</td>
+                      <td data-label="Description">{item.description}</td>
+                      <td data-label="Alternate Names" class="low-priority">{item.alternateNames?.join(', ') || ''}</td>
+                    </tr>
+                  )}
+                </For>
+              </tbody>
+            </table>
+          </div>
         </Show>
       </Suspense>
     </div>
