@@ -1,4 +1,23 @@
+import { createEffect, createMemo, createResource, For } from 'solid-js'
+import { fetchSkillsData, SkillData } from '@data/index'
+
 function Skills() {
+  const [skillsData] = createResource(fetchSkillsData)
+
+  const skills = createMemo(() => {
+    const data = skillsData()
+    if (!data) return []
+
+    return Object.entries(data.skills).map(([key, skill]: [string, SkillData]) => ({
+      key,
+      ...skill,
+    })).sort((a, b) => a.name.localeCompare(b.name))
+  })
+
+  createEffect(() => {
+    console.log('Skills data loaded:', skills() || 'No data')
+  });
+
   return (
     <div class="skills-page">
       <h1>Skills and Abilities</h1>
@@ -20,47 +39,31 @@ function Skills() {
       <p>A note about specialization: Any skill can be specialized, the character must specify a specific attribute and is then treated as one rank higher for the purposes of that skill in that context.</p>
       <p class="example">eg: a character with Melee: C (Spears) would be considered to have Melee: B when using a spear.</p>
 
-      <h3>Untrained Skills</h3>
-      <p>Untrained skills can be attempted by any character without prior instruction. Leveling them is simply a matter of practice and experience.</p>
+      <p>Skills in Aetheria fall into two categories:</p>
+      <ul>
+        <li><strong>Untrained skills</strong> can be attempted by any character without prior instruction. Leveling them is simply a matter of practice and experience.</li>
+        <li><strong>Trained skills</strong> require that a character have some form of instruction to learn and level up the skill. This could be a teacher/mentor or simply access to a library with proper materials.</li>
+      </ul>
       <p>Where an untrained skill is not listed in a character or creature profile, it is assumed to match the creatures overall base rank.</p>
       <p class="example">eg: a goblin rank F might have a (Melee: E, Stealth: E), all other untrained skills would be considered F rank the same as the goblins base ranking.</p>
-      <ul>
-        <li><strong>Athletics:</strong> Physical activities such as climbing, jumping, and swimming.</li>
-        <li><strong>Stealth:</strong> The ability to move silently and avoid detection.</li>
-        <li><strong>Persuasion:</strong> The art of convincing others through speech and negotiation.</li>
-        <li><strong>Survival:</strong> Skills related to wilderness navigation, foraging, and tracking.</li>
-        <li><strong>Melee:</strong> Proficiency in hand-to-hand combat and the use of melee weapons.</li>
-        <li><strong>Ranged:</strong> Skill in using ranged weapons such as bows and thrown weapons.</li>
-        <li><strong>Thievery:</strong> Skills related to lockpicking, pickpocketing, and other clandestine activities.</li>
-        <li><strong>Stealth:</strong> The ability to move silently and avoid detection.</li>
-        <li><strong>Tracking:</strong> The ability to follow tracks and find paths through the wilderness.</li>
-        <li><strong>Farming:</strong> The skill of cultivating crops and raising animals for food.</li>
-        <li><strong>Cooking:</strong> The ability to prepare food and create meals.</li>
-        <li><strong>Fishing:</strong> The skill of catching fish and other aquatic creatures.</li>
-        <li><strong>Navigation:</strong> The art of determining one's position and planning a route, especially at sea.</li>
-        <li><strong>Animal Handling:</strong> The ability to train and care for animals.</li>
-        <li><strong>Camping:</strong> The skill of setting up and maintaining a campsite, including shelter building and fire making.</li>
-      </ul>
-
-      <h3>Trained Skills</h3>
-      <p>Trained skills require that a character have some form of instruction to learn and level up the skill. This could be a teacher/mentor or simply access to a library with proper materials.</p>
-      <p>Where an trained skill is not listed in a character or creature profile, it is assumed to be unavailable.</p>
+      <p>Where a trained skill is not listed in a character or creature profile, it is assumed to be unavailable.</p>
       <p class="example">eg: a goblin rank F (Alchemy: E) would have access only to the Alchemy skill.</p>
-      <ul>
-        <li><strong>Alchemy:</strong> The ability to create potions and elixirs from various ingredients.</li>
-        <li><strong>Arcana:</strong> Knowledge of magical lore and spellcraft.</li>
-        <li><strong>History:</strong> Understanding of historical events, cultures, and legends.</li>
-        <li><strong>Herbalism:</strong> The study of plants and their properties, often for medicinal purposes.</li>
-        <li><strong>Jewelcraft:</strong> The skill of creating and appraising jewelry and gemstones.</li>
-        <li><strong>Smithing:</strong> The ability to forge and repair metal items, including weapons and armor.</li>
-        <li><strong>Spellcraft:</strong> The knowledge and practice of casting and understanding spells.</li>
-        <li><strong>Tailoring:</strong> The skill of making and repairing clothing and fabric items.</li>
-        <li><strong>Sailing:</strong> The art of operating a sailing vessel.</li>
-        <li><strong>Carpentry:</strong> The skill of working with wood to create structures and items.</li>
-        <li><strong>Brewing:</strong> The art of making beers, wines, ales, and other beverages.</li>
-      </ul>
 
-      <p class="coming-soon"><em>Coming soon...</em></p>
+      <dl>
+        <For each={skills()}>{(skill) => (
+          <>
+            <dt>
+              {skill.name}
+              {skill.trainingRequired ? (
+                <span class="training-badge">Training Required</span>
+              ) : (
+                <span class="untrained-badge">Untrained</span>
+              )}
+            </dt>
+            <dd>{skill.description}</dd>
+          </>
+        )}</For>
+      </dl>
     </div>
   )
 }

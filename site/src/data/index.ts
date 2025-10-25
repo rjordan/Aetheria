@@ -23,6 +23,16 @@
 
 // Data types for better type safety
 
+export interface SkillData {
+  name: string,
+  trainingRequired: boolean,
+  description: string,
+}
+
+export interface SkillListData {
+  skills: Record<string, SkillData>
+}
+
 export interface MagicSchoolData {
   name: string,
   description: string,
@@ -192,6 +202,10 @@ export async function fetchCreaturesData(): Promise<CreaturesData> {
 
 export async function fetchSiteData(): Promise<SiteData> {
   return loadJsonData<SiteData>('site')
+}
+
+export async function fetchSkillsData(): Promise<SkillListData> {
+  return loadJsonData<SkillListData>('skills')
 }
 
 // Helper function to fetch all data at once if needed
