@@ -1,6 +1,7 @@
-import { For, createResource, Suspense, Show } from 'solid-js'
+import { createResource, Suspense, Show } from 'solid-js'
 import { A } from '@solidjs/router'
 import { fetchMagicData, OfflineError } from '@data/index'
+import ResponsiveTable, { TableColumn } from '../components/ResponsiveTable'
 
 function MagicSchools() {
   const [magicData] = createResource(fetchMagicData)
@@ -14,8 +15,34 @@ function MagicSchools() {
     return Object.entries(data.magic.schools).map(([key, school]: [string, any]) => ({
       key,
       ...school,
-    }))
+    })).sort((a: any, b: any) => a.name.localeCompare(b.name))
   }
+
+  // Define column configurations for magic schools table
+  const schoolColumns: TableColumn[] = [
+    {
+      key: 'name',
+      label: 'School',
+      priority: 'high',
+      render: (value, row) => (
+        <A href={`/magic/${row.key}`} class="school-link">
+          {value}
+        </A>
+      )
+    },
+    { key: 'description', label: 'Description', priority: 'high' },
+    {
+      key: 'focus',
+      label: 'Focus Areas',
+      priority: 'medium',
+      render: (value) => {
+        if (Array.isArray(value)) return value.join(', ')
+        return value || 'N/A'
+      }
+    },
+    { key: 'regulation', label: 'Regulation', priority: 'medium' },
+    { key: 'opposing_element', label: 'Opposing Element', priority: 'low' }
+  ]
 
   return (
     <div class="magic-schools-page">
@@ -78,38 +105,11 @@ function MagicSchools() {
             <p>You can still browse the static content above, but the interactive magic schools table requires an internet connection.</p>
           </div>
         }>
-          <div class="table-container table-responsive table-auto-cards">
-            <table class="schools-table">
-              <thead>
-                <tr>
-                  <th>School</th>
-                  <th>Description</th>
-                  <th class="low-priority">Focus Areas</th>
-                  <th>Regulation</th>
-                  <th class="low-priority">Opposing Element</th>
-                </tr>
-              </thead>
-              <tbody>
-                <For each={schools().sort((a: any, b: any) => a.name.localeCompare(b.name))}>
-                  {(school) => (
-                    <tr>
-                      <td data-label="School" class="school-name-cell">
-                        <A href={`/magic/${school.key}`} class="school-link">
-                          {school.name}
-                        </A>
-                      </td>
-                      <td data-label="Description">{school.description}</td>
-                      <td data-label="Focus Areas" class="low-priority">
-                        {Array.isArray(school.focus) ? school.focus.join(', ') : school.focus || 'N/A'}
-                      </td>
-                      <td data-label="Regulation">{school.regulation || 'Unknown'}</td>
-                      <td data-label="Opposing Element" class="low-priority">{school.opposing_element || 'None'}</td>
-                    </tr>
-                  )}
-                </For>
-              </tbody>
-            </table>
-          </div>
+          <ResponsiveTable
+            columns={schoolColumns}
+            data={schools()}
+            className="schools-table"
+          />
         </Show>
       </Suspense>
     </div>

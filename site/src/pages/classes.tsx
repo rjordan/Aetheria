@@ -1,5 +1,6 @@
-import { For, createResource, Suspense } from 'solid-js'
+import { createResource, Suspense } from 'solid-js'
 import { fetchClassesData } from '@data/index'
+import ResponsiveTable, { TableColumn } from '../components/ResponsiveTable'
 
 function Classes() {
   const [classesData] = createResource(fetchClassesData)
@@ -20,6 +21,36 @@ function Classes() {
       .sort((a, b) => a.name.localeCompare(b.name))
   }
 
+  // Define column configurations
+  const coreClassColumns: TableColumn[] = [
+    { key: 'name', label: 'Class', priority: 'high' },
+    { key: 'description', label: 'Description', priority: 'high' },
+    {
+      key: 'alternativeNames',
+      label: 'Alternate Names',
+      priority: 'low',
+      render: (value) => Array.isArray(value) ? value.join(', ') : value
+    }
+  ]
+
+  const specializationColumns: TableColumn[] = [
+    { key: 'name', label: 'Class', priority: 'high' },
+    { key: 'baseClass', label: 'Base Class', priority: 'high' },
+    {
+      key: 'requiredSpecializations',
+      label: 'Required Specializations',
+      priority: 'medium',
+      render: (value) => value ? (Array.isArray(value) ? value.join(', ') : value) : 'None'
+    },
+    { key: 'description', label: 'Description', priority: 'high' },
+    {
+      key: 'alternativeNames',
+      label: 'Alternate Names',
+      priority: 'low',
+      render: (value) => Array.isArray(value) ? value.join(', ') : value
+    }
+  ]
+
   return (
     <div class="classes-page">
       <h1>Character Classes</h1>
@@ -29,56 +60,18 @@ function Classes() {
 
       <Suspense fallback={<div>Loading classes data...</div>}>
         <h2>Core Classes</h2>
-        <div class="classes-table-container">
-          <table class="classes-table">
-            <thead>
-              <tr>
-                <th>Class</th>
-                <th>Description</th>
-                <th>Alternate Names</th>
-              </tr>
-            </thead>
-            <tbody>
-              <For each={coreClasses()}>
-                {(pclass) => (
-                  <tr>
-                    <td>{pclass.name}</td>
-                    <td>{pclass.description}</td>
-                    <td>{pclass.alternativeNames.join(', ')}</td>
-                  </tr>
-                )}
-              </For>
-            </tbody>
-          </table>
-        </div>
+        <ResponsiveTable
+          columns={coreClassColumns}
+          data={coreClasses()}
+          className="core-classes-table"
+        />
 
         <h2>Common Specializations</h2>
-        <div class="classes-table-container">
-          <table class="classes-table">
-            <thead>
-              <tr>
-                <th>Class</th>
-                <th>Base Class</th>
-                <th>Required Specializations</th>
-                <th>Description</th>
-                <th>Alternate Names</th>
-              </tr>
-            </thead>
-            <tbody>
-              <For each={specializationClasses()}>
-                {(pclass) => (
-                  <tr>
-                    <td>{pclass.name}</td>
-                    <td>{pclass.baseClass}</td>
-                    <td>{pclass.requiredSpecializations ? pclass.requiredSpecializations.join(', ') : 'None'}</td>
-                    <td>{pclass.description}</td>
-                    <td>{pclass.alternativeNames.join(', ')}</td>
-                  </tr>
-                )}
-              </For>
-            </tbody>
-          </table>
-        </div>
+        <ResponsiveTable
+          columns={specializationColumns}
+          data={specializationClasses()}
+          className="specialization-classes-table"
+        />
       </Suspense>
     </div>
   )
