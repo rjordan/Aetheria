@@ -1,80 +1,133 @@
 {
   "classes": {
-    "core": {
+    "base": {
       "warrior": {
         "name": "Warrior",
-        "description": "Masters of physical combat, skilled with a variety of weapons and armor",
+        "description": "Masters of physical combat, skilled with a variety of weapons and armor. The backbone of military forces and those who rely on strength and martial prowess.",
+        "populationPercentage": 59,
         "alternativeNames": [
           "Fighter",
-          "Knight"
+          "Knight",
+          "Soldier"
+        ]
+      },
+      "rogue": {
+        "name": "Rogue",
+        "description": "Experts in stealth, agility, and cunning, often excelling in dexterous skills and unconventional approaches. Include skilled workers, scouts, and those who rely on finesse.",
+        "populationPercentage": 38,
+        "alternativeNames": [
+          "Scout",
+          "Specialist",
+          "Operative"
         ]
       },
       "mage": {
         "name": "Mage",
-        "description": "Wielders of magical energies, specializing in spellcasting and arcane knowledge",
+        "description": "Wielders of magical energies, specializing in spellcasting and arcane knowledge. Rare individuals capable of manipulating the fundamental forces of magic.",
+        "populationPercentage": 3,
         "alternativeNames": [
           "Sorcerer",
           "Wizard",
           "Sage"
         ]
+      }
+    },
+    "guilds": {
+      "thieves": {
+        "name": "Thieves' Guild",
+        "description": "Secretive organizations specializing in stealth, subterfuge, and illicit activities",
+        "professions": [
+          "Pickpocket",
+          "Burglar",
+          "Montebank",
+          "Spy",
+          "Smuggler",
+          "Fence"
+        ]
       },
-      "rogue": {
-        "name": "Rogue",
-        "description": "Experts in stealth, agility, and cunning, often excelling in thievery and assassination",
-        "alternativeNames": [
-          "Thief",
+      "mercenary": {
+        "name": "Mercenary Company",
+        "description": "Groups of professional soldiers for hire, skilled in various forms of combat and tactics",
+        "professions": [
+          "Sellsword",
+          "Bodyguard",
+          "Scout",
+          "Siege Engineer"
+        ]
+      },
+      "assassins": {
+        "name": "Assassins' Guild",
+        "description": "Organizations specializing in covert operations, espionage, and targeted eliminations",
+        "professions": [
           "Assassin"
         ]
       },
       "artisan": {
-        "name": "Artisan",
-        "description": "Skilled craftsmen and creators, adept in various trades and arts",
-        "alternativeNames": [
-          "Craftsman",
+        "name": "Artisan Guild",
+        "description": "Organizations of skilled craftsmen and creators, adept in various trades and arts",
+        "professions": [
           "Blacksmith",
           "Carpenter",
           "Mason",
           "Jeweler",
-          "Alchemist"
+          "Alchemist",
+          "Brewer",
+          "Tailor",
+          "Weaponsmith",
+          "Armorsmith"
         ]
       },
-      "tradesman": {
-        "name": "Tradesman",
-        "description": "Merchants and businesspeople from the great trader barons to the local fruit stall vendor",
-        "alternativeNames": [
+      "trader": {
+        "name": "Trader Guild",
+        "description": "Merchant organizations and commercial enterprises, from great trading houses to local market vendors",
+        "professions": [
           "Merchant",
-          "Trader",
-          "Shopkeeper"
+          "Shopkeeper",
+          "Caravan Master",
+          "Banker",
+          "Appraiser",
+          "Smuggler",
+          "Fence"
         ]
       },
       "politician": {
-        "name": "Politician",
-        "description": "Leaders and diplomats from Kings and Emperors to the local town elder, skilled in governance and public affairs",
-        "alternativeNames": [
+        "name": "Political Organization",
+        "description": "Governmental and diplomatic institutions, from royal courts to local councils",
+        "professions": [
           "Diplomat",
           "Statesman",
-          "Envoy"
+          "Envoy",
+          "Noble",
+          "Bureaucrat",
+          "Ambassador",
+          "Courtier"
         ]
       },
       "laborer": {
-        "name": "Laborer",
-        "description": "Hardworking individuals who perform manual labor and skilled trades to support society",
-        "alternativeNames": [
-          "Stonecutter",
+        "name": "Labor Guild",
+        "description": "Organizations of workers who perform manual labor and essential services to support society",
+        "professions": [
           "Farmer",
-          "Miner"
+          "Miner",
+          "Stonecutter",
+          "Guard",
+          "Sailor",
+          "Dock Worker",
+          "Construction Worker"
         ]
       },
       "academician": {
-        "name": "Academician",
-        "description": "Learned individuals who acquire knowledge through formal study and education, serving as keepers and transmitters of information",
-        "alternativeNames": [
+        "name": "Academic Institution",
+        "description": "Centers of learning and knowledge, serving as keepers and transmitters of information",
+        "professions": [
           "Scholar",
           "Scribe",
           "Librarian",
           "Tutor",
           "Barrister",
-          "Accountant"
+          "Accountant",
+          "Researcher",
+          "Professor"
         ]
       }
     },

@@ -10,11 +10,13 @@
     "build:github": "vite build --mode github",
     "build:mcp": "tsc src/mcp-server.ts --outDir dist --module esnext --target es2022 --moduleResolution bundler --allowImportingTsExtensions false",
     "mcp": "node dist/mcp-server.js",
+    "generate-docs": "node crawl-github-pages.js",
     "lint": "eslint src --ext .ts,.tsx --fix"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.20.1",
     "@solidjs/router": "^0.15.3",
+    "crypto": "^1.0.1",
     "js-yaml": "^4.1.0",
     "puppeteer": "^24.25.0",
     "solid-js": "^1.8.0"

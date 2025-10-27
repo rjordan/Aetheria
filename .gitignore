@@ -10,6 +10,9 @@ dist/
 build/
 .vite/
 
+# Generated documentation
+generated-docs/
+
 # Environment variables
 .env
 .env.local

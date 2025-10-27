@@ -1,0 +1,35 @@
+{
+  "name": "aetheria-mcp-server",
+  "version": "1.0.0",
+  "description": "Simple MCP server for serving Aetheria world reference documentation",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc && npm run copy-docs",
+    "copy-docs": "rsync -av --delete ../site/generated-docs/ ./dist/docs/",
+    "start": "node dist/server.js",
+    "start-http": "MCP_HOST=0.0.0.0 MCP_PORT=3000 node dist/server.js",
+    "dev": "npm run build && node dist/server.js",
+    "clean": "rm -rf dist/"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "aetheria",
+    "documentation",
+    "fantasy",
+    "rpg"
+  ],
+  "author": "rjordan",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.8.1",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

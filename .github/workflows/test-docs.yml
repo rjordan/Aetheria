@@ -1,0 +1,133 @@
+name: Test Documentation Generation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'site/crawl-github-pages.js'
+      - 'site/package.json'
+      - '.github/workflows/test-docs.yml'
+
+jobs:
+  test-generation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: site/package-lock.json
+
+    - name: Install dependencies
+      run: |
+        cd site
+        npm ci
+
+    - name: Install Puppeteer dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          ca-certificates \
+          fonts-liberation \
+          libappindicator3-1 \
+          libasound2 \
+          libatk-bridge2.0-0 \
+          libatk1.0-0 \
+          libc6 \
+          libcairo2 \
+          libcups2 \
+          libdbus-1-3 \
+          libexpat1 \
+          libfontconfig1 \
+          libgbm1 \
+          libgcc1 \
+          libglib2.0-0 \
+          libgtk-3-0 \
+          libnspr4 \
+          libnss3 \
+          libpango-1.0-0 \
+          libpangocairo-1.0-0 \
+          libstdc++6 \
+          libx11-6 \
+          libx11-xcb1 \
+          libxcb1 \
+          libxcomposite1 \
+          libxcursor1 \
+          libxdamage1 \
+          libxext6 \
+          libxfixes3 \
+          libxi6 \
+          libxrandr2 \
+          libxrender1 \
+          libxss1 \
+          libxtst6 \
+          lsb-release \
+          wget \
+          xdg-utils
+
+    - name: Test documentation generation
+      run: |
+        cd site
+        node crawl-github-pages.js
+
+    - name: Validate generated documentation
+      run: |
+        cd site/generated-docs
+
+        echo "📊 Generated files:"
+        ls -la *.md | head -20
+        echo ""
+
+        file_count=$(ls -1 *.md | wc -l)
+        total_size=$(du -sh . | cut -f1)
+
+        echo "📋 Statistics:"
+        echo "  Files: $file_count"
+        echo "  Total size: $total_size"
+        echo ""
+
+        # Verify required files exist
+        required_files=("README.md" "index.md" "magic.md" "classes.md")
+
+        for file in "${required_files[@]}"; do
+          if [ -f "$file" ]; then
+            size=$(stat -c%s "$file")
+            echo "✅ $file ($size bytes)"
+          else
+            echo "❌ Missing required file: $file"
+            exit 1
+          fi
+        done
+
+        # Check for magic school files
+        magic_files=$(ls magic-*.md 2>/dev/null | wc -l)
+        echo "🔮 Magic school files: $magic_files"
+
+        if [ "$magic_files" -lt 5 ]; then
+          echo "⚠️  Expected more magic school files"
+        fi
+
+        # Verify file sizes are reasonable
+        for file in *.md; do
+          size=$(stat -c%s "$file")
+          if [ "$size" -lt 100 ]; then
+            echo "⚠️  $file seems too small ($size bytes)"
+          elif [ "$size" -gt 50000 ]; then
+            echo "⚠️  $file seems too large ($size bytes)"
+          fi
+        done
+
+        echo ""
+        echo "✅ Documentation generation test completed successfully!"
+
+    - name: Upload documentation artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-generated-docs
+        path: site/generated-docs/*.md
+        retention-days: 7

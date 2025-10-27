@@ -1,0 +1,208 @@
+name: Generate and Release Documentation
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.0.0, v2.1.0)'
+        required: true
+        type: string
+      prerelease:
+        description: 'Mark as pre-release'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  generate-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: site/package-lock.json
+
+    - name: Install dependencies
+      run: |
+        cd site
+        npm ci
+
+    - name: Install Puppeteer dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          ca-certificates \
+          fonts-liberation \
+          libappindicator3-1 \
+          libasound2 \
+          libatk-bridge2.0-0 \
+          libatk1.0-0 \
+          libc6 \
+          libcairo2 \
+          libcups2 \
+          libdbus-1-3 \
+          libexpat1 \
+          libfontconfig1 \
+          libgbm1 \
+          libgcc1 \
+          libglib2.0-0 \
+          libgtk-3-0 \
+          libnspr4 \
+          libnss3 \
+          libpango-1.0-0 \
+          libpangocairo-1.0-0 \
+          libstdc++6 \
+          libx11-6 \
+          libx11-xcb1 \
+          libxcb1 \
+          libxcomposite1 \
+          libxcursor1 \
+          libxdamage1 \
+          libxext6 \
+          libxfixes3 \
+          libxi6 \
+          libxrandr2 \
+          libxrender1 \
+          libxss1 \
+          libxtst6 \
+          lsb-release \
+          wget \
+          xdg-utils
+
+    - name: Generate documentation
+      run: |
+        cd site
+        node crawl-github-pages.js
+
+    - name: Validate documentation generation
+      run: |
+        cd site/generated-docs
+        echo "📊 Generated files:"
+        ls -la
+        echo ""
+        echo "📋 File count: $(ls -1 *.md | wc -l)"
+        echo "📏 Total size: $(du -sh . | cut -f1)"
+
+        # Verify required files exist
+        if [ ! -f "README.md" ]; then
+          echo "❌ README.md not found!"
+          exit 1
+        fi
+
+        if [ ! -f "index.md" ]; then
+          echo "❌ index.md not found!"
+          exit 1
+        fi
+
+        if [ ! -f "magic.md" ]; then
+          echo "❌ magic.md not found!"
+          exit 1
+        fi
+
+        echo "✅ Documentation validation passed!"
+
+    - name: Create release archive
+      run: |
+        cd site/generated-docs
+
+        # Create metadata file
+        cat > RELEASE_INFO.md << EOF
+        # Aetheria World Reference - Release ${{ github.event.inputs.version }}
+
+        **Generated:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+        **Source Commit:** ${{ github.sha }}
+        **GitHub Pages Source:** https://rjordan.github.io/Aetheria
+        **Repository:** https://github.com/${{ github.repository }}
+
+        ## Contents
+
+        This archive contains the complete Aetheria world reference documentation as individual markdown files:
+
+        - **README.md** - Master index and usage instructions
+        - **Main sections** - Core world information (classes, magic, equipment, etc.)
+        - **Subsections** - Detailed pages (magic schools, specific topics)
+
+        ## Usage
+
+        1. Extract the archive
+        2. Start with \`README.md\` for the complete index
+        3. Load individual files into your AI model as needed
+        4. Use the navigation links to move between related sections
+
+        ## File Structure
+
+        \`\`\`
+        $(ls -la *.md | awk '{print $9, "(" $5 " bytes)"}' | sort)
+        \`\`\`
+
+        ## Total Statistics
+
+        - **Files:** $(ls -1 *.md | wc -l) markdown documents
+        - **Size:** $(du -sh . | cut -f1) uncompressed
+        - **Words:** ~$(cat *.md | wc -w) total words
+
+        For the latest version, visit: https://github.com/${{ github.repository }}/releases
+        EOF
+
+        # Create the release archive
+        zip -r "aetheria-docs-${{ github.event.inputs.version }}.zip" *.md RELEASE_INFO.md
+
+        echo "📦 Created release archive:"
+        ls -lh *.zip
+
+    - name: Create release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ github.event.inputs.version }}
+        name: "Aetheria Documentation ${{ github.event.inputs.version }}"
+        body: |
+          # Aetheria World Reference Documentation
+
+          Complete modular documentation for the Aetheria fantasy world, automatically generated from the live GitHub Pages site.
+
+          ## What's Included
+
+          📋 **${{ steps.count-files.outputs.count }} Markdown Files** - Individual pages for each section
+          🔗 **Cross-Linked Navigation** - Easy movement between related topics
+          📖 **Master Index** - Complete overview and usage instructions
+          🤖 **AI-Optimized** - Perfect for loading into AI model contexts
+
+          ## Quick Start
+
+          1. Download the `aetheria-docs-${{ github.event.inputs.version }}.zip` file below
+          2. Extract and start with `README.md` for the complete index
+          3. Load individual sections into your AI model as needed
+
+          ## File Highlights
+
+          - **README.md** - Master index and usage guide
+          - **magic.md** + **magic-*.md** - Complete magic system with all schools
+          - **classes.md** - All character classes and abilities
+          - **politics.md** - Organizations and factions
+          - **religion.md** - Gods, beliefs, and spiritual practices
+
+          ## Generated From
+
+          - **Source:** https://rjordan.github.io/Aetheria
+          - **Commit:** ${{ github.sha }}
+          - **Generated:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+
+          Perfect for AI storytelling, world-building, and RPG reference!
+        files: |
+          site/generated-docs/aetheria-docs-${{ github.event.inputs.version }}.zip
+        prerelease: ${{ github.event.inputs.prerelease }}
+        draft: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Summary
+      run: |
+        echo "🎉 Release ${{ github.event.inputs.version }} created successfully!"
+        echo "📁 Archive: aetheria-docs-${{ github.event.inputs.version }}.zip"
+        echo "🔗 View release: https://github.com/${{ github.repository }}/releases/tag/${{ github.event.inputs.version }}"
