@@ -79,16 +79,21 @@ jobs:
       run: |
         cd site/generated-docs
 
-        echo "📊 Generated files:"
-        ls -la *.md | head -20
+        echo "📊 Generated files and directories:"
+        find . -name "*.md" | head -20
         echo ""
 
-        file_count=$(ls -1 *.md | wc -l)
+        file_count=$(find . -name "*.md" | wc -l)
         total_size=$(du -sh . | cut -f1)
 
         echo "📋 Statistics:"
         echo "  Files: $file_count"
         echo "  Total size: $total_size"
+        echo ""
+
+        # Show directory structure
+        echo "📁 Directory structure:"
+        find . -type d | sort
         echo ""
 
         # Verify required files exist
@@ -105,15 +110,22 @@ jobs:
         done
 
         # Check for magic school files
-        magic_files=$(ls magic-*.md 2>/dev/null | wc -l)
+        magic_files=$(find . -name "magic-*.md" | wc -l)
         echo "🔮 Magic school files: $magic_files"
 
         if [ "$magic_files" -lt 5 ]; then
           echo "⚠️  Expected more magic school files"
         fi
 
-        # Verify file sizes are reasonable
-        for file in *.md; do
+        # Check for entity directories and files
+        character_files=$(find . -path "*/characters/*.md" | wc -l)
+        creature_files=$(find . -path "*/creatures/*.md" | wc -l)
+
+        echo "👥 Character files: $character_files"
+        echo "🐉 Creature files: $creature_files"
+
+        # Verify file sizes are reasonable (check all markdown files)
+        find . -name "*.md" | while read file; do
           size=$(stat -c%s "$file")
           if [ "$size" -lt 100 ]; then
             echo "⚠️  $file seems too small ($size bytes)"
@@ -129,5 +141,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-generated-docs
-        path: site/generated-docs/*.md
+        path: |
+          site/generated-docs/**/*.md
+          site/generated-docs/*.md
         retention-days: 7

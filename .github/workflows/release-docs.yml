@@ -40,7 +40,7 @@ jobs:
           ca-certificates \
           fonts-liberation \
           libappindicator3-1 \
-          libasound2 \
+          libasound2-dev \
           libatk-bridge2.0-0 \
           libatk1.0-0 \
           libc6 \
@@ -50,7 +50,7 @@ jobs:
           libexpat1 \
           libfontconfig1 \
           libgbm1 \
-          libgcc1 \
+          libgcc-s1 \
           libglib2.0-0 \
           libgtk-3-0 \
           libnspr4 \
@@ -127,6 +127,7 @@ jobs:
         - **README.md** - Master index and usage instructions
         - **Main sections** - Core world information (classes, magic, equipment, etc.)
         - **Subsections** - Detailed pages (magic schools, specific topics)
+        - **Entity directories** - Characters and creatures in organized subdirectories
 
         ## Usage
 
@@ -138,23 +139,42 @@ jobs:
         ## File Structure
 
         \`\`\`
-        $(ls -la *.md | awk '{print $9, "(" $5 " bytes)"}' | sort)
+        $(find . -name "*.md" | sort | head -20)
+        $(if [ $(find . -name "*.md" | wc -l) -gt 20 ]; then echo "... and $(($(find . -name "*.md" | wc -l) - 20)) more files"; fi)
+        \`\`\`
+
+        ## Directory Structure
+
+        \`\`\`
+        $(find . -type d | sort)
         \`\`\`
 
         ## Total Statistics
 
-        - **Files:** $(ls -1 *.md | wc -l) markdown documents
+        - **Files:** $(find . -name "*.md" | wc -l) markdown documents
+        - **Directories:** $(find . -type d | wc -l) folders
         - **Size:** $(du -sh . | cut -f1) uncompressed
-        - **Words:** ~$(cat *.md | wc -w) total words
+        - **Words:** ~$(find . -name "*.md" -exec cat {} \; | wc -w) total words
 
         For the latest version, visit: https://github.com/${{ github.repository }}/releases
         EOF
 
-        # Create the release archive
-        zip -r "aetheria-docs-${{ github.event.inputs.version }}.zip" *.md RELEASE_INFO.md
+        # Create the release archive with all files and subdirectories
+        zip -r "aetheria-docs-${{ github.event.inputs.version }}.zip" . -i "*.md" "RELEASE_INFO.md"
 
         echo "📦 Created release archive:"
         ls -lh *.zip
+        echo ""
+        echo "📁 Archive contents:"
+        unzip -l "aetheria-docs-${{ github.event.inputs.version }}.zip" | head -30
+
+    - name: Count generated files
+      id: count-files
+      run: |
+        cd site/generated-docs
+        file_count=$(find . -name "*.md" | wc -l)
+        echo "count=$file_count" >> $GITHUB_OUTPUT
+        echo "Found $file_count markdown files"
 
     - name: Create release
       uses: softprops/action-gh-release@v1
