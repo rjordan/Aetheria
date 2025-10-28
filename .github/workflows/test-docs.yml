@@ -35,7 +35,7 @@ jobs:
           ca-certificates \
           fonts-liberation \
           libappindicator3-1 \
-          libasound2 \
+          libasound2-dev \
           libatk-bridge2.0-0 \
           libatk1.0-0 \
           libc6 \
@@ -45,7 +45,7 @@ jobs:
           libexpat1 \
           libfontconfig1 \
           libgbm1 \
-          libgcc1 \
+          libgcc-s1 \
           libglib2.0-0 \
           libgtk-3-0 \
           libnspr4 \

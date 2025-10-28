@@ -129,6 +129,13 @@
           "Researcher",
           "Professor"
         ]
+      },
+      "mages": {
+        "name": "Mages' Guild",
+        "description": "Organizations of spellcasters and magical practitioners, dedicated to the study and application of arcane arts",
+        "professions": [
+          "Mages"
+        ]
       }
     },
     "specializations": {
