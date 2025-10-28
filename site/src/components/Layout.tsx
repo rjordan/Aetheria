@@ -23,6 +23,8 @@ function Layout(props: RouteSectionProps) {
             <li><A href="/politics">Politics</A></li>
             <li><A href="/religion">Religion</A></li>
             <li><A href="/relationships">Relationships</A></li>
+            <li><A href='/creatures'>Creatures</A></li>
+            <li><A href='/characters'>Noteable Characters</A></li>
           </ul>
         </div>
       </nav>

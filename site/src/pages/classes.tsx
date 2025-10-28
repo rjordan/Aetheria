@@ -30,6 +30,11 @@ function Classes() {
       label: 'Alternate Names',
       priority: 'low',
       render: (value) => Array.isArray(value) ? value.join(', ') : value
+    },
+    {
+      key: 'populationPercentage',
+      label: 'Population Percentage',
+      priority: 'low',
     }
   ]
 

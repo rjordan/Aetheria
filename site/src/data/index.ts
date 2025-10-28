@@ -87,24 +87,6 @@ export interface OrganizationsData {
   organizations: Record<string, any>
 }
 
-export interface OldCreatureData {
-  name: string
-  rank: string
-  ideology: string
-  morality: string
-  methodology: string
-  temperament: string
-  // abilities?: Record<string, string>
-  // skills?: Record<string, string>
-  // traits?: string[]
-  tags: string[]
-  description: string
-}
-
-export interface OldCreaturesData {
-  creatures: Record<string, OldCreatureData>
-}
-
 // New entity data structures for character and creature cards
 enum RankValue {
   F = 'F',
@@ -273,11 +255,6 @@ export async function fetchCharactersData(): Promise<CharactersData> {
 
 export async function fetchCreaturesData(): Promise<CreaturesData> {
   return loadJsonData<CreaturesData>('creatures')
-}
-
-// Keep old creatures data for backward compatibility
-export async function fetchOldCreaturesData(): Promise<OldCreaturesData> {
-  return loadJsonData<OldCreaturesData>('creatures')
 }
 
 // Helper function to fetch all data at once if needed

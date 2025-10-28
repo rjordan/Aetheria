@@ -8,7 +8,7 @@ function Relationships() {
       <p>Relationship archetypes are common character tropes found in various forms of media, particularly in anime, manga, and visual novels. These archetypes describe different ways characters express their affection and interact with their love interests. When a character is assigned an archetype it should influence or override their alignement temperament, especially in romantic situations.</p>
 
       <h3>Common Archetypes</h3>
-      <p>These make up about 60% of character relationships.</p>
+      <p>These make up about 80% of character relationships.</p>
       <table>
         <thead>
           <tr>
@@ -124,7 +124,7 @@ function Relationships() {
 
 
       <h3>Uncommon Archetypes</h3>
-      <p>These make up about 30% of character relationships.</p>
+      <p>These make up about 19% of character relationships.</p>
       <table>
         <thead>
           <tr>
@@ -163,7 +163,7 @@ function Relationships() {
       </table>
 
       <h3>Rare Archetypes</h3>
-      <p>These make up about 10% of character relationships.</p>
+      <p>These make up about 1% of character relationships.</p>
       <table>
         <thead>
           <tr>

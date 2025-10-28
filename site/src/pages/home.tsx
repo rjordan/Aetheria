@@ -70,21 +70,6 @@ function Home() {
         </dt>
         <dd>Reserved for the most powerful beings in existence. SSS-rank characters are god-like and can shape the course of history.<br />Combat: can take on entire armies, causing act-of-god level devastation.<br />Skill: unparalleled and can achieve the impossible.</dd>
       </dl>
-
-      <section class="explore-section">
-        <h2>Explore the World</h2>
-        <ul class="world-links">
-          <li><A href="/magic">Magic System</A></li>
-          <li><A href="/skills">Skills & Abilities</A></li>
-          <li><A href="/politics">Political Landscape</A></li>
-          <li><A href="/classes">Character Classes</A></li>
-          <li><A href="/equipment">Equipment & Items</A></li>
-          <li><A href="/alignment">Alignment System</A></li>
-          <li><A href="/religion">Religions & Deities</A></li>
-          <li><A href="/relationships">Relationships</A></li>
-          <li><A href="/entities-demo">Entities Demo</A></li>
-        </ul>
-      </section>
     </div>
   )
 }

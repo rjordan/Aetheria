@@ -636,6 +636,25 @@ Each markdown file can be loaded individually into an AI model's context:
 - **World Building:** [politics.md](politics.md) + [religion.md](religion.md) + [relationships.md](relationships.md)
 - **Combat/Items:** [equipment.md](equipment.md) + [creatures.md](creatures.md)
 
+## Recommended Markdown Viewers
+
+For the best reading experience on different platforms:
+
+### Windows
+- **[Obsidian](https://obsidian.md/)** (Free) - Excellent for interconnected documents, shows relationships between pages
+- **[MarkText](https://github.com/marktext/marktext)** (Free) - Clean, real-time preview editor
+- **[Typora](https://typora.io/)** (Paid) - Premium WYSIWYG markdown editor with beautiful rendering
+
+### Cross-Platform
+- **[Zettlr](https://www.zettlr.com/)** (Free) - Academic-focused with great cross-reference support
+- **[Joplin](https://joplinapp.org/)** (Free) - Note-taking app with excellent markdown support
+
+### Web-Based
+- **GitHub** - View files directly in your browser at the repository
+- **GitLab/Gitea** - If you prefer other Git platforms
+
+**Recommendation:** Obsidian is particularly good for this documentation because it can visualize the connections between characters, magic schools, and world elements as an interactive graph.
+
 ## MCP Server Integration
 
 These files are designed to be served by the MCP server as static content, eliminating the need for dynamic page crawling.
