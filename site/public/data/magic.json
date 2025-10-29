@@ -269,6 +269,12 @@
           "min_rank": "B",
           "specialistOnly": true,
           "description": "Creates an extradimensional space whose size is based on the caster's power level. Truly powerful casters have been known to create vast pockets of space or their own demi-planes. Though this generally requires a ritual. Casters may only have one pocket active at a time but the pocket remains in existence between uses. Whether the pocket collapses or is just inaccessible when the caster dies is unknown."
+        },
+        "transform_self": {
+          "name": "Transform Self",
+          "min_rank": "B",
+          "specialistOnly": true,
+          "description": "Allows the caster to change their physical form into that of another creature for a limited time."
         }
       },
       "air":{
@@ -485,6 +491,12 @@
           "min_rank": "B",
           "specialistOnly": true,
           "description": "Summons a large wave of water that crashes down on an area, knocking back and damaging creatures. Requires a significant amount of water to be present."
+        },
+        "transfrom_other": {
+          "name": "Transform Other",
+          "min_rank": "A",
+          "specialistOnly": true,
+          "description": "Allows the caster to change the physical form of another creature into that of a different creature for a limited time."
         }
       },
       "light":{

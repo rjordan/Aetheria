@@ -9,12 +9,7 @@ echo "========================"
 
 case "$1" in
   "mcp")
-    echo "🤖 Starting integrated MCP Server..."
-    cd site
-    npm run build:mcp && npm run mcp
-    ;;
-  "mcp-old")
-    echo "🤖 Starting legacy MCP Server..."
+    echo "🤖 Starting MCP Server..."
     cd mcp-server
     npm run dev
     ;;
@@ -33,8 +28,8 @@ case "$1" in
     echo "Building SolidJS site..."
     cd site && npm run build:github
     cd ..
-    echo "Building integrated MCP server..."
-    cd site && npm run build:mcp
+    echo "Building MCP server..."
+    cd mcp-server && npm run build
     cd ..
     echo "✅ All builds complete!"
     ;;
@@ -54,26 +49,27 @@ case "$1" in
       echo "❌ Deployment cancelled."
     fi
     ;;
-  "clean")
-    echo "� Cleaning up old MCP server..."
-    rm -rf mcp-server
-    echo "✅ Old MCP server removed!"
+  "docs")
+    echo "📄 Generating documentation..."
+    cd site
+    npm run generate-docs
+    cd ..
+    echo "✅ Documentation generated!"
     ;;
   *)
-    echo "Usage: $0 {mcp|site|site-bun|build|deploy|clean}"
+    echo "Usage: $0 {mcp|site|site-bun|build|deploy|docs}"
     echo ""
     echo "Commands:"
-    echo "  mcp      - Start integrated MCP server (shares SolidJS data)"
+    echo "  mcp      - Start MCP server for AI integration"
     echo "  site     - Start SolidJS development server (Node.js)"
     echo "  site-bun - Start SolidJS development server (Bun runtime)"
     echo "  build    - Build both SolidJS site and MCP server"
     echo "  deploy   - Build and push to GitHub Pages"
-    echo "  clean    - Remove old MCP server directory"
+    echo "  docs     - Generate documentation files"
     echo ""
     echo "Examples:"
-    echo "  $0 site     # Start SolidJS dev server with Node.js"
-    echo "  $0 site-bun # Start SolidJS dev server with Bun"
-    echo "  $0 mcp      # Start MCP server with shared data"
+    echo "  $0 site     # Start SolidJS dev server"
+    echo "  $0 mcp      # Start MCP server"
     echo "  $0 deploy   # Build and deploy to GitHub Pages"
     exit 1
     ;;
