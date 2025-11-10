@@ -61,6 +61,27 @@ h3 {
   margin: 1rem 0 0.5rem 0;
 }
 
+h4 {
+  font-size: 1rem;
+  color: $text-color;
+  margin: 0.8rem 0 0.4rem 0;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 0.9rem;
+  color: $text-color;
+  margin: 0.6rem 0 0.3rem 0;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 0.8rem;
+  color: $text-color;
+  margin: 0.5rem 0 0.2rem 0;
+  font-weight: 500;
+}
+
 a {
   color: $primary-color;
   text-decoration: none;
@@ -708,6 +729,7 @@ p {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-left: 0.5rem;
 }
 
 .untrained-badge {
@@ -719,6 +741,7 @@ p {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-left: 0.5rem;
 }
 
 .sw-update-notification {
@@ -1190,5 +1213,116 @@ p {
 
   &:visited {
     color: darken($primary-color, 10%);
+  }
+}
+
+// Race Distribution Component
+.race-distribution {
+  font-family: monospace;
+  line-height: 1.6;
+
+  .race-entry {
+    margin-bottom: 0.5rem;
+
+    .race-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.2rem;
+
+      .race-name {
+        text-transform: capitalize;
+        font-weight: 500;
+        font-family: $font-family;
+      }
+
+      .race-percentage {
+        color: #666;
+      }
+    }
+
+    .race-bar-container {
+      background: #f0f0f0;
+      border-radius: 4px;
+      height: 20px;
+      overflow: hidden;
+
+      .race-bar {
+        height: 100%;
+        transition: width 0.3s ease;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+// Region Details Layout
+.region-details {
+  margin: 2rem 0;
+
+  .detail-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    gap: 1rem;
+
+    .detail-label {
+      font-weight: 600;
+      color: $primary-color;
+      min-width: 140px;
+      flex-shrink: 0;
+    }
+
+    .detail-value {
+      color: $text-color;
+      flex: 1;
+
+      .detail-subvalue {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        padding-left: 1rem;
+        border-left: 2px solid $border-color;
+
+        h4 {
+          margin-bottom: 0.75rem;
+          color: $secondary-color;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+}
+
+// Breadcrumb Navigation
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: lighten($background-color, 2%);
+  border-radius: 6px;
+  border-left: 3px solid $primary-color;
+  font-size: 0.9rem;
+
+  .breadcrumb-link {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+  }
+
+  .breadcrumb-separator {
+    color: lighten($text-color, 30%);
+    margin: 0 0.5rem;
+    font-weight: 600;
+  }
+
+  .breadcrumb-current {
+    color: $text-color;
+    font-weight: 600;
   }
 }

@@ -97,6 +97,8 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
+          api: 'modern',
+          silenceDeprecations: ['legacy-js-api', 'color-functions', 'global-builtin'],
           additionalData: `// Global SCSS variables can go here`
         }
       }

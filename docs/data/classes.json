@@ -1,10 +1,10 @@
 {
   "classes": {
-    "base": {
+    "core": {
       "warrior": {
         "name": "Warrior",
         "description": "Masters of physical combat, skilled with a variety of weapons and armor. The backbone of military forces and those who rely on strength and martial prowess.",
-        "populationPercentage": 59,
+        "populationPercentage": 65,
         "alternativeNames": [
           "Fighter",
           "Knight",
@@ -14,7 +14,7 @@
       "rogue": {
         "name": "Rogue",
         "description": "Experts in stealth, agility, and cunning, often excelling in dexterous skills and unconventional approaches. Include skilled workers, scouts, and those who rely on finesse.",
-        "populationPercentage": 38,
+        "populationPercentage": 32,
         "alternativeNames": [
           "Scout",
           "Specialist",
@@ -128,6 +128,13 @@
           "Accountant",
           "Researcher",
           "Professor"
+        ]
+      },
+      "mages": {
+        "name": "Mages' Guild",
+        "description": "Organizations of spellcasters and magical practitioners, dedicated to the study and application of arcane arts",
+        "professions": [
+          "Mages"
         ]
       }
     },

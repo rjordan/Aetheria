@@ -8,6 +8,7 @@ import Home from './pages/home'
 import Magic from './pages/magic'
 import MagicSchool from './pages/magic/school'
 import Politics from './pages/politics'
+import Region from './pages/region'
 import Classes from './pages/classes'
 import Equipment from './pages/equipment'
 import Alignment from './pages/alignment'
@@ -29,6 +30,7 @@ render(() => (
     <Route path="/magic/:school" component={MagicSchool} />
     <Route path="/skills" component={Skills} />
     <Route path="/politics" component={Politics} />
+    <Route path="/region/*path" component={Region} />
     <Route path="/classes" component={Classes} />
     <Route path="/equipment" component={Equipment} />
     <Route path="/alignment" component={Alignment} />

@@ -54,7 +54,8 @@ function MagicSchools() {
         About 60% of the population has some degree of magical ability, though most only achieve general magic (cantrips and basic utility spells). Of this magical population, roughly 25% are born with access to specific schools of magic, allowing them to cast basic spells from those schools while pursuing any core class: magical artisans, spirit-touched politicians, enchanted warriors, or nature-attuned laborers.
       </p>
       <p>
-        However, only a rare few (roughly 20% of those with school access, or 2-3% of the total population) are born with true specialization - the ability to master advanced magic within their schools. These individuals are typically recruited by magical academies and strongly encouraged to pursue the "Mage" core class, as their rare gifts are considered too valuable to waste in other pursuits. While some resist this pressure and choose other paths, most become the scholarly mages, court wizards, and magical researchers that define the Mage profession.
+        Anyone who qualifies as a mage has at least some access to Aether magic, the fundamental school that underpins all magical practice. This access allows for basic spellcasting and magical understanding, even among those who do not specialize in magic.
+        A rare few (roughly 20% of those with school access, or 2-3% of the total population) are born with true specialization - the ability to master advanced magic within their schools. These individuals are typically recruited by magical academies and strongly encouraged to pursue the "Mage" core class, as their rare gifts are considered too valuable to waste in other pursuits. While some resist this pressure and choose other paths, most become the scholarly mages, court wizards, and magical researchers that define the Mage profession.
       </p>
       <p>
         Magical affinities and potential are determined at birth - one cannot learn new schools or develop specialization through study alone. Among true specialists: 70% focus on a single school with access to 1-3 others, 20% specialize in two schools with access to 2-4 others, and only 10% master three schools with access to 2-5 others. More than three specializations is nearly unheard of and typically requires divine intervention, unique circumstances, or extraordinary natural gifts. Those with multiple specializations are rare and often viewed with suspicion or awe. Regardless of their level, nearly all magical practitioners have access to Aether magic at least casually, as it's considered foundational and typically the first secondary school learned.
@@ -77,11 +78,6 @@ function MagicSchools() {
           <dd>Some forms of magic are outright banned in many regions due to their dangerous nature or ethical implications. Practicing illegal magic generally leads to severe punishment, including exile, imprisonment, or death.</dd>
         </dl>
       </div>
-
-      <h2>General Magic</h2>
-      <p>General spells are a catch-all term for those that can be learned by most magic users even those who lack the power to become true mages. These spells form the foundation of magical knowledge and are often taught to novice mages. People with low magical ability who can only use cantrips are often referred to as hedge magicians.</p>
-      <p>The only spell in this category is cantrip which is a minor magical effect that can be performed by almost anyone with a small amount of magical ability. Examples include creating a small light, conjuring/summoning small objects of low value, cleaning, or producing a simple sound. These effects are generally limited in scope and power. It is primarily used for utility, minor convenience, or dramatic effect, but has little to no combat application.</p>
-
 
       <h2>Magic Schools</h2>
       <p>Opposition elements: Magic is treated as one rank higher when targeting its opposing element. These effects also apply to creatures and effects. e.g.: A caster in a forest fire dealing B rank damage, a B rank elemental shield would be required to prevent damage, but a C rank water shield would also be effective, or undead would take one rank higher damage from light magic.</p>

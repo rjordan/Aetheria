@@ -23,6 +23,38 @@
 
 // Data types for better type safety
 
+enum RegionType {
+  Kingdom = 'Kingdom',
+  State = 'State',
+  City = 'City',
+  Tribe = 'Tribe',
+  Empire = 'Empire',
+  Republic = 'Republic',
+  Theocracy = 'Theocracy',
+  Federation = 'Federation',
+  Clan = 'Clan',
+  Duchy = 'Duchy',
+  Barony = 'Barony',
+  Province = 'Province',
+  Territory = 'Territory'
+}
+
+export interface RegionData {
+  name: string,
+  type: RegionType,
+  description: string,
+  leader?: string,
+  system?: string,
+  population?: string,
+  climate?: string,
+  races?: { [key: string]: number }
+  regions?: { [key: string]: RegionData }
+}
+
+export interface RegionListData {
+  regions: Record<string, RegionData>
+}
+
 export interface SkillData {
   name: string,
   trainingRequired: boolean,
@@ -257,25 +289,8 @@ export async function fetchCreaturesData(): Promise<CreaturesData> {
   return loadJsonData<CreaturesData>('creatures')
 }
 
-// Helper function to fetch all data at once if needed
-export async function fetchAllData() {
-  const [magic, classes, equipment, organizations, creatures, site] = await Promise.all([
-    fetchMagicData(),
-    fetchClassesData(),
-    fetchEquipmentData(),
-    fetchOrganizationsData(),
-    fetchCreaturesData(),
-    fetchSiteData(),
-  ])
-
-  return {
-    magic,
-    classes,
-    equipment,
-    organizations,
-    creatures,
-    site,
-  }
+export async function fetchRegionsData(): Promise<RegionListData> {
+  return loadJsonData<RegionListData>('regions')
 }
 
 // Configuration helpers

@@ -275,6 +275,12 @@
           "min_rank": "B",
           "specialistOnly": true,
           "description": "Allows the caster to change their physical form into that of another creature for a limited time."
+        },
+        "cantrip": {
+          "name": "Cantrip",
+          "min_rank": "E",
+          "specialistOnly": false,
+          "description": "The simplest spell castable by anyone with magic ability. Cantrip creates a minor magical effect that can be performed by almost anyone with a small amount of magical ability. Examples include creating a small light, conjuring/summoning small objects of low value, cleaning, or producing a simple sound. These effects are generally limited in scope and power. It is primarily used for utility, minor convenience, or dramatic effect, but has little to no combat application."
         }
       },
       "air":{
