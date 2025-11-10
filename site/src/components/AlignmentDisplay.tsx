@@ -25,6 +25,7 @@ import { Show } from 'solid-js'
 export interface AlignmentDisplayProps {
   alignment: AlignmentData
   class?: string
+  hideHeader?: boolean
 }
 
 function AlignmentDisplay(props: AlignmentDisplayProps) {
@@ -37,7 +38,9 @@ function AlignmentDisplay(props: AlignmentDisplayProps) {
 
   return (
     <div class={`entity-alignment ${props.class || ''}`}>
-      <h2>Alignment</h2>
+      <Show when={!props.hideHeader}>
+        <h2>Alignment</h2>
+      </Show>
       <div class="alignment-grid">
         <div class="alignment-item">
           <div class="alignment-header">

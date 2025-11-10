@@ -160,6 +160,7 @@ export interface BaseEntity {
     charisma: RankValue
   }
   skills: Record<string, RankValue>
+  powers?: Record<string, string>
   tags?: string[]
 }
 
@@ -179,6 +180,17 @@ export interface CharactersData {
 }
 
 export interface CreaturesData {
+  _metadata?: {
+    description: string
+    version: string
+    attribute_scaling_rules: {
+      description: string
+      example: string
+      correlation: string
+    }
+    rank_system: string
+    range_notation: string
+  }
   creatures: Record<string, CreatureData>
 }
 
