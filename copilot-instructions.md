@@ -4,7 +4,12 @@
 
 **Aetheria** is a rich fantasy world documentation site built with SolidJS, TypeScript, and Vite. The project serves as an interactive reference for a comprehensive fantasy RPG setting, including characters, classes, magic systems, politics, religion, and more.
 
-Above all all documents and components should prioritize service by the MCP server and consumption by text-generating AI models like Ollama, etc.
+# Aetheria World Data System - Development Guide
+
+## Project Overview
+Fantasy world reference system with SolidJS website and AI-optimized documentation generation. Built for both human consumption via GitHub Pages and AI systems via RAG/vector databases.
+
+Above all, documents and components should prioritize AI consumption through comprehensive, well-structured markdown optimized for vector databases and RAG systems.
 
 ## Tech Stack
 
@@ -13,23 +18,25 @@ Above all all documents and components should prioritize service by the MCP serv
 - **Styling**: SCSS with custom design system
 - **Data**: Static JSON files
 - **Architecture**: Component-based with responsive design
-- **Additional**: PWA support, service worker, MCP server integration
+- **Additional**: PWA support, service worker, AI-optimized documentation generation
 
 ## Project Structure
 
 ```
-/Aetheria/
-├── site/                          # Main SolidJS application
+```
+Aetheria/
+├── site/                          # SolidJS application
 │   ├── src/
-│   │   ├── components/            # Reusable UI components
-│   │   ├── pages/                 # Route-based page components
-│   │   ├── data/                  # Data handling utilities
-│   │   └── index.scss             # Main stylesheet
-│   ├── public/data/               # Static JSON data files
-│   └── vite.config.ts
-├── mcp-server/                    # Model Context Protocol server
-├── docs/                          # Built documentation
-└── reference/                     # Source material and reference docs
+│   │   ├── data/                  # JSON data files + TypeScript types
+│   │   ├── pages/                 # SolidJS page components
+│   │   └── components/            # Reusable UI components
+│   └── public/
+│       └── data/                  # Static JSON files
+├── ai-docs/                       # Generated AI-optimized documentation
+├── generate-ai-docs.js            # AI documentation generator
+├── reference/                     # Source markdown documentation
+└── dev.sh                         # Development workflow script
+```
 ```
 
 ## Design System & Styling
@@ -116,7 +123,7 @@ Above all all documents and components should prioritize service by the MCP serv
 - Use meaningful IDs and consistent naming conventions
 - Implement proper error handling for missing or malformed data
 - Keep data files organized and well-documented
-- **Shared Architecture**: `/data/` serves both MCP server and static site
+- **Shared Architecture**: `/public/data/` serves both static site and AI documentation generation
 - **Single Source of Truth**: All world information centralized
 
 ### SolidJS Component Patterns
@@ -147,11 +154,11 @@ Above all all documents and components should prioritize service by the MCP serv
 
 ## Technical Architecture
 
-### MCP Server Integration
-- **Purpose**: Serves rich world context to AI systems for text generation
-- **Location**: `/mcp-server/` with TypeScript implementation
-- **Tools**: Search, hierarchy, generation, and extraction capabilities
-- **Priority**: All content should prioritize service by MCP server and consumption by AI models
+### AI Documentation Generation
+- **Purpose**: Generates comprehensive world context for RAG systems and vector databases
+- **Location**: `/generate-ai-docs.js` with Node.js implementation
+- **Output**: Consolidated markdown files optimized for AI consumption and chunking
+- **Priority**: All content should prioritize AI consumption through comprehensive, well-structured documentation
 
 ### PWA Implementation
 - **Technology**: vite-plugin-pwa with Workbox for intelligent caching

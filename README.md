@@ -1,11 +1,11 @@
 # Aetheria World Data System
 
-A comprehensive system for managing and sharing fantasy world data, featuring both AI integration and beautiful public documentation.
+A comprehensive system for managing and sharing fantasy world data, featuring both AI-optimized RAG documentation and beautiful public websites.
 
 ## 🌟 **What You Get**
 
-### 🤖 **AI Integration**
-Model Context Protocol (MCP) server that provides rich, rendered world content to AI systems - including both structured data and full page content exactly as users see it.
+### 🤖 **AI-Optimized Documentation**
+Generate consolidated markdown files specifically designed for RAG (Retrieval Augmented Generation) systems and vector databases. Perfect for loading into pgvector or other vector storage systems.
 
 ### 🌐 **Public Documentation**
 Beautiful, responsive SolidJS website automatically deployed to GitHub Pages with hash routing and mobile-friendly design.
@@ -32,10 +32,10 @@ Your world data is automatically published at:
 # Preview site locally (Bun - faster)
 ./dev.sh site-bun
 
-# Test MCP server with rendered content
-cd site && npm run build:mcp && npm run mcp
+# Generate AI-optimized docs for RAG systems
+./dev.sh package
 
-# Deploy changes
+# Deploy changes to GitHub Pages
 git add . && git commit -m "Update content" && git push
 ```
 
@@ -62,36 +62,35 @@ npm run preview
 - **`.env.example`** - Template with all options
 - **`.env.github`** - GitHub Pages configuration
 
-## 🤖 **MCP Server Setup**
+## 🤖 **AI-Optimized Documentation**
 
-The MCP server provides AI agents with access to fully rendered page content using Puppeteer:
+The system generates comprehensive markdown documentation specifically optimized for AI consumption and RAG systems:
 
-### Build and Run
+### Quick Start for AI Integration
 ```bash
-cd site
-npm run build:mcp
-npm run mcp
+# Generate AI-optimized documentation
+./dev.sh package
+
+# This creates a timestamped ZIP file with:
+# - Consolidated reference documents
+# - Individual entity files
+# - Cross-reference mappings
+# - Master index and navigation
 ```
 
-### Configuration
-```bash
-# Use GitHub Pages (default)
-npm run mcp
+### What You Get
+- **Consolidated Files**: `complete-world-overview.md`, `all-magic.md`, `all-characters.md`
+- **Individual References**: Detailed files for each entity (regions, characters, magic schools)
+- **Cross-References**: Explicit relationship mapping between entities
+- **Vector-Ready**: Perfect for chunking and loading into pgvector or similar systems
+- **GitHub Releases**: Automated ZIP generation and publishing via GitHub Actions
 
-# Use local dev server
-AETHERIA_SITE_URL=http://localhost:3000 npm run mcp
-```
-
-### Available Resources
-- **`aetheria://pages/magic`** - Full magic system page with explanations
-- **`aetheria://pages/classes`** - Character classes with descriptions
-- **`aetheria://pages/equipment`** - Equipment catalog with details
-- **`aetheria://pages/politics`** - Political organizations and relationships
-- **`aetheria://pages/alignment`** - Alignment system overview
-- **`aetheria://pages/religion`** - Religious systems and deities
-- **`aetheria://pages/relationships`** - Character relationships and dynamics
-
-The MCP server uses headless Chrome to render actual page content, ensuring AI agents get the same rich information that human users see in the browser.
+### Perfect for RAG Systems
+The generated documentation is specifically designed for vector databases:
+- **Semantic Completeness**: Each document contains full context
+- **Chunk-Friendly**: Natural breaks for vector database chunking
+- **Relationship Mapping**: Explicit entity connections for better retrieval
+- **Comprehensive Coverage**: Both individual and consolidated views
 
 ### Generic Data Loading Interface
 
@@ -143,18 +142,20 @@ AETHERIA_BASE_PATH=/Aetheria/                            # GitHub Pages path
 - **`/site/`** - SolidJS application with data and pages
   - **`/src/data/`** - JSON data files with TypeScript types
   - **`/src/pages/`** - SolidJS page components
-  - **`/src/mcp-server-simple.ts`** - MCP server with Puppeteer rendering
 - **`/docs/`** - Generated static site (GitHub Pages output)
+- **`/ai-docs/`** - Generated AI-optimized documentation (excluded from git)
+- **`/generate-ai-docs.js`** - AI documentation generator script
 - **`/dev.sh`** - Development workflow script
-- **`.github/workflows/`** - Automated deployment configuration
+- **`.github/workflows/`** - Automated deployment and AI docs generation
 
 ## ✨ **Features**
 
-### For AI Systems (MCP Server)
-- **Rendered Content**: Access to actual page content as users see it
-- **Search**: Query across all rendered pages for specific terms
-- **No Maintenance**: Automatically works with any new pages added
-- **Accurate Context**: Gets rich explanations, terminology, and formatting
+### For AI Systems (RAG Integration)
+- **Vector-Ready Content**: Consolidated documents perfect for chunking and vector storage
+- **Comprehensive Context**: Each document contains complete information without requiring navigation
+- **Relationship Mapping**: Explicit cross-references between entities for better retrieval
+- **Multiple Access Patterns**: Both consolidated overviews and individual entity files
+- **Automated Generation**: GitHub Actions automatically creates and releases updated documentation
 
 ### For Humans (GitHub Pages)
 - **SolidJS SPA**: Fast, reactive single-page application
@@ -169,22 +170,26 @@ AETHERIA_BASE_PATH=/Aetheria/                            # GitHub Pages path
 - **Hot Reload**: Fast development with Vite
 - **Multiple Runtimes**: Choose between Node.js or Bun for development
 - **Automated Deployment**: Zero-maintenance publishing to GitHub Pages
+- **AI Documentation Pipeline**: Automated generation and packaging for RAG systems
 
 ## 🎯 **Use Cases**
 
-- **📖 Story Writing**: AI generates consistent, lore-accurate content using full page context
-- **🎮 Game Mastering**: Rich reference material with AI assistance
+- **📖 Story Writing**: AI generates consistent, lore-accurate content using comprehensive world knowledge from RAG systems
+- **🎮 Game Mastering**: Rich reference material with AI assistance powered by vector search
 - **👥 Player Resources**: Share world information via public website
-- **📚 World Building**: Organize complex information with rich explanations
+- **📚 World Building**: Organize complex information with rich cross-references
 - **🌍 Community Sharing**: Professional presentation of your fantasy world
+- **🤖 AI Training**: Perfect dataset for fine-tuning language models on your world
+- **📊 Vector Databases**: Ready-to-use documentation for pgvector and other RAG systems
 
 ## 🔧 **Technical Architecture**
 
 - **Frontend**: SolidJS + TypeScript + Vite
 - **Routing**: Hash-based routing for GitHub Pages compatibility
 - **Styling**: SCSS with responsive design
-- **MCP Integration**: Puppeteer-based content rendering
-- **Deployment**: GitHub Actions → GitHub Pages
+- **AI Documentation**: Node.js generator for RAG-optimized markdown
+- **Vector Database Ready**: Perfect for pgvector, Chroma, or other vector stores
+- **Deployment**: GitHub Actions → GitHub Pages + AI docs releases
 - **Development**: Multiple runtime support (Node.js/Bun)
 
-Perfect for creating rich, interactive fantasy worlds that serve both AI systems and human readers! 🎉
+Perfect for creating rich, interactive fantasy worlds that serve both AI systems via RAG and human readers via beautiful web interfaces! 🎉

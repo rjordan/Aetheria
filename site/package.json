@@ -8,7 +8,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "build:github": "vite build --mode github",
-    "generate-docs": "node crawl-github-pages.js",
     "lint": "eslint src --ext .ts,.tsx --fix"
   },
   "dependencies": {

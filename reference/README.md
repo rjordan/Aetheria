@@ -11,7 +11,7 @@ Planned feautures include:
 - An extensive equipment catalog
 - A robust magic system
 - A complex political landscape
-- An MCP server to allow AI agents to utilize these resources in real-time storytelling.
+- AI-optimized documentation for RAG systems and vector databases.
 
 ## Classes
 The [Classes](docs/Classes.md) document outlines the various character classes available in Aetheria, each with unique abilities, skills, and roles. This section is essential for understanding how different characters can contribute to the story and interact with the world.
