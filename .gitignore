@@ -12,6 +12,8 @@ build/
 
 # Generated documentation
 generated-docs/
+ai-docs/
+*.zip
 
 # Environment variables
 .env

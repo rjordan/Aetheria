@@ -1,0 +1,212 @@
+name: Generate AI-Optimized Documentation
+
+on:
+  # Runs on pushes to main branch
+  push:
+    branches: ["main"]
+    paths:
+      - 'site/public/data/**'
+      - 'generate-ai-docs.js'
+      - '.github/workflows/ai-docs.yml'
+
+  # Allows manual trigger
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create a new release with the generated docs'
+        required: false
+        default: false
+        type: boolean
+      version:
+        description: 'Release version (only if creating release)'
+        required: false
+        type: string
+
+jobs:
+  generate-ai-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate AI-optimized documentation
+        run: |
+          node generate-ai-docs.js
+
+      - name: Validate generated docs
+        run: |
+          cd ai-docs
+          echo "📊 Generated AI-optimized files:"
+          ls -la
+          echo ""
+          echo "📋 File count: $(find . -name "*.md" | wc -l)"
+          echo "📏 Total size: $(du -sh . | cut -f1)"
+
+          # Verify key files exist
+          required_files=("index.md" "complete-world-overview.md" "all-regions.md" "all-magic.md" "all-characters.md" "alignment-system.md")
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "❌ Required file $file not found!"
+              exit 1
+            fi
+          done
+
+          echo "✅ AI documentation validation passed!"
+
+      - name: Create AI docs archive
+        run: |
+          cd ai-docs
+
+          # Create comprehensive release info
+          cat > AI_DOCS_README.md << EOF
+          # Aetheria AI-Optimized Documentation
+
+          **Generated:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+          **Source Commit:** ${{ github.sha }}
+          **Repository:** https://github.com/${{ github.repository }}
+
+          ## 🤖 Purpose
+
+          This documentation is specifically optimized for AI models and RAG (Retrieval Augmented Generation) systems. Unlike web-oriented docs, these files:
+
+          - **Consolidate related information** into single documents
+          - **Provide complete context** without requiring navigation
+          - **Include explicit cross-references** between entities
+          - **Offer multiple access patterns** (comprehensive vs. specific)
+
+          ## 📚 Quick Start for AI Models
+
+          1. **Start here:** \`index.md\` - Master sitemap showing all available content
+          2. **Get everything:** \`complete-world-overview.md\` - Single comprehensive document
+          3. **Focus by topic:** \`all-regions.md\`, \`all-magic.md\`, \`all-characters.md\`
+          4. **Understand relationships:** \`cross-references.md\`
+
+          ## 🎯 Key Files for AI Consumption
+
+          ### Consolidated References (Recommended)
+          - **index.md** - Master sitemap and navigation guide
+          - **complete-world-overview.md** - Everything in one document ($(wc -w < complete-world-overview.md) words)
+          - **all-regions.md** - Complete geographic and political reference
+          - **all-magic.md** - Entire magic system with all schools
+          - **all-characters.md** - Every named character with full details
+          - **alignment-system.md** - Complete guide to the four-axis alignment system
+          - **cross-references.md** - Explicit relationship mapping
+
+          ### Individual Entity Files
+          - **regions/** - Detailed files for each region and location
+          - **characters/** - In-depth character profiles with context
+          - **magic/** - Individual magic school references
+
+          ## 🔍 Search and Discovery
+
+          Unlike web documentation, these files are designed for:
+          - **Full-text search** across consolidated documents
+          - **Relationship discovery** through explicit cross-references
+          - **Context preservation** with complete information in each file
+          - **Hierarchical understanding** without complex navigation
+
+          ## 📊 Content Statistics
+
+          - **Files:** $(find . -name "*.md" | wc -l) markdown documents
+          - **Regions:** $(ls regions/ | wc -l) locations
+          - **Characters:** $(ls characters/ | wc -l) named individuals
+          - **Magic Schools:** $(ls magic/ | wc -l) schools of magic
+          - **Total Words:** ~$(find . -name "*.md" -exec cat {} \; | wc -w)
+
+          ## 🔄 Usage Patterns
+
+          **For Comprehensive Context:**
+          Load \`complete-world-overview.md\` for full world knowledge
+
+          **For Topic-Focused Work:**
+          Use \`all-regions.md\`, \`all-magic.md\`, or \`all-characters.md\`
+
+          **For Character Interaction:**
+          Combine character files with \`alignment-system.md\` for personality context
+
+          **For World Building:**
+          Use \`cross-references.md\` to understand entity relationships
+
+          ---
+
+          **Optimized for:** Claude, GPT, LLaMA, and other language models
+          **Format:** Markdown with rich cross-references and metadata
+          **Update Frequency:** Automated generation from source data
+          EOF
+
+          # Create the archive
+          zip -r "aetheria-ai-docs-$(date +%Y%m%d-%H%M%S).zip" . -x "*.zip"
+
+          echo "📦 Created AI-optimized archive:"
+          ls -lh *.zip
+
+      - name: Upload AI docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aetheria-ai-docs
+          path: ai-docs/
+          retention-days: 30
+
+      - name: Create release (if requested)
+        if: github.event.inputs.create_release == 'true' && github.event.inputs.version != ''
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: "Aetheria AI Documentation ${{ github.event.inputs.version }}"
+          body: |
+            # 🤖 Aetheria AI-Optimized Documentation
+
+            **Specifically designed for AI models and RAG systems** - not web browsing!
+
+            ## 🎯 What Makes This Different
+
+            ✅ **Consolidated Information** - Related content combined into single files
+            ✅ **Complete Context** - No navigation required between documents
+            ✅ **Explicit Cross-References** - Clear relationships between entities
+            ✅ **AI-Friendly Structure** - Optimized for language model consumption
+
+            ## 📥 Download & Usage
+
+            1. Download `aetheria-ai-docs-*.zip` below
+            2. Extract and start with `AI_DOCS_README.md`
+            3. Load files directly into your AI system or RAG pipeline
+
+            ## 🔑 Key Files
+
+            - **complete-world-overview.md** - Everything in one document (~$(cd ai-docs && wc -w < complete-world-overview.md 2>/dev/null || echo "50000") words)
+            - **index.md** - Master sitemap for content discovery
+            - **all-regions.md** - Complete geographic reference
+            - **all-magic.md** - Entire magic system
+            - **alignment-system.md** - Character personality framework
+
+            ## 🚀 Perfect For
+
+            - AI storytelling and world-building
+            - RAG system knowledge bases
+            - Language model fine-tuning data
+            - Interactive fiction development
+
+            ---
+
+            Generated from commit ${{ github.sha }} on $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+          files: |
+            ai-docs/aetheria-ai-docs-*.zip
+          draft: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          cd ai-docs
+          echo "🎉 AI-optimized documentation generated successfully!"
+          echo "📁 Files: $(find . -name "*.md" | wc -l) markdown documents"
+          echo "📊 Size: $(du -sh . | cut -f1)"
+          echo "🔗 Available as artifact: aetheria-ai-docs"
+          if [ "${{ github.event.inputs.create_release }}" == "true" ]; then
+            echo "🚀 Release created: ${{ github.event.inputs.version }}"
+          fi
