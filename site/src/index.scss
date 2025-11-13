@@ -1060,6 +1060,98 @@ p {
   }
 }
 
+// Enhanced RankDisplay component for flexible rank values
+.rank-distribution {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  .rank-label {
+    font-size: 1rem;
+    color: $text-color;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+
+  .rank-distribution-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+
+    .rank-badge.percentage {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      .rank-value {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      .rank-percentage {
+        font-size: 0.7rem;
+        color: $text-color;
+        opacity: 0.8;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+// Threat-based interpolation variants
+.rank-threat-variants {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  .rank-label {
+    font-size: 1rem;
+    color: $text-color;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+
+  .rank-variant-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    flex-wrap: wrap;
+    max-width: 280px; // Constrain width for better layout
+
+    .rank-badge.variant {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.125rem;
+      min-width: 60px; // Ensure consistent sizing
+
+      .rank-value {
+        padding: 0.15rem 0.4rem;
+        font-size: 0.7rem;
+        min-width: 24px;
+        text-align: center;
+      }
+
+      .rank-variant-label {
+        font-size: 0.6rem;
+        color: $text-color;
+        opacity: 0.7;
+        font-weight: normal;
+        text-transform: lowercase;
+        white-space: nowrap;
+      }
+    }
+
+    .rank-separator {
+      color: $primary-color;
+      font-weight: bold;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin: 0 0.125rem;
+    }
+  }
+}
+
 // Home page - definition list styling now handled by global dl rules
 
 // Entity detail pages - align rank badges in stats and skills grids
@@ -1150,31 +1242,58 @@ p {
     }
   }  .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); // 3x2 on desktop
     gap: 1rem;
     margin: 1rem 0;
+    max-width: 600px; // Constrain width for better readability
 
     @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr); // 2x3 on tablets
     }
 
     @media (max-width: 480px) {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; // 1x6 on phones
+    }
+
+    .stat-item {
+      padding: 0.5rem;
+      border: 1px solid $border-color;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.5);
+      transition: border-color 0.2s ease;
+
+      &:hover {
+        border-color: $primary-color;
+        background: rgba(255, 255, 255, 0.8);
+      }
     }
   }
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); // 3 columns for skills (flexible based on content)
     gap: 1rem;
     margin: 1rem 0;
 
     @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr); // 2 columns on tablets
     }
 
     @media (max-width: 480px) {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; // 1 column on phones
+    }
+
+    .skill-item {
+      padding: 0.5rem;
+      border: 1px solid $border-color;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.5);
+      transition: border-color 0.2s ease;
+
+      &:hover {
+        border-color: $primary-color;
+        background: rgba(255, 255, 255, 0.8);
+      }
     }
   }
 
@@ -1547,6 +1666,60 @@ p {
           margin: 0 0 1rem 0;
           font-size: 1.1rem;
           font-weight: 600;
+        }
+      }
+
+      // Special handling for stats with threat variants
+      .variant-stats {
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); // 3x2 on desktop
+          gap: 0.75rem;
+          max-width: 800px; // Allow wider for threat variants
+
+          @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr); // 2x3 on tablets
+          }
+
+          @media (max-width: 480px) {
+            grid-template-columns: 1fr; // 1x6 on phones
+          }
+
+          .stat-item {
+            padding: 0.5rem;
+            border: 1px solid $border-color;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.5);
+            transition: border-color 0.2s ease;
+            display: flex;
+            justify-content: flex-start; // Left align for threat variants
+            align-items: flex-start;
+
+            &:hover {
+              border-color: $primary-color;
+              background: rgba(255, 255, 255, 0.8);
+            }
+          }
+        }
+      }
+
+      // Special handling for skills with borders
+      .variant-skills {
+        .skills-grid {
+          .skill-item {
+            padding: 0.5rem;
+            border: 1px solid $border-color;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.5);
+            transition: border-color 0.2s ease;
+            display: flex;
+            justify-content: flex-start;
+
+            &:hover {
+              border-color: $primary-color;
+              background: rgba(255, 255, 255, 0.8);
+            }
+          }
         }
       }
 

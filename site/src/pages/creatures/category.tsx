@@ -1,43 +1,11 @@
 import { useParams, A } from '@solidjs/router'
 import { createMemo, createResource, Show, Suspense, For } from 'solid-js'
-import { fetchCreaturesData } from '@data/index'
-import RankBadge from '../../components/RankBadge'
+import { fetchCreaturesData, mergeCategoryAndCreatureData } from '@data/index'
+import RankDisplay from '../../components/RankDisplay'
 import AlignmentDisplay from '../../components/AlignmentDisplay'
 import LinkedText from '../../components/LinkedText'
 
-// Helper function to format threat level display
-const formatThreatLevel = (threatLevel: any) => {
-  if (typeof threatLevel === 'string') {
-    return threatLevel
-  }
-  if (typeof threatLevel === 'object' && threatLevel.range) {
-    return threatLevel.range
-  }
-  if (typeof threatLevel === 'object') {
-    // Handle percentage distribution - show most common with percentage
-    const entries = Object.entries(threatLevel).map(([level, percent]) => ({
-      level,
-      percent: typeof percent === 'number' ? percent : parseFloat(String(percent).replace('%', ''))
-    })).sort((a, b) => b.percent - a.percent)
-
-    return entries.length > 0 ? `${entries[0].level} (${entries[0].percent}%)` : 'Varies'
-  }
-  return 'Unknown'
-}
-
-// Helper function to check if threat level is a range/percentage distribution
-const isThreatLevelRange = (threatLevel: any) => {
-  return typeof threatLevel === 'object' && !threatLevel.range && Object.keys(threatLevel).length > 1
-}
-
-// Helper function to get threat level entries sorted by percentage
-const getThreatLevelEntries = (threatLevel: any) => {
-  if (typeof threatLevel !== 'object' || threatLevel.range) return []
-  return Object.entries(threatLevel).map(([level, percent]) => ({
-    level,
-    percent: typeof percent === 'number' ? percent : parseFloat(String(percent).replace('%', ''))
-  })).sort((a, b) => b.percent - a.percent)
-}// Helper function to compare alignments for deep equality
+// Helper function to compare alignments for deep equality
 const alignmentsEqual = (align1: any, align2: any) => {
   if (!align1 || !align2) return false
 
@@ -68,10 +36,36 @@ function CreatureCategoryDetail() {
   const subtypes = createMemo(() => {
     const cat = category()
     if (!cat || !cat.subtypes) return []
-    return Object.entries(cat.subtypes).map(([id, subtype]: [string, any]) => ({
-      id,
-      ...subtype
-    }))
+    return Object.entries(cat.subtypes).map(([id, subtype]: [string, any]) => {
+      // Merge category powers and tags with subtype powers and tags
+      const mergedSubtype = mergeCategoryAndCreatureData(cat, subtype)
+      return {
+        id,
+        ...mergedSubtype
+      }
+    }).sort((a, b) => a.name.localeCompare(b.name))
+  })
+
+  const subtypesThreatRange = createMemo(() => {
+    const threats = subtypes().map(s => {
+      const tl = s.threatLevel
+      if (typeof tl === 'string') return tl
+      if (typeof tl === 'object' && tl !== null) {
+        // Handle percentage distribution - get the most common level
+        const entries = Object.entries(tl)
+          .map(([level, percent]) => ({ level, percent: Number(percent) }))
+          .sort((a, b) => b.percent - a.percent)
+        return entries.length > 0 ? entries[0].level : 'Unknown'
+      }
+      return 'Unknown'
+    }).filter(threat => threat !== 'Unknown')
+
+    if (threats.length === 0) return "Unknown"
+    if (threats.length === 1) return threats[0]
+
+    // Sort threat levels to find min/max
+    const sortedThreats = threats.sort()
+    return `${sortedThreats[0]} - ${sortedThreats[sortedThreats.length - 1]}`
   })
 
   // Convert slug to display name
@@ -96,17 +90,9 @@ function CreatureCategoryDetail() {
                 <h1>{category()!.name}</h1>
                 <div class="entity-meta">
                   <span class="meta-item">
-                    <strong>Threat Range:</strong> {formatThreatLevel(category()!.threatLevel)}
-                  </span>
-                  <span class="meta-item">
-                    <strong>Variants:</strong> {subtypes().length}
+                    <RankDisplay rank={subtypesThreatRange()} label="Threat Level Range" showLabel={true} />
                   </span>
                 </div>
-                {category()!.tags && (
-                  <div class="entity-tags">
-                    <strong>Tags:</strong> {(category()!.tags || []).map((tag: string) => slugToDisplayName(tag)).join(', ')}
-                  </div>
-                )}
               </div>
             </div>
 
@@ -120,7 +106,7 @@ function CreatureCategoryDetail() {
 
             {/* Variants Section */}
             <div class="variants-section">
-              <h2>Known Variants</h2>
+              <h2>Known Variants ({subtypes().length})</h2>
               <p>The following are specific examples and variants of {category()!.name.toLowerCase()}s encountered in Aetheria:</p>
 
               <div class="variants-list">
@@ -129,19 +115,7 @@ function CreatureCategoryDetail() {
                     <div class="variant-header">
                       <h3>{subtype.name}</h3>
                       <div class="variant-meta">
-                        <Show
-                          when={isThreatLevelRange(subtype.threatLevel)}
-                          fallback={<RankBadge rank={formatThreatLevel(subtype.threatLevel)} label="Threat Level" />}
-                        >
-                          <div class="threat-levels-range">
-                            <span class="threat-levels-label">Threat Levels:</span>
-                            <div class="threat-levels-badges">
-                              <For each={getThreatLevelEntries(subtype.threatLevel)}>{(entry) => (
-                                <RankBadge rank={`${entry.level} (${entry.percent}%)`} label="" />
-                              )}</For>
-                            </div>
-                          </div>
-                        </Show>
+                        <RankDisplay rank={subtype.threatLevel} label="Threat Level" />
                       </div>
                     </div>
 
@@ -156,22 +130,22 @@ function CreatureCategoryDetail() {
                         <h4>Attributes</h4>
                         <div class="stats-grid">
                           <div class="stat-item">
-                            <RankBadge rank={subtype.attributes.strength} label="Strength" />
+                            <RankDisplay rank={subtype.attributes.strength} label="Strength" threatLevel={subtype.threatLevel} showThreatVariants={true} />
                           </div>
                           <div class="stat-item">
-                            <RankBadge rank={subtype.attributes.agility} label="Agility" />
+                            <RankDisplay rank={subtype.attributes.agility} label="Agility" threatLevel={subtype.threatLevel} showThreatVariants={true} />
                           </div>
                           <div class="stat-item">
-                            <RankBadge rank={subtype.attributes.constitution} label="Constitution" />
+                            <RankDisplay rank={subtype.attributes.constitution} label="Constitution" threatLevel={subtype.threatLevel} showThreatVariants={true} />
                           </div>
                           <div class="stat-item">
-                            <RankBadge rank={subtype.attributes.intelligence} label="Intelligence" />
+                            <RankDisplay rank={subtype.attributes.intelligence} label="Intelligence" threatLevel={subtype.threatLevel} showThreatVariants={true} />
                           </div>
                           <div class="stat-item">
-                            <RankBadge rank={subtype.attributes.willpower} label="Willpower" />
+                            <RankDisplay rank={subtype.attributes.willpower} label="Willpower" threatLevel={subtype.threatLevel} showThreatVariants={true} />
                           </div>
                           <div class="stat-item">
-                            <RankBadge rank={subtype.attributes.charisma} label="Charisma" />
+                            <RankDisplay rank={subtype.attributes.charisma} label="Charisma" threatLevel={subtype.threatLevel} showThreatVariants={true} />
                           </div>
                         </div>
                       </div>
@@ -183,7 +157,7 @@ function CreatureCategoryDetail() {
                         <div class="skills-grid">
                           <For each={Object.entries(subtype.skills || {})}>{([skill, rank]) => (
                             <div class="skill-item">
-                              <RankBadge rank={rank as string} label={slugToDisplayName(skill)} />
+                              <RankDisplay rank={rank} label={slugToDisplayName(skill)} />
                             </div>
                           )}</For>
                         </div>

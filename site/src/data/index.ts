@@ -120,17 +120,14 @@ export interface OrganizationsData {
 }
 
 // New entity data structures for character and creature cards
-enum RankValue {
-  F = 'F',
-  E = 'E',
-  D = 'D',
-  C = 'C',
-  B = 'B',
-  A = 'A',
-  S = 'S',
-  SS = 'SS',
-  SSS = 'SSS'
-}
+
+// Flexible rank system that supports:
+// - Single values: "A"
+// - Ranges: "C-A"
+// - Percentage distributions: {"B": 90, "A": 10}
+export type RankValue =
+  | string  // Single rank like "A" or range like "C-A"
+  | Record<string, number>  // Percentage distribution like {"B": 90, "A": 10}
 
 export interface AlignmentFacet {
   value: string
@@ -170,15 +167,25 @@ export interface CharacterData extends BaseEntity {
   race?: string
 }
 
+// Creature category (group) structure - has shared traits but no individual stats
+export interface CreatureCategory {
+  name: string
+  description: string
+  powers?: Record<string, string>  // Category-level powers inherited by all subtypes
+  tags?: string[]  // Category-level tags inherited by all subtypes
+  subtypes?: Record<string, CreatureData>
+}
+
+// Individual creature subtype - extends BaseEntity
 export interface CreatureData extends BaseEntity {
   type: 'Creature'
-  threat_level?: string
 }
 
 export interface CharactersData {
   characters: Record<string, CharacterData>
 }
 
+// Update the main creatures data structure
 export interface CreaturesData {
   _metadata?: {
     description: string
@@ -191,7 +198,7 @@ export interface CreaturesData {
     rank_system: string
     range_notation: string
   }
-  creatures: Record<string, CreatureData>
+  creatures: Record<string, CreatureCategory>
 }
 
 export interface SiteData {
@@ -305,6 +312,31 @@ export async function fetchRegionsData(): Promise<RegionListData> {
   return loadJsonData<RegionListData>('regions')
 }
 
+// Helper function to merge category-level powers and tags with creature-level ones
+export function mergeCategoryAndCreatureData(category: CreatureCategory, creature: CreatureData): CreatureData {
+  if (!category || !creature) return creature
+
+  const mergedCreature = { ...creature }
+
+  // Merge powers: category powers + creature powers, with creature taking precedence
+  if (category.powers || creature.powers) {
+    mergedCreature.powers = {
+      ...(category.powers || {}),
+      ...(creature.powers || {})
+    }
+  }
+
+  // Merge tags: unique combination of category tags + creature tags
+  if (category.tags || creature.tags) {
+    const categoryTags = category.tags || []
+    const creatureTags = creature.tags || []
+    // Remove duplicates and combine
+    mergedCreature.tags = [...new Set([...categoryTags, ...creatureTags])]
+  }
+
+  return mergedCreature
+}
+
 // Configuration helpers
 export function getDataEndpoint(): string {
   return DATA_ENDPOINT
@@ -407,3 +439,214 @@ Benefits:
 - Automatic caching and error handling
 - Full TypeScript support
 */
+
+// Utility functions for working with RankValue
+
+/**
+ * Check if a rank value is a percentage distribution
+ */
+export const isPercentageDistribution = (rank: RankValue): rank is Record<string, number> => {
+  return typeof rank === 'object' && rank !== null && !Array.isArray(rank)
+}
+
+/**
+ * Check if a rank value is a simple string (single value or range)
+ */
+export const isSimpleRank = (rank: RankValue): rank is string => {
+  return typeof rank === 'string'
+}
+
+/**
+ * Get percentage entries sorted by percentage (descending)
+ */
+export const getPercentageEntries = (rank: Record<string, number>) => {
+  return Object.entries(rank)
+    .map(([level, percent]) => ({
+      level,
+      percent: typeof percent === 'number' ? percent : parseFloat(String(percent).replace('%', ''))
+    }))
+    .sort((a, b) => b.percent - a.percent)
+}
+
+/**
+ * Get the most common rank from a percentage distribution
+ */
+export const getMostCommonRank = (rank: RankValue): string => {
+  if (isSimpleRank(rank)) return rank
+
+  const entries = getPercentageEntries(rank)
+  return entries.length > 0 ? entries[0].level : 'Unknown'
+}
+
+/**
+ * Format a rank value for display (single line)
+ */
+export const formatRankForDisplay = (rank: RankValue): string => {
+  if (isSimpleRank(rank)) return rank
+
+  const entries = getPercentageEntries(rank)
+  return entries.length > 0 ? `${entries[0].level} (${entries[0].percent}%)` : 'Unknown'
+}
+
+// Threat Level Interpolation System
+
+/**
+ * Rank order for interpolation (F = 0, E = 1, ..., SSS = 8)
+ */
+const RANK_ORDER = ['F', 'E', 'D', 'C', 'B', 'A', 'S', 'SS', 'SSS']
+
+/**
+ * Convert a rank string to numeric value for interpolation
+ */
+export const rankToNumber = (rank: string): number => {
+  const index = RANK_ORDER.indexOf(rank.toUpperCase())
+  return index >= 0 ? index : 0
+}
+
+/**
+ * Convert numeric value back to rank string
+ */
+export const numberToRank = (num: number): string => {
+  const index = Math.round(Math.max(0, Math.min(RANK_ORDER.length - 1, num)))
+  return RANK_ORDER[index]
+}
+
+/**
+ * Parse a rank string into min/max values
+ * Examples: "A" → {min: 5, max: 5}, "C-A" → {min: 3, max: 5}
+ */
+export const parseRankRange = (rankStr: string): { min: number; max: number } => {
+  if (rankStr.includes('-')) {
+    const [minRank, maxRank] = rankStr.split('-').map(r => r.trim())
+    return {
+      min: rankToNumber(minRank),
+      max: rankToNumber(maxRank)
+    }
+  }
+  const value = rankToNumber(rankStr)
+  return { min: value, max: value }
+}
+
+/**
+ * Convert percentage distribution to effective range for interpolation
+ * @param distribution Percentage distribution like {"B": 80, "A": 15, "S": 5}
+ * @returns Range object with min/max ranks
+ */
+export const getEffectiveRangeFromDistribution = (distribution: Record<string, number>): { min: number; max: number } => {
+  const ranks = Object.keys(distribution).map(rankToNumber).sort((a, b) => a - b)
+  return {
+    min: ranks[0],
+    max: ranks[ranks.length - 1]
+  }
+}
+
+/**
+ * Interpolate an attribute based on threat level position
+ * @param threatLevel The creature's threat level (e.g., "C-A")
+ * @param attributeRange The attribute range (e.g., "B-S")
+ * @param position Position within threat range (0.0 = min threat, 1.0 = max threat)
+ * @returns Interpolated rank string
+ */
+export const interpolateAttributeByThreat = (
+  threatLevel: RankValue,
+  attributeRange: RankValue,
+  position: number = 0.5
+): string => {
+  // Handle percentage distribution threat levels
+  let threatRange: { min: number; max: number }
+
+  if (isPercentageDistribution(threatLevel)) {
+    threatRange = getEffectiveRangeFromDistribution(threatLevel)
+  } else if (isSimpleRank(threatLevel)) {
+    threatRange = parseRankRange(threatLevel)
+  } else {
+    return formatRankForDisplay(attributeRange)
+  }
+
+  // Attribute range must be a string for interpolation
+  if (!isSimpleRank(attributeRange)) {
+    return formatRankForDisplay(attributeRange)
+  }
+
+  const attrRange = parseRankRange(attributeRange)
+
+  // If either is a single value, no interpolation needed
+  if (threatRange.min === threatRange.max || attrRange.min === attrRange.max) {
+    return formatRankForDisplay(attributeRange)
+  }
+
+  // Clamp position to [0, 1]
+  const clampedPosition = Math.max(0, Math.min(1, position))
+
+  // Interpolate within the attribute range
+  const interpolatedValue = attrRange.min + (attrRange.max - attrRange.min) * clampedPosition
+
+  return numberToRank(interpolatedValue)
+}
+
+/**
+ * Get suggested attribute values for different threat positions
+ * @param creature Creature with threat level and attribute ranges
+ * @returns Object with low/mid/high attribute suggestions
+ */
+export interface ThreatAttributeVariants {
+  low: Record<string, string>    // Attributes at minimum threat
+  mid: Record<string, string>    // Attributes at middle threat
+  high: Record<string, string>   // Attributes at maximum threat
+}
+
+export const getThreatAttributeVariants = (creature: BaseEntity): ThreatAttributeVariants => {
+  const variants: ThreatAttributeVariants = {
+    low: {},
+    mid: {},
+    high: {}
+  }
+
+  // Process each attribute
+  Object.entries(creature.attributes).forEach(([attr, value]) => {
+    variants.low[attr] = interpolateAttributeByThreat(creature.threatLevel, value, 0.0)
+    variants.mid[attr] = interpolateAttributeByThreat(creature.threatLevel, value, 0.5)
+    variants.high[attr] = interpolateAttributeByThreat(creature.threatLevel, value, 1.0)
+  })
+
+  return variants
+}
+
+/**
+ * Generate AI guidance text explaining threat-based attribute scaling
+ */
+export const generateThreatScalingGuidance = (creature: BaseEntity): string => {
+  let threatRange: { min: number; max: number }
+  let threatDisplay: string
+
+  if (isPercentageDistribution(creature.threatLevel)) {
+    threatRange = getEffectiveRangeFromDistribution(creature.threatLevel)
+    const ranks = Object.keys(creature.threatLevel).sort((a, b) => rankToNumber(a) - rankToNumber(b))
+    threatDisplay = `${ranks[0]} to ${ranks[ranks.length - 1]}`
+  } else if (isSimpleRank(creature.threatLevel)) {
+    threatRange = parseRankRange(creature.threatLevel)
+    threatDisplay = creature.threatLevel
+  } else {
+    return `${creature.name} has variable threat levels. Attribute values may vary accordingly.`
+  }
+
+  if (threatRange.min === threatRange.max) {
+    return `${creature.name} has a fixed threat level of ${threatDisplay}.`
+  }
+
+  const variants = getThreatAttributeVariants(creature)
+  const threatMin = numberToRank(threatRange.min)
+  const threatMax = numberToRank(threatRange.max)
+
+  let guidance = `${creature.name} varies in power from ${threatMin} to ${threatMax} threat level. `
+  guidance += `Attributes scale accordingly:\n\n`
+
+  Object.entries(creature.attributes).forEach(([attr, range]) => {
+    if (isSimpleRank(range) && range.includes('-')) {
+      guidance += `• **${attr.charAt(0).toUpperCase() + attr.slice(1)}**: `
+      guidance += `${variants.low[attr]} (weak) → ${variants.mid[attr]} (typical) → ${variants.high[attr]} (strong)\n`
+    }
+  })
+
+  return guidance
+}

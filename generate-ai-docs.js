@@ -595,58 +595,113 @@ Last updated: ${new Date().toISOString()}
 
     let content = `# Aetheria - Complete Creatures Reference
 
-> **Creature Bestiary**: This document contains detailed information about all creatures in the Aetheria world, including their stats, alignments, and behaviors.
+> **Creature Bestiary**: This document contains detailed information about all creatures in the Aetheria world, including their stats, alignments, powers, and behaviors.
 
 ## Creatures Overview
 
 `
 
     if (this.data.creatures?.creatures) {
-      // Generate table of contents
-      Object.entries(this.data.creatures.creatures).forEach(([key, creature]) => {
-        content += `- [${creature.name}](#${this.slugify(creature.name)}) (Threat Level ${creature.threatLevel || 'Unknown'})\n`
+      // Generate table of contents for all creatures (categories and their subtypes)
+      Object.entries(this.data.creatures.creatures).forEach(([categoryKey, category]) => {
+        content += `- **${category.name}** (${this.calculateThreatLevelRange(category)})\n`
+
+        if (category.subtypes) {
+          Object.entries(category.subtypes).forEach(([subtypeKey, subtype]) => {
+            const subtypeName = subtype.name || subtypeKey
+            content += `  - [${subtypeName}](#${this.slugify(subtypeName)}) (${this.formatThreatLevel(subtype.threatLevel)})\n`
+          })
+        }
       })
 
       content += '\n---\n\n'
 
-      // Generate detailed sections
-      Object.entries(this.data.creatures.creatures).forEach(([key, creature]) => {
-        content += `# ${creature.name}\n\n`
-        content += `**Creature ID**: ${key}\n`
-        content += `**Threat Level**: ${creature.threatLevel || 'Unknown'}\n\n`
+      // Generate detailed sections for each category and its subtypes
+      Object.entries(this.data.creatures.creatures).forEach(([categoryKey, category]) => {
+        content += `# ${category.name}\n\n`
+        content += `**Category**: ${categoryKey}\n`
+        content += `**Threat Level Range**: ${this.calculateThreatLevelRange(category)}\n\n`
 
-        content += `## Description\n${creature.description || 'No description available.'}\n\n`
+        content += `## Description\n${category.description || 'No description available.'}\n\n`
 
-        // Alignment
-        if (creature.alignment) {
-          content += `## Alignment\n${this.formatAlignment(creature.alignment)}\n\n`
-        }
-
-        // Attributes
-        if (creature.attributes) {
-          content += '## Attributes\n'
-          Object.entries(creature.attributes).forEach(([attr, value]) => {
-            content += `- **${attr.charAt(0).toUpperCase() + attr.slice(1)}**: ${value}\n`
+        // Category-level powers
+        if (category.powers && Object.keys(category.powers).length > 0) {
+          content += '## Category Powers & Abilities\n'
+          Object.entries(category.powers).forEach(([powerId, description]) => {
+            const displayName = powerId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+            content += `### ${displayName}\n${description}\n\n`
           })
-          content += '\n'
         }
 
-        // Skills
-        if (creature.skills) {
-          content += '## Skills\n'
-          Object.entries(creature.skills).forEach(([skill, level]) => {
-            content += `- **${skill.charAt(0).toUpperCase() + skill.slice(1)}**: ${level}\n`
-          })
-          content += '\n'
-        }
-
-        // Tags
-        if (creature.tags && Array.isArray(creature.tags)) {
-          content += '## Tags\n'
-          creature.tags.forEach(tag => {
+        // Category-level tags
+        if (category.tags && Array.isArray(category.tags)) {
+          content += '## Category Tags\n'
+          category.tags.forEach(tag => {
             content += `- ${tag.replace(/_/g, ' ')}\n`
           })
           content += '\n'
+        }
+
+        // Process subtypes
+        if (category.subtypes) {
+          content += '## Subtypes\n\n'
+
+          Object.entries(category.subtypes).forEach(([subtypeKey, subtype]) => {
+            const mergedCreature = this.mergeCategoryAndCreatureData(category, subtype)
+            const creatureName = mergedCreature.name || subtypeKey
+
+            content += `### ${creatureName}\n\n`
+            content += `**Subtype ID**: ${subtypeKey}\n`
+            content += `**Threat Level**: ${this.formatThreatLevel(mergedCreature.threatLevel)}\n\n`
+
+            content += `**Description**: ${mergedCreature.description || 'No description available.'}\n\n`
+
+            // Add threat scaling guidance for ranges
+            const scalingGuidance = this.generateThreatScalingGuidance(mergedCreature)
+            if (scalingGuidance) {
+              content += `**Threat Scaling**: ${scalingGuidance}\n\n`
+            }
+
+            // Subtype alignment (if different from category)
+            if (mergedCreature.alignment) {
+              content += `**Alignment**: ${this.formatAlignment(mergedCreature.alignment)}\n\n`
+            }
+
+            // Subtype attributes
+            if (mergedCreature.attributes) {
+              content += '**Attributes**:\n'
+              Object.entries(mergedCreature.attributes).forEach(([attr, value]) => {
+                content += `- ${attr.charAt(0).toUpperCase() + attr.slice(1)}: ${value}\n`
+              })
+              content += '\n'
+            }
+
+            // Subtype skills
+            if (mergedCreature.skills) {
+              content += '**Skills**:\n'
+              Object.entries(mergedCreature.skills).forEach(([skill, level]) => {
+                content += `- ${skill.charAt(0).toUpperCase() + skill.slice(1)}: ${level}\n`
+              })
+              content += '\n'
+            }
+
+            // All powers (category + subtype merged)
+            if (mergedCreature.powers && Object.keys(mergedCreature.powers).length > 0) {
+              content += '**Powers & Abilities**:\n'
+              Object.entries(mergedCreature.powers).forEach(([powerId, description]) => {
+                const displayName = powerId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+                content += `- **${displayName}**: ${description}\n`
+              })
+              content += '\n'
+            }
+
+            // All tags (category + subtype merged)
+            if (mergedCreature.tags && Array.isArray(mergedCreature.tags)) {
+              content += '**Tags**: '
+              content += mergedCreature.tags.map(tag => tag.replace(/_/g, ' ')).join(', ')
+              content += '\n\n'
+            }
+          })
         }
 
         content += '---\n\n'
@@ -992,9 +1047,19 @@ Last updated: ${new Date().toISOString()}
 
     // Generate creature files
     if (this.data.creatures?.creatures) {
-      for (const [key, creature] of Object.entries(this.data.creatures.creatures)) {
-        const content = this.generateCreatureFile(key, creature)
-        await writeFile(join(this.outputPath, 'creatures', `${key}.md`), content, 'utf-8')
+      for (const [categoryKey, category] of Object.entries(this.data.creatures.creatures)) {
+        if (category.subtypes) {
+          // Generate files for each subtype
+          for (const [subtypeKey, subtype] of Object.entries(category.subtypes)) {
+            const fullKey = `${categoryKey}-${subtypeKey}`
+            const content = this.generateCreatureFile(fullKey, subtype, category)
+            await writeFile(join(this.outputPath, 'creatures', `${fullKey}.md`), content, 'utf-8')
+          }
+        } else {
+          // Fallback for direct creatures (backwards compatibility)
+          const content = this.generateCreatureFile(categoryKey, category)
+          await writeFile(join(this.outputPath, 'creatures', `${categoryKey}.md`), content, 'utf-8')
+        }
       }
     }
   }
@@ -1222,51 +1287,63 @@ ${classData.description || 'No description available.'}
     return content
   }
 
-  generateCreatureFile(key, creature) {
-    let content = `# ${creature.name}
+  generateCreatureFile(key, creature, category = null) {
+    // Merge category and creature data if category is provided
+    const mergedCreature = this.mergeCategoryAndCreatureData(category, creature)
 
-> **Context**: Complete reference for ${creature.name} in the Aetheria world bestiary.
+    let content = `# ${mergedCreature.name}
+
+> **Context**: Complete reference for ${mergedCreature.name} in the Aetheria world bestiary.
 
 ## Basic Information
 
 - **Creature ID**: ${key}
-- **Name**: ${creature.name}
-- **Threat Level**: ${creature.threatLevel || 'Unknown'}
+- **Name**: ${mergedCreature.name}
+- **Threat Level**: ${this.formatThreatLevel(mergedCreature.threatLevel)}
 - **Type**: Creature
 
 ## Description
 
-${creature.description || 'No description available.'}
+${mergedCreature.description || 'No description available.'}
 
 `
 
     // Alignment
-    if (creature.alignment) {
-      content += `## Alignment\n\n${this.formatAlignment(creature.alignment)}\n\n`
+    if (mergedCreature.alignment) {
+      content += `## Alignment\n\n${this.formatAlignment(mergedCreature.alignment)}\n\n`
     }
 
     // Attributes
-    if (creature.attributes) {
+    if (mergedCreature.attributes) {
       content += '## Attributes\n\n'
-      Object.entries(creature.attributes).forEach(([attr, value]) => {
+      Object.entries(mergedCreature.attributes).forEach(([attr, value]) => {
         content += `- **${attr.charAt(0).toUpperCase() + attr.slice(1)}**: ${value}\n`
       })
       content += '\n'
     }
 
     // Skills
-    if (creature.skills) {
+    if (mergedCreature.skills) {
       content += '## Skills\n\n'
-      Object.entries(creature.skills).forEach(([skill, level]) => {
+      Object.entries(mergedCreature.skills).forEach(([skill, level]) => {
         content += `- **${skill.charAt(0).toUpperCase() + skill.slice(1)}**: ${level}\n`
       })
       content += '\n'
     }
 
+    // Powers & Abilities
+    if (mergedCreature.powers && Object.keys(mergedCreature.powers).length > 0) {
+      content += '## Powers & Abilities\n\n'
+      Object.entries(mergedCreature.powers).forEach(([powerId, description]) => {
+        const displayName = powerId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+        content += `### ${displayName}\n\n${description}\n\n`
+      })
+    }
+
     // Tags
-    if (creature.tags && Array.isArray(creature.tags)) {
+    if (mergedCreature.tags && Array.isArray(mergedCreature.tags)) {
       content += '## Tags\n\n'
-      creature.tags.forEach(tag => {
+      mergedCreature.tags.forEach(tag => {
         content += `- ${tag.replace(/_/g, ' ')}\n`
       })
       content += '\n'
@@ -1274,10 +1351,122 @@ ${creature.description || 'No description available.'}
 
     content += '## Related Information\n\n'
     content += `- **All Creatures**: [Complete Creatures Reference](../all-creatures.md)\n`
-    content += `- **Threat Level ${creature.threatLevel || 'Unknown'} Creatures**: Search in [All Creatures](../all-creatures.md)\n`
+    content += `- **Threat Level ${this.formatThreatLevel(mergedCreature.threatLevel)} Creatures**: Search in [All Creatures](../all-creatures.md)\n`
     content += `- **World Overview**: [Complete World Reference](../complete-world-overview.md)\n`
 
     return content
+  }
+
+  formatThreatLevel(threatLevel) {
+    if (typeof threatLevel === 'string') return threatLevel
+    if (typeof threatLevel === 'object' && threatLevel !== null) {
+      // Handle percentage distribution - get the most common level
+      const entries = Object.entries(threatLevel)
+        .map(([level, percent]) => ({ level, percent: Number(percent) }))
+        .sort((a, b) => b.percent - a.percent)
+      return entries.length > 0 ? `${entries[0].level} (${entries[0].percent}%)` : 'Unknown'
+    }
+    return 'Unknown'
+  }
+
+  calculateThreatLevelRange(category) {
+    if (!category.subtypes) return 'Unknown'
+
+    const threats = Object.values(category.subtypes)
+      .map(s => {
+        const tl = s.threatLevel
+        if (typeof tl === 'string') return tl
+        if (typeof tl === 'object' && tl !== null) {
+          // Handle percentage distribution - get the most common level
+          const entries = Object.entries(tl)
+            .map(([level, percent]) => ({ level, percent: Number(percent) }))
+            .sort((a, b) => b.percent - a.percent)
+          return entries.length > 0 ? entries[0].level : null
+        }
+        return null
+      })
+      .filter(Boolean)
+
+    if (threats.length === 0) return 'Unknown'
+    if (threats.length === 1) return threats[0]
+
+    // Sort and find range
+    const sortedThreats = threats.sort()
+    return `${sortedThreats[0]} - ${sortedThreats[sortedThreats.length - 1]}`
+  }
+
+  mergeCategoryAndCreatureData(category, creature) {
+    if (!category || !creature) return creature
+
+    const mergedCreature = { ...creature }
+
+    // Merge powers: category powers + creature powers, with creature taking precedence
+    if (category.powers || creature.powers) {
+      mergedCreature.powers = {
+        ...(category.powers || {}),
+        ...(creature.powers || {})
+      }
+    }
+
+    // Merge tags: unique combination of category tags + creature tags
+    if (category.tags || creature.tags) {
+      const categoryTags = category.tags || []
+      const creatureTags = creature.tags || []
+      // Remove duplicates and combine
+      mergedCreature.tags = [...new Set([...categoryTags, ...creatureTags])]
+    }
+
+    return mergedCreature
+  }
+
+  generateThreatScalingGuidance(creature) {
+    if (!creature.threatLevel) {
+      return null
+    }
+
+    let threatRange, threatDisplay
+
+    // Handle percentage distribution threat levels
+    if (typeof creature.threatLevel === 'object' && creature.threatLevel !== null) {
+      const ranks = Object.keys(creature.threatLevel).map(rank => rank.toUpperCase()).sort()
+      const rankOrder = ['F', 'E', 'D', 'C', 'B', 'A', 'S', 'SS', 'SSS']
+      ranks.sort((a, b) => rankOrder.indexOf(a) - rankOrder.indexOf(b))
+
+      if (ranks.length <= 1) return null
+
+      threatRange = { min: ranks[0], max: ranks[ranks.length - 1] }
+      threatDisplay = `${ranks[0]} to ${ranks[ranks.length - 1]}`
+    }
+    // Handle string threat levels
+    else if (typeof creature.threatLevel === 'string') {
+      if (!creature.threatLevel.includes('-')) {
+        return null
+      }
+
+      const [minThreat, maxThreat] = creature.threatLevel.split('-').map(t => t.trim())
+      if (minThreat === maxThreat) return null
+
+      threatRange = { min: minThreat, max: maxThreat }
+      threatDisplay = creature.threatLevel
+    } else {
+      return null
+    }
+
+    let guidance = `${creature.name} varies in power from ${threatRange.min} to ${threatRange.max} threat level. `
+
+    // Check for attribute ranges
+    const hasAttributeRanges = creature.attributes && Object.values(creature.attributes).some(attr =>
+      typeof attr === 'string' && attr.includes('-')
+    )
+
+    if (hasAttributeRanges) {
+      guidance += `Attributes scale with threat level - weaker specimens lean toward the lower values in each range, while stronger specimens approach the higher values. `
+      guidance += `For example, a ${threatRange.min}-level ${creature.name} would have attributes near the lower end of each range, while a ${threatRange.max}-level specimen would have attributes near the upper end.`
+    } else {
+      guidance += `Individual specimens may vary in specific abilities and powers based on their threat level within this range.`
+    }
+
+    return guidance
   }
 
   findLocationByName(locationName) {
@@ -1297,6 +1486,7 @@ ${creature.description || 'No description available.'}
   }
 
   slugify(text) {
+    if (!text || typeof text !== 'string') return 'unknown'
     return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
   }
 

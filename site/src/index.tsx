@@ -18,7 +18,6 @@ import Skills from './pages/skills'
 import Characters from './pages/characters'
 import CharacterDetail from './pages/characters/detail'
 import CreatureCategoryDetail from './pages/creatures/category'
-import CreatureDetail from './pages/creatures/detail'
 import EntitiesDemo from './pages/creatures'
 import Creatures from './pages/creatures'
 

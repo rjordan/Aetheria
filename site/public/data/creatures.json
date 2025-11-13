@@ -11,66 +11,156 @@
     "range_notation": "Format 'X-Y' indicates the creature's attribute can vary from rank X to rank Y, with distribution following threat level percentages"
   },
   "creatures": {
-    "half_human": {
-      "name": "Half-Human",
-      "threatLevel": "Varies",
-      "description": "A humanoid creature resulting from the union of humans and another race. For some reason it seems only humans have the ability to successfully interbreed with other races.",
-      "alignment": {
-        "ideology": {
-          "value": "Varies",
-          "modifier": "Varies",
-          "guidance": "Mixbreeds often embody a blend of cultural values from their parent races, leading to diverse ideologies."
-        },
-        "morality": {
-          "value": "Varies",
-          "modifier": "Varies",
-          "guidance": "Mixbreeds may adopt moral frameworks from either parent race, resulting in a wide range of beliefs and behaviors."
-        }
+    "beastkin": {
+      "name": "Beastkin",
+      "description": "A humanoid race with animalistic traits, such as fur, tails, or animal-like features. Beastkin are known for their agility, heightened senses, and connection to nature.",
+      "powers": {
+        "heightened_senses": "Wolfkin possess enhanced senses of smell, hearing, and night vision, allowing them to track and detect threats more effectively.",
+        "claws": "Wolfkin have sharp claws that can be used as natural weapons, dealing additional damage in close combat."
       },
       "subtypes": {
-        "half-orc": {},
-        "dragonkin": {},
-        "half-elf": {},
-        "demon-blooded": {}
+        "wolfkin": {
+          "name": "Wolfkin",
+          "description": "Wolfkin are a proud and loyal subrace of beastkin, known for their strong pack mentality and keen senses. They often have enhanced tracking abilities and a deep connection to lunar cycles.",
+          "threatLevel": "C-B",
+          "attributes": {
+            "strength": "C-A",
+            "agility": "B-S",
+            "constitution": "C-B",
+            "intelligence": "D-B",
+            "willpower": "C-B",
+            "charisma": "D-B"
+          },
+          "powers": {
+            "tracking": "Wolfkin can track creatures over long distances using their heightened sense of smell and keen instincts."
+          },
+          "tags": [
+            "tracking",
+            "pack_mentality",
+            "beastkin"
+          ]
+        },
+        "catkin": {
+          "name": "Catkin",
+          "description": "Catkin are a nimble and curious subrace of beastkin, known for their agility and stealth. They often excel in roles that require quick reflexes and dexterity.",
+          "threatLevel": "C-B",
+          "attributes": {
+            "strength": "D-B",
+            "agility": "A-S",
+            "constitution": "C-B",
+            "intelligence": "C-B",
+            "willpower": "C-B",
+            "charisma": "C-B"
+          },
+          "powers": {
+            "stealth": "Catkin have a natural talent for stealth, allowing them to move silently and avoid detection more easily.",
+            "night_vision": "Catkin can see in low-light conditions as if it were bright moonlight night.",
+            "safefall": "Catkin have an innate ability to land safely from falls, reducing fall damage significantly."
+          },
+          "tags": [
+            "stealth",
+            "agility",
+            "beastkin"
+          ]
+        }
+      }
+    },
+    "half_human": {
+      "name": "Half-Human",
+      "description": "A humanoid creature resulting from the union of humans and another race. For some reason it seems only humans have the ability to successfully interbreed with other races.",
+      "subtypes": {
+        "half-orc": {
+          "name": "Half-Orc",
+          "description": "The offsping of a human and an orc.",
+          "threatLevel": "C-B",
+          "attributes": {
+            "strength": "B-S",
+            "agility": "C-A",
+            "constitution": "B-S",
+            "intelligence": "D-B",
+            "willpower": "C-B",
+            "charisma": "D-C"
+          },
+          "powers": {
+            "darkvision": "Half-orcs can see in complete darkness, allowing them to navigate and operate effectively in low-light environments.",
+            "menacing": "Half-orcs have an intimidating presence, granting them advantage on intimidation checks."
+          },
+          "tags": [
+            "orc",
+            "darkvision"
+          ]
+        },
+        "dragonkin": {
+          "name": "Dragonkin",
+          "description": "Dragonkin are the offspring of a human and a dragon",
+          "threatLevel": "C-B",
+          "attributes": {
+            "strength": "B-S",
+            "agility": "C-A",
+            "constitution": "B-S",
+            "intelligence": "C-B",
+            "willpower": "B-S",
+            "charisma": "D-B"
+          },
+          "powers": {
+            "dragon_breath": "Dragonkin can unleash a breath attack that deals elemental damage (fire, ice, lightning, etc.) based on their draconic heritage.",
+            "scales": "Dragonkin have tough, dragon-like scales that provide natural armor, reducing physical damage taken."
+          },
+          "tags": [
+            "dragon",
+            "breath_weapon"
+          ]
+        },
+        "half-elf": {
+          "name": "Half-Elf",
+          "description": "Half-elves are the offspring of humans and elves, inheriting traits from both races. They often possess a blend of human adaptability and elven grace, making them versatile and charismatic individuals.",
+          "threatLevel": "C-B",
+          "attributes": {
+            "strength": "C-A",
+            "agility": "C-A",
+            "constitution": "C-B",
+            "intelligence": "C-B",
+            "willpower": "C-B",
+            "charisma": "B-S"
+          },
+          "powers": {
+            "enhanced_senses": "Half-elves possess heightened senses, including superior hearing, sight, and smell, allowing them to detect threats and opportunities that others might miss.",
+            "long_life": "Half-elves live longer than humans, granting them more time to gain experience and knowledge.",
+            "outcast": "Half-elves are looked down upon as infierior by other elves, this is especially true for dark elves.",
+            "night_vision":"The ability to see clearly in low-light conditions, allowing elves to navigate and operate effectively at night."
+          },
+          "tags": [
+          ]
+        },
+        "demon-blooded": {
+          "name": "Demon-Blooded",
+          "description": "Demon-blooded individuals are born from the union of humans and demons. They often possess a mix of human and demonic traits, such as horns, tails, or unusual skin tones. Demon-blooded individuals may have innate magical abilities or resistances due to their demonic heritage.",
+          "threatLevel": "C-B",
+          "attributes": {
+            "strength": "C-A",
+            "agility": "C-A",
+            "constitution": "B-S",
+            "intelligence": "C-B",
+            "willpower": "B-S",
+            "charisma": "D-B"
+          },
+          "powers": {
+            "dark_magic": "Demon-blooded have a natural affinity for dark magic."
+          },
+          "tags": [
+            "demonic"
+          ]
+        }
       },
       "tags": [
+        "half-human",
         "humanoid",
         "mixbreed"
       ]
     },
     "halflings": {
       "name": "Halfling",
-      "threatLevel": "Varies",
       "description": "A small humanoid race known for their agility, stealth, and resourcefulness. Halflings are often depicted as cheerful and sociable beings who enjoy simple pleasures and community life.",
-      "alignment": {
-        "ideology": {
-          "value": "Community",
-          "modifier": "Loyal Friend",
-          "guidance": "Halflings prioritize the well-being of their close-knit communities and value strong social bonds."
-        },
-        "morality": {
-          "value": "Good",
-          "modifier": "Kindhearted",
-          "guidance": "Halflings generally act with kindness and compassion, seeking to help others and promote harmony."
-        },
-        "methodology": {
-          "value": "Stealthy",
-          "modifier": "Cunning",
-          "guidance": "Halflings prefer to use stealth and clever tactics to navigate challenges, avoiding direct confrontation when possible."
-        },
-        "temperament": {
-          "value": "Earth",
-          "guidance": "Grounded and practical, halflings exhibit the steady and enduring qualities of earth, approaching challenges with patience and determination."
-        }
-      },
-      "attributes": {
-        "strength": "E-S",
-        "agility": "B-S",
-        "constitution": "D-A",
-        "intelligence": "C-S",
-        "willpower": "C-S",
-        "charisma": "B-S"
-      },
       "subtypes": {
         "meadow": {
           "name": "Meadow Halfling",
@@ -97,37 +187,7 @@
     },
     "elemental_touched": {
       "name": "Elemental Touched",
-      "threatLevel": "Varies",
       "description": "A humanoid being infused with elemental energy, granting them unique abilities and traits associated with a specific element (fire, water, earth, air). Elemental touched individuals often exhibit physical characteristics and powers that reflect their elemental affinity.",
-      "alignment": {
-        "ideology": {
-          "value": "Balance",
-          "modifier": "Elemental Harmony",
-          "guidance": "Elemental touched beings seek to maintain balance between the elemental forces within themselves and the world around them."
-        },
-        "morality": {
-          "value": "Neutral",
-          "modifier": "Elemental Steward",
-          "guidance": "Elemental touched individuals often act as guardians of nature, striving to protect the environment and its elemental forces."
-        },
-        "methodology": {
-          "value": "Adaptive",
-          "modifier": "Elemental Mastery",
-          "guidance": "Elemental touched beings adapt their approach based on their elemental affinity, utilizing their powers in ways that align with their nature."
-        },
-        "temperament": {
-          "value": "Varies",
-          "guidance": "The temperament of elemental touched individuals varies widely depending on their elemental affinity, ranging from fiery and passionate to calm and serene."
-        }
-      },
-      "attributes": {
-        "strength": "D-S",
-        "agility": "D-S",
-        "constitution": "D-S",
-        "intelligence": "D-S",
-        "willpower": "D-S",
-        "charisma": "D-S"
-      },
       "subtypes": {
         "fire": {
           "name": "Fire Touched",
@@ -362,37 +422,7 @@
     },
     "dwarves": {
       "name": "Dwarf",
-      "threatLevel": "Varies",
       "description": "A stout and sturdy humanoid known for its craftsmanship, mining skills, and warrior culture. Dwarves often inhabit mountainous regions and are skilled in stonework and metallurgy.",
-      "alignment": {
-        "ideology": {
-          "value": "Tradition",
-          "modifier": "Clan Loyalty",
-          "guidance": "Dwarves place great importance on their heritage and community, often prioritizing the needs of their clan above all else."
-        },
-        "morality": {
-          "value": "Good",
-          "modifier": "Honorable",
-          "guidance": "Dwarves generally act with integrity and fairness, valuing honesty and justice in their dealings with others."
-        },
-        "methodology": {
-          "value": "Direct",
-          "modifier": "Resolute",
-          "guidance": "Dwarves prefer straightforward approaches to problems, relying on their strength and determination to overcome obstacles."
-        },
-        "temperament": {
-          "value": "Earth",
-          "guidance": "Steadfast and reliable, dwarves embody the enduring qualities of earth, approaching challenges with patience and resilience."
-        }
-      },
-      "attributes": {
-        "strength": "B-S",
-        "agility": "D-A",
-        "constitution": "B-S",
-        "intelligence": "C-S",
-        "willpower": "B-S",
-        "charisma": "D-B"
-      },
       "subtypes": {
         "mountain": {
           "name": "Mountain Dwarf",
@@ -444,37 +474,7 @@
     },
     "gnomes": {
       "name": "Gnome",
-      "threatLevel": "Varies",
       "description": "A small, humanoid creature known for its affinity with nature and magic. Gnomes are often depicted as clever and resourceful, using their wits to navigate the challenges of their environment.",
-      "alignment": {
-        "ideology": {
-          "value": "Curiosity",
-          "modifier": "Inventor",
-          "guidance": "Gnomes are driven by a desire to explore, create, and understand the world around them, often engaging in inventive pursuits."
-        },
-        "morality": {
-          "value": "Good",
-          "modifier": "Benevolent",
-          "guidance": "Gnomes generally act with kindness and compassion, seeking to help others and promote harmony."
-        },
-        "methodology": {
-          "value": "Cunning",
-          "modifier": "Resourceful",
-          "guidance": "Gnomes rely on their intelligence and creativity to solve problems, often using clever tactics and inventions."
-        },
-        "temperament": {
-          "value": "Earth",
-          "guidance": "Grounded and practical, gnomes exhibit the steady and enduring qualities of earth, approaching challenges with patience and determination."
-        }
-      },
-      "attributes": {
-        "strength": "E-S",
-        "agility": "C-S",
-        "constitution": "D-A",
-        "intelligence": "A-S",
-        "willpower": "B-S",
-        "charisma": "B-S"
-      },
       "subtypes": {
         "forest": {
           "name": "Forest Gnome",
@@ -553,39 +553,8 @@
     },
     "fae": {
       "name": "Fae",
-      "threatLevel": "Varies",
       "description": "A mystical race of beings closely tied to nature and magic. Fae are known for their ethereal beauty, magical abilities, and connection to the natural world. They often inhabit forests, meadows, and other natural settings, and are known to be both playful and mischievous.",
-      "alignment": {
-        "ideology": {
-          "value": "Harmony",
-          "modifier": "Nature's Ally",
-          "guidance": "Fae seek to maintain balance and harmony with the natural world, often acting as protectors of flora and fauna."
-        },
-        "morality": {
-          "value": "Neutral",
-          "modifier": "Whimsical",
-          "guidance": "Fae actions are driven by their own sense of whimsy and curiosity, rather than strict moral codes."
-        },
-        "methodology": {
-          "value": "Magical",
-          "modifier": "Enigmatic",
-          "guidance": "Fae utilize magical abilities and enigmatic tactics, often employing illusions and enchantments to achieve their goals."
-        },
-        "temperament": {
-          "value": "Spirit",
-          "guidance": "Fae exhibit a range of temperaments, from playful and mischievous to solemn and wise, reflecting their deep connection to the mystical realm."
-        }
-      },
-      "attributes": {
-        "strength": "E-S",
-        "agility": "B-S",
-        "constitution": "D-A",
-        "intelligence": "B-S",
-        "willpower": "C-S",
-        "charisma": "A-S"
-      },
-      "subtypes": {
-      },
+      "subtypes": {},
       "tags": [
         "mystical",
         "nature",
@@ -594,37 +563,7 @@
     },
     "elf": {
       "name": "Elf",
-      "threatLevel": "Varies",
       "description": "A mystical humanoid race known for their grace, longevity, and affinity for nature and magic. Elves are often depicted as tall, slender beings with pointed ears and exceptional agility.",
-      "alignment": {
-        "ideology": {
-          "value": "Harmony",
-          "modifier": "Nature's Guardian",
-          "guidance": "Elves strive to maintain balance and harmony with the natural world, often acting as protectors of forests and wildlife."
-        },
-        "morality": {
-          "value": "Good",
-          "modifier": "Benevolent",
-          "guidance": "Elves generally act with kindness and compassion, seeking to help others and promote peace."
-        },
-        "methodology": {
-          "value": "Stealthy",
-          "modifier": "Subtle",
-          "guidance": "Elves prefer to use stealth and cunning in their actions, avoiding direct confrontation whenever possible."
-        },
-        "temperament": {
-          "value": "Air",
-          "guidance": "Elves are often characterized by their light-hearted and whimsical nature, embodying the qualities of air with their agility and grace."
-        }
-      },
-      "attributes": {
-        "strength": "E-S",
-        "agility": "C-S",
-        "constitution": "E-A",
-        "intelligence": "C-S",
-        "willpower": "D-S",
-        "charisma": "C-S"
-      },
       "powers": {
         "night_vision": "The ability to see clearly in low-light conditions, allowing elves to navigate and operate effectively at night.",
         "enhanced_senses": "Elves have heightened senses, including superior hearing, sight, and smell, allowing them to detect threats and opportunities that others might miss.",
@@ -797,32 +736,9 @@
     },
     "demon": {
       "name": "Demon",
-      "threatLevel": "Varies",
-      "description": "A malevolent supernatural entity often associated with chaos and destruction. Demons are known for their cunning, strength, and dark magical abilities.",
-      "alignment": {
-        "ideology": {
-          "value": "Chaos",
-          "modifier": "Anarchist",
-          "guidance": "Demons thrive on disorder and upheaval, seeking to dismantle established systems and create turmoil wherever they go."
-        },
-        "morality": {
-          "value": "Evil",
-          "modifier": "Malicious",
-          "guidance": "Demons act with malevolent intent, causing harm and suffering to others for their own gain or amusement."
-        },
-        "methodology": {
-          "value": "Destructive",
-          "modifier": "Ruinous",
-          "guidance": "Demons employ tactics that focus on destruction and devastation, using overwhelming force and dark magic to achieve their goals."
-        },
-        "temperament": {
-          "value": "Fire",
-          "guidance": "Fierce and volatile, demons are quick to anger and prone to explosive outbursts, embodying the destructive nature of fire."
-        }
-      },
+      "description": "An extra-planar entity often associated with chaos and destruction. Demons are known for their cunning, strength, and dark magical abilities. Even the nicest demons are vieweed with suspicion and fear by most societies.",
       "tags": [
         "supernatural",
-        "malevolent",
         "demon"
       ],
       "subtypes": {
@@ -864,15 +780,18 @@
             "paralytic_poison": "The ability to produce a toxin on the imps tail that paralyzes the victim, rendering them unable to move."
           },
           "tags": [
-            "supernatural",
             "mischievous",
-            "imp"
+            "trickster"
           ]
         },
         "succubus": {
           "name": "Succubus",
-          "threatLevel": "B",
-          "description": "A seductive demon that preys on mortals through allure and manipulation. Succubi are known for their charm and ability to influence the desires of others.",
+          "threatLevel": {
+            "B": 80,
+            "A": 15,
+            "S": 5
+          },
+          "description": "A seductive female demon that preys on mortals through allure and manipulation. Succubi are known for their charm and ability to influence the desires of others.",
           "alignment": {
             "ideology": {
               "value": "Chaos",
@@ -895,28 +814,27 @@
             }
           },
           "attributes": {
-            "strength": "C",
-            "agility": "B",
-            "constitution": "C",
-            "intelligence": "B",
-            "willpower": "A",
-            "charisma": "A"
+            "strength": "C-A",
+            "agility": "B-S",
+            "constitution": "C-A",
+            "intelligence": "B-S",
+            "willpower": "A-S",
+            "charisma": "A-SS"
           },
           "powers": {
             "seduction": "The ability to charm and manipulate others, making them more susceptible to influence.",
             "human_form": "Succubi can take on the appearance of a beautiful human of any age or gender, they frequently use this ability to seduce and manipulate their targets.",
-            "dark_magic": "Succubi possess knowledge of dark magical arts, allowing them to cast spells that enhance their seductive abilities or harm their enemies."
+            "mind_magic": "Succubi possess an innate affinity for mind magic.",
+            "dark_mistress": "Succubi can drain the life force of their victims by absorbing strong emotions (especially lust). This process tempeorarily enhances the succubus's vitality and magical power, however they do not need to feed to live and can often go weeks or months between feeding sessions. This process is voluntary on the part of the succubus, they can choose to drain as much or as little as they wish from a victim. Prey will slowly recover and a succubus will often keep prey alive, for months or even years. As the prey weakens they will become more lethargic and emotionally detached from others while becominng obsessive in their relationship toward the succubus until their will is completly subsumed by the succubus, becoming a thrall to her will."
           },
           "tags": [
-            "supernatural",
-            "seductive",
-            "succubus"
+            "seductive"
           ]
         },
         "toad_demon": {
           "name": "Toad Demon",
           "threatLevel": "D",
-          "description": "A grotesque demon resembling a giant toad, known for its toxic breath and insatiable appetite. Toad demons are slow-moving but extremely resilient.",
+          "description": "A grotesque demon resembling a humanoid giant toad, known for its toxic breath and insatiable appetite. Toad demons are slow-moving but extremely resilient.",
           "alignment": {
             "ideology": {
               "value": "Chaos",
@@ -951,38 +869,183 @@
             "regeneration": "Toad demons can slowly heal from injuries over time, making them difficult to kill."
           },
           "tags": [
+            "grotesque"
+          ]
+        },
+        "spider_demon": {
+          "name": "Spider Demon",
+          "threatLevel": "B-A",
+          "description": "A grotesque centaurian demon with the upper body of a humanoid and the lower body of a giant spider. Spider demons are known for their cunning, agility, and venomous bite.",
+          "alignment": {
+            "ideology": {
+              "value": "Chaos",
+              "modifier": "Hunter",
+              "guidance": "Spider demons embody chaos through their predatory nature, weaving webs of deceit and entrapment to ensnare their victims."
+            },
+            "morality": {
+              "value": "Evil",
+              "modifier": "Malicious",
+              "guidance": "Spider demons act with malevolent intent, preying on the weak and vulnerable for their own gain."
+            },
+            "methodology": {
+              "value": "Deceptive",
+              "modifier": "Ambush",
+              "guidance": "Spider demons use stealth and cunning to ambush their prey, relying on traps and venom rather than direct confrontation."
+            },
+            "temperament": {
+              "value": "Darkness",
+              "guidance": "Silent and patient, spider demons embody the creeping and insidious qualities of darkness, waiting for the perfect moment to strike."
+            }
+          },
+          "attributes": {
+            "strength": "C",
+            "agility": "A",
+            "constitution": "C",
+            "intelligence": "C-A",
+            "willpower": "C",
+            "charisma": "D"
+          },
+          "powers": {
+            "venomous_bite": "The ability to inject venom through a bite, causing paralysis or death in victims.",
+            "web_weaving": "The ability to produce strong, sticky webs used for trapping prey or creating shelters.",
+            "spider_climb": "Spider demons can scale vertical surfaces with ease, allowing them to navigate complex environments and ambush prey from above.",
+            "spider_command": "Spider demons have several normal and monstrous spiders at their command."
+          },
+          "tags": [
+            "predator"
+          ]
+        },
+        "generic": {
+          "name": "Generic Demon",
+          "threatLevel": "D-B",
+          "description": "The vast majority of demons fall into this category. They appear more or less humanoid but with various demonic features such as horns, tails, claws, fangs, red or dark skin. They are stronger and more resilient than typical humans.",
+          "alignment": {
+            "ideology": {
+              "value": "Chaos",
+              "modifier": "Minion",
+              "guidance": "Generic demons serve the chaotic agendas of their superiors, carrying out orders without question or personal initiative."
+            },
+            "morality": {
+              "value": "Evil",
+              "modifier": "Obedient",
+              "guidance": "Generic demons act with malevolent intent, following the commands of their masters to spread chaos and destruction."
+            },
+            "methodology": {
+              "value": "Brutal",
+              "modifier": "Direct",
+              "guidance": "Generic demons rely on straightforward aggression and physical power to achieve their objectives."
+            },
+            "temperament": {
+              "value": "Fire",
+              "guidance": "Fierce and unrelenting, generic demons embody the destructive and consuming qualities of fire, attacking with relentless aggression."
+            }
+          },
+          "attributes": {
+            "strength": "D-C",
+            "agility": "D-C",
+            "constitution": "C-B",
+            "intelligence": "E-D",
+            "willpower": "D-C",
+            "charisma": "E-D"
+          },
+          "powers": {
+            "fire_resistance": "Generic demons have a natural resistance to fire and heat-based attacks, reducing damage taken from such sources.",
+            "demonic_strength": "Generic demons possess enhanced physical strength, allowing them to overpower most mortal foes."
+          },
+          "tags": [
             "supernatural",
-            "grotesque",
-            "toad_demon"
+            "minion",
+            "demon"
+          ]
+        },
+        "hellhound": {
+          "name": "Hellhound",
+          "threatLevel": "C-B",
+          "description": "A demonic canine known for its fiery breath and relentless pursuit of prey. Hellhounds are often used as guardians or hunters by more powerful demons.",
+          "alignment": {
+            "ideology": {
+              "value": "Chaos",
+              "modifier": "Hunter",
+              "guidance": "Hellhounds embody chaos through their relentless pursuit of prey, driven by an insatiable hunger and a desire to serve their demonic masters."
+            },
+            "morality": {
+              "value": "Neutral",
+              "modifier": "Obedient",
+              "guidance": "Hellhounds act without regard for good or evil, following the commands of their masters to hunt and capture targets."
+            },
+            "methodology": {
+              "value": "Brutal",
+              "modifier": "Relentless",
+              "guidance": "Hellhounds rely on sheer physical power and endurance to track and overpower their prey, using their fiery breath as a weapon."
+            },
+            "temperament": {
+              "value": "Fire",
+              "guidance": "Fierce and unyielding, hellhounds embody the consuming and destructive qualities of fire, relentlessly pursuing their targets until they are caught."
+            }
+          },
+          "attributes": {
+            "strength": "C",
+            "agility": "B",
+            "constitution": "B",
+            "intelligence": "E",
+            "willpower": "D",
+            "charisma": "E"
+          },
+          "powers": {
+            "fiery_breath": "The ability to exhale a stream of intense flames that can incinerate targets.",
+            "enhanced_senses": "Hellhounds possess heightened senses, including superior smell and hearing, allowing them to track prey over great distances."
+          },
+          "tags": [
+            "canine"
+          ]
+        },
+        "shadow_demon": {
+          "name": "Shadow Demon",
+          "threatLevel": "D-A",
+          "description": "A powerful demon composed of living shadow, capable of manipulating darkness and instilling fear in its victims. Shadow demons are elusive and difficult to detect.",
+          "alignment": {
+            "ideology": {
+              "value": "Chaos",
+              "modifier": "Terror",
+              "guidance": "Shadow demons embody chaos through their manipulation of fear and darkness, sowing terror and confusion among their victims."
+            },
+            "morality": {
+              "value": "Evil",
+              "modifier": "Malevolent",
+              "guidance": "Shadow demons act with malicious intent, preying on the fears and vulnerabilities of others for their own gain."
+            },
+            "methodology": {
+              "value": "Deceptive",
+              "modifier": "Stealthy",
+              "guidance": "Shadow demons use stealth and cunning to ambush their prey, relying on darkness and fear rather than direct confrontation."
+            },
+            "temperament": {
+              "value": "Darkness",
+              "guidance": "Silent and insidious, shadow demons embody the creeping and unsettling qualities of darkness, striking from the shadows when least expected."
+            }
+          },
+          "attributes": {
+            "strength": "D-B",
+            "agility": "C-S",
+            "constitution": "D-B",
+            "intelligence": "D",
+            "willpower": "C",
+            "charisma": "E"
+          },
+          "powers": {
+            "shadow_manipulation": "The ability to control and manipulate shadows, using them for concealment, offense, and defense.",
+            "fear_inducement": "Shadow demons can instill intense fear in their victims, causing panic and disorientation."
+          },
+          "tags": [
+            "shadow",
+            "stealthy"
           ]
         }
       }
     },
     "animal": {
       "name": "Animal",
-      "threatLevel": "Varies",
       "description": "A living creature that is not a human, often characterized by instinctual behavior and a lack of advanced reasoning abilities. Animals can range from domesticated pets to wild predators.",
-      "alignment": {
-        "ideology": {
-          "value": "Instinct",
-          "modifier": "Natural Order",
-          "guidance": "Animals operate according to their instincts and the natural order of the ecosystem, following survival and reproductive imperatives."
-        },
-        "morality": {
-          "value": "Neutral",
-          "modifier": "Biological",
-          "guidance": "Animals do not possess a moral framework; their actions are driven by biological needs rather than ethical considerations."
-        },
-        "methodology": {
-          "value": "Primal",
-          "modifier": "Survival",
-          "guidance": "Animals rely on primal behaviors and survival tactics, using physical abilities and instincts to navigate their environment."
-        },
-        "temperament": {
-          "value": "Earth",
-          "guidance": "Grounded and instinctual, animals exhibit behaviors that reflect the steady and enduring qualities of earth, responding to their environment in a direct and unfiltered manner."
-        }
-      },
       "tags": [
         "animal"
       ],
@@ -1009,7 +1072,7 @@
             },
             "temperament": {
               "value": "Water",
-              "guidance": "Adaptable and flowing in their approach, wolves adjust their behavior based on circumstances - cautious and observant when threatened, but persistent and patient when hunting."
+              "guidance": "Adaptable and flowing in their approach, wolves adjust their behavior based on circumstances - cautious and obminion when threatened, but persistent and patient when hunting."
             }
           },
           "attributes": {
@@ -1025,7 +1088,6 @@
             "stealth": "C"
           },
           "tags": [
-            "animal",
             "predator",
             "pack_hunter"
           ]
@@ -1034,35 +1096,56 @@
     },
     "yokai": {
       "name": "Yokai",
-      "threatLevel": "Varies",
       "description": "Supernatural entities from Asian folklore, often possessing unique abilities and characteristics. Yokai can range from mischievous spirits to malevolent demons.",
-      "alignment": {
-        "ideology": {
-          "value": "Mysticism",
-          "modifier": "Spiritual",
-          "guidance": "Yokai exist in a realm that blends the spiritual and physical worlds, often embodying cultural beliefs and natural phenomena."
-        },
-        "morality": {
-          "value": "Varies",
-          "modifier": "Contextual",
-          "guidance": "The morality of yokai can differ widely; some are benevolent protectors while others are malevolent tricksters or predators."
-        },
-        "methodology": {
-          "value": "Supernatural",
-          "modifier": "Ethereal",
-          "guidance": "Yokai utilize supernatural abilities and ethereal tactics, often manipulating reality or using magical powers to achieve their ends."
-        },
-        "temperament": {
-          "value": "Spirit",
-          "guidance": "Yokai exhibit a range of temperaments, from playful and mischievous to solemn and vengeful, reflecting their diverse nature and origins."
-        }
-      },
       "tags": [
         "supernatural",
         "folklore",
-        "yokai"
+        "yokai",
+        "asian"
       ],
       "subtypes": {
+        "kappa": {
+          "name": "Kappa",
+          "threatLevel": "C-B",
+          "description": "A water-dwelling yokai known for its mischievous behavior and love of cucumbers. Kappas are often depicted as turtle-like humanoids with a water-filled dish on their heads.",
+          "alignment": {
+            "ideology": {
+              "value": "Trickery",
+              "modifier": "Mischief",
+              "guidance": "Kappas delight in playing pranks on humans, often using their cunning and agility to outwit their victims."
+            },
+            "morality": {
+              "value": "Neutral",
+              "modifier": "Ambiguous",
+              "guidance": "Kappas can be both benevolent and malevolent, their actions driven by personal motives rather than strict moral codes."
+            },
+            "methodology": {
+              "value": "Deceptive",
+              "modifier": "Cunning",
+              "guidance": "Kappas rely on trickery and deception, using their knowledge of human behavior to manipulate and outsmart others."
+            },
+            "temperament": {
+              "value": "Water",
+              "guidance": "Fluid and adaptable, kappas embody the ever-changing nature of water, able to shift their approach based on the situation at hand."
+            }
+          },
+          "attributes": {
+            "strength": "C",
+            "agility": "B",
+            "constitution": "C",
+            "intelligence": "B",
+            "willpower": "C",
+            "charisma": "D"
+          },
+          "powers": {
+            "water_affinity": "Kappas have a natural connection to water, granting them enhanced abilities when in or near aquatic environments.",
+            "drowning_grip": "Kappas possess immense strength in their arms, allowing them to hold onto and drown victims with ease."
+          },
+          "tags": [
+            "trickster",
+            "water"
+          ]
+        },
         "kitsune": {
           "name": "Kitsune",
           "threatLevel": "C",
@@ -1098,10 +1181,10 @@
           },
           "powers": {
             "shape_shifting": "The ability to change form, often taking on the appearance of a human to interact with the mortal world.",
-            "fox_fire": "The ability to create and control mystical flames that can be used for illumination or as a weapon."
+            "fox_fire": "The ability to create and control mystical flames that can be used for illumination or as a weapon.",
+            "charm": "Kitsune can influence the thoughts and emotions of others, making them more susceptible to suggestion and manipulation."
           },
           "tags": [
-            "supernatural",
             "trickster"
           ]
         },
@@ -1147,7 +1230,6 @@
             "cold_aura": "An aura of cold that surrounds the rozenmaiden, lowering temperatures and causing discomfort to those nearby."
           },
           "tags": [
-            "supernatural",
             "winter",
             "cold"
           ]
@@ -1191,14 +1273,13 @@
             "stone_form": "The ability to transform into a stone statue, becoming nearly impervious to physical harm while in this form."
           },
           "tags": [
-            "supernatural",
             "guardian"
           ]
         },
         "shikigami": {
           "name": "Shikigami",
           "threatLevel": "D-B",
-          "description": "A spirit servant summoned by spirit mages to perform various tasks, including protection, reconnaissance, and combat. Shikigami are often invisible to the untrained eye. Shikigami are bound to their summoner's will and act as loyal aides. They are generally summoned via a paper-doll which is consumed by fire when the shikigami is released or dies.",
+          "description": "A spirit minion summoned by spirit mages to perform various tasks, including protection, reconnaissance, and combat. Shikigami are often invisible to the untrained eye. Shikigami are bound to their summoner's will and act as loyal aides. They are generally summoned via a paper-doll which is consumed by fire when the shikigami is released or dies.",
           "alignment": {
             "ideology": {
               "value": "Service",
@@ -1233,37 +1314,55 @@
             "spiritual_attack": "The ability to launch attacks that affect the spiritual essence of a target, bypassing physical defenses."
           },
           "tags": [
-            "supernatural",
-            "servant"
+            "minion"
+          ]
+        },
+        "tanuki": {
+          "name": "Tanuki",
+          "threatLevel": "D-C",
+          "description": "A shape-shifting raccoon dog known for its playful and mischievous nature. Tanuki are often depicted with a large belly and a magical leaf that aids in their transformations.",
+          "alignment": {
+            "ideology": {
+              "value": "Trickery",
+              "modifier": "Playful",
+              "guidance": "Tanuki delight in playing tricks on humans and other beings, using their shape-shifting abilities to create humorous or confusing situations."
+            },
+            "morality": {
+              "value": "Neutral",
+              "modifier": "Mischievous",
+              "guidance": "Tanuki are not inherently good or evil; their actions are driven by a desire for fun and amusement rather than malice."
+            },
+            "methodology": {
+              "value": "Deceptive",
+              "modifier": "Illusory",
+              "guidance": "Tanuki rely on illusion and deception, using their shape-shifting abilities to confuse and manipulate others."
+            },
+            "temperament": {
+              "value": "Air",
+              "guidance": "Light-hearted and whimsical, tanuki embody the playful and unpredictable nature of air, often flitting about and causing minor disturbances."
+            }
+          },
+          "attributes": {
+            "strength": "D-C",
+            "agility": "C-B",
+            "constitution": "D",
+            "intelligence": "C-B",
+            "willpower": "C",
+            "charisma": "B"
+          },
+          "powers": {
+            "shape_shifting": "The ability to change form, often taking on the appearance of humans or objects to interact with the mortal world.",
+            "illusion_creation": "The ability to create illusions that can deceive the senses, making others see, hear, or feel things that are not real."
+          },
+          "tags": [
+            "trickster"
           ]
         }
       }
     },
     "undead": {
       "name": "Undead",
-      "threatLevel": "Varies",
       "description": "A reanimated corpse or spirit that has returned from death, often possessing supernatural abilities. Undead creatures are typically driven by a singular purpose, such as hunger or vengeance.",
-      "alignment": {
-        "ideology": {
-          "value": "Necromancy",
-          "modifier": "Reanimated",
-          "guidance": "Undead beings exist through necromantic forces, often bound to the will of their creator or driven by residual instincts."
-        },
-        "morality": {
-          "value": "Evil",
-          "modifier": "Malevolent",
-          "guidance": "Undead creatures often act with malevolent intent, seeking to harm the living or fulfill dark purposes."
-        },
-        "methodology": {
-          "value": "Relentless",
-          "modifier": "Unstoppable",
-          "guidance": "Undead beings pursue their goals with relentless determination, often ignoring pain and injury in their quest."
-        },
-        "temperament": {
-          "value": "Darkness",
-          "guidance": "Cold and unfeeling, undead creatures embody the chilling qualities of darkness, often exuding an aura of dread and despair."
-        }
-      },
       "powers": {
         "undead_resilience": "All undead are immune to pain, poison, disease, and fatigue.",
         "light_vulnerability": "Undead take increased damage from light-magic (holy) attacks, as it disrupts the necromantic energies sustaining them.",
@@ -1312,10 +1411,8 @@
             "fire_vulnerability": "Zombies take increased damage from fire-based attacks, as fire disrupts the necromantic energies sustaining them."
           },
           "tags": [
-            "supernatural",
             "mindless",
-            "undead",
-            "servant"
+            "minion"
           ]
         },
         "skeleton": {
@@ -1355,10 +1452,8 @@
             "bone_body": "Skeletons are immune to piercing damage, but take extra damage from blunt force attacks."
           },
           "tags": [
-            "supernatural",
             "mindless",
-            "servant",
-            "undead"
+            "minion"
           ]
         },
         "vampire": {
@@ -1402,9 +1497,8 @@
             "blood_drain": "The ability to drain the life force of others through their blood, weakening them while strengthening the vampire."
           },
           "tags": [
-            "supernatural",
             "predator",
-            "undead"
+            "nocturnal"
           ]
         },
         "lich": {
@@ -1442,13 +1536,11 @@
           },
           "powers": {
             "dark_magic": "The ability to manipulate and control the forces of death, including raising and commanding undead minions.",
-            "phylactery": "Liches store their soul in a phylactery, making them nearly impossible to kill unless the phylactery is destroyed first.",
+            "phylactery": "Liches store their soul in a phylactery, making them impossible to kill unless the phylactery is destroyed first. If their body is destroyed, they will regenerate from the phylactery over time.",
             "arcane_mastery": "Liches retain the magical knowledge and abilities they possessed in life, allowing them to cast powerful spells."
           },
           "tags": [
-            "supernatural",
-            "mage",
-            "undead"
+            "mage"
           ]
         }
       }
@@ -1457,35 +1549,6 @@
       "name": "Dragon",
       "threatLevel": "A-SS",
       "description": "A large, serpentine legendary creature that appears in the folklore of many cultures around the world. Dragons are often depicted as powerful and intelligent beings with magical abilities.",
-      "alignment": {
-        "ideology": {
-          "value": "Dominion",
-          "modifier": "Sovereign",
-          "guidance": "Dragons see themselves as rulers of their domains, often demanding respect and tribute from those who enter their territory."
-        },
-        "morality": {
-          "value": "Varies",
-          "modifier": "Complex",
-          "guidance": "Dragons can be benevolent protectors or malevolent destroyers, their actions driven by personal motives and cultural values."
-        },
-        "methodology": {
-          "value": "Mighty",
-          "modifier": "Overwhelming",
-          "guidance": "Dragons rely on their immense physical power and magical abilities to dominate foes, often overwhelming them with sheer force."
-        },
-        "temperament": {
-          "value": "Fire",
-          "guidance": "Fierce and passionate, dragons embody the intense and consuming qualities of fire, often exuding an aura of power and majesty."
-        }
-      },
-      "attributes": {
-        "strength": "S",
-        "agility": "B",
-        "constitution": "A",
-        "intelligence": "A",
-        "willpower": "A",
-        "charisma": "B"
-      },
       "powers": {
         "flight": "The ability to fly using large, powerful wings, allowing dragons to traverse great distances and attack from the air.",
         "scaly_hide": "Dragons possess tough, impenetrable scales that provide exceptional protection against physical and magical attacks.",
@@ -1496,33 +1559,95 @@
         "legendary",
         "dragon"
       ],
-      "subtypes": {}
+      "subtypes": {
+        "blue_dragon": {
+          "name": "Blue Dragon",
+          "threatLevel": "B-SS",
+          "description": "Also known as ice or blizzard dragons, blue dragons are majestic creatures associated with ice and snow.",
+          "alignment": {
+            "ideology": {
+              "value": "Elemental",
+              "modifier": "Stormbringer",
+              "guidance": "Blue dragons embody the power of storms, using their control over lightning and weather to assert dominance and influence their surroundings."
+            },
+            "morality": {
+              "value": "Neutral",
+              "modifier": "Pragmatic",
+              "guidance": "Blue dragons act based on practical considerations rather than strict moral codes, often making decisions that benefit themselves or their territory."
+            },
+            "methodology": {
+              "value": "Tactical",
+              "modifier": "Calculated",
+              "guidance": "Blue dragons employ strategic thinking and calculated actions, using their elemental powers to outmaneuver foes."
+            },
+            "temperament": {
+              "value": "Air",
+              "guidance": "Dynamic and unpredictable, blue dragons embody the ever-changing qualities of air, often shifting their approach based on the situation at hand."
+            }
+          },
+          "attributes": {
+            "strength": "A-SS",
+            "agility": "B-A",
+            "constitution": "A-SS",
+            "intelligence": "B-S",
+            "willpower": "A",
+            "charisma": "B"
+          },
+          "powers": {
+            "freezing_breath": "The ability to unleash a powerful blast of freezing cold from their mouth, capable of causing significant damage and freezing targets solid."
+          },
+          "tags": [
+            "elemental",
+            "storm"
+          ]
+        },
+        "red_dragon": {
+          "name": "Red Dragon",
+          "threatLevel": "A-SS",
+          "description": "Also known as Fire dragons are fierce and powerful creatures associated with fire and destruction.",
+          "alignment": {
+            "ideology": {
+              "value": "Elemental",
+              "modifier": "Conqueror",
+              "guidance": "Red dragons embody the destructive power of fire, using their fiery breath and strength to dominate and control their territory."
+            },
+            "morality": {
+              "value": "Evil",
+              "modifier": "Malevolent",
+              "guidance": "Red dragons act with malevolent intent, seeking to spread destruction and chaos wherever they go."
+            },
+            "methodology": {
+              "value": "Brutal",
+              "modifier": "Direct",
+              "guidance": "Red dragons rely on straightforward aggression and overwhelming power to achieve their objectives."
+            },
+            "temperament": {
+              "value": "Fire",
+              "guidance": "Fierce and unrelenting, red dragons embody the destructive and consuming qualities of fire, attacking with relentless aggression."
+            }
+          },
+          "attributes": {
+            "strength": "A-SS",
+            "agility": "B-A",
+            "constitution": "A-SS",
+            "intelligence": "B-S",
+            "willpower": "A",
+            "charisma": "B"
+          },
+          "powers": {
+            "fire_breath": "The ability to unleash a powerful blast of fire from their mouth, capable of causing significant damage and igniting targets."
+          },
+          "tags": [
+            "elemental",
+            "fire"
+          ]
+        }
+      }
     },
     "goblinoid": {
       "name": "Goblinoid",
       "threatLevel": "F-B",
       "description": "A small, humanoid creature known for its cunning and mischievous nature. Goblinoids are often found in tribes and are skilled in stealth and ambush tactics.",
-      "alignment": {
-        "ideology": {
-          "value": "Survival",
-          "modifier": " opportunistic",
-          "guidance": "Goblinoids prioritize their own survival and well-being, often taking advantage of opportunities as they arise."
-        },
-        "morality": {
-          "value": "Neutral",
-          "modifier": "Pragmatic",
-          "guidance": "Goblinoids act based on practical considerations rather than strict moral codes, often making decisions that benefit themselves or their tribe."
-        },
-        "methodology": {
-          "value": "Stealthy",
-          "modifier": "Cunning",
-          "guidance": "Goblinoids rely on stealth and cunning tactics, using ambushes and surprise attacks to outmaneuver foes."
-        },
-        "temperament": {
-          "value": "Air",
-          "guidance": "Quick and elusive, goblinoids embody the light and unpredictable qualities of air, often darting in and out of sight to avoid danger."
-        }
-      },
       "tags": [
         "goblinoid"
       ],
@@ -1568,6 +1693,48 @@
             "goblinoid",
             "mischievous",
             "pack_hunter"
+          ]
+        },
+        "kobold": {
+          "name": "Kobold",
+          "threatLevel": "F-E",
+          "description": "A small, reptilian humanoid known for its cunning and trap-making skills. Kobolds are often found in underground lairs and are skilled miners and craftsmen.",
+          "alignment": {
+            "ideology": {
+              "value": "Survival",
+              "modifier": "Cunning",
+              "guidance": "Kobolds prioritize their own survival and well-being, often using cunning tactics to outwit larger and stronger foes."
+            },
+            "morality": {
+              "value": "Neutral",
+              "modifier": "Pragmatic",
+              "guidance": "Kobolds act based on practical considerations rather than strict moral codes, often making decisions that benefit themselves or their tribe."
+            },
+            "methodology": {
+              "value": "Trickery",
+              "modifier": "Deceptive",
+              "guidance": "Kobolds rely on trickery and deception, using traps and ambushes to overcome foes rather than direct confrontation."
+            },
+            "temperament": {
+              "value": "Earth",
+              "guidance": "Steady and resourceful, kobolds embody the grounded qualities of earth, often using their environment to their advantage."
+            }
+          },
+          "attributes": {
+            "strength": "E",
+            "agility": "D",
+            "constitution": "D",
+            "intelligence": "E-D",
+            "willpower": "E",
+            "charisma": "F"
+          },
+          "skills": {
+            "trap_making": "B",
+            "mining": "C"
+          },
+          "tags": [
+            "cunning",
+            "trap_maker"
           ]
         },
         "hobgoblin": {
@@ -1697,6 +1864,105 @@
             "goblinoid",
             "brute",
             "solitary"
+          ]
+        }
+      }
+    },
+    "celestial": {
+      "name": "Celestial",
+      "threatLevel": "A-SS",
+      "description": "A othewrworldly being of immense, these being serve as agents of divine will, embodying their patons will and purpose.",
+      "tags": [
+        "supernatural",
+        "celestial"
+      ],
+      "subtypes": {
+        "archeon": {
+          "name": "Archeon",
+          "description": "Frequenty called Angels, Archeon are powerful celestial beings who serve as messengers and warriors of divine will. They are often depicted with radiant wings and wielding weapons of light.",
+          "threatLevel": "A-SS",
+          "alignment": {
+            "ideology": {
+              "value": "Divine Order",
+              "modifier": "Righteous",
+              "guidance": "Archeon uphold the principles of divine order, acting as agents of justice and righteousness."
+            },
+            "morality": {
+              "value": "Good",
+              "modifier": "Benevolent",
+              "guidance": "Archeon act with benevolent intent, seeking to protect and guide rather than harm."
+            },
+            "methodology": {
+              "value": "Direct",
+              "modifier": "Unyielding",
+              "guidance": "Archeon employ straightforward tactics, using their divine powers to confront and overcome evil."
+            },
+            "temperament": {
+              "value": "Light",
+              "guidance": "Radiant and inspiring, archeon embody the uplifting qualities of light, often exuding an aura of hope and purity."
+            }
+          },
+          "attributes": {
+            "strength": "A-SS",
+            "agility": "B-A",
+            "constitution": "A-SS",
+            "intelligence": "B-S",
+            "willpower": "A",
+            "charisma": "A"
+          },
+          "powers": {
+            "holy_light": "The ability to emit a powerful light that can heal allies and harm undead or evil beings.",
+            "divine_protection": "Archeon possess a divine shield that reduces damage taken from attacks, especially those of a dark or evil nature.",
+            "flight": "The ability to fly using radiant wings, allowing archeon to traverse great distances and attack from the air.",
+            "light_magic": "Archeon have a natural affinity to light magic."
+          },
+          "tags": [
+            "divine",
+            "celestial"
+          ]
+        },
+        "devil": {
+          "name": "Devil",
+          "description": "Malevolent celestial beings often associated with temptation and corruption. Devils are known for their cunning and manipulative nature, often seeking to lead mortals astray.",
+          "threatLevel": "A-SS",
+          "alignment": {
+            "ideology": {
+              "value": "Corruption",
+              "modifier": "Deceptive",
+              "guidance": "Devils seek to corrupt and manipulate, using their cunning to lead mortals astray."
+            },
+            "morality": {
+              "value": "Evil",
+              "modifier": "Malevolent",
+              "guidance": "Devils act with malevolent intent, seeking to spread chaos and suffering wherever they go."
+            },
+            "methodology": {
+              "value": "Subtle",
+              "modifier": "Insidious",
+              "guidance": "Devils employ subtle tactics, using deception and manipulation to achieve their goals."
+            },
+            "temperament": {
+              "value": "Darkness",
+              "guidance": "Cunning and elusive, devils embody the shadowy qualities of darkness, often operating from the shadows to achieve their aims."
+            }
+          },
+          "attributes": {
+            "strength": "A-SS",
+            "agility": "B-A",
+            "constitution": "A-SS",
+            "intelligence": "B-S",
+            "willpower": "A",
+            "charisma": "A"
+          },
+          "powers": {
+            "temptation": "Devils have an inate sense to know the desires and weaknesses of others, allowing them to manipulate and tempt individuals to their own ends.",
+            "infernal_resilience": "Devils possess a resilience to fire and dark magic, reducing damage taken from such attacks.",
+            "flight": "The ability to fly using dark wings, allowing devils to traverse great distances and attack from the air.",
+            "dark_magic": "Devils have a natural affinity to dark magic."
+          },
+          "tags": [
+            "malevolent",
+            "celestial"
           ]
         }
       }

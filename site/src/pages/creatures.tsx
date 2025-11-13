@@ -1,25 +1,42 @@
 import { createResource, For, Suspense } from 'solid-js'
 import EntityCard from '@/components/EntityCard'
-import { fetchCreaturesData } from '@data/index'
+import { fetchCreaturesData, parseRankRange, getEffectiveRangeFromDistribution, numberToRank, isPercentageDistribution } from '@data/index'
 
-// Helper function to format threat level display
-const formatThreatLevel = (threatLevel: any) => {
-  if (typeof threatLevel === 'string') {
-    return threatLevel
+// Helper function to calculate threat range from subtypes
+const calculateThreatRangeFromSubtypes = (subtypes: any) => {
+  if (!subtypes || Object.keys(subtypes).length === 0) {
+    return 'Unknown'
   }
-  if (typeof threatLevel === 'object' && threatLevel.range) {
-    return threatLevel.range
-  }
-  if (typeof threatLevel === 'object') {
-    // Handle percentage distribution - show most common with percentage
-    const entries = Object.entries(threatLevel).map(([level, percent]) => ({
-      level,
-      percent: typeof percent === 'number' ? percent : parseFloat(String(percent).replace('%', ''))
-    })).sort((a, b) => b.percent - a.percent)
 
-    return entries.length > 0 ? `${entries[0].level} (${entries[0].percent}%)` : 'Varies'
+  let minThreat = Infinity
+  let maxThreat = -Infinity
+
+  Object.values(subtypes).forEach((subtype: any) => {
+    if (subtype.threatLevel) {
+      let range
+
+      if (typeof subtype.threatLevel === 'string') {
+        range = parseRankRange(subtype.threatLevel)
+      } else if (isPercentageDistribution(subtype.threatLevel)) {
+        range = getEffectiveRangeFromDistribution(subtype.threatLevel)
+      } else {
+        return // Skip unknown formats
+      }
+
+      minThreat = Math.min(minThreat, range.min)
+      maxThreat = Math.max(maxThreat, range.max)
+    }
+  })
+
+  if (minThreat === Infinity || maxThreat === -Infinity) {
+    return 'Unknown'
   }
-  return 'Unknown'
+
+  if (minThreat === maxThreat) {
+    return numberToRank(minThreat)
+  }
+
+  return `${numberToRank(minThreat)}-${numberToRank(maxThreat)}`
 }
 
 // Helper function to get category description
@@ -39,7 +56,8 @@ function Creatures() {
       id,
       ...category,
       subtitle: `${Object.keys(category.subtypes || {}).length} variants`,
-      description: getCategoryDescription(category)
+      description: getCategoryDescription(category),
+      calculatedThreatRange: calculateThreatRangeFromSubtypes(category.subtypes)
     })).sort((a, b) => a.name.localeCompare(b.name))
   }
 
@@ -56,7 +74,7 @@ function Creatures() {
               name={category.name}
               subtitle={category.subtitle}
               description={category.description}
-              rank={formatThreatLevel(category.threatLevel)}
+              rank={category.calculatedThreatRange}
               rankLabel="Threat Range"
               imageUrl={category.imageUrl || undefined}
               basePath="/creatures"
