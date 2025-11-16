@@ -22,8 +22,10 @@ const __dirname = dirname(__filename)
 class AetheriaAIDocsGenerator {
   constructor() {
     this.dataPath = join(__dirname, 'site', 'public', 'data')
+    this.contentPath = join(__dirname, 'content')
     this.outputPath = join(__dirname, 'ai-docs')
     this.data = {}
+    this.content = {}
   }
 
   async loadAllData() {
@@ -48,6 +50,24 @@ class AetheriaAIDocsGenerator {
           console.log(`  ✗ Failed to parse ${name}.json: ${error.message}`)
         }
       }
+    }
+  }
+
+  async loadContentFiles() {
+    console.log('📖 Loading content markdown files...')
+
+    try {
+      const files = await readdir(this.contentPath)
+      for (const file of files) {
+        if (file.endsWith('.md')) {
+          const name = file.replace('.md', '')
+          const content = await readFile(join(this.contentPath, file), 'utf-8')
+          this.content[name] = content
+          console.log(`  ✓ Loaded ${name}.md`)
+        }
+      }
+    } catch (error) {
+      console.log(`  ⚠️  Content directory not found or empty`)
     }
   }
 
@@ -200,6 +220,8 @@ Last updated: ${new Date().toISOString()}
 - [Character Classes](#character-classes)
 - [Creatures](#creatures)
 - [Political Systems](#political-systems)
+- [Gods and Religion](#gods-and-religion)
+- [Character Creation](#character-creation)
 - [Skills and Abilities](#skills-and-abilities)
 - [Equipment and Items](#equipment-and-items)
 - [Organizations](#organizations)
@@ -338,6 +360,8 @@ Last updated: ${new Date().toISOString()}
 
     // Continue with other sections...
     content += this.generatePoliticsSection()
+    content += this.generateReligionSection()
+    content += this.generateCharacterCreationSection()
     content += this.generateSkillsSection()
     content += this.generateEquipmentSection()
     content += this.generateOrganizationsSection()
@@ -716,7 +740,12 @@ Last updated: ${new Date().toISOString()}
   generatePoliticsSection() {
     let content = '# Political Systems\n\n'
 
-    content += `## Government Types
+    // Use content from markdown if available, otherwise use hardcoded fallback
+    if (this.content['political-systems']) {
+      content += this.content['political-systems']
+      content += '\n\n---\n\n'
+    } else {
+      content += `## Government Types
 
 **Monarchy**: A system where a single ruler, often hereditary, holds significant power.
 
@@ -781,6 +810,50 @@ Last updated: ${new Date().toISOString()}
 ---
 
 `
+    }
+    return content
+  }
+
+  generateReligionSection() {
+    let content = '# Gods and Religion\n\n'
+
+    // Add intro text from markdown content
+    if (this.content['religion-intro']) {
+      content += this.content['religion-intro']
+      content += '\n\n'
+    }
+
+    // Add structured deity data from JSON (sorted alphabetically)
+    if (this.data.religion?.deities && Array.isArray(this.data.religion.deities)) {
+      content += '## Deities\n\n'
+
+      // Sort deities alphabetically by name
+      const sortedDeities = [...this.data.religion.deities].sort((a, b) =>
+        a.name.localeCompare(b.name)
+      )
+
+      sortedDeities.forEach(deity => {
+        content += `### ${deity.name}\n\n`
+        content += `**Domains**: ${Array.isArray(deity.domains) ? deity.domains.join(', ') : deity.domains}\n\n`
+        content += `**Alignment**: ${deity.alignment}\n\n`
+        content += `${deity.description}\n\n`
+      })
+    }
+
+    content += '---\n\n'
+    return content
+  }
+
+  generateCharacterCreationSection() {
+    let content = '# Character Creation\n\n'
+
+    // Use content from markdown if available
+    if (this.content['character-creation']) {
+      content += this.content['character-creation']
+      content += '\n\n'
+    }
+
+    content += '---\n\n'
     return content
   }
 
@@ -1660,6 +1733,7 @@ The modifier in parentheses provides specific context for how that axis manifest
     console.log('🚀 Starting AI-optimized documentation generation...')
 
     await this.loadAllData()
+    await this.loadContentFiles()
     await this.generateAllFiles()
 
     console.log(`📁 Files generated in: ${this.outputPath}`)

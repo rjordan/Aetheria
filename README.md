@@ -139,14 +139,35 @@ AETHERIA_BASE_PATH=/Aetheria/                            # GitHub Pages path
 - **Development Friendly**: Works with local files during development
 - **Production Flexible**: Can serve from CDN, API, or static files## 📁 **Project Structure**
 
+- **`/content/`** - **📝 Narrative content** (Markdown) - Prose, lore, and instructional text
+- **`/site/public/data/`** - **🔢 Structured data** (JSON) - Lists, stats, and attributes
 - **`/site/`** - SolidJS application with data and pages
-  - **`/src/data/`** - JSON data files with TypeScript types
   - **`/src/pages/`** - SolidJS page components
 - **`/docs/`** - Generated static site (GitHub Pages output)
 - **`/ai-docs/`** - Generated AI-optimized documentation (excluded from git)
 - **`/generate-ai-docs.js`** - AI documentation generator script
 - **`/dev.sh`** - Development workflow script
 - **`.github/workflows/`** - Automated deployment and AI docs generation
+
+### Content Management Philosophy
+
+This project uses a **hybrid approach** to maintain a single source of truth:
+
+**Markdown in `/content/`** (for prose):
+- ✅ Religion lore and deity explanations
+- ✅ Character creation guidelines
+- ✅ Political system descriptions
+- ✅ Any narrative or instructional text
+- ✅ Easy to edit, version control friendly
+
+**JSON in `/site/public/data/`** (for structured data):
+- ✅ Deity lists with domains and alignments
+- ✅ Character stats and attributes
+- ✅ Creature abilities and threat levels
+- ✅ Region hierarchies and demographics
+- ✅ Schema validation and iteration support
+
+**Why This Matters**: You edit content ONCE in the appropriate format, then `generate-ai-docs.js` combines both sources to create comprehensive AI documentation. The website reads from JSON for dynamic content, while AI docs include both structured data AND narrative context.
 
 ## ✨ **Features**
 

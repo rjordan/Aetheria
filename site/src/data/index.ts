@@ -201,6 +201,17 @@ export interface CreaturesData {
   creatures: Record<string, CreatureCategory>
 }
 
+export interface DeityData {
+  name: string
+  domains: string[]
+  alignment: string
+  description: string
+}
+
+export interface ReligionData {
+  deities: DeityData[]
+}
+
 export interface SiteData {
   site: {
     title: string
@@ -310,6 +321,10 @@ export async function fetchCreaturesData(): Promise<CreaturesData> {
 
 export async function fetchRegionsData(): Promise<RegionListData> {
   return loadJsonData<RegionListData>('regions')
+}
+
+export async function fetchReligionData(): Promise<ReligionData> {
+  return loadJsonData<ReligionData>('religion')
 }
 
 // Helper function to merge category-level powers and tags with creature-level ones
